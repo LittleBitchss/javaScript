@@ -1,0 +1,108 @@
+/* pages/chefAssociationLogin/index.wxss */
+.chefAssociationLogin{
+  height: 100vh;
+  position: relative;
+  background-image: url("https://qunyan.canancn.com/assets/applet/img/authorize/adminBg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.chefAssociationLogin .login{
+  height: 686rpx;
+  width: 640rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.chefAssociationLogin .login .item{
+  width: 540rpx;
+  height: 70rpx;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.chefAssociationLogin .login .item1{
+  height: 269rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.chefAssociationLogin .login .item1 .item1_img{
+  width: 306rpx;
+  height: 70rpx;
+  margin-bottom: 30rpx;
+}
+.chefAssociationLogin .login .item1 .item1_bom{
+  font-size: 35rpx;
+  font-family: 'Bold';
+  color: #002964;
+}
+.chefAssociationLogin .login .item2{
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #b6b6b6;
+}
+.chefAssociationLogin .login .item2 .imgs{
+  width: 37rpx;
+  height: 39rpx;
+  margin: 0 43rpx 0 18rpx;
+}
+.chefAssociationLogin .login .item3 {
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #b6b6b6;
+}
+.chefAssociationLogin .login .item3 .imgs{
+  width: 30rpx;
+  height: 37rpx;
+  margin: 0 46rpx 0 22rpx;
+}
+.chefAssociationLogin .login .item .inps{
+height: 100%;
+flex: 1;
+}
+.chefAssociationLogin .login .item4 .btns{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100rpx;
+  font-size: 30rpx;
+  font-family: 'M';
+  color: #fff;
+  background-color: #002964;
+}
+
+.chefAssociationLogin .login .hint{
+  height: 42rpx;
+  width: 540rpx;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: red;
+}
+.chefAssociationLogin .login .opacity{
+  opacity: 0;
+}
+.chefAssociationLogin .login .hint .txt{
+  margin-top: -5rpx;
+}
+.chefAssociationLogin .login .bdColor{
+  border-bottom: 2rpx solid #002964;
+}
+.chefAssociationLogin .login .taggle{
+  height: 50rpx;
+  width: 540rpx;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  font-family: 'Medium';
+  color: #002964;
+}

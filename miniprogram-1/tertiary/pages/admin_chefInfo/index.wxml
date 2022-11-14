@@ -1,0 +1,286 @@
+<!--tertiary/pages/admin_chefInfo/index.wxml-->
+<view class="admin_chefInfo">
+  <view class="tops">
+    <view class="tops_item {{active1}}" bindtap="tagle" data-item="1">基本信息</view>
+    <view class="tops_item {{active2}}" bindtap="tagle" data-item="2">帮厨信息</view>
+    <view class="tops_item {{active3}}" bindtap="tagle" data-item="3">历史记录</view>
+  </view>
+  <view class="middens">
+    <view class="basicInfo" wx:if="{{isShows == 1}}">
+      <view class="photos">
+        <view class="photos_Left">
+          <view class="photos_Left_title">厨师照片</view>
+          <view class="photos_Left_text">身穿厨师服头戴厨师帽个人图片</view>
+        </view>
+        <view class="photos_right">
+          <view class="horn horn_top_left"></view>
+          <view class="horn horn_top_right"></view>
+          <view class="horn horn_bottom_left"></view>
+          <view class="horn horn_bottom_right"></view>
+          <image class="photo" src="{{basic.chef_photo}}"></image>
+        </view>
+      </view>
+      <view class="basic">
+        <view class="item">
+          <text class="left">姓名：</text>
+          <view class="basicInfoInput">{{basic.chef_name}}</view>
+        </view>
+        <view class="item">
+          <text class="left">性别：</text>
+          <view class="basicInfoInput">{{basic.chef_sex}}</view>
+        </view>
+        <view class="item">
+          <text class="left">年龄：</text>
+          <view class="basicInfoInput">{{basic.chef_age}}</view>
+          <text class="right">岁</text>
+        </view>
+        <view class="item">
+          <text class="left">厨龄：</text>
+          <view class="basicInfoInput">{{basic.chef_cooking_age}}</view>
+          <text class="right">岁</text>
+        </view>
+        <view class="item">
+          <text class="left">联系方式：</text>
+          <view class="basicInfoInput">{{basic.chef_phone}}</view>
+        </view>
+        <view class="item">
+          <text class="left">擅长菜系：</text>
+          <view class="basicInfoInput">{{basic.cuisine}}</view>
+        </view>
+        <view class="item">
+          <text class="left">工作地址：</text>
+          <view class="basicInfoInput">{{basic.region}}</view>
+        </view>
+        <view class="item Nobd">
+          <view class="left"></view>
+          <view class="basicInfoInput">{{basic.chef_work_address}}</view>
+        </view>
+      </view>
+      <view class="runScope">
+        <view class="runScope_top">请选择您的经营范围</view>
+        <view class="runScope_midde">
+          <radio-group class="group" bindchange="radioChange">
+            <label class="lab">
+              <view class="rad">
+                <radio value="全部接受" checked="{{basic.chef_carry_type==0}}" disabled="true" />
+              </view>
+              <view class="txt">全部接受</view>
+            </label>
+            <label class="lab">
+              <view class="rad">
+                <radio value="家宴到家" checked="{{basic.chef_carry_type==1}}" disabled="true" />
+              </view>
+              <view class="txt">家宴到家</view>
+            </label>
+            <label class="lab">
+              <view class="rad">
+                <radio value="酒席" checked="{{basic.chef_carry_type==2}}" disabled="true" />
+              </view>
+              <view class="txt">酒席</view>
+            </label>
+          </radio-group>
+        </view>
+        <view class="runScope_bottom">*只可接收到对应订单，全部接受可接受所有订单</view>
+      </view>
+      <view class="grade">
+        <view class="grade_top">
+          <text class="left">厨师等级：</text>
+          <view class="basicInfoInput">{{grade[basic.chef_level-1].name}}</view>
+        </view>
+        <view class="grade_bottom">
+          <view class="photos">
+            <view class="photos_Left">
+              <view class="photos_Left_title">职业等级证书</view>
+              <view class="photos_Left_text">正规渠道获取的职业等级证书</view>
+            </view>
+            <view class="photos_right">
+              <view class="horn horn_top_left"></view>
+              <view class="horn horn_top_right"></view>
+              <view class="horn horn_bottom_left"></view>
+              <view class="horn horn_bottom_right"></view>
+              <image class="photo" src="{{basic.chef_cheflicense}}"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="IDCard">
+        <view class="IDCard_top">
+          <view class="identity_number">
+            <text class="left">身份证号：</text>
+            <view class="basicInfoInput">{{basic.chef_idcard}}</view>
+          </view>
+          <view class="IDCard_date">
+            <text class="left">身份证有效期至：</text>
+            <view class="basicInfoInput">{{basic.chef_validity_id_card}}</view>
+          </view>
+        </view>
+        <view class="IDCard_bottom">
+          <view class="photos">
+            <view class="photos_Left">
+              <view class="photos_Left_title">身份证正面</view>
+              <view class="photos_Left_text">真实未过期的身份证人像面</view>
+            </view>
+            <view class="photos_right">
+              <view class="horn horn_top_left"></view>
+              <view class="horn horn_top_right"></view>
+              <view class="horn horn_bottom_left"></view>
+              <view class="horn horn_bottom_right"></view>
+              <image class="photo" src="{{basic.chef_idcard_path}}"></image>
+            </view>
+          </view>
+          <view class="photos photoss">
+            <view class="photos_Left">
+              <view class="photos_Left_title">身份证反面</view>
+              <view class="photos_Left_text">真实未过期的身份证国徽面</view>
+            </view>
+            <view class="photos_right">
+              <view class="horn horn_top_left"></view>
+              <view class="horn horn_top_right"></view>
+              <view class="horn horn_bottom_left"></view>
+              <view class="horn horn_bottom_right"></view>
+              <image class="photo" src="{{basic.chef_idcard_other_side_path}}"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="license">
+        <view class="license_number">
+          <text class="left">营业执照编号：</text>
+          <view class="basicInfoInput">{{basic.chef_license}}</view>
+        </view>
+        <view class="license_bottom">
+          <view class="photos">
+            <view class="photos_Left">
+              <view class="photos_Left_title">营业执照</view>
+              <view class="photos_Left_text">正规渠道获取的营业执照照片</view>
+            </view>
+            <view class="photos_right">
+              <view class="horn horn_top_left"></view>
+              <view class="horn horn_top_right"></view>
+              <view class="horn horn_bottom_left"></view>
+              <view class="horn horn_bottom_right"></view>
+              <image class="photo" src="{{basic.chef_license_path}}"></image>
+            </view>
+          </view>
+          <view class="photos photoss">
+            <view class="photos_Left">
+              <view class="photos_Left_title">健康证</view>
+              <view class="photos_Left_text">正规渠道获取的健康证照片</view>
+            </view>
+            <view class="photos_right" bindtap="upload" data-item="6">
+              <view class="horn horn_top_left"></view>
+              <view class="horn horn_top_right"></view>
+              <view class="horn horn_bottom_left"></view>
+              <view class="horn horn_bottom_right"></view>
+              <image class="photo" src="{{basic.chef_health_certificate}}"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="sousChef" wx:if="{{isShows == 2}}">
+      <view class="sousChefs" wx:for="{{sousChefArr}}" wx:key="index">
+        <view class="photos">
+          <view class="photos_Left">
+            <view class="photos_Left_title">帮厨照片</view>
+            <view class="photos_Left_text">身穿厨师服头戴厨师帽个人图片</view>
+          </view>
+          <view class="photos_right">
+            <view class="horn horn_top_left"></view>
+            <view class="horn horn_top_right"></view>
+            <view class="horn horn_bottom_left"></view>
+            <view class="horn horn_bottom_right"></view>
+            <image class="photo" src="{{item.kh_photo}}"></image>
+          </view>
+        </view>
+        <view class="basic">
+          <view class="item">
+            <text class="left">姓名：</text>
+            <view class="basicInfoInput">{{item.kh_name}}</view>
+          </view>
+          <view class="item">
+            <text class="left">性别：</text>
+            <view class="basicInfoInput">{{item.kh_sex}}</view>
+          </view>
+          <view class="item">
+            <text class="left">年龄：</text>
+            <view class="basicInfoInput">{{item.kh_age}}</view>
+            <text class="right">岁</text>
+          </view>
+          <view class="item Nobd">
+            <text class="left">联系方式：</text>
+            <view class="basicInfoInput">{{item.kh_phone}}</view>
+          </view>
+        </view>
+        <view class="photos photoss">
+          <view class="photos_Left">
+            <view class="photos_Left_title">健康证</view>
+            <view class="photos_Left_text">健康证照片</view>
+          </view>
+          <view class="photos_right">
+            <view class="horn horn_top_left"></view>
+            <view class="horn horn_top_right"></view>
+            <view class="horn horn_bottom_left"></view>
+            <view class="horn horn_bottom_right"></view>
+            <image class="photo" src="{{item.kh_health_certificate}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="history" wx:if="{{isShows == 3}}">
+      <view class="item" wx:for="{{historyArr}}" wx:key="index">
+        <view class="items items1">
+          <view class="time">
+            {{item.m_start_date}}
+          </view>
+          <view class="score">
+            <text>本次评分:</text>
+            <view class="scores">
+              <image class="img" wx:for="{{star[item.mi_score==null?0:item.mi_score].stars}}" wx:key="index" wx:for-item="itemName" src="{{itemName}}"></image>
+            </view>
+          </view>
+        </view>
+        <block wx:if="{{item.m_matsuri_type==1}}">
+          <view class="items items2">
+            <view class="left">
+              <text>举办天数：</text>
+              <text class="txt">{{item.m_holding_days}}天</text>
+            </view>
+            <view class="right">
+              <text>宴会类型：</text>
+              <text class="txt">{{item.mt_name}}</text>
+            </view>
+          </view>
+          <view class="items">
+            <text>举办地点：</text>
+            <text class="txt">{{item.m_address}}</text>
+          </view>
+        </block>
+        <block wx:if="{{item.m_matsuri_type==2}}">
+          <view class="items items2">
+            <view class="left">
+              <text>用餐时间：</text>
+              <text class="txt">{{item.m_meal_time}}</text>
+            </view>
+            <view class="right">
+              <text>宴会类型：</text>
+              <text class="txt">厨师到家</text>
+            </view>
+          </view>
+          <view class="items">
+            <text>用餐地点：</text>
+            <text class="txt">{{item.m_address}}</text>
+          </view>
+        </block>
+        <view class="items nobd">
+          <button class="btn btns" wx:if="{{item.m_approval==3&&item.mi_accept_invitation!=2}}" bindtap="checkWhy" data-mi_remark="{{item.mi_remark}}">用户已取消</button>
+          <button class="btn btns" wx:if="{{item.m_approval==2&&item.mi_accept_invitation!=2}}" bindtap="checkWhy" data-m_approval_remark="{{item.m_approval_remark}}">未通过审核</button>
+          <button class="btn btns" wx:if="{{item.mi_accept_invitation==2}}" bindtap="checkWhy" data-mi_chef_reson="{{item.mi_chef_reson}}">厨师已取消</button>
+          <button class="btn btns" wx:if="{{item.m_approval==0&&item.m_matsuri_type==1&&item.mi_accept_invitation==1}}">未审批</button>
+          <button class="btn btns" wx:if="{{item.mi_accept_invitation==3}}">已完成</button>
+          <navigator class="btn check" url="/fourth/pages/admin_chefOperation/index?chef_id={{basic.chef_id}}&index={{index}}">查看操作</navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

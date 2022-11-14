@@ -1,0 +1,165 @@
+/* components/ingredients/ingredients.wxss */
+.ingredients{
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+.ingredients .process{
+  height: 128rpx;
+  padding: 0 30rpx;
+  position: relative;
+  display: flex;
+  margin-bottom: 22rpx;
+}
+.ingredients .process .processLine{
+  position: absolute;
+  width: 74%;
+  left: 50%;
+  bottom: 54rpx;
+  transform: translateX(-50%);
+  z-index: 0;
+  border-top: 2rpx solid #3f6bd6;
+}
+.ingredients .process .proces{
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: 'Light';
+  position: relative;
+}
+.ingredients .process .proces .procesPoints{
+  height: 30rpx;
+  width: 30rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40rpx;
+  background:linear-gradient(to right, #e80e20 ,#ff626f);
+}
+.ingredients .process .proces .procesPoints .procesPoint_i{
+  height: 14rpx;
+  width: 14rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.ingredients .process .proces .procesPoint{
+  height: 14rpx;
+  width: 14rpx;
+  border-radius: 50%;
+  background:linear-gradient(to right, #e80e20 ,#ff626f);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 48rpx;
+}
+.ingredients .process .proces .procesText{
+  font-size: 25rpx;
+  color: #e70013;
+}
+.ingredients .process .proces .procesTexts{
+  font-family: 'Medium';
+  font-size: 25rpx;
+  color: #e70013;
+}
+.ingredients .itemx{
+  height: calc(100% - 150rpx - 88rpx);
+  overflow: auto;
+}
+.item{
+    height: 80rpx;
+    display: flex;
+    width: 670rpx;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+}
+.item .project{
+    font-size: 28rpx;
+    font-family: 'Medium';
+}
+.item .group{
+    display: flex;
+    justify-content: space-between;
+}
+.item .group .lab{
+    width: 160rpx;
+    display: flex;
+    font-size: 25rpx;
+    font-family: 'Light';
+    align-items: center;
+    justify-content: start;
+}
+.liquor{
+    height: 80rpx;
+    display: flex;
+    width: 670rpx;
+    margin: 0 auto;
+}
+.liquor .item{
+    width: 380rpx;
+    height: 100%;
+}
+.liquor .item .group .lab{
+    width: 86rpx;
+    display: flex;
+    align-items: center;
+}
+.liquor .item .group .wlab{
+  width: 70rpx;
+}
+.liquor .items1{
+    width: 290rpx;
+    padding-right: 10rpx; 
+    box-sizing: border-box;
+}
+.remark{
+    height: 30%;
+    width: 670rpx;
+    margin: 0 auto;
+}
+.remark .title{
+    height: 20%;
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    font-family: 'Medium';
+}
+.remark .area{
+    width: 100%;
+    height: 80%;
+    padding: 10rpx;
+    box-sizing: border-box;
+    border: 2rpx solid #000;
+    font-size: 24rpx;
+    font-family: 'Light';
+}
+.bottoms{
+  height: 88rpx;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+}
+.bottoms .btn{
+  flex: 1;
+  border-radius: 0;
+  line-height: 88rpx;
+  color: #fff;
+  font-size: 28rpx;
+  font-family: 'Medium';
+  background-color: #f52e3e;
+}
+.bottoms .btns{
+  border-left: 4rpx solid #fff;
+  background-color: #3572e1;
+}

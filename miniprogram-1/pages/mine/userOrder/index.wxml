@@ -1,0 +1,550 @@
+<!--pages/userOrder/index.wxml-->
+<view class="userOrder">
+  <view class="top">
+    <view wx:for="{{activeArr}}" wx:key="index" class="item {{item.active}}" bindtap="taggle" data-item="{{index}}">{{item.name}}
+    <view class="point" wx:if="{{item.point}}">{{item.point}}</view>
+    </view>
+  </view>
+  <view class="bottom">
+    <scroll-view class="all" wx:if="{{isShow == 0}}" scroll-y="true" refresher-enabled="true" scroll-with-animation="true" enable-back-to-top="true" enhanced="true" bounces="true">
+      <view class="item" wx:for="{{listArr}}" wx:key="index">
+        <navigator open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">
+          <block wx:if="{{item.m_matsuri_type==1}}">
+            <view class="items items1">
+              <view class="time">
+                {{item.m_start_date}}
+              </view>
+              <view class="">{{item.o_refund_application==1?"退款中":item.o_status==-1?"已退款":item.o_status==3?"已支付定金":"订单待支付"}}</view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>举办天数：</text>
+                <text class="txt">{{item.m_holding_days}}天</text>
+              </view>
+              <view class="right">
+                <text>宴会类型：</text>
+                <text class="txt">{{types[item.m_type-1].mt_name}}</text>
+              </view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>宴席人数：</text>
+                <text class="txt">{{item.m_banquet_number}}人</text>
+              </view>
+              <view class="right">
+                <text>主厨姓名：</text>
+                <text class="txt {{item.find==0?'':(item.mi_accept_invitation==1||item.mi_accept_invitation==3)? 'txts1':'txts2'}}">{{item.find==0?'待寻找':(item.mi_accept_invitation==1||item.mi_accept_invitation==3)?item.chef_name:"等待厨师"}}</text>
+              </view>
+            </view>
+            <view class="items">
+              <text>举办地点：</text>
+              <text class="txt">{{item.m_address}}</text>
+            </view>
+            <view class="items nobd" catchtap="block">
+              <view class="btns">
+                <navigator class="btn btn1" open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">查看详情</navigator>
+                <button class="btn btn2" size="mini" plain="true" bindtap="findChef" data-o_status="{{item.o_status}}" data-m_id="{{item.m_id}}" data-m_tables="{{item.m_tables}}" data-m_matsuri_type="{{item.m_matsuri_type}}" wx:if="{{item.mi_accept_invitation!=1&&(item.m_approval==0||item.m_approval==1)&&item.banCancel==false}}">寻找厨师</button>
+                <navigator class="btn btn2" wx:if="{{item.mi_accept_invitation==1&&(item.m_approval==0||item.m_approval==1)&&item.expired==0}}" target="miniProgram" open-type="navigate" app-id="wx0ab3540bc984be96" path="" extra-data="尼玛" version="trial">
+                  订菜
+                </navigator>
+              </view>
+              <view class="btns btnss">
+                <button class="btn btn3 bg1" wx:if="{{item.m_approval==0&&item.banCancel==false&&item.mi_accept_invitation!=2&&item.mi_accept_invitation!=3}}" size="mini">未审批</button>
+                <button class="btn btn3 bg2" wx:if="{{item.m_approval==1&&item.banCancel==false&&item.mi_accept_invitation!=2&&item.mi_accept_invitation!=3}}" size="mini" bindtap="approval" data-remark="{{item.m_approval_remark}}">已通过</button>
+                <button class="btn btn3 bg4" wx:if="{{item.m_approval==2}}" size="mini" bindtap="approval" data-remark="{{item.m_approval_remark}}">未通过</button>
+                <button class="btn btn3 bg4" wx:if="{{item.m_approval==3}}" size="mini">已取消</button>
+                <button class="btn btn3 bg4" wx:if="{{item.m_approval<2&&item.mi_accept_invitation==2}}" bindtap="approval" data-mi_chef_reson="{{item.mi_chef_reson}}" size="mini">厨师取消</button>
+                <button class="btn btn3 bg2" size="mini" wx:if="{{item.expired==1&&item.mi_accept_invitation==3}}">已完成</button>
+                <button class="btn btn3 bg4" size="mini" wx:if="{{item.banCancel==true&&item.m_approval<2&&item.mi_accept_invitation<1}}">已过期</button>
+                <button class="btn btn3 bg4" size="mini" bindtap="cancel" data-invitation="{{item.mi_accept_invitation}}" data-m_id="{{item.m_id}}" wx:if="{{item.banCancel==false&&item.m_approval<2}}">取消订单</button>
+
+                <button class="btn btn3 bg4" size="mini" wx:if="{{item.o_status==3&&item.m_approval==1&&item.banCancel==true&&item.mi_accept_invitation==1&&item.expired!=1}}">服务中</button>
+
+                <button class="btn btn3 bg4" size="mini" wx:if="{{item.o_status==3&&item.m_approval==1&&item.banCancel==true&&item.mi_accept_invitation==1&&item.expired==1}}" bindtap="confirmCompleted" data-m_id="{{item.m_id}}">确认完成</button>
+
+                <button class="btn btn3 bg4" size="mini" wx:if="{{item.o_status==3&&(item.mi_accept_invitation==3||(item.mi_accept_invitation==2&&item.banCancel==true)||(item.mi_accept_invitation==0&&item.banCancel==true)||item.m_approval==2||(item.m_approval==3&&item.mi_accept_invitation!=1)||(item.m_approval==1&&item.banCancel==true&&item.mi_accept_invitation!=1)||(item.m_approval==0&&item.banCancel==true&&item.mi_accept_invitation!=1))&&item.o_refund_id==null&&item.o_refund_application!=1}}" bindtap="refund" data-sn="{{item.sn}}">退款</button>
+
+                <navigator class="btn btn3 bg4" wx:if="{{item.o_status==3&&item.m_approval==1&&item.mi_accept_invitation==3&&item.expired==1&&item.o_refund_id&&item.mi_score==null}}" open-type="navigate" url="/secondary/pages/user_review/index?m_id={{item.m_id}}">评论</navigator>
+              </view>
+            </view>
+          </block>
+          <block wx:if="{{item.m_matsuri_type==2}}">
+            <view class="items items1">
+              <view class="time">
+                {{item.m_start_date}}
+              </view>
+              <view class="">{{item.o_refund_application==1?"退款中":item.o_refund_id?"已退款":item.o_paid==1?"已支付定金":"订单待支付"}}</view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>用餐时间：</text>
+                <text class="txt">{{item.m_meal_time}}</text>
+              </view>
+              <view class="right">
+                <text>宴会类型：</text>
+                <text class="txt">厨师到家</text>
+              </view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>用餐人数：</text>
+                <text class="txt">{{item.m_banquet_number}}</text>
+              </view>
+              <view class="right">
+                <text>主厨姓名：</text>
+                <text class="txt {{item.find==0?'':(item.mi_accept_invitation==1||item.mi_accept_invitation==3) ? 'txts1':'txts2'}}">{{item.find==0?'待寻找':(item.mi_accept_invitation==1||item.mi_accept_invitation==3)?item.chef_name:"等待厨师"}}</text>
+              </view>
+            </view>
+            <view class="items">
+              <text>用餐地点：</text>
+              <text class="txt">{{item.m_address}}</text>
+            </view>
+            <view class="items nobd" catchtap="block">
+              <view class="btns">
+                <navigator class="btn btn1" open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">查看详情</navigator>
+                <button class="btn btn2" size="mini" plain="true" bindtap="findChef" data-o_status="{{item.o_status}}" data-m_id="{{item.m_id}}" data-m_tables="{{item.m_tables}}" data-m_matsuri_type="{{item.m_matsuri_type}}" wx:if="{{item.mi_accept_invitation!=1&&(item.m_approval==0||item.m_approval==1)&&item.banCancel==false}}">寻找厨师</button>
+                <navigator class="btn btn2" wx:if="{{item.mi_accept_invitation==1&&(item.m_approval==0||item.m_approval==1)&&item.expired==0}}" target="miniProgram" open-type="navigate" app-id="wx0ab3540bc984be96" path="" extra-data="尼玛" version="trial">
+                  订菜
+                </navigator>
+              </view>
+              <view class="btns btnss">
+                <button class="btn btn3 bg4" wx:if="{{item.m_approval==3}}" size="mini">已取消</button>
+                <button class="btn btn3 bg4" wx:if="{{item.m_approval<2&&item.mi_accept_invitation==2}}" bindtap="approval" data-mi_chef_reson="{{item.mi_chef_reson}}" size="mini">厨师取消</button>
+                <button class="btn btn3 bg2" size="mini" wx:if="{{item.expired==1&&item.mi_accept_invitation==3}}">已完成</button>
+                <button class="btn btn3 bg4" size="mini" wx:if="{{item.banCancel==true&&item.m_approval<2&&item.mi_accept_invitation<1}}">已过期</button>
+                <button class="btn btn3 bg4" size="mini" bindtap="cancel" data-invitation="{{item.mi_accept_invitation}}" data-m_id="{{item.m_id}}" wx:if="{{item.m_approval!=3&&item.banCancel==false}}">取消订单</button>
+                <button class="btn btn3 bg4" size="mini" wx:if="{{item.o_status==3&&(item.m_approval==0&&item.m_matsuri_type==2)&&item.banCancel==true&&item.mi_accept_invitation==1&&item.expired!=1}}">服务中</button>
+                <button class="btn btn3 bg4" size="mini" wx:if="{{item.o_status==3&&(item.m_approval==0&&item.m_matsuri_type==2)&&item.banCancel==true&&item.mi_accept_invitation==1&&item.expired==1}}" bindtap="confirmCompleted" data-m_id="{{item.m_id}}">确认完成</button>
+                <button class="btn btn3 bg4" size="mini" wx:if="{{item.o_status==3&&(item.mi_accept_invitation==3||(item.mi_accept_invitation==2&&item.banCancel==true)||(item.mi_accept_invitation==0&&item.banCancel==true)||item.m_approval==2||(item.m_approval==3&&item.mi_accept_invitation!=1)||(item.m_approval==1&&item.banCancel==true&&item.mi_accept_invitation!=1)||(item.m_approval==0&&item.banCancel==true&&item.mi_accept_invitation!=1))&&item.o_refund_id==null&&item.o_refund_application!=1}}" bindtap="refund" data-sn="{{item.sn}}">退款</button>
+                <navigator class="btn btn3 bg4" wx:if="{{item.o_status==3&&(item.m_approval==0&&item.m_matsuri_type==2)&&item.mi_accept_invitation==3&&item.expired==1&&item.o_refund_id&&item.mi_score==null}}" open-type="navigate" url="/secondary/pages/user_review/index?m_id={{item.m_id}}">评论</navigator>
+              </view>
+            </view>
+          </block>
+        </navigator>
+      </view>
+    </scroll-view>
+    <scroll-view class="all" wx:if="{{isShow == 1}}" scroll-y="true" refresher-enabled="true" scroll-with-animation="true" enable-back-to-top="true" enhanced="true" bounces="true">
+      <view class="item" wx:for="{{listArr2}}" wx:key="index">
+        <navigator open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">
+          <block wx:if="{{item.m_matsuri_type==1}}">
+            <view class="items items1">
+              <view class="time">
+                {{item.m_start_date}}
+              </view>
+              <view class="">{{item.o_paid==1?"已支付定金":"订单待支付"}}</view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>举办天数：</text>
+                <text class="txt">{{item.m_holding_days}}天</text>
+              </view>
+              <view class="right">
+                <text>宴会类型：</text>
+                <text class="txt">{{types[item.m_type-1].mt_name}}</text>
+              </view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>宴席人数：</text>
+                <text class="txt">{{item.m_banquet_number}}人</text>
+              </view>
+              <view class="right">
+                <text>主厨姓名：</text>
+                <text class="txt {{item.find==0?'':(item.mi_accept_invitation==1||item.mi_accept_invitation==3) ? 'txts1':'txts2'}}">{{item.find==0?'待寻找':(item.mi_accept_invitation==1||item.mi_accept_invitation==3)?item.chef_name:"等待厨师"}}</text>
+              </view>
+            </view>
+            <view class="items">
+              <text>举办地点：</text>
+              <text class="txt">{{item.m_address}}</text>
+            </view>
+            <view class="items nobd" catchtap="block">
+              <view class="btns">
+                <navigator class="btn btn1" open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">查看详情</navigator>
+                <button class="btn btn2" size="mini" plain="true" bindtap="findChef" data-o_status="{{item.o_status}}" data-m_id="{{item.m_id}}" data-m_tables="{{item.m_tables}}" data-m_matsuri_type="{{item.m_matsuri_type}}" wx:if="{{item.mi_accept_invitation!=1&&(item.m_approval==0||item.m_approval==1)&&item.banCancel==false}}">寻找厨师</button>
+              </view>
+              <view class="btns btnss">
+                <button class="btn btn3 bg1" wx:if="{{item.m_approval==0&&item.banCancel==false&&item.mi_accept_invitation!=2&&item.mi_accept_invitation!=3}}" size="mini">未审批</button>
+                <button class="btn btn3 bg2" wx:if="{{item.m_approval==1&&item.banCancel==false&&item.mi_accept_invitation!=2&&item.mi_accept_invitation!=3}}" size="mini" bindtap="approval" data-remark="{{item.m_approval_remark}}">已通过</button>
+                <button class="btn btn3 bg4" wx:if="{{item.m_approval==2&&item.banCancel==false&&item.mi_accept_invitation!=2&&item.mi_accept_invitation!=3}}" size="mini" bindtap="approval" data-remark="{{item.m_approval_remark}}">未通过</button>
+                <button class="btn btn3 bg4" size="mini" bindtap="cancel" data-invitation="{{item.mi_accept_invitation}}" data-m_id="{{item.m_id}}" wx:if="{{item.m_approval!=(3||2)&&item.banCancel==false}}">取消订单</button>
+              </view>
+            </view>
+          </block>
+          <block wx:if="{{item.m_matsuri_type==2}}">
+            <view class="items items1">
+              <view class="time">
+                {{item.m_start_date}}
+              </view>
+              <view class="">{{item.o_paid==1?"已支付定金":"订单待支付"}}</view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>用餐时间：</text>
+                <text class="txt">{{item.m_meal_time}}</text>
+              </view>
+              <view class="right">
+                <text>宴会类型：</text>
+                <text class="txt">厨师到家</text>
+              </view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>用餐人数：</text>
+                <text class="txt">{{item.m_banquet_number}}</text>
+              </view>
+              <view class="right">
+                <text>主厨姓名：</text>
+                <text class="txt {{item.find==0?'':(item.mi_accept_invitation==1||item.mi_accept_invitation==3) ? 'txts1':'txts2'}}">{{item.find==0?'待寻找':(item.mi_accept_invitation==1||item.mi_accept_invitation==3)?item.chef_name:"等待厨师"}}</text>
+              </view>
+            </view>
+            <view class="items">
+              <text>用餐地点：</text>
+              <text class="txt">{{item.m_address}}</text>
+            </view>
+            <view class="items nobd" catchtap="block">
+              <view class="btns">
+                <navigator class="btn btn1" open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">查看详情</navigator>
+                <button class="btn btn2" size="mini" plain="true" bindtap="findChef" data-o_status="{{item.o_status}}" data-m_id="{{item.m_id}}" data-m_tables="{{item.m_tables}}" data-m_matsuri_type="{{item.m_matsuri_type}}" wx:if="{{item.mi_accept_invitation!=1&&(item.m_approval==0||item.m_approval==1)&&item.banCancel==false}}">寻找厨师</button>
+              </view>
+              <view class="btns btnss">
+                <button class="btn btn3 bg4" size="mini" bindtap="cancel" data-invitation="{{item.mi_accept_invitation}}" data-m_id="{{item.m_id}}" wx:if="{{item.m_approval!=3&&item.banCancel==false}}">取消订单</button>
+              </view>
+            </view>
+          </block>
+        </navigator>
+      </view>
+    </scroll-view>
+    <scroll-view class="all" wx:if="{{isShow == 2}}" scroll-y="true" refresher-enabled="true" scroll-with-animation="true" enable-back-to-top="true" enhanced="true" bounces="true">
+      <view class="item" wx:for="{{listArr3}}" wx:key="index">
+        <navigator open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">
+          <view class="items items1">
+            <view class="time">
+              {{item.m_start_date}}
+            </view>
+            <view class="">{{item.o_paid==1?"已支付定金":"订单待支付"}}</view>
+          </view>
+          <view class="items items2">
+            <view class="left">
+              <text>举办天数：</text>
+              <text class="txt">{{item.m_holding_days}}天</text>
+            </view>
+            <view class="right">
+              <text>宴会类型：</text>
+              <text class="txt">{{types[item.m_type-1].mt_name}}</text>
+            </view>
+          </view>
+          <view class="items items2">
+            <view class="left">
+              <text>宴席人数：</text>
+              <text class="txt">{{item.m_banquet_number}}人</text>
+            </view>
+            <view class="right">
+              <text>主厨姓名：</text>
+              <text class="txt {{item.find==0?'':(item.mi_accept_invitation==1||item.mi_accept_invitation==3) ? 'txts1':'txts2'}}">{{item.find==0?'待寻找':(item.mi_accept_invitation==1||item.mi_accept_invitation==3)?item.chef_name:"等待厨师"}}</text>
+            </view>
+          </view>
+          <view class="items">
+            <text>举办地点：</text>
+            <text class="txt">{{item.m_address}}</text>
+          </view>
+          <view class="items nobd" catchtap="block">
+            <view class="btns">
+              <navigator class="btn btn1" open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">查看详情</navigator>
+              <button class="btn btn2" size="mini" plain="true" bindtap="findChef" data-o_status="{{item.o_status}}" data-m_id="{{item.m_id}}" data-m_tables="{{item.m_tables}}" data-m_matsuri_type="{{item.m_matsuri_type}}" wx:if="{{item.mi_accept_invitation!=1&&(item.m_approval==0||item.m_approval==1)&&item.banCancel==false}}">寻找厨师</button>
+              <navigator class="btn btn2" wx:if="{{item.mi_accept_invitation==1&&(item.m_approval==0||item.m_approval==1)&&item.expired==0}}" target="miniProgram" open-type="navigate" app-id="wx0ab3540bc984be96" path="" extra-data="尼玛" version="trial">
+                订菜
+              </navigator>
+            </view>
+            <view class="btns btnss">
+              <button class="btn btn3 bg1" wx:if="{{item.m_approval==0&&item.banCancel==false&&item.mi_accept_invitation!=2&&item.mi_accept_invitation!=3}}" size="mini">未审批</button>
+              <button class="btn btn3 bg2" wx:if="{{item.m_approval==1&&item.banCancel==false&&item.mi_accept_invitation!=2&&item.mi_accept_invitation!=3}}" size="mini" bindtap="approval" data-remark="{{item.m_approval_remark}}">已通过</button>
+              <button class="btn btn3 bg4" wx:if="{{item.m_approval==2&&item.banCancel==false&&item.mi_accept_invitation!=2&&item.mi_accept_invitation!=3}}" size="mini" bindtap="approval" data-remark="{{item.m_approval_remark}}">未通过</button>
+              <button class="btn btn3 bg4" size="mini" bindtap="cancel" data-invitation="{{item.mi_accept_invitation}}" data-m_id="{{item.m_id}}" wx:if="{{item.m_approval!=(3||2)&&item.banCancel==false}}">取消订单</button>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </scroll-view>
+    <scroll-view class="all" wx:if="{{isShow == 3}}" scroll-y="true" refresher-enabled="true" scroll-with-animation="true" enable-back-to-top="true" enhanced="true" bounces="true">
+      <view class="item" wx:for="{{listArr4}}" wx:key="index">
+        <navigator open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">
+          <block wx:if="{{item.m_matsuri_type==1}}">
+            <view class="items items1">
+              <view class="time">
+                {{item.m_start_date}}
+              </view>
+              <view class="">{{item.o_paid==1?"已支付定金":"订单待支付"}}</view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>举办天数：</text>
+                <text class="txt">{{item.m_holding_days}}天</text>
+              </view>
+              <view class="right">
+                <text>宴会类型：</text>
+                <text class="txt">{{types[item.m_type-1].mt_name}}</text>
+              </view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>宴席人数：</text>
+                <text class="txt">{{item.m_banquet_number}}人</text>
+              </view>
+              <view class="right">
+                <text>主厨姓名：</text>
+                <text class="txt {{item.find==0?'':(item.mi_accept_invitation==1||item.mi_accept_invitation==3) ? 'txts1':'txts2'}}">{{item.find==0?'待寻找':(item.mi_accept_invitation==1||item.mi_accept_invitation==3)?item.chef_name:"等待厨师"}}</text>
+              </view>
+            </view>
+            <view class="items">
+              <text>举办地点：</text>
+              <text class="txt">{{item.m_address}}</text>
+            </view>
+            <view class="items nobd" catchtap="block">
+              <view class="btns">
+                <navigator class="btn btn1" open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">查看详情</navigator>
+                <navigator class="btn btn2" wx:if="{{item.mi_accept_invitation==1&&(item.m_approval==0||item.m_approval==1)&&item.expired==0}}" target="miniProgram" open-type="navigate" app-id="wx0ab3540bc984be96" path="" extra-data="尼玛" version="trial">
+                  订菜
+                </navigator>
+              </view>
+              <view class="btns btnss">
+                <button class="btn btn3 bg4" size="mini" bindtap="cancel" data-invitation="{{item.mi_accept_invitation}}" data-m_id="{{item.m_id}}" wx:if="{{item.m_approval!=(3||2)&&item.banCancel==false}}">取消订单</button>
+                <button class="btn btn3 bg4" size="mini" wx:if="{{item.o_paid&&(item.m_approval==1&&item.m_matsuri_type==1)&&item.banCancel==true&&item.mi_accept_invitation==1&&item.expired!=1}}">服务中</button>
+                <button class="btn btn3 bg4" size="mini" wx:if="{{item.o_paid&&(item.m_approval==1&&item.m_matsuri_type==1)&&item.banCancel==true&&item.mi_accept_invitation==1&&item.expired==1}}" bindtap="confirmCompleted" data-m_id="{{item.m_id}}">确认完成</button>
+              </view>
+            </view>
+          </block>
+          <block wx:if="{{item.m_matsuri_type==2}}">
+            <view class="items items1">
+              <view class="time">
+                {{item.m_start_date}}
+              </view>
+              <view class="">{{item.o_paid==1?"已支付定金":"订单待支付"}}</view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>用餐时间：</text>
+                <text class="txt">{{item.m_meal_time}}</text>
+              </view>
+              <view class="right">
+                <text>宴会类型：</text>
+                <text class="txt">厨师到家</text>
+              </view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>用餐人数：</text>
+                <text class="txt">{{item.m_banquet_number}}</text>
+              </view>
+              <view class="right">
+                <text>主厨姓名：</text>
+                <text class="txt {{item.find==0?'':(item.mi_accept_invitation==1||item.mi_accept_invitation==3) ? 'txts1':'txts2'}}">{{item.find==0?'待寻找':(item.mi_accept_invitation==1||item.mi_accept_invitation==3)?item.chef_name:"等待厨师"}}</text>
+              </view>
+            </view>
+            <view class="items">
+              <text>用餐地点：</text>
+              <text class="txt">{{item.m_address}}</text>
+            </view>
+            <view class="items nobd" catchtap="block">
+              <view class="btns">
+                <navigator class="btn btn1" open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">查看详情</navigator>
+                <navigator class="btn btn2" wx:if="{{item.mi_accept_invitation==1&&(item.m_approval==0||item.m_approval==1)&&item.expired==0}}" target="miniProgram" open-type="navigate" app-id="wx0ab3540bc984be96" path="" extra-data="尼玛" version="trial">
+                  订菜
+                </navigator>
+              </view>
+              <view class="btns btnss">
+                <button class="btn btn3 bg4" size="mini" bindtap="cancel" data-invitation="{{item.mi_accept_invitation}}" data-m_id="{{item.m_id}}" wx:if="{{item.m_approval!=3&&item.banCancel==false}}">取消订单</button>
+                <button class="btn btn3 bg4" size="mini" wx:if="{{item.o_paid&&(item.m_approval==0&&item.m_matsuri_type==2)&&item.banCancel==true&&item.mi_accept_invitation==1&&item.expired!=1}}">服务中</button>
+                <button class="btn btn3 bg4" size="mini" wx:if="{{item.o_paid&&(item.m_approval==0&&item.m_matsuri_type==2)&&item.mi_accept_invitation==1&&item.expired==1}}" bindtap="confirmCompleted" data-m_id="{{item.m_id}}">确认完成</button>
+              </view>
+            </view>
+          </block>
+        </navigator>
+      </view>
+    </scroll-view>
+
+
+    <scroll-view class="all" wx:if="{{isShow == 4}}" scroll-y="true" refresher-enabled="true" scroll-with-animation="true" enable-back-to-top="true" enhanced="true" bounces="true">
+      <view class="item" wx:for="{{listArr5}}" wx:key="index">
+        <navigator open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">
+          <block wx:if="{{item.m_matsuri_type==1}}">
+            <view class="items items1">
+              <view class="time">
+                {{item.m_start_date}}
+              </view>
+              <view class="">{{item.o_refund_application==1?"退款中":item.o_refund_id?"已退款":item.o_paid==1?"已支付定金":"订单待支付"}}</view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>举办天数：</text>
+                <text class="txt">{{item.m_holding_days}}天</text>
+              </view>
+              <view class="right">
+                <text>宴会类型：</text>
+                <text class="txt">{{types[item.m_type-1].mt_name}}</text>
+              </view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>宴席人数：</text>
+                <text class="txt">{{item.m_banquet_number}}人</text>
+              </view>
+              <view class="right">
+                <text>主厨姓名：</text>
+                <text class="txt {{item.find==0?'':(item.mi_accept_invitation==1||item.mi_accept_invitation==3)? 'txts1':'txts2'}}">{{item.find==0?'待寻找':(item.mi_accept_invitation==1||item.mi_accept_invitation==3)?item.chef_name:"等待厨师"}}</text>
+              </view>
+            </view>
+            <view class="items">
+              <text>举办地点：</text>
+              <text class="txt">{{item.m_address}}</text>
+            </view>
+            <view class="items nobd" catchtap="block">
+              <view class="btns">
+                <navigator class="btn btn1" open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">查看详情</navigator>
+              </view>
+              <view class="btns btnss">
+                <button class="btn btn3 bg1" wx:if="{{item.m_approval==0&&item.banCancel==false&&item.mi_accept_invitation!=2&&item.mi_accept_invitation!=3}}" size="mini">未审批</button>
+                <button class="btn btn3 bg2" wx:if="{{item.m_approval==1&&item.banCancel==false&&item.mi_accept_invitation!=2&&item.mi_accept_invitation!=3}}" size="mini" bindtap="approval" data-remark="{{item.m_approval_remark}}">已通过</button>
+                <button class="btn btn3 bg4" wx:if="{{item.m_approval==2}}" size="mini" bindtap="approval" data-remark="{{item.m_approval_remark}}">未通过</button>
+                <button class="btn btn3 bg4" wx:if="{{item.m_approval==3}}" size="mini">已取消</button>
+                <button class="btn btn3 bg4" wx:if="{{item.m_approval<2&&item.mi_accept_invitation==2}}" bindtap="approval" data-mi_chef_reson="{{item.mi_chef_reson}}" size="mini">厨师取消</button>
+                <button class="btn btn3 bg2" size="mini" wx:if="{{item.expired==1&&item.mi_accept_invitation==3}}">已完成</button>
+                <button class="btn btn3 bg4" size="mini" wx:if="{{item.banCancel==true&&item.m_approval<2&&item.mi_accept_invitation<3}}">已过期</button>
+                <button class="btn btn3 bg4" size="mini" wx:if="{{item.o_status==3&&(item.mi_accept_invitation==3||(item.mi_accept_invitation==2&&item.banCancel==true)||(item.mi_accept_invitation==0&&item.banCancel==true)||item.m_approval==2||(item.m_approval==3&&item.mi_accept_invitation!=1)||(item.m_approval==1&&item.banCancel==true&&item.mi_accept_invitation!=1)||(item.m_approval==0&&item.banCancel==true&&item.mi_accept_invitation!=1))&&item.o_refund_id==null&&item.o_refund_application!=1}}" bindtap="refund" data-sn="{{item.sn}}">退款</button>
+              </view>
+            </view>
+          </block>
+          <block wx:if="{{item.m_matsuri_type==2}}">
+            <view class="items items1">
+              <view class="time">
+                {{item.m_start_date}}
+              </view>
+              <view class="">{{item.o_refund_application==1?"退款中":item.o_refund_id?"已退款":item.o_paid==1?"已支付定金":"订单待支付"}}</view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>用餐时间：</text>
+                <text class="txt">{{item.m_meal_time}}</text>
+              </view>
+              <view class="right">
+                <text>宴会类型：</text>
+                <text class="txt">厨师到家</text>
+              </view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>用餐人数：</text>
+                <text class="txt">{{item.m_banquet_number}}</text>
+              </view>
+              <view class="right">
+                <text>主厨姓名：</text>
+                <text class="txt {{item.find==0?'':(item.mi_accept_invitation==1||item.mi_accept_invitation==3) ? 'txts1':'txts2'}}">{{item.find==0?'待寻找':(item.mi_accept_invitation==1||item.mi_accept_invitation==3)?item.chef_name:"等待厨师"}}</text>
+              </view>
+            </view>
+            <view class="items">
+              <text>用餐地点：</text>
+              <text class="txt">{{item.m_address}}</text>
+            </view>
+            <view class="items nobd" catchtap="block">
+              <view class="btns">
+                <navigator class="btn btn1" open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">查看详情</navigator>
+              </view>
+              <view class="btns btnss">
+                <button class="btn btn3 bg4" wx:if="{{item.m_approval==3}}" size="mini">已取消</button>
+                <button class="btn btn3 bg4" wx:if="{{item.m_approval<2&&item.mi_accept_invitation==2}}" bindtap="approval" data-mi_chef_reson="{{item.mi_chef_reson}}" size="mini">厨师取消</button>
+                <button class="btn btn3 bg2" size="mini" wx:if="{{item.expired==1&&item.mi_accept_invitation==3}}">已完成</button>
+                <button class="btn btn3 bg4" size="mini" wx:if="{{item.banCancel==true&&item.m_approval<2&&item.mi_accept_invitation<3}}">已过期</button>
+                <button class="btn btn3 bg4" size="mini" wx:if="{{item.o_status==3&&(item.mi_accept_invitation==3||(item.mi_accept_invitation==2&&item.banCancel==true)||(item.mi_accept_invitation==0&&item.banCancel==true)||item.m_approval==2||(item.m_approval==3&&item.mi_accept_invitation!=1)||(item.m_approval==1&&item.banCancel==true&&item.mi_accept_invitation!=1)||(item.m_approval==0&&item.banCancel==true&&item.mi_accept_invitation!=1))&&item.o_refund_id==null&&item.o_refund_application!=1}}" bindtap="refund" data-sn="{{item.sn}}">退款</button>
+              </view>
+            </view>
+          </block>
+        </navigator>
+      </view>
+    </scroll-view>
+    <scroll-view class="all" wx:if="{{isShow == 5}}" scroll-y="true" refresher-enabled="true" scroll-with-animation="true" enable-back-to-top="true" enhanced="true" bounces="true">
+      <view class="item" wx:for="{{listArr6}}" wx:key="index">
+        <navigator open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">
+          <block wx:if="{{item.m_matsuri_type==1}}">
+            <view class="items items1">
+              <view class="time">
+                {{item.m_start_date}}
+              </view>
+              <view class="">{{item.o_paid==1?"已支付定金":"订单待支付"}}</view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>举办天数：</text>
+                <text class="txt">{{item.m_holding_days}}天</text>
+              </view>
+              <view class="right">
+                <text>宴会类型：</text>
+                <text class="txt">{{types[item.m_type-1].mt_name}}</text>
+              </view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>宴席人数：</text>
+                <text class="txt">{{item.m_banquet_number}}人</text>
+              </view>
+              <view class="right">
+                <text>主厨姓名：</text>
+                <text class="txt {{item.find==0?'':(item.mi_accept_invitation==1||item.mi_accept_invitation==3) ? 'txts1':'txts2'}}">{{item.find==0?'待寻找':(item.mi_accept_invitation==1||item.mi_accept_invitation==3)?item.chef_name:"等待厨师"}}</text>
+              </view>
+            </view>
+            <view class="items">
+              <text>举办地点：</text>
+              <text class="txt">{{item.m_address}}</text>
+            </view>
+            <view class="items nobd" catchtap="block">
+              <view class="btns">
+                <navigator class="btn btn1" open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">查看详情</navigator>
+              </view>
+              <view class="btns btnss">
+                <navigator class="btn btn3 bg4" open-type="navigate" url="/secondary/pages/user_review/index?m_id={{item.m_id}}">评论</navigator>
+              </view>
+            </view>
+          </block>
+          <block wx:if="{{item.m_matsuri_type==2}}">
+            <view class="items items1">
+              <view class="time">
+                {{item.m_start_date}}
+              </view>
+              <view class="">{{item.o_paid==1?"已支付定金":"订单待支付"}}</view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>用餐时间：</text>
+                <text class="txt">{{item.m_meal_time}}</text>
+              </view>
+              <view class="right">
+                <text>宴会类型：</text>
+                <text class="txt">厨师到家</text>
+              </view>
+            </view>
+            <view class="items items2">
+              <view class="left">
+                <text>用餐人数：</text>
+                <text class="txt">{{item.m_banquet_number}}</text>
+              </view>
+              <view class="right">
+                <text>主厨姓名：</text>
+                <text class="txt {{item.find==0?'':(item.mi_accept_invitation==1||item.mi_accept_invitation==3) ? 'txts1':'txts2'}}">{{item.find==0?'待寻找':(item.mi_accept_invitation==1||item.mi_accept_invitation==3)?item.chef_name:"等待厨师"}}</text>
+              </view>
+            </view>
+            <view class="items">
+              <text>用餐地点：</text>
+              <text class="txt">{{item.m_address}}</text>
+            </view>
+            <view class="items nobd" catchtap="block">
+              <view class="btns">
+                <navigator class="btn btn1" open-type="navigate" url="/secondary/pages/user_orderDetails/index?m_id={{item.m_id}}&m_matsuri_type={{item.m_matsuri_type}}">查看详情</navigator>
+              </view>
+              <view class="btns btnss">
+                <navigator class="btn btn3 bg4" open-type="navigate" url="/secondary/pages/user_review/index?m_id={{item.m_id}}">评论</navigator>
+              </view>
+            </view>
+          </block>
+        </navigator>
+      </view>
+    </scroll-view>
+  </view>
+</view>

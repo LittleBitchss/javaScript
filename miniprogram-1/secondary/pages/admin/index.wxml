@@ -1,0 +1,122 @@
+<!--pages/admin/admin.wxml-->
+<view class="admin" bindtap="close">
+  <view class="content">
+    <view class="summary" wx:if="{{index == 0}}">
+      <view class="filter">
+        <view class="filter_top">
+          <view class="section">
+            <picker mode="date" value="{{date}}" start="2022-07-04" end="2030-12-31" fields="day" bindchange="bindDateChange" data-index="1">
+              <view class="picker">
+                <view class="time">
+                  <text class="txt">{{timeValue1}}</text>
+                  <image class="img" src="{{domain}}ups.png"></image>
+                </view>
+              </view>
+            </picker>
+          </view>
+          至
+          <view class="section">
+            <picker mode="date" value="{{date}}" start="2022-07-04" end="2030-12-31" bindchange="bindDateChange" data-index="2">
+              <view class="picker">
+                <view class="time">
+                  <text class="txt">{{timeValue2}}</text>
+                  <image class="img" src="{{domain}}ups.png"></image>
+                </view>
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class="filter_bottom">
+          <view class="area-item" wx:if="{{location}}">
+            <view class="select">
+              <text class="txt txts">{{location}}</text>
+            </view>
+          </view>
+          <view class="area-item" wx:if="{{locationArr[0]==0}}">
+            <view class="select" catchtap="unfold" data-index="1">
+              <text class="txt">{{provinceValue}}</text>
+              <image class="down" src="{{domain}}ups.png"></image>
+              <view class="listss fontColor" wx:if="{{province_show}}" wx:key="index">
+                <text class="listsss" wx:for="{{province}}" catchtap="choose" data-index="{{index}}" data-item="1" wx:key="index">{{item.name}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="area-item" wx:if="{{locationArr[1]==0}}">
+            <view class="select {{fontColor2}}" catchtap="unfold" data-index="2">
+              <text class="txt">{{cityValue}}</text>
+              <image class="down" src="{{domain}}ups.png"></image>
+              <view class="listss" wx:if="{{city_show}}" wx:key="index">
+                <view class="listsss fontColor" wx:for="{{city}}" catchtap="choose" data-index="{{index}}" data-item="2" wx:key="index">{{item.name}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="area-item" wx:if="{{locationArr[2]==0}}">
+            <view class="select {{fontColor3}}" catchtap="unfold" data-index="3">
+              <text class="txt">{{areaValue}}</text>
+              <image class="down" src="{{domain}}ups.png"></image>
+              <view class="listss" wx:if="{{area_show}}" wx:key="index">
+                <view class="listsss fontColor" wx:for="{{area}}" catchtap="choose" data-index="{{index}}" data-item="3" wx:key="index">{{item.name}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="area-item" wx:if="{{locationArr[3]==0}}">
+            <view class="select  {{fontColor4}}" catchtap="unfold" data-index="4">
+              <text class="txt">{{streetValue}}</text>
+              <image class="down" src="{{domain}}ups.png"></image>
+              <view class="listss" wx:if="{{street_show}}" wx:key="index">
+                <view class="listsss fontColor" wx:for="{{street}}" catchtap="choose" data-index="{{index}}" data-item="4" wx:key="index">{{item.name}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="area-item" wx:if="{{locationArr[4]==0}}">
+            <view class="select  {{fontColor5}}" catchtap="unfold" data-index="5">
+              <text class="txt">{{villageValue}}</text>
+              <image class="down" src="{{domain}}ups.png"></image>
+              <view class="listss" wx:if="{{village_show}}" wx:key="index">
+                <view class="listsss fontColor" wx:for="{{village}}" catchtap="choose" data-index="{{index}}" data-item="5" wx:key="index">{{item.name}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="pie-charts">
+        <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
+      </view>
+      <view class="title">
+        <view class="rew">乡宴类型</view>
+        <view class="rew">乡宴人数</view>
+        <view class="rew">举办日期</view>
+        <view class="rew rews">地址</view>
+      </view>
+      <scroll-view class="list" bindscrolltolower="lower" scroll-y='true'>
+        <view class="lists" wx:for="{{lists}}" wx:key="index">
+          <view class="rew">{{item.mt_name}}</view>
+          <view class="rew">{{item.m_banquet_number}}</view>
+          <view class="rew">{{item.m_start_date}}</view>
+          <view class="rew rews">{{item.m_address}}</view>
+        </view>
+      </scroll-view>
+    </view>
+    <admin_gridman wx:if="{{index == 1}}"></admin_gridman>
+    <admin_chef wx:if="{{index == 2}}"></admin_chef>
+    <admin_approval id="approval" wx:if="{{index == 3}}"></admin_approval>
+  </view>
+  <view class="tab">
+    <view class="item" bindtap="toggle" data-index="0">
+      <image class="img" src="{{summary.img}}"></image>
+      <text class="text {{summary.fontColor}}">汇总</text>
+    </view>
+    <view class="item" bindtap="toggle" data-index="1">
+      <image class="img" src="{{gridmanManagement.img}}"></image>
+      <text class="text {{gridmanManagement.fontColor}}">网格员管理</text>
+    </view>
+    <view class="item" bindtap="toggle" data-index="2">
+      <image class="img" src="{{chefManagement.img}}"></image>
+      <text class="text {{chefManagement.fontColor}}">厨师管理</text>
+    </view>
+    <view class="item" bindtap="toggle" data-index="3">
+      <image class="img" src="{{approval.img}}"></image>
+      <text class="text {{approval.fontColor}}">乡宴审批</text>
+    </view>
+  </view>
+</view>

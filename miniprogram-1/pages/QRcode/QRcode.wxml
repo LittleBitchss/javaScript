@@ -1,0 +1,2 @@
+<!--pages/QRcode/QRcode.wxml-->
+<button bindtap="scan">扫一扫</button>

@@ -1,0 +1,140 @@
+<!--secondary/pages/findChef_chefDetails/index.wxml-->
+<scroll-view class="index_chefDetails" scroll-into-view="{{toView}}" scroll-y scroll-with-animation="{{true}}" bindscroll="handelScroll">
+  <view class="chefDetails_bottom_top suckTop" wx:if="{{isShow}}">
+    <view class="chefDetails_bottom_top_item _item {{active1}}" bindtap="taggle" data-item="1">宴席套餐</view>
+    <view class="chefDetails_bottom_top_item {{active2}}" bindtap="taggle" data-item="2">厨师信息</view>
+  </view>
+  <view class="chefDetails_top">
+    <view class="chef_introduce">
+      <view class="chef_introduce_top">
+        <view class="chef_introduce_top_left">
+          <image class="chef_introduce_top_left_img" src="{{chefArr.chef_photo}}"></image>
+        </view>
+        <view class="chef_introduce_top_rigth">
+          <view class="medal">
+            <image class="medal_img" src="../../../icon/medal.png"></image>
+            <text>厨师协会会员</text>
+          </view>
+          <view class="chefs_first">
+            <view class="chefs_first_name">{{chefArr.chef_name}}</view>
+            <view class="chefs_first_score">{{chefArr.score}}<text class="fen">分</text></view>
+          </view>
+          <view class="grade">{{grade[chefArr.chef_level].name}}</view>
+          <view class="goodAt">
+            <view class="chefAge">{{chefArr.chef_cooking_age}}年厨龄</view>
+            <view class="goodAt_item" wx:for="{{chefArr.cuisine}}" wx:key="index">{{item}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="chef_introduce_midde">
+        <image class="chef_introduce_midde_img" wx:for="{{chefArr.cookbook[0].cb_img}}" wx:key="index" src="{{item}}"></image>
+        <view class="chef_introduce_midde_txt" wx:if="{{chefArr.cookbook.length==0||chefArr.cookbook[0].cb_img==''}}">暂未上传任何菜品图片</view>
+      </view>
+      <view class="chef_introduce_bottom">
+        <view class="chef_introduce_bottom_text">*家宴需提前72小时；厨师到家需提前24小时</view>
+        <navigator class="chef_introduce_bottom_btn" open-type="navigate" url="/tertiary/pages/findChef_chefSchedule/index?chef_id={{chef_id}}&chef_phone={{chefArr.chef_phone}}">预 约</navigator>
+      </view>
+    </view>
+  </view>
+  <view class="chefDetails_bottom">
+    <view class="chefDetails_bottom_top" id="yuyue">
+      <view class="chefDetails_bottom_top_item _item {{active1}}" bindtap="taggle" data-item="1">宴席套餐</view>
+      <view class="chefDetails_bottom_top_item {{active2}}" bindtap="taggle" data-item="2">注意事项</view>
+    </view>
+    <view class="chefDetails_bottom_bottom">
+      <view class="comboItem">
+        <view class="comboItem_title">
+          <view class="comboItem_title_left"></view>
+          <view class="comboItem_title_text">私厨上门（预约厨师到家私厨）</view>
+        </view>
+        <view class="comboItem_content">
+          <view class="comboItem_content_left">
+            <image class="comboItem_content_left_img" src="{{chefArr.chef_photo}}"></image>
+          </view>
+          <view class="comboItem_content_right">
+            <view class="comboItem_content_right_top">单点厨师8个菜起（不含食材厨师费用）</view>
+            <view class="comboItem_content_right_midde">具体厨师费用与食材费用在预约成功后双方各自协调</view>
+            <view class="comboItem_content_right_bottom">
+              <view class="comboItem_content_right_bottom_block">
+                <text class="comboItem_content_right_bottom_txt">10</text>￥
+              </view>（仅供参考）
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="comboItem" wx:for="{{chefArr.cookbook}}" wx:key="index">
+        <view class="comboItem_title">
+          <view class="comboItem_title_left"></view>
+          <view class="comboItem_title_text">宴席套餐（{{index+1}}）</view>
+        </view>
+        <view class="comboItem_content">
+          <view class="comboItem_content_left">
+            <image class="comboItem_content_left_img" src="{{item.cb_img[0]}}"></image>
+          </view>
+          <view class="comboItem_content_right">
+            <view class="comboItem_content_right_top">{{item.cb_name}}</view>
+            <view class="comboItem_content_right_midde">{{item.cooklist[1].cbd_menu}}</view>
+            <view class="comboItem_content_right_bottom">
+              <view class="comboItem_content_right_bottom_block">
+                <text class="comboItem_content_right_bottom_txt">{{item.cb_price}}</text>￥ 
+              </view>（仅供参考）
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="certification" id="renzheng">
+        <view class="certification_top">
+          <text class="title">厨师认证</text>
+          <text class="annotation">*以下信息由平台严格审核通过，确保真实有效</text>
+        </view>
+        <view class="certification_bottom">
+          <view class="item">
+            <image class="item_img" src="../../../icon/chefHome_certification.png"></image>
+            <view class="item_txt">身份证</view>
+          </view>
+          <view class="item">
+            <image class="item_img" src="../../../icon/chefHome_certification.png"></image>
+            <view class="item_txt">22年厨龄</view>
+          </view>
+          <view class="item">
+            <image class="item_img" src="../../../icon/chefHome_certification.png"></image>
+            <view class="item_txt">健康证</view>
+          </view>
+          <view class="item">
+            <image class="item_img" src="../../../icon/chefHome_certification.png"></image>
+            <view class="item_txt">餐饮协会认证成员</view>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="userComments">
+        <view class="title">用户评论（3）</view>
+        <view class="item">
+          <text class="item_left">味道</text>
+          <view class="item_right">
+            <image class="item_right_star" wx:for="{{star[5].stars}}" wx:key="index" src="{{item}}"></image>
+          </view>
+        </view>
+        <view class="item">
+          <text class="item_left">品相</text>
+          <view class="item_right">
+            <image class="item_right_star" wx:for="{{star[4].stars}}" wx:key="index" src="{{item}}"></image>
+          </view>
+        </view>
+        <view class="item">
+          <text class="item_left">服务</text>
+          <view class="item_right">
+            <image class="item_right_star" wx:for="{{star[3].stars}}" wx:key="index" src="{{item}}"></image>
+          </view>
+        </view>
+      </view> -->
+      <view class="disclaimer">
+        <view class="title">*免责声明</view>
+        <view>1.资料中关于厨师的个人形象、健康证件、身份证件等，均由厨师本人提供，如有疑问，您可与其核实。
+        </view>
+        <view>
+          2.用户未通过平台与厨师进行的交易，平台不承担任何责任。
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

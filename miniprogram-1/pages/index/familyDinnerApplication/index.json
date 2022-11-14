@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "familyDinnerInfo":"/components/report_familyDinnerInfo/familyDinnerInfo",
+    "familyLocation":"/components/report_familyLocation/familyLocation",
+    "ingredients":"/components/report_ingredients/ingredients",
+    "sanitary":"/components/report_sanitary/sanitary"
+  }
+}

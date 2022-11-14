@@ -1,0 +1,419 @@
+/* secondary/pages/user_orderDetails/index.wxss */
+.user_orderDetails{
+  height: 100vh;
+}
+.user_orderDetail{
+  height: 100vh;
+}
+.user_orderDetails .top{
+  height: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+}
+.user_orderDetails .top .item{
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #579cff;
+  font-size: 25rpx;
+  font-family: 'Regular';
+}
+.user_orderDetails .top .active{
+  font-family: 'Bold';
+  border-bottom: 4rpx solid #f25500;
+}
+
+.user_orderDetails .midden{
+  height: 95%;
+}
+.user_orderDetails .midden .countryBanquetOperation {
+  height: 100%;
+  background-color: #e5e5e5;
+  font-size: 25rpx;
+  font-family: 'Bold';
+}
+
+.user_orderDetails .midden .countryBanquetOperation .tab {
+  height: 5%;
+  display: flex;
+  border-top: 2rpx solid #000;
+  border-bottom: 2rpx solid #000;
+}
+
+.user_orderDetails .midden .countryBanquetOperation .tab .tabs {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 2rpx solid #000;
+}
+
+.user_orderDetails .midden .countryBanquetOperation .tab .noBorder {
+  border-right: 0;
+}
+
+.user_orderDetails .midden .countryBanquetOperation .tab .bgColor {
+  background-color: #002964;
+  color: #fff;
+}
+
+
+.user_orderDetails .midden .countryBanquetOperation .content {
+  height: 95%;
+}
+
+.user_orderDetails .midden .countryBanquetOperation .kitchen {
+  height: 100%;
+  overflow: scroll;
+}
+
+.user_orderDetails .midden .countryBanquetOperation .kitchen .frame {
+  width: 90%;
+  margin: 20rpx auto;
+  border: 4rpx solid #003e97;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100rpx;
+}
+
+.user_orderDetails .midden .countryBanquetOperation .kitchen .frame .img {
+  margin: 10rpx 0;
+}
+
+.user_orderDetails .midden .countryBanquetOperation .dishes {
+  height: 100%;
+  overflow: scroll;
+}
+
+.user_orderDetails .midden .countryBanquetOperation .dishes .frame {
+  width: 90%;
+  margin: 20rpx auto;
+  border: 4rpx solid #003e97;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100rpx;
+}
+
+.user_orderDetails .midden .countryBanquetOperation .dishes .frame .img {
+  margin: 10rpx 0;
+}
+
+.user_orderDetails .midden .countryBanquetOperation .disinfect {
+  height: 100%;
+  overflow: scroll;
+}
+
+.user_orderDetails .midden .countryBanquetOperation .disinfect .frame {
+  width: 90%;
+  margin: 20rpx auto;
+  border: 4rpx solid #003e97;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100rpx;
+}
+
+.user_orderDetails .midden .countryBanquetOperation .disinfect .frame .img {
+  margin: 10rpx 0;
+}
+
+.user_orderDetail .top{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+}
+.user_orderDetail .top .item{
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #579cff;
+  font-size: 25rpx;
+  font-family: 'Regular';
+}
+.user_orderDetail .top .active{
+  font-family: 'Bold';
+  border-bottom: 4rpx solid #f25500;
+}
+
+.user_orderDetail .bottoms .orderInfo {
+  background-color: #e5e5e5;
+  font-size: 25rpx;
+  font-family: 'Bold';
+  overflow: auto;
+  height: 100%;
+}
+.user_orderDetail .orderInfo .diniInfo{
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin-top: 16rpx;
+  padding: 16rpx 32rpx 0;
+  font-family: 'Normal';
+  font-size: 25rpx;
+}
+.user_orderDetail .orderInfo .diniInfo .title{
+  height: 44rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+}
+.user_orderDetail .orderInfo .diniInfo .item{
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #eee;
+  color: #999999;
+}
+.user_orderDetail .orderInfo .diniInfo .item:last-child{
+  border-bottom: 0;
+}
+.user_orderDetail .orderInfo .diniInfo .item .item_left{
+  width: 228rpx;
+}
+.user_orderDetail .orderInfo .diniInfo .item .item_right{
+  flex: 1;
+}
+
+.user_orderDetail .orderInfo .diniInfo .item .picker{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-right: 80rpx;
+}
+.user_orderDetail .orderInfo .diniInfo .item .picker .txts{
+  margin-right: 20rpx;
+}
+.user_orderDetail .orderInfo .diniInfo .item .item_right .item_right_img{
+  width: 14rpx;
+  height: 24rpx;
+}
+.user_orderDetail .orderInfo .diniInfo .item .item_right .item_right_{
+  display: flex;
+  align-items: center;
+}
+.user_orderDetail .orderInfo .diniInfo .item .item_right .item_right_inp{
+  flex: 1;
+  font-size: 25rpx;
+  color: #000;
+}
+
+.user_orderDetail .orderInfo .note{
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin-top: 16rpx;
+  padding: 40rpx 32rpx;
+  font-family: 'Normal';
+  font-size: 25rpx;
+  display: flex;
+}
+.user_orderDetail .orderInfo .note .note_left{
+  color: #999;
+  width: 228rpx;
+}
+.user_orderDetail .orderInfo .note .note_right{
+  flex: 1;
+  position: relative;
+}
+.user_orderDetail .orderInfo .note .note_right .note_right_txt{
+  line-height: 30rpx;
+  display:block;
+  visibility:hidden;
+  word-break:break-all;
+  word-wrap:break-word;
+  font-size: 25rpx;
+  padding: 5rpx 0;
+}
+.user_orderDetail .orderInfo .note .note_right_area{
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 25rpx;
+  color: #000;
+  padding: 5rpx 0;
+  line-height: 30rpx;
+  word-break:break-all;
+  overflow: hidden;
+}
+.user_orderDetail .orderInfo .note .note_right .placeholder{
+  font-size: 25rpx;
+  font-family: 'Normal';
+  color: #999999;
+}
+
+.user_orderDetail .securitys{
+  font-family: 'Medium';
+  margin-bottom: 30rpx;
+}
+.user_orderDetail .securitys .security_title{
+  height: 82rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx;
+}
+.user_orderDetail .securitys .security{
+  height: 254rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user_orderDetail .securitys .security .security_item{
+  width: 220rpx;
+  height: 100%;
+  border-radius: 15rpx;
+  background-color: #fff;
+  border: 2rpx solid #fff;
+}
+.user_orderDetail .securitys .security .security_right{
+  width: 455rpx;
+  margin-left: 26rpx;
+}
+.user_orderDetail .securitys .security .active{
+  background-color: #eaf2ff;
+  border-color: #4768f3;
+}
+
+.user_orderDetail .securitys .security .security_item .security_item_top{
+  height: 48rpx;
+  font-size: 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2rpx solid #d5d5d5;
+}
+.user_orderDetail .securitys .security .security_item .bdColor{
+  border-color: #000;
+}
+.user_orderDetail .securitys .security .security_left .security_left_bottom{
+  height: 202rpx;
+  padding-top: 76rpx;
+  text-align: center;
+
+}
+.user_orderDetail .securitys .security .security_left .security_left_bottom .security_left_bottom_imgs{
+  display: flex;
+  justify-content: center;
+}
+.user_orderDetail .securitys .security .security_left .security_left_bottom .security_left_bottom_img{
+  width: 28rpx;
+  height: 28rpx;
+  display: block;
+}
+.user_orderDetail .securitys .security .security_left .security_left_bottom .security_left_bottom_txt{
+  height: 30rpx;
+  margin-top: 15rpx;
+  margin-bottom: 8rpx;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  font-size: 20rpx;
+}
+.user_orderDetail .securitys .security .security_right .security_right_bottom{
+  height: 202rpx;
+  display: flex;
+  justify-content: center;
+}
+.user_orderDetail .securitys .security .security_right .security_right_bottom .security_right_item{
+  width: 140rpx;
+  height: 100%;
+}
+.user_orderDetail .securitys .security .security_right .security_right_bottom .security_right_item .security_right_item_cont{
+  height: 142rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.user_orderDetail .securitys .security .security_right .security_right_bottom .security_right_item .security_right_item_cont .security_right_item_cont_img{
+  height: 80rpx;
+  width: 90rpx;
+}
+.user_orderDetail .securitys .security .security_right .security_right_bottom .security_right_item .security_right_item_cont .security_right_item_cont_imgs{
+  height: 80rpx;
+  width: 62rpx;
+} 
+.user_orderDetail .securitys .security .security_right .security_right_bottom .security_right_item .security_right_item_cont .security_right_item_cont_txt{
+  font-size: 20rpx;
+  line-height: 1;
+  margin-top: 10rpx;
+}
+.user_orderDetail .securitys .security .security_right .security_right_bottom .security_right_midden{
+  height: 100%;
+  width: 88rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.user_orderDetail .securitys .security .security_right .security_right_bottom .security_right_midden .price{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 30rpx;
+  font-size: 28rpx;
+  color: #f14c44;
+}
+.user_orderDetail .securitys .security .security_right .security_right_bottom .security_right_midden .security_right_midden_add{
+  width: 20rpx;
+  height: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.user_orderDetail .securitys .security .security_right .security_right_bottom .security_right_midden .security_right_midden_add .security_right_midden_add_item{
+  background-color: #000;
+  width: 100%;
+  height: 4rpx;
+}
+.user_orderDetail .securitys .security .security_right .security_right_bottom .security_right_midden .security_right_midden_add .security_right_midden_add_items{
+  width: 4rpx;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); 
+}
+.user_orderDetail .securitys .security .security_right .security_right_bottom .security_right_midden .security_right_midden_checkbox{
+  position: absolute;
+  bottom: 4rpx;
+}
+
+
+.user_orderDetail .top .announcements{
+  font-size: 22rpx;
+  font-family: 'Normal';
+  padding: 20rpx 32rpx;
+}
+.user_orderDetail .top .announcements .announcements_top{
+  font-size: 25rpx;
+  font-family: 'Medium';
+  margin-bottom: 20rpx;
+}
+.user_orderDetail .top .announcements .announcements_bottom .announcements_bottom_color{
+  color: #4768f3;
+}
+.user_orderDetail .bottom{
+  height: 8%;
+  background-color: #4768f3;
+  color: #fff;
+  font-size: 30rpx;
+  font-family: 'Medium';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

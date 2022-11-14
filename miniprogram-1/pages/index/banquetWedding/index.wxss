@@ -1,0 +1,29 @@
+/* pages/banquetWedding/index.wxss */
+.banquetWedding{
+  height: 100vh;
+  background-color: #f3f3f3;
+}
+.banquetWedding .navs{
+  height: 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+}
+.banquetWedding .navs .nav{
+  padding: 0 10rpx;
+  font-family: 'Light';
+  font-size: 22rpx;
+  line-height: 1;
+}
+.banquetWedding .navs .navBg{
+  background-image: url(https://qunyan.canancn.com/assets/applet//img/banquetWedding/banquetWedding_nav_active.png);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 8rpx;
+  font-family: 'Medium';
+}
+.banquetWedding .conts{
+  height: 95%;
+  background-color: #f3f3f3;
+}

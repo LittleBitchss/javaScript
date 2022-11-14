@@ -1,0 +1,51 @@
+<!--secondary/pages/photoRecord/index.wxml-->
+<view class="photoRecord">
+  <view class="top">
+    <view class="item kitchenware">
+      <view class="title">厨房用具:</view>
+      <view class="cont">
+        <view class="clickPhoto" bindtap="addImg" data-item="1" data-file="{{'kitchenware'+m_id}}">
+          <image class="imgs" src="../../../icon/chef_camera.png"></image>
+          <view class="txt">点击上传</view>
+        </view>
+        <view class="clickPhoto" wx:for="{{kitchenware}}" wx:key="index">
+          <image class="img" src="{{item}}"></image>
+          <view class="remove" bindtap="remove" data-item="1" data-index="{{index}}">
+            <image class="remove_img" src="../../../icon/chef_remove.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="item disinfect">
+      <view class="title">消毒方式:</view>
+      <view class="cont">
+        <view class="clickPhoto" class="clickPhoto" bindtap="addImg" data-item="2" data-file="{{'disinfect'+m_id+'&'+m_chef_id}}">
+          <image class="imgs" src="../../../icon/chef_camera.png"></image>
+          <view class="txt">点击上传</view>
+        </view>
+        <view class="clickPhoto" wx:for="{{disinfect}}" wx:key="index">
+          <image class="img" src="{{item}}"></image>
+          <view class="remove" bindtap="remove" data-item="2" data-index="{{index}}">
+            <image class="remove_img" src="../../../icon/chef_remove.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="item dishes">
+      <view class="title">菜品图片:</view>
+      <view class="cont">
+        <view class="clickPhoto" class="clickPhoto" bindtap="addImg" data-item="3" data-file="{{'dishes'+m_id}}">
+          <image class="imgs" src="../../../icon/chef_camera.png"></image>
+          <view class="txt">点击上传</view>
+        </view>
+        <view class="clickPhoto" wx:for="{{dishes}}" wx:key="index">
+          <image class="img" src="{{item}}"></image>
+          <view class="remove" bindtap="remove" data-item="3" data-index="{{index}}">
+            <image class="remove_img" src="../../../icon/chef_remove.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button class="bottom" size="mini" bindtap="save">确认无误提交</button>
+</view>

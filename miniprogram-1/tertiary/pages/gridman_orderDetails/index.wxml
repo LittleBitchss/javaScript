@@ -1,0 +1,340 @@
+<!--tertiary/pages/gridman_orderDetails/index.wxml-->
+<view class="gridman_orderDetails">
+  <view class="top">
+    <view class="nav {{active0}}" bindtap="taggle" data-index="0">基本信息</view>
+    <view class="nav {{active1}}" bindtap="taggle" data-index="1">检查指导记录表</view>
+  </view>
+  <view class="bottom">
+    <view class="opi" wx:if="{{isShow == 0}}">
+      <view class="map">
+        <map id="maps" bindtap="clickMap" class="maps" longitude="{{basic.m_longitude}}" latitude="{{basic.m_latitude}}" scale="16">
+          <image class="cover-image" src="{{domain}}mark.png"></image>
+        </map>
+      </view>
+      <cover-view class="cover-view"></cover-view>
+      <view class="info">
+        <view class="info_item">
+          <view class="info_item_left">地点</view>
+          <view class="info_item_right">{{basic.m_address}}</view>
+        </view>
+        <view class="info_item">
+          <view class="info_item_left">宴会类型</view>
+          <view class="info_item_right">{{basic.m_type}}</view>
+        </view>
+        <view class="info_item">
+          <view class="info_item_left">开宴日期</view>
+          <view class="info_item_right">{{basic.m_start_date}}</view>
+        </view>
+        <view class="info_item">
+          <view class="info_item_left">举办天数</view>
+          <view class="info_item_right">{{basic.m_holding_days}}</view>天
+        </view>
+        <view class="info_item">
+          <view class="info_item_left">宴会人数</view>
+          <view class="info_item_right">{{basic.m_banquet_number}}</view>人
+        </view>
+        <view class="info_item">
+          <view class="info_item_left">联系方式</view>
+          <view class="info_item_right">{{basic.m_phone}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="opis" wx:if="{{isShow == 1}}">
+      <view class="opis_top">
+        <view class="title">
+          <view class="row1 row">指导内容</view>
+          <view class="row2 row">项目</view>
+          <view class="row3 row">现场检查情况</view>
+        </view>
+        <view class="lists">
+          <view class="table1">
+            <view class="table1_left table_">加工场所</view>
+            <view class="table1_center table_">
+              <view class="table1_center1">是否远离污染源（禽畜圈养舍、开放式厕所、暴露垃圾）</view>
+              <view class="table1_center1">加工场所内外清洁卫生</view>
+              <view class="table1_center1">加工场所（厨房）是否存放有毒有害物质（农药、鼠药等）</view>
+            </view>
+            <view class="table1_right">
+              <view class="table1_center1">
+                <radio-group class="group" bindchange="radioChange" data-index="1">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{checked1}}" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{checked1}}" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table1_center1">
+                <radio-group class="group" bindchange="radioChange" data-index="2">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{checked2}}" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{checked22}}" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table1_center1">
+                <radio-group class="group" bindchange="radioChange" data-index="3">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{checked3}}" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{checked33}}" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+            </view>
+          </view>
+          <view class="table2">
+            <view class="table2_left table_">从业人员</view>
+            <view class="table2_center table_">
+              <view class="table2_center2">食品加工人员（厨师、帮工）健康状况：厨师是否有健康合格证明；是否有咳嗽、腹泻等症状；是否穿戴清洁的工作衣帽，是否留有长指甲</view>
+            </view>
+            <view class="table2_right">
+              <view class="table2_center2">
+                <view class="table2_center2_top table2_center2_">从业人员<input class="inp" type="number" value="{{inpVal3}}" placeholder="点击" bindinput="inputs" data-index="3" />名</view>
+                <view class="table2_center2_bottom table2_center2_">健康证<input class="inp" type="number" value="{{inpVal4}}" placeholder="点击" bindinput="inputs" data-index="4" />个</view>
+              </view>
+            </view>
+          </view>
+          <view class="table3">
+            <view class="table3_left table_">餐饮具清洗消毒</view>
+            <view class="table3_center table_">
+              <view class="table3_center3">餐饮具清洗消毒设施是否符合要求</view>
+              <view class="table3_center3">餐饮具是否进行清洗消毒</view>
+            </view>
+            <view class="table3_right">
+              <view class="table3_center3">
+                <radio-group class="group" bindchange="radioChange" data-index="4">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{checked4}}" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{checked44}}" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table3_center3">
+                <view class="table3_center3_i i">
+                  <text>消毒方式：</text>
+                  <input class="inp" type="text" value="{{inpVal5}}" placeholder="点击可输入" bindinput="inputs" data-index="5" />
+                </view>
+                <view class="table3_center3_i">
+                  <text>消毒时间：</text>
+                  <picker mode="date" value="{{date}}" start="2022-07-04" end="2030-12-31" bindchange="bindDateChange">
+                    <view class="picker">
+                      <view class="inp">{{inpVal6}}</view>
+                    </view>
+                  </picker>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="table4">
+            <view class="table4_left table_">食品及食品原料</view>
+            <view class="table4_center table_">
+              <view class="table4_center4">是否新鲜</view>
+              <view class="table4_center4">是否使用高危食品（如野生菌、发芽如豆、新鲜黄花、四季豆等）</view>
+              <view class="table4_center4">是否有过期和霉变食品原料</view>
+              <view class="table4_center4">是否使用病死或者死因不明的禽畜肉鱼类（查看肉类制品检疫合格证）</view>
+              <view class="table4_center4">使用的凉菜卤菜色、味是否正常</view>
+            </view>
+            <view class="table4_right">
+              <view class="table4_center4">
+                <radio-group class="group" bindchange="radioChange" data-index="5">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{checked5}}" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{checked55}}" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table4_center4">
+                <radio-group class="group" bindchange="radioChange" data-index="6">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{checked6}}" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{checked66}}" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table4_center4">
+                <radio-group class="group" bindchange="radioChange" data-index="7">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{checked7}}" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{checked77}}" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table4_center4">
+                <radio-group class="group" bindchange="radioChange" data-index="8">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{checked8}}" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{checked88}}" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table4_center4">
+                <radio-group class="group" bindchange="radioChange" data-index="9">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{checked9}}" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{checked99}}" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+            </view>
+          </view>
+          <view class="table5">
+            <view class="table5_left table_">食品加工及储存</view>
+            <view class="table5_center table_">
+              <view class="table5_center5">是否烧熟煮透</view>
+              <view class="table5_center5">煮熟的食品是否与生食品分开存放</view>
+              <view class="table5_center5">剩菜是否存放到冰箱或者冰柜中</view>
+              <view class="table5_center5">海鲜加工清洗是否使用专用场所和工具</view>
+              <view class="table5_center5">不能及时加工处理的肉类、水产品及其他半成品是否存放在冰柜或者冰箱中</view>
+            </view>
+            <view class="table5_right">
+              <view class="table5_center5">
+                <radio-group class="group" bindchange="radioChange" data-index="10">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{checked10}}" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{checked1010}}" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table5_center5">
+                <radio-group class="group" bindchange="radioChange" data-index="11">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{checked11}}" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{checked1111}}" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table5_center5">
+                <radio-group class="group" bindchange="radioChange" data-index="12">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{checked12}}" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{checked1212}}" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table5_center5">
+                <radio-group class="group" bindchange="radioChange" data-index="13">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{checked13}}" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{checked1313}}" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table5_center5">
+                <radio-group class="group" bindchange="radioChange" data-index="14">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{checked14}}" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{checked1414}}" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+            </view>
+          </view>
+          <view class="table6">
+            <view class="table6_left table_">食品留样</view>
+            <view class="table6_center table_">是否具备留样设备设施，留样菜品每样不少于125g,48小时冷藏保存</view>
+            <view class="table6_right">
+              <radio-group class="group" bindchange="radioChange" data-index="15">
+                <label class="weui-cell weui-check__label">
+                  <view class="weui-cell__hd">
+                    <radio value="是" checked="{{checked15}}" />是
+                  </view>
+                </label>
+                <label class="weui-cell weui-check__label">
+                  <view class="weui-cell__hd">
+                    <radio value="否" checked="{{checked1515}}" />否
+                  </view>
+                </label>
+              </radio-group>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="opis_bottom" bindtap="submitInfo">
+        提交
+      </view>
+    </view>
+  </view>
+</view>

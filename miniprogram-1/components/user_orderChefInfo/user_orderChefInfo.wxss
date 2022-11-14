@@ -1,0 +1,97 @@
+/* components/user_orderuser_orderChefInfo/user_orderuser_orderChefInfo.wxss */
+.user_orderChefInfo {
+  height: 100%;
+  background-color: #e5e5e5;
+  overflow: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 16rpx;
+}
+.user_orderChefInfo .chef {
+  width: 350rpx;
+  height: 482rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin-bottom: 10rpx;
+}
+.user_orderChefInfo .chef .photo {
+  height: 229rpx;
+  border-bottom: 2rpx solid #b7b6b6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  font-family: 'Bold';
+}
+.user_orderChefInfo .chef .photo .photos {
+  height: 166rpx;
+  width: 166rpx;
+  border-radius: 50%;
+  border: 1rpx solid;
+}
+
+.user_orderChefInfo .chef .sexAge {
+  height: 70rpx;
+  font-size: 26rpx;
+  font-family: 'Light';
+  display: flex;
+}
+.user_orderChefInfo .chef .sexAge .sex {
+  flex: 1;
+  display: flex;
+  margin-left: 28rpx;
+  align-items: center;
+}
+.user_orderChefInfo .chef .sexAge .sex .righ {
+  font-family: 'Medium';
+}
+.user_orderChefInfo .chef .grade {
+  height: 111rpx;
+  border-top: 2rpx solid #b7b6b6;
+  border-bottom: 2rpx solid #b7b6b6;
+  font-size: 26rpx;
+  font-family: 'Light';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.user_orderChefInfo .chef .grade .to {
+  height: 30%;
+  display: flex;
+  align-items: center;
+  margin-left: 28rpx;
+}
+.user_orderChefInfo .chef .grade .bott {
+  height: 30%;
+  display: flex;
+  align-items: center;
+  font-family: 'Medium';
+  margin-left: 28rpx;
+  letter-spacing: -1rpx;
+}
+.user_orderChefInfo .chef .check {
+  height: 74rpx;
+  display: flex;
+  color: #64a1fd;
+  font-size: 26rpx;
+  font-family: 'Medium';
+}
+.user_orderChefInfo .chef .check .check_left{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user_orderChefInfo .chef .check .check_right{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 2rpx solid #b7b6b6;
+  color: #f14c44;
+}

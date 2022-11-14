@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "area-select":"/components/linkage/linkage"
+  },
+  "styleIsolation": "apply-shared"
+}

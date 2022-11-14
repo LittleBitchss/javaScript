@@ -1,0 +1,9 @@
+<!--pages/userType/index.wxml-->
+<view class="userType">
+  <view>请选择您的身份</view>
+  <view class="">
+    <button bindtap="user" data-item="1">我找厨师</button>
+    <button bindtap="chef" data-item="2">我是厨师</button>
+    <button bindtap="supervision" data-item="3">我要监管</button>
+  </view>
+</view>

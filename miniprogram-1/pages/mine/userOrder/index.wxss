@@ -1,0 +1,156 @@
+/* pages/userOrder/index.wxss */
+.userOrder{
+  height: 100vh;
+  background-color: #e5e5e5;
+  position: relative;
+}
+.userOrder .top{
+  height: 8%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.userOrder .bottom{
+  width: 100%;
+  height: 92%;
+}
+.userOrder .top .item{
+  font-family: 'Light';
+  font-size: 25rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.userOrder .top .active{
+  font-family: 'Medium';
+  font-size: 28rpx;
+  color: #4768f3;
+}
+.userOrder .top .item .point{
+  width: 24rpx;
+  height: 24rpx;
+  position: absolute;
+  right: -16rpx;
+  top: -16rpx;
+  border-radius: 50%;
+  background-color: red;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16rpx;
+  font-family: 'Medium';
+}
+
+.userOrder .all{
+  height: 100%;
+  overflow:auto;
+}
+.userOrder .all .item{
+  width: 702rpx;
+  border: 2rpx solid #b7b6b6;
+  margin: 0 auto 22rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  font-size: 25rpx;
+  font-family: 'Light';
+  position: relative;
+}
+.userOrder .all .item .items{
+  height: 59rpx;
+  border-bottom: 2rpx solid #b7b6b6;
+  padding-left: 24rpx;
+  display: flex;
+  align-items: center;
+}
+.userOrder .all .item .items1{
+  justify-content: space-between;
+  padding-right: 24rpx;
+}
+.userOrder .all .item .items2{
+  padding: 0;
+}
+.userOrder .all .item .items2 .left{
+  border-right: 2rpx solid #b7b6b6;
+  width: 50%;
+  height: 100%;
+  padding-left: 24rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+.userOrder .all .item .items2 .right{
+  padding-left: 24rpx;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.userOrder .all .item .items .txt{
+  flex: 1;
+  text-align: center;
+  font-family: 'Medium';
+}
+.userOrder .all .item .items .txts1{
+  color: #579cff;
+}
+.userOrder .all .item .items .txts2{
+  color: #f14c44;
+}
+.userOrder .all .item .nobd{
+  border-bottom:0;
+  padding: 0;
+}
+.userOrder .all .item .nobd .btns{
+  width: 351rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 24rpx;
+}
+.userOrder .all .item .nobd .btnss{
+  justify-content: flex-end;
+  padding-right: 24rpx;
+  box-sizing: border-box;
+}
+.userOrder .all .item .nobd .btns .btn{
+  width: 122rpx;
+  height: 40rpx;
+  border-radius: 21rpx;
+  font-size: 20rpx;
+  line-height: 36rpx;
+  text-align: center;
+  margin: 0;
+}
+.userOrder .all .item .nobd .btns .btn1{
+  color: #579cff;
+  border: #579cff 2rpx solid;
+}
+.userOrder .all .item .nobd .btns .btn2{
+  color: #f14c44;
+  border: #f14c44 2rpx solid;
+  margin-left: 15rpx;
+}
+.userOrder .all .item .nobd .btns .btn3{
+  border-radius: 10rpx;
+  color: #fff;
+  background-color: #717171;
+  line-height: 40rpx;
+}
+.userOrder .all .item .nobd .btns .bg1{
+  background-color: #717171;
+}
+.userOrder .all .item .nobd .btnss .bg2{
+  background-color: #579cff;
+}
+.userOrder .all .item .nobd .btnss .bg3{
+  background-color: #f14c44;
+}
+.userOrder .all .item .nobd .btns .bg4{
+  background-color: #f14c44;
+  margin-left: 15rpx;
+}
+.userOrder .all .item .nobd .btns .bgs{
+  background-color: #fff;
+  color: #777;
+}

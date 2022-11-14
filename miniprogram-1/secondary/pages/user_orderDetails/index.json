@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "user_orderBasics":"/components/user_orderBasics/user_orderBasics",
+    "user_orderAddre":"/components/user_orderAddre/user_orderAddre",
+    "user_orderFood":"/components/user_orderFood/user_orderFood",
+    "user_orderHealth":"/components/user_orderHealth/user_orderHealth",
+    "user_orderChefInfo":"/components/user_orderChefInfo/user_orderChefInfo",
+    "user_orderChefDetails":"/components/user_orderChefDetails/user_orderChefDetails"
+  }
+}

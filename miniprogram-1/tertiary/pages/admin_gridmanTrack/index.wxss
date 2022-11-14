@@ -1,0 +1,121 @@
+/* tertiary/pages/admin_gridmanTrack/index.wxss */
+.tracks{
+  height: 100vh;
+  background-color: #e5e5e5;
+}
+.tracks .filter {
+  width: 100%;
+  height: 80rpx;
+  background-color: #f1efef;
+  border-bottom: 4rpx solid #d3d3d3;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.tracks .filter .filter_top{
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  font-family: 'Regular';
+  padding: 0 9rpx;
+}
+.tracks .filter .filter_top .time{
+  width: 300rpx;
+  display: flex;
+  height: 60%;
+  font-size: 25rpx;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border: 2rpx solid #000;
+  border-radius: 10rpx;
+  padding: 0 10rpx;
+}
+.tracks .filter .filter_top .time .txt{
+  width: 284rpx;
+  text-align: center;
+}
+.tracks .filter .filter_top .time .img{
+  width: 16rpx;
+  height: 12rpx;
+  display: block;
+}
+
+
+
+
+
+
+
+
+.tracks .titles{
+  width: 99%;
+  height: 60rpx;
+  display: flex;
+  font-size: 25rpx;
+  font-family: 'Medium';
+  border-bottom: 2rpx solid #000;
+  border-top: 2rpx solid #000;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.tracks .titles .row{
+  width: 170rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 2rpx solid #000;
+}
+.tracks .titles .rows{
+  flex: 1;
+}
+.tracks .titles .rowss{
+  border-right: 2rpx solid #000;
+}
+.tracks .listss{
+  height: calc(100% - 140rpx);
+  overflow: auto;
+  box-sizing: border-box;
+}
+.tracks .listss .item{
+  width: 99%;
+  height: 70rpx;
+  display: flex;
+  font-size: 23rpx;
+  font-family: 'Light';
+  border-bottom: 2rpx solid #000;
+  margin: 0 auto;
+}
+.tracks .listss .item .row{
+  width: 170rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 2rpx solid #000;
+}
+.tracks .listss .item .rows{
+  flex: 1;
+}
+.tracks .listss .item .rowss{
+  border-right: 2rpx solid #000;
+}
+
+.tracks .bottom{
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.tracks .bottom .ruturnss{
+  width: 360rpx;
+  background-color: #f14c45;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  font-family: 'Medium';
+  color: #fff;
+}

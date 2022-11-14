@@ -1,0 +1,84 @@
+<!--tertiary/pages/findChef_chefSchedule/index.wxml-->
+<view class="findChef_chefSchedule">
+  <view class="calendar">
+    <view class="calendars">
+      <calendar id="calendar" isOpen="true" mini="true" lockDay="{{lockday}}" readonly="true" nobd="true" weekColor="true" bg="true"></calendar>
+    </view>
+    <view class="prompts">*黑色日期为空闲状态，红色日期为已被预约状态</view>
+  </view>
+  <view class="order">
+    <view class="prompt">请选择需要预约厨师的订单</view>
+    <view class="orders">
+      <view class="item" wx:for="{{listArr}}" wx:key="index">
+        <block wx:if="{{item.m_matsuri_type==1}}">
+          <view class="items items1">
+            <view class="time">
+              {{item.m_start_date}}
+            </view>
+          </view>
+          <view class="items items2">
+            <view class="left">
+              <text>举办天数：</text>
+              <text class="txt">{{item.m_holding_days}}天</text>
+            </view>
+            <view class="right">
+              <text>宴会类型：</text>
+              <text class="txt">{{types[item.m_type].mt_name}}</text>
+            </view>
+          </view>
+          <view class="items items2">
+            <view class="left">
+              <text>宴席人数：</text>
+              <text class="txt">{{item.m_banquet_number}}人</text>
+            </view>
+            <view class="right">
+              <text>主厨姓名：</text>
+              <text class="txt {{item.find==0?'':mi_accept_invitation==1 ? 'txts1':'txts2'}}">{{item.find==0?'待寻找':item.mi_accept_invitation==1?item.chef_name:"等待厨师"}}</text>
+            </view>
+          </view>
+          <view class="items">
+            <text>举办地点：</text>
+            <text class="txt">{{item.m_address}}</text>
+          </view>
+          <view class="items nobd">
+            <button class="nobd_btn" bindtap="subscribe" data-m_id="{{item.m_id}}">预约</button>
+          </view>
+        </block>
+        <block wx:if="{{item.m_matsuri_type==2}}">
+          <view class="items items1">
+            <view class="time">
+              {{item.m_start_date}}
+            </view>
+          </view>
+          <view class="items items2">
+            <view class="left">
+              <text>用餐时间：</text>
+              <text class="txt">{{item.m_meal_time}}</text>
+            </view>
+            <view class="right">
+              <text>宴会类型：</text>
+              <text class="txt">厨师到家</text>
+            </view>
+          </view>
+          <view class="items items2">
+            <view class="left">
+              <text>用餐人数：</text>
+              <text class="txt">{{item.m_banquet_number}}</text>
+            </view>
+            <view class="right">
+              <text>主厨姓名：</text>
+              <text class="txt {{item.find==0?'':mi_accept_invitation==1 ? 'txts1':'txts2'}}">{{item.find==0?'待寻找':item.mi_accept_invitation==1?item.chef_name:"等待厨师"}}</text>
+            </view>
+          </view>
+          <view class="items">
+            <text>用餐地点：</text>
+            <text class="txt">{{item.m_address}}</text>
+          </view>
+          <view class="items nobd">
+            <button class="nobd_btn" bindtap="subscribe" data-m_id="{{item.m_id}}">预约</button>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,41 @@
+/* pages/chefRegister/index.wxss */
+.box {
+  height: 100vh;
+}
+
+.box .content {
+  height: 92%;
+}
+
+.box .tab {
+  height: 8%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 2rpx solid #aaa;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.box .tab .item {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.box .tab .item .img {
+  width: 54rpx;
+  height: 56rpx;
+}
+
+.box .tab .item .text {
+  font-family: 'Medium';
+  font-size: 24rpx;
+  color: #b6b6b6;
+}
+
+.box .tab .item .fontColor {
+  color: #4768f3;
+}

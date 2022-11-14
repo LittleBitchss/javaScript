@@ -1,0 +1,27 @@
+<!--components/chefInfo/chefInfo.wxml-->
+<view class="user_orderChefInfo">
+  <view class="chef" wx:for="{{chefs}}" wx:key="index">
+    <view class="photo">
+      <image class="photos" src="{{item.chef_photo}}"></image>
+      <view class="chefNames">{{item.chef_name}}</view>
+    </view>
+    <view class="sexAge">
+      <view class="sex">
+        <text class="lef">性别：</text>
+        <text class="righ">{{item.chef_sex}}</text>
+      </view>
+      <view class="sex">
+        <text class="lef">年龄：</text>
+        <text class="righ">{{item.chef_age}}</text>
+      </view>
+    </view>
+    <view class="grade">
+      <view class="to">厨师等级：</view>
+      <view class="bott">{{grades[item.chef_level-1].name}}</view>
+    </view>
+    <view class="check">
+      <view class="check_left" bindtap="checkChef" data-index="{{index}}">查看详情</view>
+      <view class="check_right">{{item.mi_accept_invitation==2?"已取消":"暂未接受"}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,84 @@
+<!--pages/gridman/gridman.wxml-->
+<view class="gridman">
+  <view class="content">
+    <view class="gridmanInfo" wx:if="{{index == 0}}">
+      <image class="openPage" src="../../../icon/gridman_setUp.png" bindtap="openPage"></image>
+      <view class="basicInfo">
+        <view class="photo">
+          <image class="photos" src="{{photo}}" bindtap="photo"></image>
+        </view>
+        <view class="item">
+          <text class="left">姓名<text class="colon">：</text></text>
+          <text class="select">{{nameValue}}</text>
+        </view>
+        <view class="item sex">
+          <text class="left">性别<text class="colon">：</text></text>
+          <view class="select">{{sexValue}}</view>
+        </view>
+        <view class="item">
+          <text class="left">电话<text class="colon">：</text></text>
+          <view class="select">{{phoneValue}}</view>
+        </view>
+        <view class="adder">
+          <view class="area left">
+            <view class="leftText">所属区域<text class="colon">：</text></view>
+          </view>
+          <view class="address">
+            <view class="area-item">
+              <view class="select">{{provinceValue}}</view>
+            </view>
+            <view class="area-item">
+              <view class="select">{{cityValue}}</view>
+            </view>
+            <view class="area-item">
+              <view class="select">{{areaValue}}</view>
+            </view>
+            <view class="area-item">
+              <view class="select">{{streetValue}}</view>
+            </view>
+            <view class="area-item">
+              <view class="select">{{villageValue}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="countryBanquetList" wx:if="{{index == 1}}">
+      <view class="table">
+        <view class="title">
+          <view class="row">聚餐类型</view>
+          <view class="row">就餐人数</view>
+          <view class="row">开宴时间</view>
+          <view class="row place">地点</view>
+          <view class="row operate">操作</view>
+        </view>
+        <view class="uls">
+          <view class="list" wx:for="{{data}}" wx:key="index">
+            <view class="row">{{item.m_type}}</view>
+            <view class="row">{{item.m_banquet_number}}</view>
+            <view class="row">{{item.m_start_date}}</view>
+            <view class="row place">{{item.m_address}}</view>
+            <view class="row operate operates">
+              <navigator url="/tertiary/pages/gridman_orderDetails/index?m_id={{item.m_id}}&m_address={{item.m_address}}&m_type={{item.m_type}}&m_start_date={{item.m_start_date}}&m_holding_days={{item.m_holding_days}}&m_banquet_number={{item.m_banquet_number}}&m_phone={{item.m_phone}}&m_longitude={{item.m_longitude}}&m_latitude={{item.m_latitude}}"  wx:if="{{!item.ig_id}}">查看</navigator>
+              <navigator class="ing" url="/tertiary/pages/gridman_orderDetails/index?m_id={{item.m_id}}&m_address={{item.m_address}}&m_type={{item.m_type}}&m_start_date={{item.m_start_date}}&m_holding_days={{item.m_holding_days}}&m_banquet_number={{item.m_banquet_number}}&m_phone={{item.m_phone}}&m_longitude={{item.m_longitude}}&m_latitude={{item.m_latitude}}"  wx:if="{{item.ig_id}}">已检查</navigator>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="tab">
+    <view class="item" bindtap="toggle" data-index="0">
+      <image class="img" src="{{gridmanInfo.img}}"></image>
+      <text class="text {{gridmanInfo.fontColor}}">个人信息</text>
+    </view>
+    <view class="item" bindtap="toggle" data-index="1">
+      <image class="img" src="{{countryBanquetList.img}}"></image>
+      <text class="text {{countryBanquetList.fontColor}}">乡宴列表</text>
+    </view>
+  </view>
+</view>
+<page-container class="page-container" show="{{show}}" position="bottom" round="true">
+  <view class="page-item changePassword" bindtap="changePassword">修改密码</view>
+  <view class="page-item quit" bindtap="quit">退出</view>
+</page-container>

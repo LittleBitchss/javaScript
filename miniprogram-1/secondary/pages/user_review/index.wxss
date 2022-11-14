@@ -1,0 +1,152 @@
+/* secondary/pages/user_review/index.wxss */
+.user_review {
+  height: 100vh;
+  overflow: auto;
+  background-color: #e5e5e5;
+  position: relative;
+}
+
+.user_review .review {
+  margin-top: 10rpx;
+  border-radius: 15rpx;
+  background-color: #fff;
+}
+
+.user_review .review .score {
+  height: 104rpx;
+  border-bottom: #e5e5e5 2rpx dotted;
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+  font-size: 25rpx;
+  font-family: 'Light';
+}
+
+.user_review .review .score .score_txt {
+  font-size: 12rpx;
+}
+
+.user_review .review .score .score_star {
+  display: flex;
+}
+
+.user_review .review .score .score_star .star {
+  width: 50rpx;
+  height: 50rpx;
+  display: block;
+  margin-left: 10rpx;
+}
+
+.user_review .review .evaluate {
+  min-height: 86rpx;
+  font-family: 'Medium';
+  font-size: 22rpx;
+  margin: 20rpx 20rpx 0;
+  display: flex;
+  align-items: center;
+  word-break: break-all;
+  white-space: pre-wrap;
+  position: relative;
+}
+
+.user_review .review .evaluate .evaluate_txt {
+  line-height: 30rpx;
+  display: block;
+  visibility: hidden;
+  word-break: break-all;
+  word-wrap: break-word;
+  font-size: 23rpx;
+  padding: 5rpx 0;
+}
+
+.user_review .review .evaluate .evaluate_area {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 23rpx;
+  color: #000;
+  padding: 5rpx 0;
+  line-height: 30rpx;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+.user_review .review .evaluate .placeholder {
+  font-size: 22rpx;
+  font-family: 'Normal';
+  color: #999999;
+}
+
+.user_review .review .bottoms {
+  min-height: 394rpx;
+  padding: 95rpx 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.user_review .review .bottoms .clickPhoto {
+  width: 204rpx;
+  height: 204rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #eaeaea;
+  border-radius: 15rpx;
+  font-size: 22rpx;
+  margin-bottom: 18rpx;
+  margin-right: 26rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.user_review .review .bottoms .clickPhoto:nth-child(3n) {
+  margin-right: 0;
+}
+
+.user_review .review .bottoms .clickPhoto .imgs {
+  width: 47rpx;
+  height: 39rpx;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.user_review .review .bottoms .clickPhoto .img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.user_review .review .bottoms .clickPhoto .remove{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position:absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user_review .review .bottoms .clickPhoto .remove .remove_img{
+  width: 15rpx;
+  height: 14rpx;
+}
+
+
+.user_review .btns{
+  width: 100%;
+  height: 100rpx;
+  background-color: #4781d8;
+  color: #fff;
+  font-family: 'Medium';
+  font-size: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}

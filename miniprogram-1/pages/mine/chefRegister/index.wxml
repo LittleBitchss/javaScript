@@ -1,0 +1,18 @@
+<!--pages/chefRegister/index.wxml-->
+<view class="box">
+  <view class="content">
+    <filing wx:if="{{index == 1}}"></filing>
+    <chefOrder id="myComponent" wx:if="{{index == 2}}"></chefOrder>
+  </view>
+  <view class="tab">
+    <view class="item" bindtap="toggle" data-index="1">
+      <image class="img" src="{{filing.img}}"></image>
+      <text class="text {{filing.fontColor}}">我的备案</text>
+    </view>
+    <view class="item" bindtap="toggle" data-index="2">
+      <image class="img" src="{{invite.img}}"></image>
+      <text class="text {{invite.fontColor}}">我的订单</text>
+    </view>
+  </view>
+</view>
+

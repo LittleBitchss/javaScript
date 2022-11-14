@@ -1,0 +1,7 @@
+<!--pkgA/pages/familyDinnerApplication/index.wxml-->
+<view class="familyDinnerApplication">
+  <familyDinnerInfo wx:if="{{isShow == 1}}" bindnextStep1="nextStep1"></familyDinnerInfo>
+  <familyLocation wx:if="{{isShow == 2}}" bindprevious2="previous2" bindnextStep2="nextStep2"></familyLocation>
+  <ingredients wx:if="{{isShow == 3}}" bindprevious3="previous3" bindnextStep3="nextStep3"></ingredients>
+  <sanitary wx:if="{{isShow == 4}}" bindprevious4="previous4" bindnextStep4="nextStep4"></sanitary>
+</view>

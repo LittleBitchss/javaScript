@@ -1,0 +1,182 @@
+/* components/familyDinnerInfo/familyDinnerInfo.wxss */
+.familyDinnerInfo {
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  position: relative;
+}
+.familyDinnerInfo .process{
+  height: 128rpx;
+  padding: 0 30rpx;
+  position: relative;
+  display: flex;
+  margin-bottom: 22rpx;
+}
+.familyDinnerInfo .process .processLine{
+  position: absolute;
+  width: 74%;
+  left: 50%;
+  bottom: 54rpx;
+  transform: translateX(-50%);
+  z-index: 0;
+  border-top: 2rpx solid #3f6bd6;
+}
+.familyDinnerInfo .process .proces{
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: 'Light';
+  position: relative;
+}
+.familyDinnerInfo .process .proces .procesPoints{
+  height: 30rpx;
+  width: 30rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40rpx;
+  background:linear-gradient(to right, #e80e20 ,#ff626f);
+}
+.familyDinnerInfo .process .proces .procesPoints .procesPoint_i{
+  height: 14rpx;
+  width: 14rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.familyDinnerInfo .process .proces .procesPoint{
+  height: 14rpx;
+  width: 14rpx;
+  border-radius: 50%;
+  background:linear-gradient(to right, #e80e20 ,#ff626f);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 48rpx;
+}
+.familyDinnerInfo .process .proces .procesText{
+  font-size: 25rpx;
+  color: #e70013;
+}
+.familyDinnerInfo .process .proces .procesTexts{
+  font-family: 'Medium';
+  font-size: 25rpx;
+  color: #e70013;
+}
+
+.familyDinnerInfo .hint{
+  height: 82rpx;
+  margin: 0 34rpx;
+  font-size: 28rpx;
+  font-family: 'Normal';
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.familyDinnerInfo .items{
+  height: calc(100% - 150rpx - 88rpx);
+  overflow: auto;
+}
+
+.familyDinnerInfo .item {
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 34rpx;
+  font-size: 25rpx;
+  font-family: 'Normal';
+  border-bottom: 2rpx solid #eee;
+}
+.familyDinnerInfo .item .title{
+  width: 200rpx;
+  color: #999999;
+}
+.familyDinnerInfo .item .section{
+  flex: 1;
+}
+.familyDinnerInfo .item .inp {
+  flex: 1;
+  height: 60rpx;
+  border-radius: 10rpx;
+  font-size: 25rpx;
+  font-family: "Normal";
+  color: #000;
+}
+
+.familyDinnerInfo .item .typ {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #b6b6b6;
+  position: relative;
+  border-radius: 10rpx;
+}
+
+.familyDinnerInfo .item .fontColor {
+  color: #000;
+  font-family: "Normal";
+}
+
+.familyDinnerInfo .item .typ .img {
+  width: 13rpx;
+  height: 22rpx;
+  display: block;
+}
+
+.familyDinnerInfo .item .typ .option {
+  overflow: scroll;
+  max-height: 246rpx;
+  position: absolute;
+  width: 96%;
+  background-color: #fff;
+  top: 46rpx;
+  color: #000;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  box-shadow: 1rpx 1rpx 8rpx 1rpx #000;
+}
+
+.familyDinnerInfo .item .typ .opt {
+  left: 0;
+}
+
+.familyDinnerInfo .item .typ .option .txts {
+  width: 80%;
+  height: 46rpx;
+  margin: 0 auto;
+  line-height: 46rpx;
+  border-bottom: 2rpx solid #b6b6b6;
+}
+
+.familyDinnerInfo .bottom {
+  height: 88rpx;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}
+
+.familyDinnerInfo .bottom .btn {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  line-height: 88rpx;
+  font-size: 30rpx;
+  font-family: 'Normal';
+  color: #fff;
+  background-color: #3572e1;
+}

@@ -1,0 +1,147 @@
+<!--pages/findChef/index.wxml-->
+<view class="findChef" bindtouchmove="close" bindtap="close">
+  <view style="height:{{navHeight}}px;background:#ffffff;position: sticky;top: 0px;z-index:99999; ">
+    <view class="custom-bar__wrapper" style="margin-top:{{searchMarginTop}}px; height: {{searchHeight}}px;width: {{searchWidth}}px;position:absolute;">
+      <view class="search-group" style="position:absolute;">
+        <!-- <image class="quit" bindtap="quit" src="../../icon/quit.png"></image> -->
+        <view class="select">
+          <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+            <view class="picker txt">
+              {{region[1]}}{{region[2]}}
+            </view>
+          </picker>
+          <image class="down" src="../../icon/index-down.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="selects" style="top: {{selectsTop}}px;" catchtouchmove="uselessEvent" catchtap="uselessEvent">
+    <view class="select">
+      <view class="childs" catchtap="unfold" data-item="1">
+        <text class="txt {{fontColor1}}">{{distanceValue}}</text>
+        <image class="down {{upAndDown1}}" src="{{down1}}"></image>
+      </view>
+      <view class="childs" catchtap="unfold" data-item="2">
+        <text class="txt {{fontColor2}}">{{goodAtValue}}</text>
+        <image class="down {{upAndDown2}}" src="{{down2}}"></image>
+      </view>
+      <view class="childs" catchtap="unfold" data-item="3">
+        <text class="txt {{fontColor3}}">{{gradeValue}}</text>
+        <image class="down {{upAndDown3}}" src="{{down3}}"></image>
+      </view>
+    </view>
+    <view class="distance" wx:if="{{distance_show}}">
+      <view class="options {{telescopic1}}" wx:for="{{distances}}" wx:key="index" catchtap="choose" data-item="1" data-index="{{index}}">
+        <text class="distance_txt {{item.color}}">{{item.cont}}</text>
+        <image class="distance_img" wx:if="{{item.flag}}" src="../../icon/selcet_hook.png"></image>
+      </view>
+    </view>
+    <view class="goodAt" wx:if="{{goodAt_show}}">
+      <view class="option {{telescopic2}}">
+        <view class="options {{item.active}}" wx:for="{{goodAt}}" catchtap="choose" wx:key="index" data-item="2" data-index="{{index}}">
+          {{item.cont}}
+        </view>
+      </view>
+      <view class="btn">
+        <button class="btns" size="mini" catchtap="finish">完成</button>
+      </view>
+    </view>
+    <view class="grade" wx:if="{{grade_show}}">
+      <view class="options {{telescopic3}}" wx:for="{{grade}}" catchtap="choose" wx:key="index" data-item="3" data-index="{{index}}">
+        <text class="distance_txt {{item.color}}">{{item.cont}}</text>
+        <image class="distance_img" wx:if="{{item.flag}}" src="../../icon/selcet_hook.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="map">
+    <map id="maps" bindtap="clickMap" class="maps" longitude="{{longitude}}" latitude="{{latitude}}" scale="11" show-location bindregionchange="regionchange" markers="{{markers}}" catchcallouttap="callouttaphandle">
+    </map>
+  </view>
+  <scroll-view scroll-y="{{openScroll}}" class="notices {{anima}}" style="height:{{searchHeights}}px;" bindtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd" bindscrolltolower="lower" >
+    <view class="bulletin">
+      <view class="bulletin_left">
+        <image class="bulletin_left_img" src="../../icon/trumpet.png"></image>
+        <text class="bulletin_left_txt">食安寻宴联合中华保险推出最新食品安全组合保险</text>
+      </view>
+      <view class="bulletin_right">
+        详情 >
+      </view>
+    </view>
+    <navigator class="chefs" wx:for="{{chefs}}" wx:key="index" open-type="navigate" url="/secondary/pages/findChef_chefDetails/index?chef_id={{item.chef_id}}">
+      <view class="chefs_avatar">
+        <image class="chefs_avatar_img" src="{{item.chef_photo}}"></image>
+      </view>
+      <view class="chefs_info">
+        <view class="medal">
+          <image class="medal_img" src="../../icon/medal.png"></image>
+          <text>厨师协会会员</text>
+        </view>
+        <view class="chefs_first">
+          <view class="chefs_first_name">{{item.chef_name}}</view>
+          <view class="chefs_first_score">{{item.score}}<text class="fen">分</text></view>
+        </view>
+        <view class="grade">{{grade[item.chef_level].cont}}</view>
+        <view class="goodAt">
+          <view class="goodAt_item" wx:for="{{item.cuisine}}" wx:key="index">{{goodAt[item].cont}}</view>
+        </view>
+        <view class="comment">
+          <view class="comment_left">{{item.comments.length}}个评论</view>
+          <view class="comment_right">{{item.comments[0]?'“'+item.comments[0]+'”':""}}{{item.comments[1]?'“'+item.comments[1]+'”':""}}{{item.comments[0]?'“'+item.comments[0]+'”':""}}{{item.comments[1]?'“'+item.comments[1]+'”':""}}</view>
+        </view>
+        <view class="last">
+          <view class="last_left">
+            <!-- <text class="list">红榜</text> -->
+            <text class="distance">距离 {{item.distance}}</text>
+          </view>
+          <block catchtap="block">
+            <navigator class="last_right" open-type="navigate" url="/tertiary/pages/findChef_chefDetails/index?chef_id={{item.chef_id}}"><text space="ensp">预 约</text></navigator>
+          </block>
+        </view>
+      </view>
+    </navigator>
+  </scroll-view>
+  <view class="viewList" wx:if="{{fullScreen}}" bindtap="viewList">
+    <image class="viewList_img" src="../../icon/ulolli.png"></image>
+    <text>查看列表</text>
+  </view>
+  <swiper class="chefSwiper" previous-margin="35rpx" next-margin="25rpx" wx:if="{{fullScreen}}" current="{{current}}" catchtap="block" catchchange="eventhandle">
+    <block wx:for="{{chefs}}" wx:key="index">
+      <swiper-item>
+        <navigator class="swiper-item" open-type="navigate" url="/secondary/pages/findChef_chefDetails/index?chef_id={{item.chef_id}}" catchtap="block">
+          <view class="chefs">
+            <view class="chefs_avatar">
+              <image class="chefs_avatar_img" src="{{item.chef_photo}}"></image>
+            </view>
+            <view class="chefs_info">
+              <view class="medal">
+                <image class="medal_img" src="../../icon/medal.png"></image>
+                <text>厨师协会会员</text>
+              </view>
+              <view class="chefs_first">
+                <view class="chefs_first_name">{{item.chef_name}}</view>
+                <view class="chefs_first_score">{{item.score}}<text class="fen">分</text></view>
+              </view>
+              <view class="grade">{{grade[item.chef_level].cont}}</view>
+              <view class="goodAt">
+                <view class="goodAt_item" wx:for="{{item.cuisine}}" wx:key="index">{{goodAt[item].cont}}</view>
+              </view>
+              <view class="comment">
+                <view class="comment_left">{{item.comments.length}}个评论</view>
+                <view class="comment_right comment_rights">{{item.comments[0]?'“'+item.comments[0]+'”':""}}{{item.comments[1]?'“'+item.comments[1]+'”':""}}{{item.comments[0]?'“'+item.comments[0]+'”':""}}{{item.comments[1]?'“'+item.comments[1]+'”':""}}</view>
+              </view>
+              <view class="last">
+                <view class="last_left">
+                  <!-- <text class="list">红榜</text> -->
+                  <text class="distance">距离 {{item.distance}}</text>
+                </view>
+                <block catchtap="block">
+                  <navigator class="last_right" open-type="navigate" url="/tertiary/pages/findChef_chefDetails/index?chef_id={{item.chef_id}}"><text space="ensp">预 约</text></navigator>
+                </block>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

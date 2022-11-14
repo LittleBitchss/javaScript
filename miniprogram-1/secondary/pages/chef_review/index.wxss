@@ -1,0 +1,61 @@
+/* secondary/pages/chef_review/index.wxss */
+.chef_review{
+  height: 100vh;
+  overflow: auto;
+  background-color: #e5e5e5;
+}
+.chef_review .review{
+  margin-top: 10rpx;
+  border-radius: 15rpx;
+  background-color: #fff;
+}
+.chef_review .review .score{
+  height: 104rpx;
+  border-bottom: #e5e5e5 2rpx dotted;
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+  font-size: 25rpx;
+  font-family: 'Light';
+}
+.chef_review .review .score .score_txt{
+  font-size: 12rpx;
+}
+.chef_review .review .score .score_star{
+  display: flex;
+}
+.chef_review .review .score .score_star .star{
+  width: 30rpx;
+  height: 30rpx;
+  display: block;
+  margin-left: 4rpx;
+}
+
+.chef_review .review .evaluate{
+  min-height: 86rpx;
+  font-family: 'Medium';
+  font-size: 22rpx;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.chef_review .review .imgs{
+  min-height: 394rpx;
+  padding: 0 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.chef_review .review .imgs .img{
+  width: 204rpx;
+  height: 204rpx;
+  background-color: #e5e5e5;
+  border-radius: 15rpx;
+  margin-right: 48rpx;
+  margin-bottom: 20rpx;
+}
+.chef_review .review .imgs .img:nth-child(3n){
+  margin-right: 0;
+}

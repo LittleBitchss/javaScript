@@ -1,0 +1,103 @@
+/**app.wxss**/
+/* 初始化样式 */
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+page,view,text,swiper,swiper-item,image,navigator{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* 主题颜色，声明变量 */
+page{
+  font-size: 28rpx;
+}
+
+
+/* 选择框 */
+checkbox .wx-checkbox-input {
+  border-radius: 3rpx;
+  height: 20rpx;
+  width: 20rpx;
+  border: 2rpx solid #000;
+  border-radius: 50%;
+  background: #e5e5e5;
+  margin-top: -5rpx;
+}
+.checkbox .wx-checkbox-input-disabled {
+  border-radius: 3rpx;
+  height: 14rpx;
+  width: 14rpx;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 20rpx;
+  height: 20rpx;
+  background-color: #579cff; 
+  border-radius: 50%; 
+  content: ''; 
+}
+.checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #fff !important;
+}
+/*radio未选中时样式 */ 
+radio .wx-radio-input {
+  border-color: #000;
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: -4rpx;
+}
+/* 选中后的 背景样式 */
+radio .wx-radio-input.wx-radio-input-checked {
+  width: 30rpx;
+  height: 30rpx;
+}
+.group .lab{ 
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+radio .wx-radio-input{ 
+  width: 20rpx; 
+  height: 20rpx; 
+  margin-top: -5rpx; 
+  border: solid 2rpx #000 !important; 
+  border-radius: 50%; 
+  background: #e5e5e5;
+}
+/*单选，多选按钮选中后背景样式 */
+radio .wx-radio-input.wx-radio-input-checked { 
+  width: 20rpx; 
+  height: 20rpx; 
+  background: #fff !important; 
+  border: solid 2rpx #000; 
+  border-radius: 50%; 
+}
+/*单选，多选按钮选中后勾勾样式*/
+radio .wx-radio-input.wx-radio-input-checked::before { 
+  width: 20rpx;
+  height: 20rpx;
+  background-color: #579cff; 
+  border-radius: 50%; 
+  content: ''; 
+}
+
+.menu .wx-swiper-dots.wx-swiper-dots-horizontal {
+  top: 24rpx;
+
+}
+.menu .wx-swiper-dots .wx-swiper-dot {
+  border: 2rpx solid #4768f3;
+}
+
+
+.chefGoHome .wx-radio-input{
+  border: 2rpx solid #4768f3 !important;
+} 
+.chefGoHome radio{
+  text-align: center;
+  width: 25rpx;
+  height: 25rpx;
+}

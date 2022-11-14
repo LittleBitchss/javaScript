@@ -1,0 +1,65 @@
+<!--fourth/pages/chef_safety/index.wxml-->
+<view class="chef_safety">
+  <view class="chef_safety_top">
+    <view class="bg">
+    </view>
+    <view class="benefit">
+      <view class="benefits">购买食品安全责任险的好处</view>
+      <view class="benefit1">
+        <view class="benefit1_item"></view>
+        <text class="benefit1_text">发生食品安全意外保险可以理赔</text>
+      </view>
+      <view class="benefit1">
+        <view class="benefit1_item"></view>
+        <text class="benefit1_text">发生意外医疗可报销，住院享津贴</text>
+      </view>
+    </view>
+    <view class="scheme">
+      <view class="title">
+        <view class="title_item {{active1}}" bindtap="taggle" data-item="1">
+          <view class="title_item_isAssure">全面保障</view>
+          <view class="title_item_isScheme">方案一</view>
+          <view class="actives" wx:if="{{isShow==1}}"></view>
+        </view>
+        <view class="title_item {{active2}}" bindtap="taggle" data-item="2">
+          <view class="title_item_isAssure">无保障</view>
+          <view class="title_item_isScheme">方案二</view>
+          <view class="actives" wx:if="{{isShow==2}}"></view>
+        </view>
+      </view>
+      <view class="content">
+        <view class="content1">
+          <text class="content1_left">意外医疗补偿</text>
+          <text class="{{isAssure}}">4.00元</text>
+        </view>
+        <view class="content1">
+          <text class="content1_left">住院补贴</text>
+          <text class="{{isAssure}}">3.00元</text>
+        </view>
+        <view class="content1">
+          <text class="content1_left">食品安全个人责任</text>
+          <text class="{{isAssure}}">3.00元</text>
+        </view>
+        <view class="content1 content2" bindtap="coverDetails">
+          查看保障详情
+        </view>
+      </view>
+      <view class="btm">
+        请阅读<text class="btms" bindtap="openNotice" data-item="1">《投保须知》</text><text class="btms" bindtap="openNotice" data-item="2">《保险条款》</text>
+      </view>
+    </view>
+  </view>
+  <view class="insure">
+    <view class="money">{{insurance}}<text class="yuan">元</text> </view>
+    <button class="insureBtn" size="mini" bindtap="insure">{{isShow==1?"我要投保":"接受预约"}}</button>
+  </view>
+</view>
+<view class="noticess" wx:if="{{isShows}}">
+  <view class="notices {{anima}}">
+    <image class="img" wx:for="{{imgArr}}" wx:key="index" src="{{}}"></image>
+    <button class="bttn {{btnColor}}" size="mini" bindtap="closeNotice" disabled="{{disabled1}}">我已知晓{{countdown}}</button>
+  </view>
+</view>
+<page-container class="page-container" show="{{show}}" position="center" bind:leave="eventhandle">
+
+</page-container>

@@ -1,0 +1,130 @@
+<!--pages/chefGoHome/index.wxml-->
+<view class="chefGoHome">
+  <view class="top">
+    <view class="diniInfo">
+      <view class="title">用餐信息</view>
+      <view class="item">
+        <view class="item_left">服务日期</view>
+        <picker mode="date" value="{{date}}" class="item_right" start="2022-07-04" end="2030-12-31" fields="day" bindchange="bindChange" data-index="1">
+          <view class="picker">
+            <text class="item_right_txt {{fontColor1}}">{{date}}</text>
+            <image class="item_right_img" src="../../../icon/mine_right_arrow.png"></image>
+          </view>
+        </picker>
+      </view>
+      <view class="item">
+        <view class="item_left">用餐时间</view>
+        <picker mode="time" value="{{time}}" class="item_right" start="06:01" end="23:59" bindchange="bindChange" data-index="2">
+          <view class="picker">
+            <text class="item_right_txt {{fontColor2}}">{{time}}</text>
+            <image class="item_right_img" src="../../../icon/mine_right_arrow.png"></image>
+          </view>
+        </picker>
+      </view>
+      <view class="item">
+        <view class="item_left">用餐人数</view>
+        <view class="item_right">
+          <view class="item_right_">
+            <input class="item_right_inp" type="number" placeholder="请输入用餐人数" maxlength="4" placeholder-class="placeholder" bindinput="inputs" bindblur="blur" data-index="1" value="{{value1}}" />人
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="item_left">联系电话</view>
+        <view class="item_right">
+          <view class="item_right_">
+            <input class="item_right_inp" type="number" placeholder="请输入联系电话" placeholder-class="placeholder" maxlength="11" bindinput="inputs" bindblur="blur" data-index="2" value="{{value2}}" />
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <text class="item_left">用餐地址：</text>
+        <view class="region {{fontColor3}}" bindtap="siteTesting">
+          <text class="txt txts">{{region[0]}}</text>
+          <text class="txt txts">{{region[1]}}</text>
+          <text class="txt txts">{{region[2]}}</text>
+          <text class="txt txts">{{region[3]}}</text>
+          <text class="txt txts">{{region[4]}}</text>
+        </view>
+        <image class="item_right_img" src="../../../icon/mine_right_arrow.png" bindtap="siteTesting"></image>
+      </view>
+      <view class="item">
+        <view class="item_left"></view>
+        <view class="item_right">
+          <view class="item_right_">
+            <input class="item_right_inp" type="text" placeholder="请输入详细地址" placeholder-class="placeholder" bindinput="inputs" data-index="3" value="{{value3}}" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="note">
+      <view class="note_left">特别备注</view>
+      <view class="note_right">
+        <text class="note_right_txt">{{value4}}</text>
+        <textarea class="note_right_area" placeholder-class="placeholder" bindinput="inputs" placeholder="请填写您所需要求" data-index="4" value="{{value4}}"></textarea>
+      </view>
+    </view>
+    <view class="securitys">
+      <view class="security_title">安全保障</view>
+      <radio-group class="security" bindchange="radioChange">
+        <label class="security_item security_left {{active1}}">
+          <view class="security_item_top {{bdColor1}}">无保障</view>
+          <view class="security_left_bottom">
+            <view class="security_left_bottom_imgs">
+              <image class="security_left_bottom_img" src="../../../icon/goHome_null.png"></image>
+            </view>
+            <view class="security_left_bottom_txt">0项</view>
+            <view class="security_left_bottom_checkbox">
+              <radio value="0" checked="{{checked1}}" />
+            </view>
+          </view>
+        </label>
+        <label class="security_item security_right {{active2}}">
+          <view class="security_item_top {{bdColor2}}">厨师到家安全组合险</view>
+          <view class="security_right_bottom">
+            <view class="security_right_item">
+              <view class="security_right_item_cont">
+                <image class="security_right_item_cont_imgs" src="../../../icon/goHome_casualty.png"></image>
+                <text class="security_right_item_cont_txt">意外伤害险</text>
+              </view>
+            </view>
+            <view class="security_right_midden">
+              <view class="price">10元</view>
+              <view class="security_right_midden_add">
+                <view class="security_right_midden_add_item"></view>
+                <view class="security_right_midden_add_item security_right_midden_add_items"></view>
+              </view>
+              <view class="security_right_midden_checkbox">
+                <radio value="10" checked="{{checked2}}" />
+              </view>
+            </view>
+            <view class="security_right_item">
+              <view class="security_right_item_cont">
+                <image class="security_right_item_cont_img" src="../../../icon/goHome_foodSafety.png"></image>
+                <text class="security_right_item_cont_txt">食品安全责任险</text>
+              </view>
+            </view>
+          </view>
+        </label>
+      </radio-group>
+    </view>
+    <view class="announcements">
+      <view class="announcements_top">注意事项</view>
+      <text class="announcements_bottom">1.本次服务仅提供厨师上门服务.
+        2.厨师上门服务不包含餐后打扫清洁工作.
+        3.厨师接单后会与您去的联系确认订单详情.
+        4.如需其他菜谱待厨师接单后自行协商.
+        5.订单取消规则详见<text class="announcements_bottom_color">《用户取消协议》</text>
+        6.保险退款规则详见<text class="announcements_bottom_color">《保险退款协议》</text>
+      </text>
+    </view>
+  </view>
+  <view class="bottom" bindtap="submitInfo">
+    提交
+  </view>
+</view>
+<page-container class="page-container" show="{{show}}" position="bottom" overlay="true" bind:clickoverlay="eventhandle">
+  <view class="page-root">
+    <area-select id="areaSelect" bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"></area-select>
+  </view>
+</page-container>

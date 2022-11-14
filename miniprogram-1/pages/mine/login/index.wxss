@@ -1,0 +1,213 @@
+/* pages/login/login.wxss */
+.pag{
+  height: 100vh;
+  font-family: 'Normal';
+}
+image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.loginSubmit{
+  width: 638rpx;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -319rpx;
+  transform: translateY(-50%);
+  background-color: #eeeeee;
+  border-radius: 20rpx;
+}
+.loginSubmit .title{
+  font-family: 'Bold';
+  width: 539rpx;
+  height: 68rpx;
+  margin: 60rpx auto 0;
+  color: #002964;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginSubmit .content{ 
+  width: 616rpx;
+  margin: 0 auto;
+  border-bottom: 4rpx solid #002964;
+}
+.loginSubmit .content .item{
+  width: 534rpx;
+  height: 64rpx;
+  margin: 0 auto;
+}
+.borderColor{
+  border: 2rpx solid #b6b6b6;
+  border-left: 2rpx solid #b6b6b6;
+
+}
+.borderColorActive{
+  border: 2rpx solid #002964;
+  border-left: 2rpx solid #002964;
+}
+.loginSubmit .content .content-phone{
+  font-family: 'Light';
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 0;
+}
+.loginSubmit .content .content-phone image{
+  width:28rpx;
+  height: 80%;
+}
+.loginSubmit .content .content-phone .phoneInput{
+  height: 100%;
+  font-size: 26rpx;
+  flex: 1;
+  padding: 0 10rpx;
+}
+.loginSubmit .content .content-phone .phoneInput{
+  width: 50%;
+}
+.loginSubmit .content .pas{
+  box-sizing: border-box;
+}
+.loginSubmit .content .pas .pass{
+  height: 100%;
+  font-size: 26rpx;
+  flex: 1;
+  padding: 0 10rpx;
+  font-family: 'Light';
+}
+
+
+.loginSubmit .content .content-verify{
+  margin-bottom: 0 !important;
+  width: 542rpx;
+}
+
+.loginSubmit .content .content-code{
+  font-family: 'Light';
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12rpx;
+  box-sizing: border-box;
+  align-items: center;
+  font-size: 26rpx;
+}
+
+.loginSubmit .content .content-code image{
+  width: 50rpx;
+  height: 60%;
+}
+.loginSubmit .content .content-code .codeInput{
+  padding: 0 12rpx;
+}
+.loginSubmit .content .content-code .sendBtn{
+  height: 60%;
+  width: 260rpx;
+  padding: 0;
+  border: 0;
+  border-left: 1rpx solid #b6b6b6;
+  font-size: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+  color: #002964;
+}
+
+.loginSubmit .content .mimaCode{
+  display: flex;
+  justify-content: flex-end;
+  font-size: 25rpx;
+  font-family: 'Bold';
+  color: #002964;
+  align-items: flex-start;
+}
+.loginSubmit .content .mimaCode .txt{
+  border-bottom: 2rpx solid #002964;
+}
+
+
+
+.loginSubmit .content .hint{
+  height: 30rpx;
+  width: 539rpx;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  color: red;
+  
+}
+.loginSubmit .content .hint icon{
+  display: block;
+}
+.loginSubmit .content .hint text{
+  display: block;
+  line-height: 40rpx;
+  font-size: 22rpx;
+}
+.loginSubmit .content .noShow{
+  opacity: 0;
+}
+
+.loginSubmit .content .content-btn button{
+  height: 100%;
+  width: 100%;
+  background-color: #002964;
+  color: #fff;
+  padding: 0;
+  border-radius: 0;
+  line-height: 54rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginSubmit .content .content-btn button text{
+ display: inline-block;
+ width: 62rpx;
+}
+.loginSubmit .content .goRegister{
+  font-family: 'Bold';
+  display: flex;
+  justify-content: center;
+  font-size: 25rpx;
+  align-items: center;
+}
+.loginSubmit .content .goRegister navigator{
+  color: #002964;
+  display: flex;
+  align-items: flex-end;
+}
+
+.loginSubmit .bottom{
+  display: flex;
+  align-items: center;
+  height: 182rpx;
+}
+.loginSubmit .bottom .contents{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 122rpx;
+  flex: 1;
+  padding: 0 26rpx;
+}
+.loginSubmit .bottom .contents view{
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loginSubmit .bottom .contents view image{
+  width: 84rpx;
+}
+.loginSubmit .bottom .contents view text{
+  margin-top: 16rpx;
+  font-size: 25rpx;
+  color: #002964;
+}

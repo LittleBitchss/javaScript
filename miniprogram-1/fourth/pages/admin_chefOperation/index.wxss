@@ -1,0 +1,74 @@
+/* fourth/pages/admin_chefOperation/index.wxss */
+.admin_chefOperation{
+  height: 100vh;
+  background-color: #e5e5e5;
+}
+
+.admin_chefOperation .tab{
+  height: 5%;
+  display: flex;
+  border-top: 2rpx solid #000;
+  border-bottom: 2rpx solid #000;
+}
+.admin_chefOperation .tab .tabs{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 2rpx solid #000;
+}
+.admin_chefOperation .tab .noBorder{
+  border-right: 0;
+}
+.admin_chefOperation .tab .bgColor{
+  background-color: #002964;
+  color: #fff;
+}
+.admin_chefOperation .content{
+  height: 95%;
+}
+.kitchen{
+height: 100%;
+overflow: scroll;
+}
+.kitchen .frame{
+width: 90%;
+margin: 20rpx auto;
+border: 4rpx solid #003e97;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.kitchen .frame .img{
+margin: 10rpx 0;
+}
+.dishes{
+height: 100%;
+overflow: scroll;
+}
+.dishes .frame{
+width: 90%;
+margin: 20rpx auto;
+border: 4rpx solid #003e97;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.dishes .frame .img{
+margin: 10rpx 0;
+}
+.disinfect{
+height: 100%;
+overflow: scroll;
+}
+.disinfect .frame{
+width: 90%;
+margin: 20rpx auto;
+border: 4rpx solid #003e97;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.disinfect .frame .img{
+margin: 10rpx 0;
+}

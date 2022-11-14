@@ -1,0 +1,108 @@
+<!--components/user_orderHealth/user_orderHealth.wxml-->
+<view class="user_orderHealth">
+  <view class="item">
+    <view class="project">使用水源<text class="colon">:</text></view>
+    <checkbox-group class="group">
+      <label class="option1 lab">
+        <view class="rad">
+          <checkbox value="自来水" checked="{{checked1}}" disabled="true"/>
+        </view>
+        <view class="txt">自来水</view>
+      </label>
+      <label class="option1 lab">
+        <view class="rad">
+          <checkbox value="井水" checked="{{checked11}}" disabled="true"/>
+        </view>
+        <view class="txt">井水</view>
+      </label>
+      <label class="option1 lab">
+        <view class="rad">
+          <checkbox value="荷塘水" checked="{{checked111}}" disabled="true"/>
+        </view>
+        <view class="txt">荷塘水</view>
+      </label>
+      <label class="option1 lab">
+        <view class="rad">
+          <checkbox value="其他" checked="{{checked1111}}" disabled="true"/>
+        </view>
+        <view class="txt">其他</view>
+      </label>
+    </checkbox-group>
+  </view>
+  <view class="item">
+    <view class="project">餐具消毒方式<text class="colon">:</text></view>
+    <checkbox-group class="group">
+      <label class="option1 lab">
+        <view class="rad">
+          <checkbox value="消毒柜" checked="{{checked2}}" disabled="true"/>
+        </view>
+        <view class="txt">消毒柜</view>
+      </label>
+      <label class="option1 lab">
+        <view class="rad">
+          <checkbox value="煮沸消毒" checked="{{checked22}}" disabled="true"/>
+        </view>
+        <view class="txt">煮沸消毒</view>
+      </label>
+      <label class="option1 lab">
+        <view class="rad">
+          <checkbox value="药物消毒" checked="{{checked222}}" disabled="true"/>
+        </view>
+        <view class="txt">药物消毒</view>
+      </label>
+      <label class="option1 lab">
+        <view class="rad">
+          <checkbox value="其他" checked="{{checked2222}}" disabled="true"/>
+        </view>
+        <view class="txt">其他</view>
+      </label>
+      <label class="option1 lab">
+        <view class="rad">
+          <checkbox value="未消毒" checked="{{checked22222}}" disabled="true"/>
+        </view>
+        <view class="txt">未消毒</view>
+      </label>
+    </checkbox-group>
+  </view>
+  <view class="item">
+    <view class="project">是否贮藏或使用以下有害物质<text class="colon">:</text></view>
+    <checkbox-group class="group groups">
+      <label class="labels lab">
+        <view class="check">
+          <checkbox value="磷化锌" checked="{{checked3}}" disabled="true"/>
+        </view>
+        <view class="txts">磷化锌</view>
+      </label>
+      <label class="labels lab">
+        <view class="check">
+          <checkbox value="磷化铝" checked="{{checked33}}" disabled="true"/>
+        </view>
+        <view class="txts">磷化铝</view>
+      </label>
+      <label class="labels labelss lab">
+        <view class="check">
+          <checkbox value="亚硝酸盐" checked="{{checked333}}" disabled="true"/>
+        </view>
+        <view class="txts">亚硝酸盐</view>
+      </label>
+      <label class="labels lab">
+        <view class="check">
+          <checkbox value="剧毒农药" checked="{{checked3333}}" disabled="true"/>
+        </view>
+        <view class="txts">剧毒农药</view>
+      </label>
+      <label class="labels lab">
+        <view class="check">
+          <checkbox value="醇基燃料" checked="{{checked33333}}" disabled="true"/>
+        </view>
+        <view class="txts">醇基燃料</view>
+      </label>
+      <label class="labels labelss lab">
+        <view class="check">
+          <checkbox value="家中不存在有害物质" checked="{{checked333333}}" disabled="true"/>
+        </view>
+        <view class="txts">家中不存在有害物质</view>
+      </label>
+    </checkbox-group>
+  </view>
+</view>

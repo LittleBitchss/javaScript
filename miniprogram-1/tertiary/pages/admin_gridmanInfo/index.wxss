@@ -1,0 +1,164 @@
+/* tertiary/pages/admin_gridmanInfo/index.wxss */
+.admin_gridmanInfo{
+  background-color: #e5e5e5;
+  height: 100vh;
+}
+.admin_gridmanInfo .infoTop{
+  width: 80%;
+  height: calc(100% - 88rpx);
+  margin: 0 auto;
+  padding: 40rpx 0;
+  box-sizing: border-box;
+}
+.admin_gridmanInfo .infoTop .basicInfo .item{
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.admin_gridmanInfo .infoTop .basicInfoInput{
+  width: 430rpx;
+  border: 4rpx solid #b5b5b5;
+  border-radius: 10rpx;
+  padding: 0 10rpx;
+  font-size: 24rpx;
+}
+.admin_gridmanInfo .infoTop .high{
+  width: 340rpx;
+}
+.admin_gridmanInfo .infoTop .highs{
+  width: 370rpx;
+}
+.placeholderClass{
+  color:#b5b5b5; 
+  font-size:24rpx
+}
+.placeholderClassErr{
+  color:red; 
+  font-size:24rpx
+}
+.admin_gridmanInfo .infoTop .borderColorErr{
+  border: 4rpx solid red;
+}
+.admin_gridmanInfo .infoTop .left{
+  font-size: 30rpx;
+  font-family: 'Medium';
+}
+.admin_gridmanInfo .infoTop .left .colon{
+  font-size: 22rpx;
+  font-family: 'Light';
+}
+.admin_gridmanInfo .infoTop .right{
+  font-size: 16rpx;
+  color: red;
+  width: 60rpx;
+  text-align: end;
+}
+.admin_gridmanInfo .infoTop .show{
+  opacity: 0;
+}
+
+.admin_gridmanInfo .infoTop .basicInfo-midden{
+  display: flex;
+}
+.admin_gridmanInfo .infoTop  .sex{
+  font-size: 24rpx;
+}
+.admin_gridmanInfo .infoTop  .select{
+  border: 4rpx solid #b5b5b5;
+  flex: 1;
+  border-radius: 10rpx;
+  height: 50rpx;
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10rpx;
+  color: #b6b6b6;
+  position: relative;
+}
+.admin_gridmanInfo .infoTop .fontColor{
+  color: #000;
+}
+.admin_gridmanInfo .infoTop .borderColor{
+  border: 4rpx solid #000000;
+}
+.admin_gridmanInfo .infoTop .select  .down{
+  width: 16rpx;
+  height: 12rpx;
+  display: block;
+}
+.admin_gridmanInfo .infoTop .listss{
+  position:absolute;
+  top: 50rpx;
+  width: 450rpx;
+  max-height: 300rpx;
+  z-index: 100;
+  background-color: #fff;
+  left: 0;
+}
+.admin_gridmanInfo .infoTop .listss .listsss{
+  width: 80%;
+  height: 50rpx;
+  margin: 0 auto;
+  border-bottom: 2rpx solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin_gridmanInfo .infoTop .basicInfo-midden .left{
+  width: 160rpx;
+}
+.admin_gridmanInfo .infoTop .basicInfo-midden .area .leftText{
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.admin_gridmanInfo .infoTop .basicInfo-midden .address{
+  width: 76%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.admin_gridmanInfo .infoTop .basicInfo-midden .address .area-item{
+  display: flex;
+  height: 100rpx;
+  width: 100%;
+  align-items: center;
+}
+.admin_gridmanInfo .infoTop .basicInfo-midden .address .area-item .select{
+  flex: 1;
+  border-radius: 10rpx;
+  margin: 0 !important;
+  position: relative;
+  font-size: 24rpx;
+}
+
+.admin_gridmanInfo .infoTop .basicInfo-midden .address .area-item .select .listss{
+  left: 0;
+  width: 390rpx;
+  max-height: 300rpx;
+  overflow:scroll;
+  
+}
+.admin_gridmanInfo .infoTop .basicInfo-midden .address .area-item .right{
+  width: 60rpx;
+}
+.admin_gridmanInfo .infoTop .basicInfo-midden .address .col .select{
+  color: #000;
+}
+
+
+
+.admin_gridmanInfo .infoBottom{
+  height: 88rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  font-family: 'Medium';
+  background-color: #4768f3;
+  color: #fff;
+}

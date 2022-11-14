@@ -1,0 +1,79 @@
+<!--pages/login/login.wxml-->
+<view class="pag">
+  <image src="{{domain}}bg.png"></image>
+  <form class="loginSubmit" bindsubmit="loginSubmit">
+    <view class="title">
+      <text wx:if="{{titleShow == 0}}">验证码登录</text>
+      <text wx:if="{{titleShow == 1}}">密码登录</text>
+    </view>
+    <view class="content">
+      <view class="item content-phone {{phoneBorderColor}}">
+        <image src="{{phoneImg}}"></image>
+        <view style="width: 50rpx; margin: 0 10rpx; font-size: 24rpx; color: #b6b6b6; display: flex; justify-content: center;">
+          +86
+        </view>
+        <input name="phone" class="phoneInput" type="number" placeholder="请输入您的电话号码" placeholder-style="color: #b6b6b6;" bindfocus="phoneEntry" bindinput="phoneEnter" value="{{phoneInputValue}}" bindblur="phoneFinishExit" />
+      </view>
+      <view class="hint {{phoneIsShow}}">
+        <icon type="warn" size="14"></icon>
+        <text>请输入正确的手机号码</text>
+      </view>
+      <block class="codess" wx:if="{{titleShow == 0}}">
+        <view class="content-verify item" style="margin-bottom:6%;">
+          <move-verify bind:result="verificationResult"></move-verify>
+        </view>
+        <view class="hint"></view>
+        <view class="item content-code {{codeBorderColor}}">
+          <image src="{{codeImg}}"></image>
+          <input name="code" class="codeInput" type="number" placeholder="短信验证码" placeholder-style="color: #b6b6b6;" bindfocus="codeEntry" bindinput="codeEnter" value="{{codeInputValue}}" bindblur="codeFinishExit" maxlength="6" />
+          <button type="default" class="sendBtn" plain="true" bindtap="requestCode" disabled="{{disabled}}">{{codeText}}</button>
+        </view>
+        <view class="hint {{codeIsShow}}">
+          <icon class="icon-small" type="warn" size="14"></icon>
+          <text>请输入合法验证码</text>
+        </view>
+      </block>
+      <block class="passs" wx:if="{{titleShow == 1}}">
+        <view class="item pas {{passBorderColor}}">
+          <input name="pass" class="pass" type="password" placeholder="请输入您的密码" placeholder-style="color: #b6b6b6;" bindfocus="passEntry" bindinput="passEnter" value="{{passInputValue}}" bindblur="passFinishExit" />
+        </view>
+        <view class="hint {{passIsShow}}">
+          <icon class="ic" type="warn" size="14"></icon>
+          <text class="txt">必须包含一个大写，小写字母，长度8到16位</text>
+        </view>
+      </block>
+
+      <view class="item mimaCode">
+        <text class="txt" wx:if="{{titleShow == 0}}" bindtap="taggles" data-index="1">密码登录</text>
+        <text class="txt" wx:if="{{titleShow == 1}}"bindtap="taggles" data-index="0">验证码登录</text>
+      </view>
+      <view class="item content-btn">
+        <button form-type="submit">登<text></text>录</button>
+      </view>
+      <view class="item goRegister">
+        <navigator open-type="redirect" url="/pages/mine/register/register">前往注册</navigator>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="contents">
+        <view>
+          <image src="{{domain}}digitizing.png"></image>
+          <text>数字化管理</text>
+        </view>
+        <view>
+          <image src="{{domain}}specificationExecution.png"></image>
+          <text>规范执行</text>
+        </view>
+        <view>
+          <image src="{{domain}}uniformStandards.png"></image>
+          <text>统一标准</text>
+        </view>
+        <view>
+          <image src="{{domain}}safeAndPowerful.png"></image>
+          <text>安全有力</text>
+        </view>
+      </view>
+
+    </view>
+  </form>
+</view>

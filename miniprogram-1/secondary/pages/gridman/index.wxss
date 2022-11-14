@@ -1,0 +1,223 @@
+/* pages/gridman/gridman.wxss */
+.gridman {
+  height: 100vh;
+}
+
+.gridman .content {
+  height: 92%;
+}
+
+.gridman .content .countryBanquetList {
+  height: 100%;
+  background-color: #e5e5e5;
+  font-family: 'Medium';
+  font-size: 18rpx;
+}
+
+.gridman .content .countryBanquetList .table {
+  height: 100%;
+  border-top: 2rpx solid #000;
+}
+
+.gridman .content .countryBanquetList .table .title {
+  height: 6%;
+  display: flex;
+  font-size: 20rpx;
+}
+
+.gridman .content .countryBanquetList .table .uls {
+  height: 94%;
+  overflow: scroll;
+  font-family: 'Light';
+}
+
+.gridman .content .countryBanquetList .table .row {
+  position: relative;
+  width: 122rpx;
+  height: 100%;
+  border-right: 2rpx solid #000;
+  border-bottom: 2rpx solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.gridman .content .countryBanquetList .table .place {
+  width: 305rpx !important;
+}
+
+.gridman .content .countryBanquetList .table .operate {
+  flex: 1;
+  border-right: 0;
+}
+
+.gridman .content .countryBanquetList .table .operates {
+  color: #579cff;
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 0;
+  justify-content: space-around;
+  font-family: 'Medium';
+}
+
+.gridman .content .countryBanquetList .table .operates .ing {
+  color: #f25500;
+}
+
+.gridman .content .countryBanquetList .table .list {
+  height: 84rpx;
+  display: flex;
+}
+
+.gridman .content .gridmanInfo {
+  height: 100%;
+  background-color: #e5e5e5;
+  position: relative;
+}
+
+.gridman .content .gridmanInfo .openPage {
+  width: 35rpx;
+  height: 35rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}
+
+.gridman .content .gridmanInfo .photo {
+  height: 260rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30rpx;
+}
+
+.gridman .content .gridmanInfo .photo .photos {
+  width: 220rpx;
+  height: 220rpx;
+  border-radius: 50%;
+}
+
+.gridman .content .gridmanInfo .basicInfo {
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.gridman .content .gridmanInfo .basicInfo .item {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  height: 90rpx;
+}
+
+.gridman .content .gridmanInfo .basicInfo .select {
+  border: 4rpx solid #b5b5b5;
+  flex: 1;
+  border-radius: 10rpx;
+  height: 46rpx;
+  font-family: 'Light';
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10rpx;
+}
+
+.gridman .content .gridmanInfo .basicInfo .left {
+  font-size: 30rpx;
+  font-family: 'Medium';
+  width: 86rpx;
+}
+
+.gridman .content .gridmanInfo .basicInfo .left .colon {
+  font-size: 22rpx;
+  font-family: 'Light';
+}
+
+.gridman .content .gridmanInfo .basicInfo .adder {
+  display: flex;
+  width: 80%;
+  height: 450rpx;
+  margin: 0 auto;
+  margin-bottom: 30rpx;
+}
+
+.gridman .content .gridmanInfo .basicInfo .adder .left {
+  width: 146rpx;
+  height: 100%;
+}
+
+.gridman .content .gridmanInfo .basicInfo .adder .left .leftText {
+  height: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.gridman .content .gridmanInfo .basicInfo .adder .address {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.gridman .content .gridmanInfo .basicInfo .adder .address .area-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 20%;
+}
+
+.page-container .page-item {
+  height: 100rpx;
+  font-family: 'Medium';
+  font-size: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2rpx solid #eee;
+}
+
+.page-container .changePassword {
+  color: #f7982a;
+}
+
+
+
+
+
+.gridman .tab {
+  height: 8%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 2rpx solid #000;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.gridman .tab .item {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.gridman .tab .item .img {
+  width: 54rpx;
+  height: 56rpx;
+}
+
+.gridman .tab .item .text {
+  font-family: 'Medium';
+  font-size: 24rpx;
+  color: #b6b6b6;
+}
+
+.gridman .tab .item .fontColor {
+  color: #4768f3;
+}

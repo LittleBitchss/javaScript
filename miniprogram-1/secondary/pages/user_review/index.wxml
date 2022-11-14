@@ -1,0 +1,30 @@
+<!--secondary/pages/user_review/index.wxml-->
+<view class="user_review">
+  <view class="review">
+    <view class="score">
+      <view>本次评分<text class="score_txt">：</text></view>
+      <view class="score_star">
+        <image class="star" wx:for="{{star[score].stars}}" wx:key="index" src="{{item}}" bindtap="score" data-index="{{index}}"></image>
+      </view>
+    </view>
+    <view class="evaluate">
+      <text class="evaluate_txt">{{areaValue}}</text>
+      <textarea class="evaluate_area" placeholder-class="placeholder" bindinput="inputs" placeholder="请填写您所需要求" value="{{areaValue}}" maxlength="-1"></textarea>
+    </view>
+    <view class="bottoms">
+      <view class="clickPhoto" bindtap="addImg">
+        <image class="imgs" src="../../../icon/chef_camera.png"></image>
+        <view class="txt">点击上传</view>
+      </view>
+      <view class="clickPhoto" wx:for="{{review}}" wx:key="index">
+        <image class="img" src="{{item}}"></image>
+        <view class="remove" bindtap="remove" data-index="{{index}}">
+          <image class="remove_img" src="../../../icon/chef_remove.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="btns" bindtap="submitReview">
+    提交
+  </view>
+</view>

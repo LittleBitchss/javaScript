@@ -1,0 +1,33 @@
+/* components/user_orderBasics/user_orderBasics.wxss */
+.user_orderBasics {
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  position: relative;
+  padding: 20rpx 0;
+}
+.user_orderBasics .item {
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 34rpx;
+  font-size: 25rpx;
+  font-family: 'Normal';
+  border-bottom: 2rpx solid #eee;
+}
+.user_orderBasics .item .title{
+  width: 200rpx;
+  color: #999999;
+}
+.user_orderBasics .item .section{
+  flex: 1;
+}
+.user_orderBasics .item .inp {
+  flex: 1;
+  height: 60rpx;
+  border-radius: 10rpx;
+  font-size: 25rpx;
+  font-family: "Normal";
+  color: #333;
+}

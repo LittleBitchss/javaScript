@@ -1,0 +1,74 @@
+/* components/admin_gridman/index.wxss */
+.admin_gridman{
+  height: 100%;
+}
+.admin_gridman .add{
+  height: 10%;
+  display: flex;
+  align-items: center;
+  padding: 0 27rpx;
+}
+.admin_gridman .add .btn{
+  height: 60rpx;
+  width: 156rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 1rpx 1rpx 4rpx 0rpx #000;
+  font-size: 25rpx;
+  font-family: 'Medium';
+  margin: 0;
+}
+.admin_gridman .title{
+  width: 99%;
+  height: 5%;
+  display: flex;
+  border-top: 2rpx solid #282828;
+  border-bottom: 2rpx solid #282828;
+  margin: 0 auto;
+  font-size: 22rpx;
+  font-family: 'Medium';
+}
+.admin_gridman .row{
+  width: 120rpx;
+  border-left: 2rpx solid #282828;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin_gridman .rows{
+  flex: 1;
+}
+.admin_gridman .rowss{
+  border-right: 2rpx solid #282828;
+  width: 180rpx;
+}
+.admin_gridman .list{
+  height: 85%;
+}
+.admin_gridman .list .lists{
+  width: 99%;
+  height: 70rpx;
+  display: flex;
+  border-bottom: 2rpx solid #282828;
+  margin: 0 auto;
+  font-size: 22rpx;
+  font-family: 'Light';
+  text-align: center;
+}
+.admin_gridman .list .lists .rowss .edit{
+  width: 40%;
+  height: 100%;
+  border-right: 2rpx solid #282828;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #579cff;
+}
+.admin_gridman .list .lists .rowss .track{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  color: #f14c45;
+}

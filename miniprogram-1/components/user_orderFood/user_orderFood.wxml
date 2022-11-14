@@ -1,0 +1,269 @@
+<!--components/applicationDetailsFood/applicationDetailsFood.wxml-->
+<view class="user_orderFood">
+  <view class="item">
+    <view class="project">肉类来源<text class="colon">:</text></view>
+    <checkbox-group class="group">
+      <label class="option1 lab">
+        <view class="rad">
+          <checkbox value="市场购买" checked="{{checked1}}" disabled="true"/>
+        </view>
+        <view class="txt">市场购买</view>
+      </label>
+      <label class="option1 lab">
+        <view class="rad">
+          <checkbox value="自家喂养" checked="{{checked11}}"  disabled="true"/>
+        </view>
+        <view class="txt">自家喂养</view>
+      </label>
+    </checkbox-group>
+  </view>
+  <view class="item">
+    <view class="project">病/毒死畜禽肉<text class="colon">:</text></view>
+    <radio-group class="group">
+      <label class="option1 lab">
+        <view class="rad">
+          <radio value="有" checked="{{checked2}}"  disabled="true"/>
+        </view>
+        <view class="txt">有</view>
+      </label>
+      <label class="option2 lab">
+        <view class="rad">
+          <radio value="无" checked="{{checked22}}"  disabled="true"/>
+        </view>
+        <view class="txt">无</view>
+      </label>
+    </radio-group>
+  </view>
+  <view class="item">
+    <view class="project">蔬菜<text class="colon">:</text></view>
+    <checkbox-group class="group">
+      <label class="option1 lab">
+        <view class="rad">
+          <checkbox value="市场购买" checked="{{checked3}}"  disabled="true"/>
+        </view>
+        <view class="txt">市场购买</view>
+      </label>
+      <label class="option1 lab">
+        <view class="rad">
+          <checkbox value="自家种植" checked="{{checked33}}"  disabled="true"/>
+        </view>
+        <view class="txt">自家种植</view>
+      </label>
+    </checkbox-group>
+  </view>
+  <view class="item">
+    <view class="project">近期自家种植是否施过农药<text class="colon">:</text></view>
+    <radio-group class="group">
+      <label class="option1 lab">
+        <view class="rad">
+          <radio value="有" checked="{{checked4}}" disabled="true" />
+        </view>
+        <view class="txt">有</view>
+      </label>
+      <label class="option2 lab">
+        <view class="rad">
+          <radio value="无" checked="{{checked44}}" disabled="true"/>
+        </view>
+        <view class="txt">无</view>
+      </label>
+    </radio-group>
+  </view>
+  <view class="liquor">
+    <view class="item items1">
+      <view class="project">酒类<text class="colon">:</text></view>
+      <checkbox-group class="group">
+        <label class="option1 lab">
+          <view class="rad">
+            <checkbox value="瓶装" checked="{{checked5}}" disabled="true"/>
+          </view>
+          <view class="txt">瓶装</view>
+        </label>
+        <label class="option1 lab">
+          <view class="rad">
+            <checkbox value="散装" checked="{{checked55}}" disabled="true"/>
+          </view>
+          <view class="txt">散装</view>
+        </label>
+      </checkbox-group>
+    </view>
+    <view class="item items2">
+      <view class="project">检验合格证<text class="colon">:</text></view>
+      <radio-group class="group">
+        <label class="option1 lab wlab">
+          <view class="rad">
+            <radio value="有" checked="{{checked6}}" disabled="true"/>
+          </view>
+          <view class="txt">有</view>
+        </label>
+        <label class="option2 lab wlab">
+          <view class="rad">
+            <radio value="无" checked="{{checked66}}" disabled="true"/>
+          </view>
+          <view class="txt">无</view>
+        </label>
+        <label class="option3 lab">
+          <view class="rad">
+            <radio value="不全" checked="{{checked666}}" disabled="true" />
+          </view>
+          <view class="txt">不全</view>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class="liquor">
+    <view class="item items1">
+      <view class="project">食用油<text class="colon">:</text></view>
+      <checkbox-group class="group">
+        <label class="option1 lab">
+          <view class="rad">
+            <checkbox value="瓶装" checked="{{checked7}}" disabled="true"/>
+          </view>
+          <view class="txt">瓶装</view>
+        </label>
+        <label class="option1 lab">
+          <view class="rad">
+            <checkbox value="散装" checked="{{checked77}}" disabled="true"/>
+          </view>
+          <view class="txt">散装</view>
+        </label>
+      </checkbox-group>
+    </view>
+    <view class="item items2">
+      <view class="project">检验合格证<text class="colon">:</text></view>
+      <radio-group class="group">
+        <label class="option1 lab wlab">
+          <view class="rad">
+            <radio value="有" checked="{{checked8}}" disabled="true"/>
+          </view>
+          <view class="txt">有</view>
+        </label>
+        <label class="option2 lab wlab">
+          <view class="rad">
+            <radio value="无" checked="{{checked88}}" disabled="true"/>
+          </view>
+          <view class="txt">无</view>
+        </label>
+        <label class="option3 lab">
+          <view class="rad">
+            <radio value="不全" checked="{{checked888}}" disabled="true"/>
+          </view>
+          <view class="txt">不全</view>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class="liquor">
+    <view class="item items1">
+      <view class="project">饮料<text class="colon">:</text></view>
+      <checkbox-group class="group">
+        <label class="option1 lab">
+          <view class="rad">
+            <checkbox value="外购" checked="{{checked9}}" disabled="true"/>
+          </view>
+          <view class="txt">外购</view>
+        </label>
+        <label class="option1 lab">
+          <view class="rad">
+            <checkbox value="自制" checked="{{checked99}}" disabled="true"/>
+          </view>
+          <view class="txt">自制</view>
+        </label>
+      </checkbox-group>
+    </view>
+    <view class="item items2">
+      <view class="project">检验合格证<text class="colon">:</text></view>
+      <radio-group class="group">
+        <label class="option1 lab wlab">
+          <view class="rad">
+            <radio value="有" checked="{{checked10}}" disabled="true"/>
+          </view>
+          <view class="txt">有</view>
+        </label>
+        <label class="option2 lab wlab">
+          <view class="rad">
+            <radio value="无" checked="{{checked1010}}" disabled="true"/>
+          </view>
+          <view class="txt">无</view>
+        </label>
+        <label class="option3 lab">
+          <view class="rad">
+            <radio value="不全" checked="{{checked101010}}" disabled="true"/>
+          </view>
+          <view class="txt">不全</view>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class="item">
+    <view class="project">凉菜<text class="colon">:</text></view>
+    <radio-group class="group">
+      <label class="option1 lab">
+        <view class="rad">
+          <radio value="外购" checked="{{checked111}}" disabled="true"/>
+        </view>
+        <view class="txt">外购</view>
+      </label>
+      <label class="option2 lab">
+        <view class="rad">
+          <radio value="自制" checked="{{checked1111}}" disabled="true"/>
+        </view>
+        <view class="txt">自制</view>
+      </label>
+    </radio-group>
+  </view>
+  <view class="item">
+    <view class="project">海鲜<text class="colon">:</text></view>
+    <radio-group class="group">
+      <label class="option1 lab">
+        <view class="rad">
+          <radio value="有" checked="{{checked12}}" disabled="true"/>
+        </view>
+        <view class="txt">有</view>
+      </label>
+      <label class="option2 lab">
+        <view class="rad">
+          <radio value="无" checked="{{checked1212}}" disabled="true"/>
+        </view>
+        <view class="txt">无</view>
+      </label>
+    </radio-group>
+  </view>
+  <view class="item">
+    <view class="project">发芽土豆<text class="colon">:</text></view>
+    <radio-group class="group">
+      <label class="option1 lab">
+        <view class="rad">
+          <radio value="有" checked="{{checked13}}" disabled="true"/>
+        </view>
+        <view class="txt">有</view>
+      </label>
+      <label class="option2 lab">
+        <view class="rad">
+          <radio value="无" checked="{{checked1313}}" disabled="true"/>
+        </view>
+        <view class="txt">无</view>
+      </label>
+    </radio-group>
+  </view>
+  <view class="item">
+    <view class="project">野生菌<text class="colon">:</text></view>
+    <radio-group class="group">
+      <label class="option1 lab">
+        <view class="rad">
+          <radio value="有" checked="{{checked14}}" disabled="true"/>
+        </view>
+        <view class="txt">有</view>
+      </label>
+      <label class="option2 lab">
+        <view class="rad">
+          <radio value="无" checked="{{checked1414}}" disabled="true"/>
+        </view>
+        <view class="txt">无</view>
+      </label>
+    </radio-group>
+  </view>
+  <!-- <view class="remark">
+    <view class="title">主要菜品（凉菜和卤菜必须标注）</view>
+    <textarea class="area" placeholder="请输入内容" bindinput="inputs" value="{{val15}}"></textarea>
+  </view> -->
+</view>

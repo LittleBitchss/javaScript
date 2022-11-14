@@ -1,0 +1,1010 @@
+<!--tertiary/pages/admin_orderDetails/index.wxml-->
+<view class="admin_orderDetails">
+  <view class="top">
+    <view class="item {{chefIf.basic.chef_name?'items':''}}" bindtap="taggle" data-index="0"><text class="{{active0}} txt">基本信息</text></view>
+    <view class="item {{chefIf.basic.chef_name?'items':''}}" bindtap="taggle" data-index="1"><text class="{{active1}} txt">家宴选址</text></view>
+    <view class="item {{chefIf.basic.chef_name?'items':''}}" bindtap="taggle" data-index="2" wx:if="{{chefIf.basic.chef_name}}"><text class="{{active2}} txt">厨师信息</text></view>
+    <view class="item {{chefIf.basic.chef_name?'items':''}}" bindtap="taggle" data-index="3"><text class="{{active3}} txt">食材来源</text></view>
+    <view class="item {{chefIf.basic.chef_name?'items':''}}" bindtap="taggle" data-index="4"><text class="{{active4}} txt">卫生条件</text></view>
+    <view class="item {{chefIf.basic.chef_name?'items':''}}" bindtap="taggle" data-index="5" wx:if="{{operation.length!=0}}"><text class="{{active5}} txt">乡宴操作</text></view>
+    <view class="item {{chefIf.basic.chef_name?'items':''}}" bindtap="taggle" data-index="6" wx:if="{{ig}}"><text class="{{active6}} txt">检查表</text></view>
+  </view>
+  <view class="midden">
+    <view class="applicationDetailsInfo" wx:if="{{show == 0}}">
+      <view class="map">
+        <map id="maps" bindtap="clickMap" class="maps" longitude="{{basic.m_longitude}}" latitude="{{basic.m_latitude}}" scale="16">
+          <image class="cover-image" src="{{domain}}mark.png"></image>
+        </map>
+      </view>
+      <cover-view class="cover-view"></cover-view>
+      <view class="info">
+        <view class="info_item">
+          <view class="info_item_left">地点</view>
+          <view class="info_item_right">{{basic.m_address}}</view>
+        </view>
+        <view class="info_item">
+          <view class="info_item_left">宴会类型</view>
+          <view class="info_item_right">{{types[basic.m_type-1].mt_name}}</view>
+        </view>
+        <view class="info_item">
+          <view class="info_item_left">开宴日期</view>
+          <view class="info_item_right">{{basic.m_start_date}}</view>
+        </view>
+        <view class="info_item">
+          <view class="info_item_left">举办天数</view>
+          <view class="info_item_right">{{basic.m_holding_days}}</view>天
+        </view>
+        <view class="info_item">
+          <view class="info_item_left">宴会人数</view>
+          <view class="info_item_right">{{basic.m_banquet_number}}</view>人
+        </view>
+        <view class="info_item">
+          <view class="info_item_left">联系方式</view>
+          <view class="info_item_right">{{basic.m_phone}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="approvalSiteSelect" wx:if="{{show == 1}}">
+      <view class="approval_orderAddre">
+        <view class="top">
+          <image class="img imgs" src="{{Family}}"></image>
+          <view class="img_txt img_txts {{fontColor11}}">自家举办</view>
+          <image class="img imgss" src="{{hall}}"></image>
+          <view class="img_txt img_txtss {{fontColor22}}">大礼堂</view>
+        </view>
+        <view class="cont">
+          <view class="Family" wx:if="{{shows == 1}}">
+            <view class="item">
+              <view class="lefts">
+                举办区域
+              </view>
+              <view class="typ">
+                <text class="txt">{{basic.pname}}</text>
+              </view>
+            </view>
+            <view class="item">
+              <view class="lefts"></view>
+              <view class="typ">
+                <text class="txt">{{basic.cname}}</text>
+              </view>
+            </view>
+            <view class="item">
+              <view class="lefts"></view>
+              <view class="typ">
+                <text class="txt">{{basic.aname}}</text>
+              </view>
+            </view>
+            <view class="item">
+              <view class="lefts"></view>
+              <view class="typ">
+                <text class="txt">{{basic.sname}}</text>
+              </view>
+            </view>
+            <view class="item">
+              <view class="lefts"></view>
+              <view class="typ">
+                <text class="txt">{{basic.vname}}</text>
+              </view>
+            </view>
+            <view class="item">
+              <view class="lefts">详细地址</view>
+              <view class="typ">
+                <text class="txt">{{basic.m_address}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="hallDetails" wx:if="{{shows == 2}}">
+            <view class="details">
+              <image class="cover" src="{{cover}}"></image>
+              <view class="title">{{a_name}}</view>
+              <view class="addr">
+                <image class="addr_img" src="../../../icon/report_marks.png"></image>
+                地址：{{address}}
+              </view>
+              <view class="tiem">
+                <image class="tiem_img" src="../../../icon/report_clock.png"></image>
+                营业时间：全天
+              </view>
+              <view class="hint">礼堂详情</view>
+              <swiper class="hallSwiper" autoplay="true" interval="3500" circular="true" indicator-dots="true" previous-margin="30px" easing-function="easeInCubic" snap-to-edge="true" next-margin="40px">
+                <swiper-item class="swiper-item" wx:for="{{swipers}}" wx:key="index">
+                  <image class="item-img" src="{{item}}"></image>
+                </swiper-item>
+              </swiper>
+              <view class="assure">
+                <view class="assures">
+                  <text class="txts">保障</text>
+                  <view class="item">
+                    <image class="item_img" src="../../../icon/report_tick.png"></image>
+                    <text class="item_txt">食品安全责任险</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="hallls">
+              <view class="hallls_i">
+                <view class="hallls_i_left">选择大厅</view>
+                <view class="hallls_i_right">
+                  <text class="i_name">{{a_name+hallxss}}</text>
+                </view>
+              </view>
+              <view class="hallls_i">
+                <view class="hallls_i_left">预约日期</view>
+                <view class="hallls_i_right">
+                  <view class="i_time">
+                    <text class="i_time_txt">{{startDate}}</text>
+                    至
+                    <text class="i_time_txt i_time_txts">{{endDate}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="approvalChefInfo" wx:if="{{show == 2}}">
+      <view class="approvalChefInfo_top">
+        <view class="photos">
+          <view class="photos_Left">
+            <view class="photos_Left_title">厨师照片</view>
+            <view class="photos_Left_text">身穿厨师服头戴厨师帽个人图片</view>
+          </view>
+          <view class="photos_right">
+            <view class="horn horn_top_left"></view>
+            <view class="horn horn_top_right"></view>
+            <view class="horn horn_bottom_left"></view>
+            <view class="horn horn_bottom_right"></view>
+            <image class="photo" src="{{chefIf.basic.chef_photo}}"></image>
+          </view>
+        </view>
+        <view class="basic">
+          <view class="item">
+            <text class="left">姓名：</text>
+            <view class="basicInfoInput">{{chefIf.basic.chef_name}}</view>
+          </view>
+          <view class="item">
+            <text class="left">性别：</text>
+            <view class="basicInfoInput">{{chefIf.basic.chef_sex}}</view>
+          </view>
+          <view class="item">
+            <text class="left">年龄：</text>
+            <view class="basicInfoInput">{{chefIf.basic.chef_age}}</view>
+            <text class="right">岁</text>
+          </view>
+          <view class="item">
+            <text class="left">厨龄：</text>
+            <view class="basicInfoInput">{{chefIf.basic.chef_cooking_age}}</view>
+            <text class="right">岁</text>
+          </view>
+          <view class="item">
+            <text class="left">联系方式：</text>
+            <view class="basicInfoInput">{{chefIf.basic.chef_phone}}</view>
+          </view>
+          <view class="item">
+            <text class="left">擅长菜系：</text>
+            <view class="basicInfoInput">{{chefIf.basic.cuisine}}</view>
+          </view>
+          <view class="item">
+            <text class="left">工作地址：</text>
+            <view class="basicInfoInput">{{chefIf.basic.region}}</view>
+          </view>
+          <view class="item Nobd">
+            <view class="left"></view>
+            <view class="basicInfoInput">{{chefIf.basic.chef_work_address}}</view>
+          </view>
+        </view>
+        <view class="grade">
+          <view class="grade_top">
+            <text class="left">厨师等级：</text>
+            <view class="basicInfoInput">{{grade[chefIf.basic.chef_level-1].name}}</view>
+          </view>
+          <view class="grade_bottom">
+            <view class="photos">
+              <view class="photos_Left">
+                <view class="photos_Left_title">职业等级证书</view>
+                <view class="photos_Left_text">正规渠道获取的职业等级证书</view>
+              </view>
+              <view class="photos_right">
+                <view class="horn horn_top_left"></view>
+                <view class="horn horn_top_right"></view>
+                <view class="horn horn_bottom_left"></view>
+                <view class="horn horn_bottom_right"></view>
+                <image class="photo" src="{{chefIf.basic.chef_cheflicense}}"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="IDCard">
+          <view class="IDCard_top">
+            <view class="identity_number">
+              <text class="left">身份证号：</text>
+              <view class="basicInfoInput">{{chefIf.basic.chef_idcard}}</view>
+            </view>
+            <view class="IDCard_date">
+              <text class="left">身份证有效期至：</text>
+              <view class="basicInfoInput">{{chefIf.basic.chef_validity_id_card}}</view>
+            </view>
+          </view>
+          <view class="IDCard_bottom">
+            <view class="photos">
+              <view class="photos_Left">
+                <view class="photos_Left_title">身份证正面</view>
+                <view class="photos_Left_text">真实未过期的身份证人像面</view>
+              </view>
+              <view class="photos_right">
+                <view class="horn horn_top_left"></view>
+                <view class="horn horn_top_right"></view>
+                <view class="horn horn_bottom_left"></view>
+                <view class="horn horn_bottom_right"></view>
+                <image class="photo" src="{{chefIf.basic.chef_idcard_path}}"></image>
+              </view>
+            </view>
+            <view class="photos photoss">
+              <view class="photos_Left">
+                <view class="photos_Left_title">身份证反面</view>
+                <view class="photos_Left_text">真实未过期的身份证国徽面</view>
+              </view>
+              <view class="photos_right">
+                <view class="horn horn_top_left"></view>
+                <view class="horn horn_top_right"></view>
+                <view class="horn horn_bottom_left"></view>
+                <view class="horn horn_bottom_right"></view>
+                <image class="photo" src="{{chefIf.basic.chef_idcard_other_side_path}}"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="license">
+          <view class="license_number">
+            <text class="left">营业执照编号：</text>
+            <view class="basicInfoInput">{{chefIf.basic.chef_license}}</view>
+          </view>
+          <view class="license_bottom">
+            <view class="photos">
+              <view class="photos_Left">
+                <view class="photos_Left_title">营业执照</view>
+                <view class="photos_Left_text">正规渠道获取的营业执照照片</view>
+              </view>
+              <view class="photos_right">
+                <view class="horn horn_top_left"></view>
+                <view class="horn horn_top_right"></view>
+                <view class="horn horn_bottom_left"></view>
+                <view class="horn horn_bottom_right"></view>
+                <image class="photo" src="{{chefIf.basic.chef_license_path}}"></image>
+              </view>
+            </view>
+            <view class="photos photoss">
+              <view class="photos_Left">
+                <view class="photos_Left_title">健康证</view>
+                <view class="photos_Left_text">正规渠道获取的健康证照片</view>
+              </view>
+              <view class="photos_right" bindtap="upload" data-item="6">
+                <view class="horn horn_top_left"></view>
+                <view class="horn horn_top_right"></view>
+                <view class="horn horn_bottom_left"></view>
+                <view class="horn horn_bottom_right"></view>
+                <image class="photo" src="{{chefIf.basic.chef_health_certificate}}"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="ingredients" wx:if="{{show == 3}}">
+      <view class="ingredients_top">
+        <view class="item">
+          <view class="project">肉类来源<text class="colon">:</text></view>
+          <checkbox-group class="group">
+            <label class="option1 lab">
+              <view class="rad">
+                <checkbox value="市场购买" checked="{{checked1}}" disabled="true" />
+              </view>
+              <view class="txt">市场购买</view>
+            </label>
+            <label class="option1 lab">
+              <view class="rad">
+                <checkbox value="自家喂养" checked="{{checked11}}" disabled="true" />
+              </view>
+              <view class="txt">自家喂养</view>
+            </label>
+          </checkbox-group>
+        </view>
+        <view class="item">
+          <view class="project">病/毒死畜禽肉<text class="colon">:</text></view>
+          <radio-group class="group">
+            <label class="option1 lab">
+              <view class="rad">
+                <radio value="有" checked="{{checked2}}" disabled="true" />
+              </view>
+              <view class="txt">有</view>
+            </label>
+            <label class="option2 lab">
+              <view class="rad">
+                <radio value="无" checked="{{checked22}}" disabled="true" />
+              </view>
+              <view class="txt">无</view>
+            </label>
+          </radio-group>
+        </view>
+        <view class="item">
+          <view class="project">蔬菜<text class="colon">:</text></view>
+          <checkbox-group class="group">
+            <label class="option1 lab">
+              <view class="rad">
+                <checkbox value="市场购买" checked="{{checked3}}" disabled="true" />
+              </view>
+              <view class="txt">市场购买</view>
+            </label>
+            <label class="option1 lab">
+              <view class="rad">
+                <checkbox value="自家种植" checked="{{checked33}}" disabled="true" />
+              </view>
+              <view class="txt">自家种植</view>
+            </label>
+          </checkbox-group>
+        </view>
+        <view class="item">
+          <view class="project">近期自家种植是否施过农药<text class="colon">:</text></view>
+          <radio-group class="group">
+            <label class="option1 lab">
+              <view class="rad">
+                <radio value="有" checked="{{checked4}}" disabled="true" />
+              </view>
+              <view class="txt">有</view>
+            </label>
+            <label class="option2 lab">
+              <view class="rad">
+                <radio value="无" checked="{{checked44}}" disabled="true" />
+              </view>
+              <view class="txt">无</view>
+            </label>
+          </radio-group>
+        </view>
+        <view class="liquor">
+          <view class="item items1">
+            <view class="project">酒类<text class="colon">:</text></view>
+            <checkbox-group class="group">
+              <label class="option1 lab">
+                <view class="rad">
+                  <checkbox value="瓶装" checked="{{checked5}}" disabled="true" />
+                </view>
+                <view class="txt">瓶装</view>
+              </label>
+              <label class="option1 lab">
+                <view class="rad">
+                  <checkbox value="散装" checked="{{checked55}}" disabled="true" />
+                </view>
+                <view class="txt">散装</view>
+              </label>
+            </checkbox-group>
+          </view>
+          <view class="item items2">
+            <view class="project">检验合格证<text class="colon">:</text></view>
+            <radio-group class="group">
+              <label class="option1 lab wlab">
+                <view class="rad">
+                  <radio value="有" checked="{{checked6}}" disabled="true" />
+                </view>
+                <view class="txt">有</view>
+              </label>
+              <label class="option2 lab wlab">
+                <view class="rad">
+                  <radio value="无" checked="{{checked66}}" disabled="true" />
+                </view>
+                <view class="txt">无</view>
+              </label>
+              <label class="option3 lab">
+                <view class="rad">
+                  <radio value="不全" checked="{{checked666}}" disabled="true" />
+                </view>
+                <view class="txt">不全</view>
+              </label>
+            </radio-group>
+          </view>
+        </view>
+        <view class="liquor">
+          <view class="item items1">
+            <view class="project">食用油<text class="colon">:</text></view>
+            <checkbox-group class="group">
+              <label class="option1 lab">
+                <view class="rad">
+                  <checkbox value="瓶装" checked="{{checked7}}" disabled="true" />
+                </view>
+                <view class="txt">瓶装</view>
+              </label>
+              <label class="option1 lab">
+                <view class="rad">
+                  <checkbox value="散装" checked="{{checked77}}" disabled="true" />
+                </view>
+                <view class="txt">散装</view>
+              </label>
+            </checkbox-group>
+          </view>
+          <view class="item items2">
+            <view class="project">检验合格证<text class="colon">:</text></view>
+            <radio-group class="group">
+              <label class="option1 lab wlab">
+                <view class="rad">
+                  <radio value="有" checked="{{checked8}}" disabled="true" />
+                </view>
+                <view class="txt">有</view>
+              </label>
+              <label class="option2 lab wlab">
+                <view class="rad">
+                  <radio value="无" checked="{{checked88}}" disabled="true" />
+                </view>
+                <view class="txt">无</view>
+              </label>
+              <label class="option3 lab">
+                <view class="rad">
+                  <radio value="不全" checked="{{checked888}}" disabled="true" />
+                </view>
+                <view class="txt">不全</view>
+              </label>
+            </radio-group>
+          </view>
+        </view>
+        <view class="liquor">
+          <view class="item items1">
+            <view class="project">饮料<text class="colon">:</text></view>
+            <checkbox-group class="group">
+              <label class="option1 lab">
+                <view class="rad">
+                  <checkbox value="外购" checked="{{checked9}}" disabled="true" />
+                </view>
+                <view class="txt">外购</view>
+              </label>
+              <label class="option1 lab">
+                <view class="rad">
+                  <checkbox value="自制" checked="{{checked99}}" disabled="true" />
+                </view>
+                <view class="txt">自制</view>
+              </label>
+            </checkbox-group>
+          </view>
+          <view class="item items2">
+            <view class="project">检验合格证<text class="colon">:</text></view>
+            <radio-group class="group">
+              <label class="option1 lab wlab">
+                <view class="rad">
+                  <radio value="有" checked="{{checked10}}" disabled="true" />
+                </view>
+                <view class="txt">有</view>
+              </label>
+              <label class="option2 lab wlab">
+                <view class="rad">
+                  <radio value="无" checked="{{checked1010}}" disabled="true" />
+                </view>
+                <view class="txt">无</view>
+              </label>
+              <label class="option3 lab">
+                <view class="rad">
+                  <radio value="不全" checked="{{checked101010}}" disabled="true" />
+                </view>
+                <view class="txt">不全</view>
+              </label>
+            </radio-group>
+          </view>
+        </view>
+        <view class="item">
+          <view class="project">凉菜<text class="colon">:</text></view>
+          <radio-group class="group">
+            <label class="option1 lab">
+              <view class="rad">
+                <radio value="外购" checked="{{checked111}}" disabled="true" />
+              </view>
+              <view class="txt">外购</view>
+            </label>
+            <label class="option2 lab">
+              <view class="rad">
+                <radio value="自制" checked="{{checked1111}}" disabled="true" />
+              </view>
+              <view class="txt">自制</view>
+            </label>
+          </radio-group>
+        </view>
+        <view class="item">
+          <view class="project">海鲜<text class="colon">:</text></view>
+          <radio-group class="group">
+            <label class="option1 lab">
+              <view class="rad">
+                <radio value="有" checked="{{checked12}}" disabled="true" />
+              </view>
+              <view class="txt">有</view>
+            </label>
+            <label class="option2 lab">
+              <view class="rad">
+                <radio value="无" checked="{{checked1212}}" disabled="true" />
+              </view>
+              <view class="txt">无</view>
+            </label>
+          </radio-group>
+        </view>
+        <view class="item">
+          <view class="project">发芽土豆<text class="colon">:</text></view>
+          <radio-group class="group">
+            <label class="option1 lab">
+              <view class="rad">
+                <radio value="有" checked="{{checked13}}" disabled="true" />
+              </view>
+              <view class="txt">有</view>
+            </label>
+            <label class="option2 lab">
+              <view class="rad">
+                <radio value="无" checked="{{checked1313}}" disabled="true" />
+              </view>
+              <view class="txt">无</view>
+            </label>
+          </radio-group>
+        </view>
+        <view class="item">
+          <view class="project">野生菌<text class="colon">:</text></view>
+          <radio-group class="group">
+            <label class="option1 lab">
+              <view class="rad">
+                <radio value="有" checked="{{checked14}}" disabled="true" />
+              </view>
+              <view class="txt">有</view>
+            </label>
+            <label class="option2 lab">
+              <view class="rad">
+                <radio value="无" checked="{{checked1414}}" disabled="true" />
+              </view>
+              <view class="txt">无</view>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+    <view class="applicationDetailsHealth" wx:if="{{show == 4}}">
+      <view class="applicationDetailsHealth_top">
+        <view class="item">
+          <view class="project">使用水源<text class="colon">:</text></view>
+          <checkbox-group class="group">
+            <label class="option1 lab">
+              <view class="rad">
+                <checkbox value="自来水" checked="{{Hchecked1}}" disabled="true" />
+              </view>
+              <view class="txt">自来水</view>
+            </label>
+            <label class="option1 lab">
+              <view class="rad">
+                <checkbox value="井水" checked="{{Hchecked11}}" disabled="true" />
+              </view>
+              <view class="txt">井水</view>
+            </label>
+            <label class="option1 lab">
+              <view class="rad">
+                <checkbox value="荷塘水" checked="{{Hchecked111}}" disabled="true" />
+              </view>
+              <view class="txt">荷塘水</view>
+            </label>
+            <label class="option1 lab">
+              <view class="rad">
+                <checkbox value="其他" checked="{{Hchecked1111}}" disabled="true" />
+              </view>
+              <view class="txt">其他</view>
+            </label>
+          </checkbox-group>
+        </view>
+        <view class="item">
+          <view class="project">餐具消毒方式<text class="colon">:</text></view>
+          <checkbox-group class="group">
+            <label class="option1 lab">
+              <view class="rad">
+                <checkbox value="消毒柜" checked="{{Hchecked2}}" disabled="true" />
+              </view>
+              <view class="txt">消毒柜</view>
+            </label>
+            <label class="option1 lab">
+              <view class="rad">
+                <checkbox value="煮沸消毒" checked="{{Hchecked22}}" disabled="true" />
+              </view>
+              <view class="txt">煮沸消毒</view>
+            </label>
+            <label class="option1 lab">
+              <view class="rad">
+                <checkbox value="药物消毒" checked="{{Hchecked222}}" disabled="true" />
+              </view>
+              <view class="txt">药物消毒</view>
+            </label>
+            <label class="option1 lab">
+              <view class="rad">
+                <checkbox value="其他" checked="{{Hchecked2222}}" disabled="true" />
+              </view>
+              <view class="txt">其他</view>
+            </label>
+            <label class="option1 lab">
+              <view class="rad">
+                <checkbox value="未消毒" checked="{{Hchecked22222}}" disabled="true" />
+              </view>
+              <view class="txt">未消毒</view>
+            </label>
+          </checkbox-group>
+        </view>
+        <view class="item">
+          <view class="project">是否贮藏或使用以下有害物质<text class="colon">:</text></view>
+          <checkbox-group class="group groups">
+            <label class="labels lab">
+              <view class="check">
+                <checkbox value="磷化锌" checked="{{Hchecked3}}" disabled="true" />
+              </view>
+              <view class="txts">磷化锌</view>
+            </label>
+            <label class="labels lab">
+              <view class="check">
+                <checkbox value="磷化铝" checked="{{Hchecked33}}" disabled="true" />
+              </view>
+              <view class="txts">磷化铝</view>
+            </label>
+            <label class="labels labelss lab">
+              <view class="check">
+                <checkbox value="亚硝酸盐" checked="{{Hchecked333}}" disabled="true" />
+              </view>
+              <view class="txts">亚硝酸盐</view>
+            </label>
+            <label class="labels lab">
+              <view class="check">
+                <checkbox value="剧毒农药" checked="{{Hchecked3333}}" disabled="true" />
+              </view>
+              <view class="txts">剧毒农药</view>
+            </label>
+            <label class="labels lab">
+              <view class="check">
+                <checkbox value="醇基燃料" checked="{{Hchecked33333}}" disabled="true" />
+              </view>
+              <view class="txts">醇基燃料</view>
+            </label>
+            <label class="labels labelss lab">
+              <view class="check">
+                <checkbox value="家中不存在有害物质" checked="{{Hchecked333333}}" disabled="true" />
+              </view>
+              <view class="txts">家中不存在有害物质</view>
+            </label>
+          </checkbox-group>
+        </view>
+        <block wx:if="{{basic.m_approval<1}}">
+          <view class="remark">
+            <view class="title">审核意见:</view>
+            <textarea class="area" placeholder="请输入内容" bindinput="inputs" value="{{approvalVal}}"></textarea>
+            <view class="remarkBtn">
+              <button size="mini" class="btn" bindtap="approval" data-index="1">同意</button>
+              <button size="mini" class="btn btns" bindtap="approval" data-index="2">不同意</button>
+            </view>
+          </view>
+        </block>
+        <block wx:if="{{basic.m_approval>0}}">
+          <view class="remark">
+            <view class="title">审核意见:</view>
+            <view class="area">{{val15?val15:"无"}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="countryBanquetOperation" wx:if="{{show == 5}}">
+      <view class="tab">
+        <view class="tabs {{bg1}}" bindtap="toggles" data-index="0">
+          厨房用具
+        </view>
+        <view class="tabs {{bg2}}" bindtap="toggles" data-index="1">
+          消毒工具
+        </view>
+        <view class="tabs noBorder {{bg3}}" bindtap="toggles" data-index="2">
+          菜品图片
+        </view>
+      </view>
+      <view class="content">
+        <view class="kitchen" wx:if="{{isShow == 0}}">
+          <view class="frame">
+            <image class="img" wx:for="{{arr1}}" wx:key="index" src="{{item}}"></image>
+          </view>
+        </view>
+        <view class="disinfect" wx:if="{{isShow == 1}}">
+          <view class="frame">
+            <image class="img" wx:for="{{arr2}}" wx:key="index" src="{{item}}"></image>
+          </view>
+        </view>
+        <view class="dishes" wx:if="{{isShow == 2}}">
+          <view class="frame">
+            <image class="img" wx:for="{{arr3}}" wx:key="index" src="{{item}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="watchlist" wx:if="{{show == 6}}">
+      <view class="opis_tops">
+        <view class="time">检查时间：{{Gval0}}</view>
+        <view class="name">网格员：{{Gval00}}</view>
+      </view>
+      <view class="opis_top">
+        <view class="title">
+          <view class="row1 row">指导内容</view>
+          <view class="row2 row">项目</view>
+          <view class="row3 row">现场检查情况</view>
+        </view>
+        <view class="lists">
+          <view class="table1">
+            <view class="table1_left table_">加工场所</view>
+            <view class="table1_center table_">
+              <view class="table1_center1">是否远离污染源（禽畜圈养舍、开放式厕所、暴露垃圾）</view>
+              <view class="table1_center1">加工场所内外清洁卫生</view>
+              <view class="table1_center1">加工场所（厨房）是否存放有毒有害物质（农药、鼠药等）</view>
+            </view>
+            <view class="table1_right">
+              <view class="table1_center1">
+                <radio-group class="group">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{Gchecked1}}" disabled="true" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{Gchecked1}}" disabled="true" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table1_center1">
+                <radio-group class="group">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{Gchecked2}}" disabled="true" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{Gchecked22}}" disabled="true" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table1_center1">
+                <radio-group class="group">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{Gchecked3}}" disabled="true" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{Gchecked33}}" disabled="true" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+            </view>
+          </view>
+          <view class="table2">
+            <view class="table2_left table_">从业人员</view>
+            <view class="table2_center table_">
+              <view class="table2_center2">食品加工人员（厨师、帮工）健康状况：厨师是否有健康合格证明；是否有咳嗽、腹泻等症状；是否穿戴清洁的工作衣帽，是否留有长指甲</view>
+            </view>
+            <view class="table2_right">
+              <view class="table2_center2">
+                <view class="table2_center2_top table2_center2_">从业人员<input class="inp" value="{{GinpVal3}}" disabled="true" />名</view>
+                <view class="table2_center2_bottom table2_center2_">健康证<input class="inp" value="{{GinpVal4}}" disabled="true" />个</view>
+              </view>
+            </view>
+          </view>
+          <view class="table3">
+            <view class="table3_left table_">餐饮具清洗消毒</view>
+            <view class="table3_center table_">
+              <view class="table3_center3">餐饮具清洗消毒设施是否符合要求</view>
+              <view class="table3_center3">餐饮具是否进行清洗消毒</view>
+            </view>
+            <view class="table3_right">
+              <view class="table3_center3">
+                <radio-group class="group">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{Gchecked4}}" disabled="true" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{Gchecked44}}" disabled="true" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table3_center3">
+                <view class="table3_center3_i i">
+                  <text>消毒方式：</text>
+                  <view class="inp">{{GinpVal5}}</view>
+                </view>
+                <view class="table3_center3_i">
+                  <text>消毒时间：</text>
+                  <view class="inp">{{GinpVal6}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="table4">
+            <view class="table4_left table_">食品及食品原料</view>
+            <view class="table4_center table_">
+              <view class="table4_center4">是否新鲜</view>
+              <view class="table4_center4">是否使用高危食品（如野生菌、发芽如豆、新鲜黄花、四季豆等）</view>
+              <view class="table4_center4">是否有过期和霉变食品原料</view>
+              <view class="table4_center4">是否使用病死或者死因不明的禽畜肉鱼类（查看肉类制品检疫合格证）</view>
+              <view class="table4_center4">使用的凉菜卤菜色、味是否正常</view>
+            </view>
+            <view class="table4_right">
+              <view class="table4_center4">
+                <radio-group class="group">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{Gchecked5}}" disabled="true" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{Gchecked55}}" disabled="true" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table4_center4">
+                <radio-group class="group">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{Gchecked6}}" disabled="true" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{Gchecked66}}" disabled="true" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table4_center4">
+                <radio-group class="group">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{Gchecked7}}" disabled="true" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{Gchecked77}}" disabled="true" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table4_center4">
+                <radio-group class="group">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{Gchecked8}}" disabled="true" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{Gchecked88}}" disabled="true" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table4_center4">
+                <radio-group class="group">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{Gchecked9}}" disabled="true" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{Gchecked99}}" disabled="true" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+            </view>
+          </view>
+          <view class="table5">
+            <view class="table5_left table_">食品加工及储存</view>
+            <view class="table5_center table_">
+              <view class="table5_center5">是否烧熟煮透</view>
+              <view class="table5_center5">煮熟的食品是否与生食品分开存放</view>
+              <view class="table5_center5">剩菜是否存放到冰箱或者冰柜中</view>
+              <view class="table5_center5">海鲜加工清洗是否使用专用场所和工具</view>
+              <view class="table5_center5">不能及时加工处理的肉类、水产品及其他半成品是否存放在冰柜或者冰箱中</view>
+            </view>
+            <view class="table5_right">
+              <view class="table5_center5">
+                <radio-group class="group">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{Gchecked10}}" disabled="true" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{Gchecked1010}}" disabled="true" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table5_center5">
+                <radio-group class="group">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{Gchecked11}}" disabled="true" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{Gchecked1111}}" disabled="true" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table5_center5">
+                <radio-group class="group">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{Gchecked12}}" disabled="true" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{Gchecked1212}}" disabled="true" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table5_center5">
+                <radio-group class="group">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{Gchecked13}}" disabled="true" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{Gchecked1313}}" disabled="true" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+              <view class="table5_center5">
+                <radio-group class="group">
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="是" checked="{{Gchecked14}}" disabled="true" />是
+                    </view>
+                  </label>
+                  <label class="weui-cell weui-check__label">
+                    <view class="weui-cell__hd">
+                      <radio value="否" checked="{{Gchecked1414}}" disabled="true" />否
+                    </view>
+                  </label>
+                </radio-group>
+              </view>
+            </view>
+          </view>
+          <view class="table6">
+            <view class="table6_left table_">食品留样</view>
+            <view class="table6_center table_">是否具备留样设备设施，留样菜品每样不少于125g,48小时冷藏保存</view>
+            <view class="table6_right">
+              <radio-group class="group">
+                <label class="weui-cell weui-check__label">
+                  <view class="weui-cell__hd">
+                    <radio value="是" checked="{{Gchecked15}}" disabled="true" />是
+                  </view>
+                </label>
+                <label class="weui-cell weui-check__label">
+                  <view class="weui-cell__hd">
+                    <radio value="否" checked="{{Gchecked1515}}" disabled="true" />否
+                  </view>
+                </label>
+              </radio-group>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

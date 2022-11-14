@@ -1,0 +1,88 @@
+/* secondary/pages/photoRecord/index.wxss */
+.photoRecord{
+  height: 100vh;
+  background-color: #e5e5e5;
+}
+.photoRecord .top{
+  padding-top: 16rpx;
+  height: calc(100% - 84rpx);
+  overflow: auto;
+}
+.photoRecord .top .item{
+  width: 708rpx;
+  min-height: 276rpx;
+  margin: 0 auto 16rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  font-family: 'Medium';
+}
+.photoRecord .top .item .title{
+  font-style: 25rpx;
+  height: 56rpx;
+  padding: 0 26rpx;
+  display: flex;
+  align-items: center;
+}
+.photoRecord .top .item .cont{
+  display: flex;
+  flex-wrap: wrap;
+  width: 666rpx;
+  margin: 0 auto;
+}
+
+.photoRecord .top .item .clickPhoto{
+  width: 204rpx;
+  height: 204rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #eaeaea;
+  border-radius: 15rpx;
+  font-size: 22rpx;
+  margin-bottom: 18rpx;
+  margin-right: 26rpx;
+  position: relative;
+  overflow: hidden;
+}
+.photoRecord .top .item .clickPhoto:nth-child(3n){
+  margin-right: 0;
+}
+.photoRecord .top .item .clickPhoto .imgs{
+  width: 47rpx;
+  height: 39rpx;
+  margin-bottom: 20rpx;
+  display: block;
+}
+.photoRecord .top .item .clickPhoto .img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.photoRecord .top .item .clickPhoto .remove{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position:absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.photoRecord .top .item .clickPhoto .remove .remove_img{
+  width: 15rpx;
+  height: 14rpx;
+}
+.photoRecord .bottom{
+  display: block;
+  height: 84rpx;
+  line-height: 84rpx;
+  width: 100%;
+  background-color: #3572e1;
+  border-radius: 0;
+  color: #fff;
+  font-family: 'Normal';
+  font-size: 30rpx;
+}

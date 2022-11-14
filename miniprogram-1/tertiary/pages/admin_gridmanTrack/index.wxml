@@ -1,0 +1,40 @@
+<!--tertiary/pages/admin_gridmanTrack/index.wxml-->
+<view class="tracks">
+  <view class="filter">
+    <view class="filter_top">
+      <view class="section">
+        <picker mode="date" value="{{date}}" start="2022-07-04" end="2030-12-31" fields="day" bindchange="bindDateChange" data-index="1">
+          <view class="picker">
+            <view class="time">
+              <text class="txt">{{timeValue1}}</text>
+              <image class="img" src="../../../icon/report_ups.png"></image>
+            </view>
+          </view>
+        </picker>
+      </view>
+      至
+      <view class="section">
+        <picker mode="date" value="{{date}}" start="2022-07-04" end="2030-12-31" bindchange="bindDateChange" data-index="2">
+          <view class="picker">
+            <view class="time">
+              <text class="txt">{{timeValue2}}</text>
+              <image class="img" src="../../../icon/report_ups.png"></image>
+            </view>
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="titles">
+    <view class="row">类型</view>
+    <view class="row rows">地点</view>
+    <view class="row rowss">举办时间</view>
+  </view>
+  <view class="listss">
+    <view class="item" wx:for="{{track}}" wx:key="index">
+      <view class="row">{{item.mt_name}}</view>
+      <view class="row rows">{{item.m_address}}</view>
+      <view class="row rowss">{{item.m_start_date}}</view>
+    </view>
+  </view>
+</view>

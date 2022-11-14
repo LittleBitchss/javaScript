@@ -1,0 +1,75 @@
+<!--components/admin_approval/index.wxml-->
+<view class="admin_approval" wx:if="{{isShow != 3}}">
+  <view class="top">
+    <view class="tops {{topss1}}" bindtap="taggle" data-item="1">待审批</view>
+    <view class="tops {{topss2}}" bindtap="taggle" data-item="2">已审批</view>
+  </view>
+  <view class="bottom" wx:if="{{isShow == 1}}">
+    <view class="title">
+      <view class="row">类型</view>
+      <view class="row rows">地点</view>
+      <view class="row">举办时间</view>
+      <view class="row rowss">操作</view>
+    </view>
+    <scroll-view class="list" bindscrolltolower="lower" data-item="1" scroll-y='true' style="height: 95%">
+      <view class="lists" wx:for="{{pending}}" wx:key="index">
+        <view class="row">{{item.mt_name}}</view>
+        <view class="row rows">{{item.m_address}}</view>
+        <view class="row">{{item.m_start_date}}</view>
+        <navigator class="row rowsss" url="/tertiary/pages/admin_orderDetails/index?m_id={{item.m_id}}">查 看</navigator>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="bottom2" wx:if="{{isShow == 2}}" bindtap="close">
+    <view class="filter">
+      <view class="left">
+          <view class="select" catchtap="unfold">
+            <view class="txt">{{typesValue}}</view>
+            <image class="down" src="{{domain}}ups.png"></image>
+            <view class="listss" wx:if="{{types_show}}" wx:key="index">
+              <view class="listsss" wx:for="{{types}}" catchtap="choose" data-index="{{index}}" wx:key="index">{{item.mt_name}}</view>
+            </view>
+          </view>
+      </view>
+      <view class="right">
+        <view class="section">
+          <picker mode="date" value="{{date}}" start="2022-07-04" end="2030-12-31" fields="day" bindchange="bindDateChange" data-index="1">
+            <view class="picker">
+              <view class="time">
+                <text class="txt">{{timeValue1}}</text>
+                <image class="img" src="{{domain}}ups.png"></image>
+              </view>
+            </view>
+          </picker>
+        </view>
+        至
+        <view class="section">
+          <picker mode="date" value="{{date}}" start="2022-07-04" end="2030-12-31" bindchange="bindDateChange" data-index="2">
+            <view class="picker">
+              <view class="time">
+                <text class="txt">{{timeValue2}}</text>
+                <image class="img" src="{{domain}}ups.png"></image>
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="titles">
+      <view class="rew">类型</view>
+      <view class="rew rews">地点</view>
+      <view class="rew rewsx">举办时间</view>
+      <view class="rew">审批状态</view>
+      <view class="rew rewss">操作</view>
+    </view>
+    <scroll-view class="lsit" bindscrolltolower="lower" data-item="2" scroll-y='true'>
+      <view class="lsits" wx:for="{{approved}}" wx:key="index">
+        <view class="rew">{{item.mt_name}}</view>
+        <view class="rew rews">{{item.m_address}}</view>
+        <view class="rew rewsx">{{item.m_start_date}}</view>
+        <view class="rew {{rowssss[item.m_approval]}}">{{isPass[item.m_approval]}}</view>
+        <navigator class="rew rewsss" url="/tertiary/pages/admin_orderDetails/index?m_id={{item.m_id}}">查 看</navigator>
+      </view>
+    </scroll-view>
+  </view>
+</view>

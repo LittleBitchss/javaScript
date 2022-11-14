@@ -1,0 +1,292 @@
+/* pages/chefGoHome/index.wxss */
+.chefGoHome{
+  height: 100vh;
+  background-color: #f3f3f3;
+}
+.chefGoHome .top{
+  height: 92%;
+  background-color: #f3f3f3;
+  overflow: auto;
+}
+
+.chefGoHome .top .diniInfo{
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin-top: 16rpx;
+  padding: 16rpx 32rpx;
+  font-family: 'Normal';
+  font-size: 25rpx;
+}
+.chefGoHome .top .diniInfo .title{
+  height: 44rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+}
+.chefGoHome .top .diniInfo .item{
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #eee;
+  color: #999999;
+}
+.chefGoHome .top .diniInfo .item:last-child{
+  border-bottom: 0;
+}
+.chefGoHome .top .diniInfo .item .item_left{
+  width: 228rpx;
+}
+.chefGoHome .top .diniInfo .item .item_right{
+  flex: 1;
+}
+.chefGoHome .top .diniInfo .item .fontColor{
+  color: #000;
+}
+.chefGoHome .top .diniInfo .item .region {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-right: 10rpx;
+  align-items: center;
+}
+.chefGoHome .top .diniInfo .item .region .txts{
+  margin: 0 20rpx 0 0;
+}
+.chefGoHome .top .diniInfo .item .picker{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.chefGoHome .top .diniInfo .item .item_right_img{
+  width: 14rpx;
+  height: 24rpx;
+}
+.chefGoHome .top .diniInfo .item .item_right .item_right_{
+  display: flex;
+  align-items: center;
+}
+.chefGoHome .top .diniInfo .item .item_right .item_right_ .item_right_inp{
+  flex: 1;
+  font-size: 25rpx;
+  color: #000;
+}
+.chefGoHome .top .diniInfo .item .item_right .item_right_ .placeholder{
+  font-size: 25rpx;
+  font-family: 'Normal';
+  color: #999999;
+}
+.chefGoHome .top .note{
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin-top: 16rpx;
+  padding: 40rpx 32rpx;
+  font-family: 'Normal';
+  font-size: 25rpx;
+  display: flex;
+}
+.chefGoHome .top .note .note_left{
+  color: #999;
+  width: 228rpx;
+}
+.chefGoHome .top .note .note_right{
+  flex: 1;
+  position: relative;
+}
+.chefGoHome .top .note .note_right .note_right_txt{
+  line-height: 30rpx;
+  display:block;
+  visibility:hidden;
+  word-break:break-all;
+  word-wrap:break-word;
+  font-size: 25rpx;
+  padding: 5rpx 0;
+}
+.chefGoHome .top .note .note_right_area{
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 25rpx;
+  color: #000;
+  padding: 5rpx 0;
+  line-height: 30rpx;
+  word-break:break-all;
+  overflow: hidden;
+}
+.chefGoHome .top .note .note_right .placeholder{
+  font-size: 25rpx;
+  font-family: 'Normal';
+  color: #999999;
+}
+
+.chefGoHome .securitys{
+  font-family: 'Medium';
+}
+.chefGoHome .securitys .security_title{
+  height: 82rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx;
+}
+.chefGoHome .securitys .security{
+  height: 254rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chefGoHome .securitys .security .security_item{
+  width: 220rpx;
+  height: 100%;
+  border-radius: 15rpx;
+  background-color: #fff;
+  border: 2rpx solid #fff;
+}
+.chefGoHome .securitys .security .security_right{
+  width: 455rpx;
+  margin-left: 26rpx;
+}
+.chefGoHome .securitys .security .active{
+  background-color: #eaf2ff;
+  border-color: #4768f3;
+}
+
+.chefGoHome .securitys .security .security_item .security_item_top{
+  height: 48rpx;
+  font-size: 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2rpx solid #d5d5d5;
+}
+.chefGoHome .securitys .security .security_item .bdColor{
+  border-color: #000;
+}
+.chefGoHome .securitys .security .security_left .security_left_bottom{
+  height: 202rpx;
+  padding-top: 76rpx;
+  text-align: center;
+
+}
+.chefGoHome .securitys .security .security_left .security_left_bottom .security_left_bottom_imgs{
+  display: flex;
+  justify-content: center;
+}
+.chefGoHome .securitys .security .security_left .security_left_bottom .security_left_bottom_img{
+  width: 28rpx;
+  height: 28rpx;
+  display: block;
+}
+.chefGoHome .securitys .security .security_left .security_left_bottom .security_left_bottom_txt{
+  height: 30rpx;
+  margin-top: 15rpx;
+  margin-bottom: 8rpx;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+}
+.chefGoHome .securitys .security .security_right .security_right_bottom{
+  height: 202rpx;
+  display: flex;
+  justify-content: center;
+}
+.chefGoHome .securitys .security .security_right .security_right_bottom .security_right_item{
+  width: 180rpx;
+  height: 100%;
+}
+.chefGoHome .securitys .security .security_right .security_right_bottom .security_right_item .security_right_item_cont{
+  height: 142rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.chefGoHome .securitys .security .security_right .security_right_bottom .security_right_item .security_right_item_cont .security_right_item_cont_img{
+  height: 80rpx;
+  width: 90rpx;
+}
+.chefGoHome .securitys .security .security_right .security_right_bottom .security_right_item .security_right_item_cont .security_right_item_cont_imgs{
+  height: 80rpx;
+  width: 62rpx;
+} 
+.chefGoHome .securitys .security .security_right .security_right_bottom .security_right_item .security_right_item_cont .security_right_item_cont_txt{
+  font-size: 22rpx;
+  line-height: 1;
+  margin-top: 10rpx;
+}
+.chefGoHome .securitys .security .security_right .security_right_bottom .security_right_midden{
+  height: 100%;
+  width: 88rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.chefGoHome .securitys .security .security_right .security_right_bottom .security_right_midden .price{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 30rpx;
+  font-size: 28rpx;
+  color: #f14c44;
+}
+.chefGoHome .securitys .security .security_right .security_right_bottom .security_right_midden .security_right_midden_add{
+  width: 20rpx;
+  height: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.chefGoHome .securitys .security .security_right .security_right_bottom .security_right_midden .security_right_midden_add .security_right_midden_add_item{
+  background-color: #000;
+  width: 100%;
+  height: 4rpx;
+}
+.chefGoHome .securitys .security .security_right .security_right_bottom .security_right_midden .security_right_midden_add .security_right_midden_add_items{
+  width: 4rpx;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); 
+}
+.chefGoHome .securitys .security .security_right .security_right_bottom .security_right_midden .security_right_midden_checkbox{
+  position: absolute;
+  bottom: 4rpx;
+}
+
+
+.chefGoHome .top .announcements{
+  font-size: 25rpx;
+  font-family: 'Normal';
+  padding: 20rpx 32rpx;
+}
+.chefGoHome .top .announcements .announcements_top{
+  font-size: 28rpx;
+  font-family: 'Medium';
+  margin-bottom: 20rpx;
+}
+.chefGoHome .top .announcements .announcements_bottom .announcements_bottom_color{
+  color: #4768f3;
+}
+.chefGoHome .bottom{
+  height: 8%;
+  background-color: #4768f3;
+  color: #fff;
+  font-size: 30rpx;
+  font-family: 'Medium';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page-container .page-root{
+  height: 50vh;
+}

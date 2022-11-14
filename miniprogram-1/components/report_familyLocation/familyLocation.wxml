@@ -1,0 +1,213 @@
+<!--components/familyLocation/familyLocation.wxml-->
+<view class="familyLocation" bindtap="closes">
+  <view class="process">
+    <view class="processLine"></view>
+    <view class="proces">
+      <view class="procesPoint"></view>
+      <view class="procesText">基本信息</view>
+    </view>
+    <view class="proces">
+      <view class="procesPoints">
+        <view class="procesPoint_i"></view>
+      </view>
+      <view class="procesTexts">家宴选址</view>
+    </view>
+    <view class="proces">
+      <view class="procesPoint"></view>
+      <view class="procesText">食材来源</view>
+    </view>
+    <view class="proces">
+      <view class="procesPoint"></view>
+      <view class="procesText">卫生条件</view>
+    </view>
+    <view class="proces">
+      <view class="procesPoint"></view>
+      <view class="procesText">支付定金</view>
+    </view>
+  </view>
+  <view class="top">
+    <image class="img imgs" src="{{Family}}" bindtap="taggle" data-item="1"></image>
+    <view class="img_txt img_txts {{fontColor11}}" bindtap="taggle" data-item="1">自家举办</view>
+    <image class="img imgss" src="{{hall}}" bindtap="taggle" data-item="2"></image>
+    <view class="img_txt img_txtss {{fontColor22}}" bindtap="taggle" data-item="2">大礼堂</view>
+  </view>
+  <view class="cont">
+    <view class="Family" wx:if="{{show == 1}}">
+      <view class="item">
+        <view class="lefts">
+          区域选择
+        </view>
+        <view class="typ {{fontColor1}}" catchtap="open" data-item="1">
+          <text class="txt">{{provinceValue}}</text>
+          <image class="img" src="../../icon/mine_right_arrow.png"></image>
+          <view class="option" wx:if="{{province_show}}">
+            <text class="txts" wx:for="{{province}}" wx:key="index" catchtap="close" data-item="1" data-index="{{index}}">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="lefts"></view>
+        <view class="typ {{fontColor2}}" catchtap="open" data-item="2">
+          <text class="txt">{{cityValue}}</text>
+          <image class="img" src="../../icon/mine_right_arrow.png"></image>
+          <view class="option" wx:if="{{city_show}}">
+            <text class="txts" wx:for="{{city}}" wx:key="index" catchtap="close" data-item="2" data-index="{{index}}">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="lefts"></view>
+        <view class="typ {{fontColor3}}" catchtap="open" data-item="3">
+          <text class="txt">{{areaValue}}</text>
+          <image class="img" src="../../icon/mine_right_arrow.png"></image>
+          <view class="option" wx:if="{{area_show}}">
+            <text class="txts" wx:for="{{area}}" wx:key="index" catchtap="close" data-item="3" data-index="{{index}}">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="lefts"></view>
+        <view class="typ {{fontColor4}}" catchtap="open" data-item="4">
+          <text class="txt">{{streetValue}}</text>
+          <image class="img" src="../../icon/mine_right_arrow.png"></image>
+          <view class="option" wx:if="{{street_show}}">
+            <text class="txts" wx:for="{{street}}" wx:key="index" catchtap="close" data-item="4" data-index="{{index}}">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="lefts"></view>
+        <view class="typ {{fontColor5}}" catchtap="open" data-item="5">
+          <text class="txt">{{villageValue}}</text>
+          <image class="img" src="../../icon/mine_right_arrow.png"></image>
+          <view class="option" wx:if="{{village_show}}">
+            <text class="txts" wx:for="{{village}}" wx:key="index" catchtap="close" data-item="5" data-index="{{index}}">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="lefts">
+          详细地址
+        </view>
+        <input class="inp {{bdColor6}}" value="{{value6}}" placeholder="请输入详细地址" placeholder-class="placeholderStyle" data-index="6" bindfocus="focus" bindinput="inputs" bindblur="blur" />
+      </view>
+    </view>
+    <view class="hall" wx:if="{{show == 2}}">
+      <view class="section typ">
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+          <view class="picker">
+            {{region[0]}}{{region[1]}}{{region[2]}}
+            <!-- {{region[3]}} custom-item="{{customItem}}" level="sub-district" -->
+            <image class="img" src="../../icon/report_ups.png"></image>
+          </view>
+        </picker>
+      </view>
+      <view class="search">
+        <image class="imag" src="../../icon/report_search.png"></image>
+        <input type="text" class="inps" placeholder="搜索礼堂" placeholder-style="font-size:24rpx;color:#002964;font-family: 'Light';" value="{{value1}}" bindinput="inputs" data-index="1" />
+        <button size="mini" class="btnz" bindtap="search">搜索</button>
+      </view>
+      <view class="list">
+        <view class="items" wx:for="{{lists}}" wx:key="index" bindtap="hallDetails" data-item="{{index}}">
+          <view class="lef">
+            <image class="imge" src="{{item.a_cover_photo}}"></image>
+          </view>
+          <view class="righ">
+            <view class="righ_top">
+              <view class="righ_top_name">{{item.a_name}}</view>
+              <view class="righ_top_logo">
+                <view class="righ_top_logos">活动中心</view>
+                <view class="righ_top_logos">家宴中心</view>
+              </view>
+            </view>
+            <view class="righ_bottom">
+              <image class="righ_bottom_icon" src="../../icon/report_icon.png"></image>
+              <view class="righ_bottom_address">{{item.a_address}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="hallDetails" wx:if="{{show == 3}}">
+      <view class="details">
+        <view class="returns" bindtap="returns">
+          <image class="imga" src="../../icon/report_quits.png"></image>
+        </view>
+        <image class="cover" src="{{hallDetails.a_cover_photo}}"></image>
+        <view>
+        </view>
+        <view class="title">{{hallDetails.a_name}}</view>
+        <view class="addr">
+          <image class="addr_img" src="../../icon/report_marks.png"></image>
+          地址：{{hallDetails.a_address}}
+        </view>
+        <view class="tiem">
+          <image class="tiem_img" src="../../icon/report_clock.png"></image>
+          营业时间：全天
+        </view>
+        <view class="hint">礼堂详情</view>
+        <swiper class="hallSwiper" autoplay="true" interval="3500" circular="true" indicator-dots="true" previous-margin="40px" easing-function="easeInCubic" snap-to-edge="true" next-margin="60px">
+          <swiper-item class="swiper-item" wx:for="{{hallDetails.a_scroll_picture}}" wx:key="index">
+            <image class="item-img" src="{{item}}"></image>
+          </swiper-item>
+        </swiper>
+        <view class="assure">
+          <view class="assures">
+            <text class="txts">保障</text>
+            <view class="item">
+              <image class="item_img" src="../../icon/report_tick.png"></image>
+              <text class="item_txt">食品安全责任险</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="hallls">
+        <view class="hallls_i">
+          <view class="hallls_i_left">选择大厅</view>
+          <view class="hallls_i_right" bindtap="rightArrow">
+            <text class="i_name">{{hallxss?hallDetails.a_name+hallxss:"请选择大厅"}}</text>
+            <image class="i_img" src="../../icon/report_right.png"></image>
+          </view>
+        </view>
+        <view class="hallls_i">
+          <view class="hallls_i_left">预约日期</view>
+          <view class="hallls_i_right" bindtap="rightArrow">
+            <view class="i_time">
+              <text class="i_time_txt">{{startDate}}</text>
+              至
+              <text class="i_time_txt i_time_txts">{{endDate}}</text>
+            </view>
+            <image class="i_img" src="../../icon/report_right.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="bottoms">
+    <button class="btn" size="mini" bindtap="previous2">上一步</button>
+    <button class="btn btns" size="mini" bindtap="nextStep2">下一步</button>
+  </view>
+  <view class="noticess" wx:if="{{isShow}}" bindtap="cancel">
+    <view class="notices {{anima}}" catchtap="block">
+      <view class="page_cont" wx:if="{{isShows==1}}">
+        <view class="btn">
+          <view class="btns" catchtap="cancel">取消</view>
+          <view class="btns btnss" catchtap="sure">确定</view>
+        </view>
+        <view class="wire"></view>
+        <view class="item">
+          <view class="items {{item.flag?'itemsx':''}}" wx:for="{{hallDetails.office}}" wx:key="index" catchtap="uncheck" data-index="{{index}}">
+            <view class="itemss">{{item.ao_name}}</view>
+            <view class="itemss">{{item.ao_capacity}}人</view>
+            <view class="itemss">{{item.ao_tables}}桌</view>
+          </view>
+        </view>
+      </view>
+      <view class="container">
+        <view> 
+          <calendar wx:if="{{isShows==2}}" id="calendar" isOpen="{{isOpen}}"  mini="true" selected="{{selected}}" lockDay="{{lockday}}" bind:getdate="getdate" bind:select="cmfclick"></calendar>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

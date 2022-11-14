@@ -1,0 +1,23 @@
+<!--components/admin_gridman/index.wxml-->
+<view class="admin_gridman">
+  <view class="add">
+    <navigator class="btn" url="/tertiary/pages/admin_gridmanInfo/index?item=1">添加网格员</navigator>
+  </view>
+  <view class="title">
+    <view class="row">用户名</view>
+    <view class="row">真实姓名</view>
+    <view class="row rows">所属片区</view>
+    <view class="row rowss">操作</view>
+  </view>
+  <scroll-view class="list" bindscrolltolower="lower" scroll-y='true'>
+    <view class="lists" wx:for="{{listArr}}" wx:key="index">
+      <view class="row">{{item.gm_user}}</view>
+      <view class="row">{{item.gm_name}}</view>
+      <view class="row rows">{{item.province_name}}{{item.city_name}}{{item.area_name}}{{item.street_name}}{{item.village_name}}</view>
+      <view class="row rowss">
+        <navigator class="edit" url="/tertiary/pages/admin_gridmanInfo/index?item=2&gm_id={{item.gm_id}}">编辑</navigator>
+        <navigator class="track" url="/tertiary/pages/admin_gridmanTrack/index?gm_id={{item.gm_id}}">历史轨迹</navigator>
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,20 @@
+<!--secondary/pages/chef_review/index.wxml-->
+<view class="chef_review">
+  <view class="review">
+    <view class="score">
+      <view>本次评分<text class="score_txt">：</text></view>
+      <view class="score_star">
+        <image class="star" wx:for="{{star[mi_score].stars}}" wx:key="index" src="{{item}}"></image>
+      </view>
+    </view>
+    <view class="evaluate">
+      {{mi_evaluate}}
+    </view>
+    <view class="imgs">
+      <image class="img"></image>
+      <image class="img"></image>
+      <image class="img"></image>
+      <!-- <image class="img"></image> -->
+    </view>
+  </view>
+</view>

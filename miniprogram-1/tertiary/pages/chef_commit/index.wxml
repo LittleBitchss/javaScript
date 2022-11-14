@@ -1,0 +1,18 @@
+<!--tertiary/pages/chef_commit/index.wxml-->
+<view class="chef_commit">
+  <view class="protocol">
+    <text class="guide" space="emsp">  根据《**省农村自办群体性宴席食品安全管理办法》规定，举办、承办农村自办群体性宴席应遵守如下食品安全要求：</text>
+    <text class="guide" space="emsp">  1.举办、承办农村家庭宴席和承办者应举办者要求开展延伸服务时，均要做好食品安全管理和安全防范工作，要按照食品安全要求选择场所和加工制作食品。</text>
+    <text class="guide" space="emsp">  2.加工制作场地应清洁卫生，远离禽畜圈、厕所等污染源。</text>
+    <text class="guide" space="emsp">  3.餐饮具及工具必须经过清洗、消毒后方可使用。</text>
+    <text class="guide" space="emsp">  4.家宴制作者应身体健康，保持良好个人卫生，洗手后加工熟食品。有传染病和近期有腹泻等胃肠道症状者不得进行食品加工。外聘厨师应持有健康证，并经食品安全知识培训合格。</text>
+    <text class="guide" space="emsp">  5.食品原料应进货验收，符合食品安全要求。不得使用腐败变质、超过保质期和病死毒死禽畜肉及鱼类；不得使用野生蘑菇、发芽土豆等。</text>
+    <text class="guide" space="emsp">  6.采购的肉类、水产品及半成品等若不能及时加工处理，应使用冰箱或冰柜进行冷藏（冻）保存。</text>
+    <text class="guide" space="emsp">  7.加工过程做到生、熟食品分开，生、熟食品加工用具分开，防止交叉感染。餐食品必须煮熟烧透，有异味及不良色泽等不得食用。</text>
+    <text class="guide" space="emsp">  8.制作虾、蟹等海鲜类食品应具备专用场地和工具，用后立即消毒。条件不具备者，不得使用加工制作虾、蟹等海鲜类食品。</text>
+    <text class="guide" space="emsp">  9.不做或少做凉菜卤菜。加工制作凉菜卤菜必须有专门场所、专用工具和容器，不得使用亚硝酸盐。凉菜卤菜现食现做，尽量当餐用完，剩余尚需食用的应在冷藏或冷冻条件下存放。</text>
+    <text class="guide" space="emsp">  10.禁止采购、使用、存放亚硝酸盐，管好农药、鼠药、有毒化学物品等，防止化学性食物中毒。</text>
+  </view>
+  <navigator class="btn" wx:if="{{m_matsuri_type==1}}" url="/fourth/pages/chef_safety/index?m_id={{m_id}}&mi_id={{mi_id}}&m_phone={{m_phone}}">下一步</navigator>
+    <button class="btn" wx:if="{{m_matsuri_type==2}}" size="mini" bindtap="accept">接 受</button>
+</view>

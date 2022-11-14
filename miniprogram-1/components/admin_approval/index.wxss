@@ -1,0 +1,218 @@
+/* components/admin_admin_approval/index.wxss */
+.admin_approval{
+  height: 100%;
+}
+.admin_approval .top{
+  height: 4%;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 25rpx;
+  font-family: 'Regular';
+  color: #579cff;
+}
+.admin_approval .top .tops{
+  height: 100%;
+}
+.admin_approval .top .topss{
+  font-family: 'Bold';
+  border-bottom: 4rpx solid #f25500;
+}
+
+
+.admin_approval .bottom{
+  height: 96%;
+}
+.admin_approval .bottom .title{
+  height: 5%;
+  width: 99%;
+  margin: 0 auto;
+  display: flex;
+  font-size: 24rpx;
+  font-family: 'Medium';
+  border-top: 2rpx solid #000;
+  border-bottom: 2rpx solid #000;
+}
+.admin_approval .bottom .list .lists{
+  height: 60rpx;
+  width: 99%;
+  margin: 0 auto;
+  display: flex;
+  font-size: 22rpx;
+  font-family: 'Light';
+  border-bottom: 2rpx solid #000;
+}
+.admin_approval .bottom .row{
+  width: 160rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 2rpx solid #000;
+}
+.admin_approval .bottom .rows{
+  flex: 1;
+  text-align: center;
+}
+.admin_approval .bottom .rowss{
+  border-right: 2rpx solid #000;
+}
+.admin_approval .bottom .rowsss{
+  color: #5fbcff;
+  border-right: 2rpx solid #000;
+}
+
+.admin_approval .bottom2{
+  height: 96%;
+}
+.admin_approval .bottom2 .filter{
+  height: 10%;
+  display: flex;
+}
+.admin_approval .bottom2 .filter .left{
+  width: 220rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin_approval .bottom2 .filter .filter_bottom{
+  height: 69rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 6rpx;
+}
+
+.admin_approval .bottom2 .filter .select{
+  width: 180rpx;
+  display: flex;
+  height: 40rpx;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border: 2rpx solid #000;
+  border-radius: 10rpx;
+  padding: 0 10rpx;
+}
+
+.admin_approval .bottom2 .filter .down{
+  width: 20rpx;
+  height: 12rpx;
+}
+.admin_approval .bottom2 .filter .txt{
+  width: 100%;
+  font-size: 25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin_approval .bottom2 .filter .listss{
+  position:absolute;
+  top: 100%;
+  width: 100%;
+  max-height: 300rpx;
+  background-color: #fff;
+  left: 0;
+  box-shadow: 0rpx 0rpx 5rpx 1rpx #000;
+  box-sizing: border-box;
+  z-index: 1000;
+  overflow:auto;
+}
+.admin_approval .bottom2 .filter .listss .listsss{
+  display: block;
+  width: 90%;
+  height: 46rpx;
+  margin: 0 auto;
+  font-size: 25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2rpx solid #eee;
+  white-space:nowrap;
+}
+
+
+.admin_approval .bottom2 .filter .right{
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.admin_approval .bottom2 .filter .right .time{
+  width: 180rpx;
+  display: flex;
+  height: 40rpx;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border: 2rpx solid #000;
+  border-radius: 10rpx;
+  padding: 0 10rpx;
+}
+.admin_approval .bottom2 .filter .right .time .txt{
+  width: 100%;
+  font-size: 25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin_approval .bottom2 .filter .right .time .img{
+  width: 20rpx;
+  height: 12rpx;
+  display: block;
+}
+
+
+
+.admin_approval .bottom2 .titles{
+  height: 5%;
+  width: 99%;
+  margin: 0 auto;
+  display: flex;
+  font-size: 24rpx;
+  font-family: 'Medium';
+  border-top: 2rpx solid #cad1e1;
+  border-bottom: 2rpx solid #cad1e1;
+}
+.admin_approval .bottom2 .lsit{
+  height: 85%;
+}
+.admin_approval .bottom2 .lsit .lsits{
+  height: 70rpx;
+  width: 99%;
+  margin: 0 auto;
+  display: flex;
+  font-size: 22rpx;
+  font-family: 'Light';
+  border-bottom: 2rpx solid #cad1e1;
+}
+.admin_approval .bottom2 .rew{
+  width: 105rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 2rpx solid #cad1e1;
+}
+.admin_approval .bottom2 .rews{
+  flex: 1;
+  text-align: center;
+}
+.admin_approval .bottom2 .rewss{
+  border-right: 2rpx solid #cad1e1;
+}
+.admin_approval .bottom2 .rewsx{
+  width: 120rpx;
+}
+.admin_approval .bottom2 .rewsss{
+  color: #5fbcff;
+  border-right: 2rpx solid #cad1e1;
+}
+.admin_approval .bottom2 .rewssss1{
+  color: #1a9e30;
+}
+.admin_approval .bottom2 .rewssss2{
+  color: #d52d27;
+}
+.admin_approval .bottom2 .rewssss3{
+  color: #b7b6b6;
+}

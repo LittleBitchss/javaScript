@@ -1,0 +1,6 @@
+<!--pages/ceshi/index.wxml-->
+<view class="ceshi">
+  
+  <view bindtap="aaa">点击</view>
+</view>
+

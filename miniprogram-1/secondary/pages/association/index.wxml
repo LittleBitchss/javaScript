@@ -1,0 +1,91 @@
+<!--secondary/pages/association/index.wxml-->
+<view class="association" bindtap="close">
+  <view class="filter">
+    <view class="area-item" wx:if="{{location}}">
+      <view class="select">
+        <text class="txt">{{location}}</text>
+      </view>
+    </view>
+    <view class="area-item" wx:if="{{locationArr[0]==0}}">
+      <view class="select" catchtap="unfold" data-index="1">
+        <text class="txt">{{provinceValue}}</text>
+        <image class="down" src="{{domain}}ups.png"></image>
+        <view class="listss fontColor" wx:if="{{province_show}}" wx:key="index">
+          <text class="listsss" wx:for="{{province}}" catchtap="choose" data-index="{{index}}" data-item="1" wx:key="index">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="area-item" wx:if="{{locationArr[1]==0}}">
+      <view class="select {{fontColor2}}" catchtap="unfold" data-index="2">
+        <text class="txt">{{cityValue}}</text>
+        <image class="down" src="{{domain}}ups.png"></image>
+        <view class="listss" wx:if="{{city_show}}" wx:key="index">
+          <view class="listsss fontColor" wx:for="{{city}}" catchtap="choose" data-index="{{index}}" data-item="2" wx:key="index">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="area-item" wx:if="{{locationArr[2]==0}}">
+      <view class="select {{fontColor3}}" catchtap="unfold" data-index="3">
+        <text class="txt">{{areaValue}}</text>
+        <image class="down" src="{{domain}}ups.png"></image>
+        <view class="listss" wx:if="{{area_show}}" wx:key="index">
+          <view class="listsss fontColor" wx:for="{{area}}" catchtap="choose" data-index="{{index}}" data-item="3" wx:key="index">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="area-item" wx:if="{{locationArr[3]==0}}">
+      <view class="select  {{fontColor4}}" catchtap="unfold" data-index="4">
+        <text class="txt">{{streetValue}}</text>
+        <image class="down" src="{{domain}}ups.png"></image>
+        <view class="listss" wx:if="{{street_show}}" wx:key="index">
+          <view class="listsss fontColor" wx:for="{{street}}" catchtap="choose" data-index="{{index}}" data-item="4" wx:key="index">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="area-item" wx:if="{{locationArr[4]==0}}">
+      <view class="select  {{fontColor5}}" catchtap="unfold" data-index="5">
+        <text class="txt">{{villageValue}}</text>
+        <image class="down" src="{{domain}}ups.png"></image>
+        <view class="listss" wx:if="{{village_show}}" wx:key="index">
+          <view class="listsss fontColor" wx:for="{{village}}" catchtap="choose" data-index="{{index}}" data-item="5" wx:key="index">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="pie-charts">
+    <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
+  </view>
+  <scroll-view class="chefs" bindscrolltolower="lower" scroll-y='true'>
+    <view class="chef" wx:for="{{lists}}" wx:key="index">
+      <view class="chef_avatar">
+        <image class="chef_avatar_img" src="{{item.chef_photo}}"></image>
+      </view>
+      <view class="chef_info">
+        <view class="medal">
+          <image class="medal_img" src="../../../icon/medal.png"></image>
+          <text>厨师协会会员</text>
+        </view>
+        <view class="chef_first">{{item.chef_name}}</view>
+        <view class="grade item">
+          <text class="grade_left left">职业等级</text>
+          <text class="grade_right right">{{grade[item.chef_level-1].name}}</text>
+        </view>
+        <view class="address item">
+          <text class="address_left left">工作地址</text>
+          <text class="address_right right">{{item.chef_work_address}}</text>
+        </view>
+        <view class="aactp item">
+          <view class="aactp_left left">协会认证</view>
+          <view class="aactp_right right">已认证{{item.comments[0]?'“'+item.comments[0]+'”':""}}{{item.comments[1]?'“'+item.comments[1]+'”':""}}{{item.comments[0]?'“'+item.comments[0]+'”':""}}{{item.comments[1]?'“'+item.comments[1]+'”':""}}</view>
+        </view>
+        <view class="phone item">
+          <view class="phone_left left">联系电话</view>
+          <view class="phone_right right">{{item.chef_phone}}</view>
+        </view>
+        <navigator class="chefDetails" open-type="navigate" url="/tertiary/pages/association_archives/index?chef_id={{item.chef_id}}">
+          详细情况
+        </navigator>
+      </view>
+    </view>
+  </scroll-view>
+</view>

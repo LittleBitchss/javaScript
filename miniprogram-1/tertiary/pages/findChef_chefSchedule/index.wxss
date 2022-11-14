@@ -1,0 +1,110 @@
+/* tertiary/pages/findChef_chefSchedule/index.wxss */
+.findChef_chefSchedule{
+  height: 100vh;
+  background-color: #f3f3f3;
+}
+.findChef_chefSchedule .calendar{
+  height: 700rpx;
+}
+.findChef_chefSchedule .calendar .calendars{
+  height: 620rpx;
+  width: 98%;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 1rpx 1rpx -1rpx #000;
+}
+.findChef_chefSchedule .calendar .prompts{
+  height: calc(100% - 620rpx);
+  font-size: 25rpx;
+  font-family: 'Light';
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx;
+  color: #f14c44;
+}
+
+.findChef_chefSchedule .order{
+  height: calc(100vh - 700rpx);
+}
+.findChef_chefSchedule .order .prompt{
+  height: 70rpx;
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  font-family: 'Medium';
+  color: #4768f3;
+}
+.findChef_chefSchedule .order .orders{
+  height: calc(100% - 70rpx);
+  overflow: auto;
+}
+.findChef_chefSchedule .order .orders .item{
+  width: 702rpx;
+  border: 2rpx solid #b7b6b6;
+  margin: 0 auto 22rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  font-size: 25rpx;
+  font-family: 'Light';
+  position: relative;
+}
+.findChef_chefSchedule .order .orders .item .items{
+  height: 50rpx;
+  border-bottom: 2rpx solid #b7b6b6;
+  padding-left: 24rpx;
+  display: flex;
+  align-items: center;
+}
+.findChef_chefSchedule .order .orders .item .items1{
+  justify-content: space-between;
+  padding-right: 24rpx;
+}
+.findChef_chefSchedule .order .orders .item .items2{
+  padding: 0;
+}
+.findChef_chefSchedule .order .orders .item .items2 .left{
+  border-right: 2rpx solid #b7b6b6;
+  width: 50%;
+  height: 100%;
+  padding-left: 24rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+.findChef_chefSchedule .order .orders .item .items2 .right{
+  padding-left: 24rpx;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.findChef_chefSchedule .order .orders .item .items .txt{
+  flex: 1;
+  text-align: center;
+  font-family: 'Medium';
+}
+.findChef_chefSchedule .order .orders .item .items .txts1{
+  color: #579cff;
+}
+.findChef_chefSchedule .order .orders .item .items .txts2{
+  color: #f14c44;
+}
+.findChef_chefSchedule .order .orders .item .nobd{
+  border-bottom:0;
+  padding-right: 24rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.findChef_chefSchedule .order .orders .item .nobd .nobd_btn{
+  width: 122rpx;
+  height: 40rpx;
+  margin: 0;
+  padding: 0;
+  border-radius: 10rpx;
+  font-size: 20rpx;
+  line-height: 40rpx;
+  color: #fff;
+  background-color: #f14c44;
+}

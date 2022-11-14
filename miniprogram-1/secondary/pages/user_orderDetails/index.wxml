@@ -1,0 +1,156 @@
+<!--secondary/pages/user_orderDetails/index.wxml-->
+<view class="user_orderDetails" wx:if="{{m_matsuri_type==1}}">
+  <view class="top">
+    <view class="item {{active0}}" bindtap="taggle" data-index="0">基本信息</view>
+    <view class="item {{active1}}" bindtap="taggle" data-index="1">家宴选址</view>
+    <view class="item {{active2}}" bindtap="taggle" data-index="2">食材来源</view>
+    <view class="item {{active3}}" bindtap="taggle" data-index="3">卫生条件</view>
+    <view class="item {{active4}}" bindtap="taggle" data-index="4" wx:if="{{chefs.length == 0?false:true}}">厨师信息</view>
+    <view class="item {{active5}}" bindtap="taggle" data-index="5" wx:if="{{operation.length!=0}}">乡宴操作</view>
+  </view>
+  <view class="midden">
+    <user_orderBasics wx:if="{{show == 0}}" basics="{{basics}}"></user_orderBasics>
+    <user_orderAddre wx:if="{{show == 1}}" auditorium="{{auditorium}}" basics="{{basics}}"></user_orderAddre>
+    <user_orderFood wx:if="{{show == 2}}" foodsources="{{foodsources}}"></user_orderFood>
+    <user_orderHealth wx:if="{{show == 3}}" sanitary="{{sanitary}}"></user_orderHealth>
+    <user_orderChefInfo wx:if="{{show == 4&&invitation==0}}" chefs="{{chefs}}"></user_orderChefInfo>
+    <user_orderChefDetails wx:if="{{show == 4&&invitation==1}}" chefs="{{chef}}"></user_orderChefDetails>
+    <view class="countryBanquetOperation" wx:if="{{show == 5}}">
+      <view class="tab">
+        <view class="tabs {{bg1}}" bindtap="toggles" data-index="0">
+          厨房用具
+        </view>
+        <view class="tabs {{bg2}}" bindtap="toggles" data-index="1">
+          消毒工具
+        </view>
+        <view class="tabs noBorder {{bg3}}" bindtap="toggles" data-index="2">
+          菜品图片
+        </view>
+      </view>
+      <view class="content">
+        <view class="kitchen" wx:if="{{isShow == 0}}">
+          <view class="frame">
+            <image class="img" wx:for="{{arr1}}" wx:key="index" src="{{item}}"></image>
+          </view>
+        </view>
+        <view class="disinfect" wx:if="{{isShow == 1}}">
+          <view class="frame">
+            <image class="img" wx:for="{{arr2}}" wx:key="index" src="{{item}}"></image>
+          </view>
+        </view>
+        <view class="dishes" wx:if="{{isShow == 2}}">
+          <view class="frame">
+            <image class="img" wx:for="{{arr3}}" wx:key="index" src="{{item}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="user_orderDetail" style="height: 100vh;" wx:if="{{m_matsuri_type==2}}">
+  <view class="top" style="height: 5%;" wx:if="{{chefs.length!=0}}">
+    <view class="item {{active11}}" bindtap="tagglex" data-index="1">订单信息</view>
+    <view class="item {{active22}}" bindtap="tagglex" data-index="2">厨师信息</view>
+  </view>
+  <view class="bottoms" style="{{chefs.length!=0?'height: 95%;overflow: auto;':'height: 100%;overflow: auto;'}}">
+    <view class="orderInfo" wx:if="{{shows==1}}">
+      <view class="diniInfo">
+        <view class="title">用餐信息</view>
+        <view class="item">
+          <view class="item_left">服务日期</view>
+          <view class="item_right">
+            <view class="item_right_inp">{{basics.m_start_date}}</view>
+          </view>
+        </view>
+        <view class="item">
+          <view class="item_left">用餐时间</view>
+          <view class="item_right">
+            <view class="item_right_inp">{{basics.m_meal_time}}</view>
+          </view>
+        </view>
+        <view class="item">
+          <view class="item_left">用餐人数</view>
+          <view class="item_right">
+            <view class="item_right_">
+              <view class="item_right_inp">{{basics.m_banquet_number}}</view>人
+            </view>
+          </view>
+        </view>
+        <view class="item">
+          <view class="item_left">联系电话</view>
+          <view class="item_right">
+            <view class="item_right_inp">{{basics.m_phone}}</view>
+          </view>
+        </view>
+        <view class="item">
+          <view class="item_left">用餐地址：</view>
+          <view class="item_right">
+            <view class="picker item_right_inp">
+              <text class="txt txts">{{basics.region[0]}}</text>
+              <text class="txt txts">{{basics.region[1]}}</text>
+              <text class="txt txts">{{basics.region[2]}}</text>
+              <text class="txt txts">{{basics.region[3]}}</text>
+              <text class="txt txts">{{basics.region[4]}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="item">
+          <view class="item_left"></view>
+          <view class="item_right">
+            <view class="item_right_inp">{{basics.m_address}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="note">
+        <view class="note_left">特别备注</view>
+        <view class="note_right">{{basics.m_remark}}</view>
+      </view>
+      <view class="securitys">
+        <view class="security_title">安全保障</view>
+        <radio-group class="security">
+          <label class="security_item security_left {{basics.m_insurance_count==0?'active':''}}">
+            <view class="security_item_top {{basics.m_insurance_count==0?'bdColor':''}}">无保障</view>
+            <view class="security_left_bottom">
+              <view class="security_left_bottom_imgs">
+                <image class="security_left_bottom_img" src="../../../icon/goHome_null.png"></image>
+              </view>
+              <view class="security_left_bottom_txt">0项</view>
+              <view class="security_left_bottom_checkbox">
+                <radio value="0" checked="{{basics.m_insurance_count==0}}" disabled="true" />
+              </view>
+            </view>
+          </label>
+          <label class="security_item security_right {{basics.m_insurance_count!=0?'active':''}}">
+            <view class="security_item_top {{basics.m_insurance_count!=0?'bdColor':''}}">厨师到家安全组合险</view>
+            <view class="security_right_bottom">
+              <view class="security_right_item">
+                <view class="security_right_item_cont">
+                  <image class="security_right_item_cont_imgs" src="../../../icon/goHome_casualty.png"></image>
+                  <text class="security_right_item_cont_txt">意外伤害险</text>
+                </view>
+              </view>
+              <view class="security_right_midden">
+                <view class="price">10元</view>
+                <view class="security_right_midden_add">
+                  <view class="security_right_midden_add_item"></view>
+                  <view class="security_right_midden_add_item security_right_midden_add_items"></view>
+                </view>
+                <view class="security_right_midden_checkbox">
+                  <radio value="10" checked="{{basics.m_insurance_count!=0}}" disabled="true" />
+                </view>
+              </view>
+              <view class="security_right_item">
+                <view class="security_right_item_cont">
+                  <image class="security_right_item_cont_img" src="../../../icon/goHome_foodSafety.png"></image>
+                  <text class="security_right_item_cont_txt">食品安全责任险</text>
+                </view>
+              </view>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <user_orderChefInfo wx:if="{{shows == 2&&invitation==0}}" chefs="{{chefs}}" m_id="{{m_id}}"></user_orderChefInfo>
+    <user_orderChefDetails wx:if="{{shows == 2&&invitation==1}}" chefs="{{chef}}"></user_orderChefDetails>
+  </view>
+</view>

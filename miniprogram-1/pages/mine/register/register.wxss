@@ -1,0 +1,303 @@
+/* pages/register/register.wxss */
+.pag{
+  height: 100vh;
+  font-family: 'Normal';
+  position: relative;
+}
+image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.registerSubmit{
+  width: 638rpx;
+  height: 66%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -319rpx;
+  transform: translateY(-50%);
+  background-color: #eeeeee;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+}
+.registerSubmit .title{
+  font-family: 'Bold';
+  width: 539rpx;
+  color: #002964;
+  display: flex;
+  margin: 4% auto 0;
+  justify-content: center;
+  align-items: center;
+  height: 11%;
+  box-sizing: border-box;
+}
+
+.registerSubmit .content{ 
+  box-sizing: border-box;
+  width: 616rpx;
+  height: 62%;
+  margin: 0 auto;
+  border-bottom: 4rpx solid #002964;
+}
+.registerSubmit .content .item{
+  width: 539rpx;
+  height: 12%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.registerSubmit .content .hint{
+  width: 539rpx;
+  height: 7%;
+  margin: 0 auto;
+  color: red;
+  display: flex;
+  align-items: center;
+}
+.registerSubmit .content .hint .txt{
+  font-size: 22rpx;
+}
+.registerSubmit .content .hint .ic{
+  margin-top: 5rpx;
+}
+.registerSubmit .content .noShow{
+  opacity: 0;
+}
+.registerSubmit .content .registrationType{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.registerSubmit .content .registrationType .reg{
+  width: 244rpx;
+  height: 100%;
+  font-size: 30rpx;
+  border: 2rpx solid #b6b6b6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #b6b6b6;
+  box-sizing: border-box;
+}
+.registerSubmit .content .registrationType .active{
+  border: 2rpx solid #002964;
+  color: #002964;
+}
+.registerSubmit .content .content-verify{
+  width: 541rpx;
+  margin-bottom: 0 !important;
+}
+.borderColor{
+  border: 2rpx solid #b6b6b6;
+}
+.borderColorActive{
+  border: 2rpx solid #002964;
+}
+.registerSubmit .content .content-phone{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 0;
+}
+.registerSubmit .content .content-phone .img{
+  width:28rpx;
+  height: 80%;
+}
+.registerSubmit .content .content-phone .phoneInput{
+  height: 100%;
+  font-size: 26rpx;
+  flex: 1;
+  padding: 0 10rpx;
+  font-family: 'Light';
+}
+
+.registerSubmit .content .content-code{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12rpx;
+  box-sizing: border-box;
+  align-items: center;
+  font-size: 26rpx;
+}
+.registerSubmit .content .content-code .img{
+  width: 50rpx;
+  height: 60%;
+}
+.registerSubmit .content .content-code .codeInput{
+  height: 100%;
+  font-family: 'Light';
+  padding: 0 12rpx;
+}
+.registerSubmit .content .content-code .sendBtn{
+  height: 60%;
+  width: 260rpx;
+  padding: 0;
+  border: 0;
+  border-left: 1rpx solid #b6b6b6;
+  font-size: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+  color: #002964;
+}
+
+.registerSubmit .content .pas .pass{
+  height: 100%;
+  font-size: 26rpx;
+  flex: 1;
+  padding: 0 10rpx;
+  font-family: 'Light';
+}
+
+.registerSubmit .content .content-btn .but{
+  height: 100%;
+  width: 100%;
+  background-color: #002964;
+  color: #fff;
+  padding: 0;
+  border-radius: 0;
+  font-family: 'Normal';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.registerSubmit .content .content-btn button .nb{
+ display: inline-block;
+ width: 62rpx;
+}
+.registerSubmit .content .goLogin{
+  display: flex;
+  font-size: 18rpx;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Medium';
+}
+.radio{
+  line-height: 22rpx;
+}
+.radio .protocol{
+  color: #002964;
+}
+/*radio未选中时样式 */ 
+radio .wx-radio-input {
+  border-color: #002964!important;
+  width: 20rpx;
+  height: 20rpx;
+  margin-top: -4rpx;
+}
+/* 选中后的 背景样式 */
+radio .wx-radio-input.wx-radio-input-checked {
+  background-color: #fff!important;
+  width: 20rpx;
+  height: 20rpx;
+}
+/* 选中后的 对勾样式  */
+radio .wx-radio-input.wx-radio-input-checked::before {
+  /* 去除对号 */
+  content: ''; 
+  width: 22rpx;
+  height: 22rpx;
+  border-radius: 50%;
+  background-color: #002964;
+}
+.noticess{
+  position:absolute;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 200;
+}
+.noticess .notices{
+  position:absolute;
+  left: 0;
+  bottom: 0;
+  height: 70%;
+  width: 100%;
+  background-color: #e5e5e5;
+  border-top-left-radius: 50rpx;
+  border-top-right-radius: 50rpx;
+  overflow: auto;
+}
+@keyframes down{
+  0%{
+    bottom:-70%;
+  }
+  100%{
+    bottom:0%;
+  }
+}
+@keyframes up{
+  0%{
+    bottom:0%;
+  }
+  100%{
+    bottom:-70%;
+  }
+}
+.noticess .down{
+  animation:down 600ms;
+}
+.noticess .up{
+  animation:up 600ms;
+}
+.noticess .notices .img{
+  width: 90%;
+  height: 300rpx;
+  background-color: #fff;
+  margin: 5rpx auto;
+  display: block;
+}
+.noticess .notices .bttn{
+  width: 300rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  margin: 20rpx auto;
+  display: block;
+  color: #fff;
+  background-color: #b6b6b6;
+  line-height: 60rpx;
+}
+.noticess .notices .bttns{
+  background-color: #002964 !important;
+}
+
+
+
+.registerSubmit .bottom{
+  display: flex;
+  align-items: center;
+  height: 24%;
+}
+.registerSubmit .bottom .contnets{
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 26rpx;
+  flex: 1;
+  height: 122rpx;
+}
+.registerSubmit .bottom .contnets view{
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.registerSubmit .bottom .contnets view image{
+  width: 76rpx;
+}
+.registerSubmit .bottom .contnets view .distortion{
+  width: 64rpx;
+}
+.registerSubmit .bottom .contnets view text{
+  margin-top: 16rpx;
+  font-size: 25rpx;
+  color: #002964;
+}

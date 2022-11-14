@@ -1,0 +1,109 @@
+<!--components/chefRegister_chefOrder/chefRegister_chefOrder.wxml-->
+<view class="chefRegister_chefOrder" bindtap="offFilter">
+  <view class="top">
+    <view class="item {{active1}}" bindtap="taggle" data-item="1">{{isAll}}<image catchtap="openFilter" class="allImg {{allImgActive}}" src="{{allImg}}"></image>
+      <view class="isAll" wx:if="{{show}}">
+        <view class="isAlls {{item.color}}" wx:for="{{isAllArr}}" wx:key="index" bindtap="choose" data-index="{{index}}">{{item.text}}</view>
+      </view>
+    </view>
+    <view class="item {{active2}}" bindtap="taggle" data-item="2">待接受</view>
+    <view class="item {{active3}}" bindtap="taggle" data-item="3">服务中</view>
+    <view class="item {{active4}}" bindtap="taggle" data-item="4">已完成</view>
+  </view>
+  <view class="bottom">
+    <scroll-view class="all" scroll-y="true" refresher-enabled="true" scroll-with-animation="true" enable-back-to-top="true" enhanced="true" bounces="true">
+      <navigator class="item" open-type="navigate" wx:for="{{chefOrderArr}}" wx:key="index" url="/secondary/pages/chef_orderDetails/index?a_name={{item.a_name}}&mt_name={{item.mt_name}}&m_start_date={{item.m_start_date}}&m_holding_days={{item.m_holding_days}}&m_banquet_number={{item.m_banquet_number}}&m_phone={{item.m_phone}}&m_longitude={{item.m_longitude}}&m_latitude={{item.m_latitude}}&m_id={{item.m_id}}&mi_id={{item.mi_id}}&mi_accept_invitation={{item.mi_accept_invitation}}&m_matsuri_type={{item.m_matsuri_type}}&m_meal_time={{item.m_meal_time}}&m_remark={{item.m_remark}}">
+        <block wx:if="{{item.m_matsuri_type==1}}">
+          <view class="items items1">
+            <view class="time">
+              {{item.m_start_date}}
+            </view>
+            <view class="star" wx:if="1">
+              本次评价：
+              <image class="stars" wx:for="{{star[0].stars}}" wx:key="index" src="{{item}}"></image>
+            </view>
+          </view>
+          <view class="items items2">
+            <view class="left">
+              <text>举办天数：</text>
+              <text class="txt">{{item.m_holding_days}}天</text>
+            </view>
+            <view class="right">
+              <text>宴会类型：</text>
+              <text class="txt">{{item.mt_name}}</text>
+            </view>
+          </view>
+          <view class="items">
+            <text>举办地点：</text>
+            <text class="txt">{{item.m_address}}</text>
+          </view>
+          <view class="items nobd" catchtap="block">
+            <view class="btns_left">
+              <button wx:if="{{item.mi_accept_invitation==1&&!item.banCancel&&item.m_approval<2}}" class="cancel" bindtap="cancel" class="cancel" data-mi_id="{{item.mi_id}}" size="mini" plain="true">取消订单</button>
+            </view>
+            <view class="btns_right">
+              <navigator class="btn accept" open-type="navigate" wx:if="{{item.mi_accept_invitation==0}}" url="/secondary/pages/chef_orderDetails/index?a_name={{item.a_name}}&mt_name={{item.mt_name}}&m_start_date={{item.m_start_date}}&m_holding_days={{item.m_holding_days}}&m_banquet_number={{item.m_banquet_number}}&m_phone={{item.m_phone}}&m_longitude={{item.m_longitude}}&m_latitude={{item.m_latitude}}&m_id={{item.m_id}}&mi_id={{item.mi_id}}&mi_accept_invitation={{item.mi_accept_invitation}}&m_matsuri_type={{item.m_matsuri_type}}&m_meal_time={{item.m_meal_time}}">接受</navigator>
+              <navigator wx:if="{{item.mi_accept_invitation==1&&item.expired!=1&&item.m_approval<2}}" catchtap="block" class="btn accepted" url="/secondary/pages/chef_photoRecord/index?m_id={{item.m_id}}&m_chef_id={{item.m_chef_id}}">拍照</navigator>
+              <navigator open-type="navigate" wx:if="{{item.mi_accept_invitation==3&&item.mi_evaluate}}" class="btn viewReviews" url="/secondary/pages/chef_review/index?m_id={{item.m_id}}&mi_score={{item.mi_score}}&mi_evaluate={{item.mi_evaluate}}">查看评语</navigator>
+              <view class="btn cancel" wx:if="{{item.banCancel&&item.expired!=1&&item.m_approval==1&&item.mi_accept_invitation==1}}">服务中</view>
+              <view class="btn cancel" wx:if="{{item.expired==1&&item.m_approval==1&&item.mi_accept_invitation==1}}">等待主家确认</view>
+              <view class="btn cancel" wx:if="{{item.expired==1&&item.m_approval==1&&item.mi_accept_invitation==3}}">已完成</view>
+              <view class="btn cancel" wx:if="{{item.mi_accept_invitation==2}}">已取消</view>
+              <view class="btn cancel" wx:if="{{item.m_approval==3&&item.mi_accept_invitation!=2}}" bindtap="cancel" data-mi_remark="{{item.mi_remark}}">用户已取消</view>
+              <view class="btn cancel" wx:if="{{item.m_approval==2&&item.mi_accept_invitation==1}}" bindtap="cancel" data-m_approval_remark="{{item.m_approval_remark}}">审核不通过</view>
+              <view class="btn cancel" wx:if="{{item.m_approval==3&&item.mi_accept_invitation==1&&item.r_status==null}}" bindtap="repay" data-mi_id="{{item.mi_id}}" data-m_id="{{item.m_id}}">申请补偿</view>
+              <view class="btn cancel" wx:if="{{item.o_paid&&item.m_approval==2&&item.mi_accept_invitation==1&&item.r_status==null}}" bindtap="repay" data-mi_id="{{item.mi_id}}" data-m_id="{{item.m_id}}" data-o_paid="{{item.o_paid}}">申请退款</view>
+              <view class="btn cancel" wx:if="{{item.m_approval==3&&item.mi_accept_invitation==1&&item.r_status==0}}">申请补偿中</view>
+              <view class="btn cancel" wx:if="{{item.o_paid&&item.m_approval==2&&item.mi_accept_invitation==1&&item.r_status==0}}">申请退款中</view>
+              <view class="btn cancel" wx:if="{{item.m_approval==3&&item.mi_accept_invitation==1&&item.r_status==1}}" bindtap="repay" data-r_processing_result="{{item.r_processing_result}}">补偿已处理</view>
+              <view class="btn cancel" wx:if="{{item.o_paid&&item.m_approval==3&&item.mi_accept_invitation==1&&item.r_status==1}}" bindtap="repay" data-r_processing_result="{{item.r_processing_result}}">退款已处理</view>
+            </view>
+          </view>
+        </block>
+        <block wx:if="{{item.m_matsuri_type==2}}">
+          <view class="items items1">
+            <view class="time">
+              {{item.m_start_date}}
+            </view>
+            <view class="star" wx:if="1">
+              本次评价：
+              <image class="stars" wx:for="{{star[0].stars}}" wx:key="index" src="{{item}}"></image>
+            </view>
+          </view>
+          <view class="items items2">
+            <view class="left">
+              <text>用餐时间：</text>
+              <text class="txt">{{item.m_meal_time}}</text>
+            </view>
+            <view class="right">
+              <text>宴会类型：</text>
+              <text class="txt">厨师到家</text>
+            </view>
+          </view>
+          <view class="items">
+            <text>用餐地点：</text>
+            <text class="txt">{{item.m_address}}</text>
+          </view>
+          <view class="items nobd" catchtap="block">
+            <view class="btns_left">
+              <button wx:if="{{item.mi_accept_invitation==1&&!item.banCancel&&item.m_approval<2}}" class="cancel" bindtap="cancel" data-mi_id="{{item.mi_id}}" size="mini" plain="true">取消订单</button>
+            </view>
+            <view class="btns_right">
+              <navigator class="btn accept" open-type="navigate" wx:if="{{item.mi_accept_invitation==0}}" url="/secondary/pages/chef_orderDetails/index?a_name={{item.a_name}}&mt_name={{item.mt_name}}&m_start_date={{item.m_start_date}}&m_holding_days={{item.m_holding_days}}&m_banquet_number={{item.m_banquet_number}}&m_phone={{item.m_phone}}&m_longitude={{item.m_longitude}}&m_latitude={{item.m_latitude}}&m_id={{item.m_id}}&mi_id={{item.mi_id}}&mi_accept_invitation={{item.mi_accept_invitation}}&m_matsuri_type={{item.m_matsuri_type}}&m_meal_time={{item.m_meal_time}}&m_remark={{item.m_remark}}">接受</navigator>
+              <navigator wx:if="{{item.mi_accept_invitation==1&&item.expired!=1&&item.m_approval<2}}" catchtap="block" class="btn accepted" url="/secondary/pages/chef_photoRecord/index?m_id={{item.m_id}}&m_chef_id={{item.m_chef_id}}">拍照</navigator>
+              <navigator open-type="navigate" wx:if="{{item.mi_accept_invitation==3&&item.mi_evaluate}}" class="btn viewReviews" url="/secondary/pages/chef_review/index?m_id={{item.m_id}}&mi_score={{item.mi_score}}&mi_evaluate={{item.mi_evaluate}}">查看评语</navigator>
+              <view class="btn cancel" wx:if="{{item.banCancel&&item.expired!=1&&item.m_approval==1&&item.mi_accept_invitation==1}}">服务中</view>
+              <view class="btn cancel" wx:if="{{item.expired==1&&item.m_approval==1&&item.mi_accept_invitation==1}}">等待主家确认</view>
+              <view class="btn cancel" wx:if="{{item.expired==1&&item.m_approval==1&&item.mi_accept_invitation==3}}">已完成</view>
+              <view class="btn cancel" wx:if="{{item.mi_accept_invitation==2}}">已取消</view>
+              <view class="btn cancel" wx:if="{{item.m_approval==3&&item.mi_accept_invitation!=2}}" bindtap="cancel" data-mi_remark="{{item.mi_remark}}">用户已取消</view>
+              <view class="btn cancel" wx:if="{{item.m_approval==3&&item.mi_accept_invitation==1&&item.r_status==null}}" bindtap="repay" data-mi_id="{{item.mi_id}}" data-m_id="{{item.m_id}}">申请补偿</view>
+              <view class="btn cancel" wx:if="{{item.m_approval==3&&item.mi_accept_invitation==1&&item.r_status==0}}">申请补偿中</view>
+              <view class="btn cancel" wx:if="{{item.m_approval==3&&item.mi_accept_invitation==1&&item.r_status==1}}" bindtap="repay" data-r_processing_result="{{item.r_processing_result}}">补偿已处理</view>
+            </view>
+          </view>
+        </block>
+      </navigator>
+    </scroll-view>
+  </view>
+</view>

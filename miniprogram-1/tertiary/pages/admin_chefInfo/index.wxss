@@ -1,0 +1,522 @@
+/* tertiary/pages/admin_chefInfo/index.wxss */
+.admin_chefInfo{
+  height: 100vh;
+  position: relative;
+  background-color: #e5e5e5;
+}
+.admin_chefInfo .tops{
+  height: 4%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 25rpx;
+  font-family: 'Regular';
+  color: #579cff;
+  background-color: #fff;
+}
+.admin_chefInfo .tops .tops_item{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin_chefInfo .tops .active{
+  font-family: 'Bold';
+  border-bottom: 4rpx solid #f25500;
+}
+
+.admin_chefInfo .middens{
+  height: 96%;
+}
+.basicInfo {
+  height: 100%;
+  overflow: auto;
+  font-family: 'Regular';
+}
+
+.basicInfo .photos {
+  height: 260rpx;
+  width: 708rpx;
+  margin: 16rpx auto;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 46rpx;
+  background-color: #fff;
+}
+
+.basicInfo .photos .photos_Left {
+  width: 290rpx;
+  height: 178rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.basicInfo .photos .photos_Left .photos_Left_title {
+  font-size: 30rpx;
+  margin-bottom: 18rpx;
+}
+
+.basicInfo .photos .photos_Left .photos_Left_text {
+  font-size: 25rpx;
+  color: #b6b6b6;
+}
+
+.basicInfo .photos .photos_right {
+  width: 238rpx;
+  height: 178rpx;
+  position: relative;
+  background-image: url("https://qunyan.canancn.com/assets/applet/img/chefs/avatar_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.basicInfo .photos .photos_right .photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.basicInfo .photos .photos_right .horn {
+  width: 23rpx;
+  height: 23rpx;
+}
+
+.basicInfo .photos .photos_right .horn_top_left {
+  border-top: 4rpx solid #4781d8;
+  border-left: 4rpx solid #4781d8;
+  position: absolute;
+  top: -4rpx;
+  left: -4rpx;
+}
+
+.basicInfo .photos .photos_right .horn_top_right {
+  border-top: 4rpx solid #4781d8;
+  border-right: 4rpx solid #4781d8;
+  position: absolute;
+  top: -4rpx;
+  right: -4rpx;
+}
+
+.basicInfo .photos .photos_right .horn_bottom_left {
+  border-bottom: 4rpx solid #4781d8;
+  border-left: 4rpx solid #4781d8;
+  position: absolute;
+  bottom: -4rpx;
+  left: -4rpx;
+}
+
+.basicInfo .photos .photos_right .horn_bottom_right {
+  border-bottom: 4rpx solid #4781d8;
+  border-right: 4rpx solid #4781d8;
+  position: absolute;
+  bottom: -4rpx;
+  right: -4rpx;
+}
+
+.basicInfo .basic {
+  background-color: #fff;
+  border-radius: 10rpx;
+  width: 708rpx;
+  margin: 0 auto 16rpx;
+}
+.basicInfo .basic .item {
+  height: 69rpx;
+  border-bottom: 2rpx solid #b7b6b6;
+  display: flex;
+  align-items: center;
+  padding: 0 46rpx;
+}
+.basicInfo .basic .Nobd{
+  border-bottom: 0;
+}
+.basicInfo .basic .item .left {
+  width: 160rpx;
+  font-size: 20rpx;
+  color: #b6b6b6;
+}
+
+.basicInfo .basic .item .right {
+  font-size: 22rpx;
+  color: #b6b6b6;
+}
+.basicInfo .basicInfoInput {
+  flex: 1;
+  width: 60%;
+  height: 100%;
+  border-radius: 10rpx;
+  font-size: 22rpx;
+  color: #000;
+  font-family: 'Regular';
+  display: flex;
+  align-items: center;
+}
+
+
+.basicInfo .runScope{
+  width: 708rpx;
+  margin: 0 auto 16rpx;
+  background-color: #fff;
+  padding: 22rpx 40rpx 16rpx;
+  font-size: 20rpx;
+  font-family: 'Regular';
+  border-radius: 10rpx;
+  color: #b6b6b6;
+}
+.basicInfo .runScope .runScope_midde{
+  height: 78rpx;
+  font-size: 22rpx;
+  font-family: 'Regular';
+  color: #000;
+}
+
+.basicInfo .runScope .runScope_midde .group{
+  height: 100%;
+  display: flex;
+}
+.basicInfo .runScope .runScope_midde .group .lab{
+  flex: 1;
+  display: flex;
+  font-size: 25rpx;
+  font-family: 'Light';
+  align-items: center;
+}
+.basicInfo .runScope .runScope_bottom{
+  font-size: 15rpx;
+  color: #fe4d7b;
+}
+
+.basicInfo .grade {
+  background-color: #fff;
+  border-radius: 10rpx;
+  width: 708rpx;
+  height: 330rpx;
+  margin: 0 auto 16rpx;
+}
+.basicInfo .grade .grade_top {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 46rpx;
+}
+.basicInfo .grade .grade_top .left {
+  width: 160rpx;
+  font-size: 20rpx;
+  color: #b6b6b6;
+}
+.basicInfo .grade .grade_bottom {
+  height: 250rpx;
+}
+.basicInfo .grade .grade_bottom .photos {
+  margin: 0;
+  height: 100%;
+}
+.basicInfo .grade .grade_bottom .photos .photos_right {
+  background-image: url("https://qunyan.canancn.com/assets/applet/img/chefs/certificate_bg.png");
+  height: 176rpx;
+  width: 283rpx;
+}
+
+.basicInfo .IDCard {
+  background-color: #fff;
+  border-radius: 10rpx;
+  width: 708rpx;
+  height: 592rpx;
+  margin: 0 auto 16rpx;
+}
+.basicInfo .IDCard .IDCard_top {
+  height: 176rpx;
+}
+.basicInfo .IDCard .IDCard_top .identity_number {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  padding: 0 46rpx;
+}
+.basicInfo .IDCard .IDCard_top .IDCard_date {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  padding: 0 46rpx;
+}
+.basicInfo .IDCard .IDCard_top .left {
+  width: 160rpx;
+  font-size: 20rpx;
+  color: #b6b6b6;
+}
+.basicInfo .IDCard .IDCard_bottom .photos {
+  height: 176rpx;
+  margin-bottom: 28rpx;
+  margin-top: 10rpx;
+}
+.basicInfo .IDCard .IDCard_bottom .photos .photos_right {
+  background-image: url("https://qunyan.canancn.com/assets/applet/img/chefs/IDcardFront_bg.png");
+  height: 176rpx;
+  width: 283rpx;
+}
+.basicInfo .IDCard .IDCard_bottom .photoss .photos_right {
+  background-image: url("https://qunyan.canancn.com/assets/applet/img/chefs/IDcardBack_bg.png");
+  height: 176rpx;
+  width: 283rpx;
+}
+
+.basicInfo .license {
+  height: 504rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  width: 708rpx;
+  margin: 0 auto 50rpx;
+}
+.basicInfo .license .license_number {
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 46rpx;
+}
+.basicInfo .license .license_number .left {
+  width: 160rpx;
+  font-size: 20rpx;
+  color: #b6b6b6;
+}
+.basicInfo .license .license_bottom .photos {
+  height: 176rpx;
+  margin-bottom: 28rpx;
+  margin-top: 10rpx;
+}
+.basicInfo .license .license_bottom .photos .photos_right {
+  background-image: url("https://qunyan.canancn.com/assets/applet/img/chefs/license_bg.png");
+  height: 176rpx;
+  width: 283rpx;
+}
+.basicInfo .license .license_bottom .photoss .photos_right {
+  background-image: url("https://qunyan.canancn.com/assets/applet/img/chefs/healthCertificate_bg.png");
+  height: 176rpx;
+  width: 283rpx;
+}
+
+
+
+.admin_chefInfo .middens .sousChef{
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.admin_chefInfo .middens .sousChef .sousChefs{
+  background-color: #fff;
+  border-radius: 10rpx;
+  height: 760rpx;
+  margin: 18rpx auto 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.admin_chefInfo .middens .sousChef .sousChefs:last-child{
+  margin-bottom: 50rpx;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .photos {
+  height: 180rpx;
+  margin: 16rpx auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 46rpx;
+  background-color: #fff;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .photos .photos_Left {
+  width: 290rpx;
+  height: 178rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .photos .photos_Left .photos_Left_title {
+  font-size: 30rpx;
+  margin-bottom: 18rpx;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .photos .photos_Left .photos_Left_text {
+  font-size: 25rpx;
+  color: #b6b6b6;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .photos .photos_right {
+  width: 238rpx;
+  height: 178rpx;
+  position: relative;
+  background-image: url("https://qunyan.canancn.com/assets/applet/img/chefs/avatar_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .photos .photos_right .photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .photos .photos_right .horn {
+  width: 23rpx;
+  height: 23rpx;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .photos .photos_right .horn_top_left {
+  border-top: 4rpx solid #4781d8;
+  border-left: 4rpx solid #4781d8;
+  position: absolute;
+  top: -4rpx;
+  left: -4rpx;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .photos .photos_right .horn_top_right {
+  border-top: 4rpx solid #4781d8;
+  border-right: 4rpx solid #4781d8;
+  position: absolute;
+  top: -4rpx;
+  right: -4rpx;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .photos .photos_right .horn_bottom_left {
+  border-bottom: 4rpx solid #4781d8;
+  border-left: 4rpx solid #4781d8;
+  position: absolute;
+  bottom: -4rpx;
+  left: -4rpx;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .photos .photos_right .horn_bottom_right {
+  border-bottom: 4rpx solid #4781d8;
+  border-right: 4rpx solid #4781d8;
+  position: absolute;
+  bottom: -4rpx;
+  right: -4rpx;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .basic {
+  background-color: #fff;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .basic .item {
+  height: 69rpx;
+  border-bottom: 2rpx solid #eaeaea;
+  display: flex;
+  align-items: center;
+  padding: 0 46rpx;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .basic .Nobd{
+  border-bottom: 0;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .basic .item .left {
+  width: 160rpx;
+  font-size: 20rpx;
+  color: #b6b6b6;
+}
+
+.admin_chefInfo .middens .sousChef .sousChefs .basic .item .right {
+  font-size: 22rpx;
+  color: #b6b6b6;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .basic .item .basicInfoInput {
+  flex: 1;
+  width: 60%;
+  height: 100%;
+  border-radius: 10rpx;
+  font-size: 22rpx;
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+.admin_chefInfo .middens .sousChef .sousChefs .photoss .photos_right {
+  background-image: url("https://qunyan.canancn.com/assets/applet/img/chefs/healthCertificate_bg.png");
+  height: 176rpx;
+  width: 283rpx;
+}
+
+
+
+.admin_chefInfo .middens .history{
+  height: 100%;
+  overflow: auto;
+
+}
+.admin_chefInfo .middens .history .item{
+  width: 702rpx;
+  border: 2rpx solid #b7b6b6;
+  margin: 22rpx auto 0;
+  background-color: #fff;
+  border-radius: 10rpx;
+  font-size: 25rpx;
+  font-family: 'Light';
+  position: relative;
+}
+.admin_chefInfo .middens .history .item .items{
+  height: 59rpx;
+  border-bottom: 2rpx solid #b7b6b6;
+  padding-left: 24rpx;
+  display: flex;
+  align-items: center;
+}
+
+.admin_chefInfo .middens .history .item .items1{
+  justify-content: space-between;
+}
+.admin_chefInfo .middens .history .item .items1 .score{
+  width: 327rpx;
+  display: flex;
+}
+.admin_chefInfo .middens .history .item .items1 .score .scores{
+  display: flex;
+  padding-left: 10rpx;
+  align-items: center;
+}
+.admin_chefInfo .middens .history .item .items1 .score .scores .img{
+  width: 30rpx;
+  height: 30rpx;
+  display: block;
+  margin-left: 5rpx;
+}
+
+.admin_chefInfo .middens .history .item .items2{
+  padding: 0;
+}
+.admin_chefInfo .middens .history .item .items2 .left{
+  border-right: 2rpx solid #b7b6b6;
+  width: 50%;
+  height: 100%;
+  padding-left: 24rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.admin_chefInfo .middens .history .item .items2 .right{
+  padding-left: 24rpx;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.admin_chefInfo .middens .history .item .items .txt{
+  flex: 1;
+  text-align: center;
+  font-family: 'Medium';
+}
+.admin_chefInfo .middens .history .item .nobd{
+  border-bottom:0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 24rpx;
+}
+.admin_chefInfo .middens .history .item .nobd .btn{
+  width: 122rpx;
+  height: 38rpx;
+  border-radius: 21rpx;
+  font-size: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #579cff;
+  border: #579cff 2rpx solid;
+  padding: 0;
+  margin: 0;
+}
+.admin_chefInfo .middens .history .item .nobd .btns{
+  color: #f25500;
+  border: #f25500 2rpx solid;
+}
+.admin_chefInfo .middens .history .item .nobd .check{
+ margin-left: 410rpx;
+}

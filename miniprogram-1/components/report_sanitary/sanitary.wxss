@@ -1,0 +1,127 @@
+/* components/sanitary/sanitary.wxss */
+.sanitary{
+    height: 100%;
+    background-color: #fff;
+    position: relative;
+    box-sizing: border-box;
+}
+.sanitary .process{
+  height: 128rpx;
+  padding: 0 30rpx;
+  position: relative;
+  display: flex;
+  margin-bottom: 22rpx;
+}
+.sanitary .process .processLine{
+  position: absolute;
+  width: 74%;
+  left: 50%;
+  bottom: 54rpx;
+  transform: translateX(-50%);
+  z-index: 0;
+  border-top: 2rpx solid #3f6bd6;
+}
+.sanitary .process .proces{
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: 'Light';
+  position: relative;
+}
+.sanitary .process .proces .procesPoints{
+  height: 30rpx;
+  width: 30rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40rpx;
+  background:linear-gradient(to right, #e80e20 ,#ff626f);
+}
+.sanitary .process .proces .procesPoints .procesPoint_i{
+  height: 14rpx;
+  width: 14rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sanitary .process .proces .procesPoint{
+  height: 14rpx;
+  width: 14rpx;
+  border-radius: 50%;
+  background:linear-gradient(to right, #e80e20 ,#ff626f);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 48rpx;
+}
+.sanitary .process .proces .procesText{
+  font-size: 25rpx;
+  color: #e70013;
+}
+.sanitary .process .proces .procesTexts{
+  font-family: 'Medium';
+  font-size: 25rpx;
+  color: #e70013;
+}
+.item{
+    width: 670rpx;
+    margin: 0 auto;
+}
+.item .project{
+    font-size: 28rpx;
+    font-family: 'Medium';
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+}
+.item .group{
+    display: flex;
+    justify-content: space-between;
+    height: 80rpx;
+}
+.item .groups{
+    flex-wrap: wrap;
+}
+.item .groups .labels{
+    width: 150rpx;
+    height: 80rpx;
+}
+.item .groups .labelss{
+    width: 260rpx;
+}
+.item .group .lab{
+    display: flex;
+    font-size: 25rpx;
+    align-items: center;
+    font-family: 'Light';
+    justify-content: start;
+}
+.bottomsss{
+  height: 88rpx;
+  width: 100%;
+  display: flex;
+    position:absolute;
+    bottom: 0;
+}
+.bottomsss .btn{
+  flex: 1;
+  border-radius: 0;
+  line-height: 88rpx;
+  color: #fff;
+  font-size: 28rpx;
+  font-family: 'Medium';
+  background-color: #f52e3e;
+}
+.bottomsss .btns{
+  border-left: 4rpx solid #fff;
+  background-color: #3572e1;
+}

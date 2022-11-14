@@ -1,0 +1,109 @@
+<!--components/banquetWedd_featured/banquetWedd_featured.wxml-->
+<scroll-view class="featured" scroll-y="true" bindscroll="scroll">
+  <view class="searchs">
+    <view class="search">
+      <image class="search_img" src="../../icon/report_search.png"></image>
+      <input class="search_inp" type="text" placeholder="搜索礼堂" placeholder-class="placeholder" />
+      <button class="search_btn">搜索</button>
+    </view>
+  </view>
+  <view class="recommend">
+    <view class="swiper" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+      <view class="slider {{animas}}">
+        <view class="item">
+
+        </view>
+        <view class="item">
+
+        </view>
+        <view class="item">
+
+        </view>
+      </view>
+    </view>
+    <view class="indicatorBar">
+      <view class="item {{active1}}"></view>
+      <view class="item {{active2}}"></view>
+      <view class="item {{active3}}"></view>
+    </view>
+  </view>
+  <view class="selects" wx:if="{{isShow}}" style="position:fixed;top: 5%;background-color: #fff; z-index: 600;">
+    <view class="select">
+      <view class="childs" catchtap="unfold" data-item="1">
+        <text class="txt {{fontColor1}}">{{sortValue}}</text>
+        <image class="down {{upAndDown1}}" src="{{down1}}"></image>
+      </view>
+      <view class="childs" catchtap="unfold" data-item="2">
+        <text class="txt {{fontColor2}}">{{scoreValue}}</text>
+        <image class="down {{upAndDown2}}" src="{{down2}}"></image>
+      </view>
+      <view class="childs" catchtap="unfold" data-item="3">
+        <text class="txt {{fontColor3}}">{{classifyValue}}</text>
+        <image class="down {{upAndDown3}}" src="{{down3}}"></image>
+      </view>
+    </view>
+    <view class="sort" wx:if="{{sort_show}}">
+      <view class="options {{telescopic1}}" wx:for="{{sorts}}" wx:key="index" catchtap="choose" data-item="1" data-index="{{index}}">
+        <text class="sort_txt {{item.color}}">{{item.cont}}</text>
+        <image class="sort_img" wx:if="{{item.flag}}" src="../../icon/selcet_hook.png"></image>
+      </view>
+    </view>
+    <view class="score" wx:if="{{score_show}}">
+      <view class="option {{telescopic2}}">
+        <view class="options {{item.active}}" wx:for="{{score}}" catchtap="choose" wx:key="index" data-item="2" data-index="{{index}}">
+          {{item.cont}}
+        </view>
+      </view>
+      <view class="btn">
+        <button class="btns" size="mini" catchtap="finish">完成</button>
+      </view>
+    </view>
+    <view class="classify" wx:if="{{classify_show}}">
+      <view class="options {{telescopic3}}" wx:for="{{classify}}" catchtap="choose" wx:key="index" data-item="3" data-index="{{index}}">
+        <text class="sort_txt {{item.color}}">{{item.cont}}</text>
+        <image class="sort_img" wx:if="{{item.flag}}" src="../../icon/selcet_hook.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="selects">
+    <view class="select">
+      <view class="childs" catchtap="unfold" data-item="1">
+        <text class="txt {{fontColor1}}">{{sortValue}}</text>
+        <image class="down {{upAndDown1}}" src="{{down1}}"></image>
+      </view>
+      <view class="childs" catchtap="unfold" data-item="2">
+        <text class="txt {{fontColor2}}">{{scoreValue}}</text>
+        <image class="down {{upAndDown2}}" src="{{down2}}"></image>
+      </view>
+      <view class="childs" catchtap="unfold" data-item="3">
+        <text class="txt {{fontColor3}}">{{classifyValue}}</text>
+        <image class="down {{upAndDown3}}" src="{{down3}}"></image>
+      </view>
+    </view>
+    <view class="sort" wx:if="{{sort_show}}">
+      <view class="options {{telescopic1}}" wx:for="{{sorts}}" wx:key="index" catchtap="choose" data-item="1" data-index="{{index}}">
+        <text class="sort_txt {{item.color}}">{{item.cont}}</text>
+        <image class="sort_img" wx:if="{{item.flag}}" src="../../icon/selcet_hook.png"></image>
+      </view>
+    </view>
+    <view class="score" wx:if="{{score_show}}">
+      <view class="option {{telescopic2}}">
+        <view class="options {{item.active}}" wx:for="{{score}}" catchtap="choose" wx:key="index" data-item="2" data-index="{{index}}">
+          {{item.cont}}
+        </view>
+      </view>
+      <view class="btn">
+        <button class="btns" size="mini" catchtap="finish">完成</button>
+      </view>
+    </view>
+    <view class="classify" wx:if="{{classify_show}}">
+      <view class="options {{telescopic3}}" wx:for="{{classify}}" catchtap="choose" wx:key="index" data-item="3" data-index="{{index}}">
+        <text class="sort_txt {{item.color}}">{{item.cont}}</text>
+        <image class="sort_img" wx:if="{{item.flag}}" src="../../icon/selcet_hook.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="items" wx:for="{{arr}}" wx:key="index">
+    
+  </view>
+</scroll-view>

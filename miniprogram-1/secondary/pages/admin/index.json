@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas",
+    "admin_gridman":"/components/admin_gridman/index",
+    "admin_chef":"/components/admin_chef/index",
+    "admin_approval":"/components/admin_approval/index"
+  },
+  "navigationBarTitleText":"汇总",
+  "navigationBarTextStyle":"black",
+  "navigationBarBackgroundColor":"#fff"
+}

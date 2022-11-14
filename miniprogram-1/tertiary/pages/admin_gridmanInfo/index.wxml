@@ -1,0 +1,88 @@
+<!--tertiary/pages/admin_gridmanInfo/index.wxml-->
+<view class="admin_gridmanInfo" bindtap="close">
+  <view class="infoTop">
+    <view class="basicInfo">
+      <view class="item">
+        <text class="left">登录用户名<text class="colon">：</text></text>
+        <input class="basicInfoInput high {{phoneColor}}" type="text" placeholder="{{phonePlaceholder}}" bindfocus="focus" bindinput="enter" value="{{phoneValue}}" bindblur="blur" data-item="2" placeholder-class="{{phonePlaceholderClass}}" />
+        <text class="right {{phoneShow}}">*必填</text>
+      </view>
+      <view class="item">
+        <text class="left">真实姓名<text class="colon">：</text></text>
+        <input class="basicInfoInput highs {{nameColor}}" type="text" placeholder="{{namePlaceholder}}" bindfocus="focus" bindinput="enter" value="{{nameValue}}" bindblur="blur" data-item="0" placeholder-class="{{namePlaceholderClass}}" />
+        <text class="right {{nameShow}}">*必填</text>
+      </view>
+      <view class="item sex">
+        <text class="left">性别<text class="colon">：</text></text>
+        <view class="select {{sexColor}} {{fontColor1}}" catchtap="unfold" data-index="0">
+          <text class="txt">{{sexValue}}</text>
+          <image class="down" src="../../../icon/report_ups.png"></image>
+          <view class="listss fontColor" wx:if="{{sex_show}}" wx:key="index">
+            <view class="listsss" wx:for="{{sex}}" catchtap="choose" data-index="{{index}}" data-item="0" wx:key="index">{{item.name}}</view>
+          </view>
+        </view>
+        <text class="right {{sexShow}}">*必填</text>
+      </view>
+    </view>
+    <view class="basicInfo-midden">
+      <view class="area left">
+        <view class="leftText">所属区域<text class="colon">：</text></view>
+      </view>
+      <view class="address">
+        <view class="area-item">
+          <view class="select {{provinceColor}} {{fontColor2}}" catchtap="unfold" data-index="1">
+            <text class="txt">{{provinceValue}}</text>
+            <image class="down" src="../../../icon/report_ups.png"></image>
+            <view class="listss fontColor" wx:if="{{province_show}}" wx:key="index">
+              <view class="listsss" wx:for="{{province}}" catchtap="choose" data-index="{{index}}" data-item="1" wx:key="index">{{item.name}}</view>
+            </view>
+          </view>
+          <text class="right {{provinceShow}}">*必填</text>
+        </view>
+        <view class="area-item">
+          <view class="select {{cityColor}} {{fontColor3}}" catchtap="unfold" data-index="2">
+            <text class="txt">{{cityValue}}</text>
+            <image class="down" src="../../../icon/report_ups.png"></image>
+            <view class="listss" wx:if="{{city_show}}" wx:key="index">
+              <view class="listsss fontColor" wx:for="{{city}}" catchtap="choose" data-index="{{index}}" data-item="2" wx:key="index">{{item.name}}</view>
+            </view>
+          </view>
+          <text class="right {{cityShow}}">*必填</text>
+        </view>
+        <view class="area-item">
+          <view class="select {{areaColor}} {{fontColor4}}" catchtap="unfold" data-index="3">
+            <text class="txt">{{areaValue}}</text>
+            <image class="down" src="../../../icon/report_ups.png"></image>
+            <view class="listss" wx:if="{{area_show}}" wx:key="index">
+              <view class="listsss fontColor" wx:for="{{area}}" catchtap="choose" data-index="{{index}}" data-item="3" wx:key="index">{{item.name}}</view>
+            </view>
+          </view>
+          <text class="right {{areaShow}}">*必填</text>
+        </view>
+        <view class="area-item">
+          <view class="select {{streetColor}} {{fontColor5}}" catchtap="unfold" data-index="4">
+            <text class="txt">{{streetValue}}</text>
+            <image class="down" src="../../../icon/report_ups.png"></image>
+            <view class="listss" wx:if="{{street_show}}" wx:key="index">
+              <view class="listsss fontColor" wx:for="{{street}}" catchtap="choose" data-index="{{index}}" data-item="4" wx:key="index">{{item.name}}</view>
+            </view>
+          </view>
+          <text class="right {{streetShow}}">*必填</text>
+        </view>
+        <view class="area-item">
+          <view class="select {{villageColor}} {{fontColor6}}" catchtap="unfold" data-index="5">
+            <text class="txt">{{villageValue}}</text>
+            <image class="down" src="../../../icon/report_ups.png"></image>
+            <view class="listss" wx:if="{{village_show}}" wx:key="index">
+              <view class="listsss fontColor" wx:for="{{village}}" catchtap="choose" data-index="{{index}}" data-item="5" wx:key="index">{{item.name}}</view>
+            </view>
+          </view>
+          <text class="right {{villageShow}}">*必填</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="infoBottom" bindtap="basicInfosubmit">
+    提交
+  </view>
+</view>

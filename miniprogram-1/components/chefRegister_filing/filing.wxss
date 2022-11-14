@@ -1,0 +1,39 @@
+/* components/filing/filing.wxss */
+/* Page{
+  background-color: #e5e5e5;
+} */
+.navs{
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 5%;
+  position: relative;
+}
+.navs .nav{
+  display: flex;
+  color: #579cff;
+  align-items: center;
+  height: 100%;
+  font-size: 25rpx;
+  box-sizing: border-box;
+  font-family: 'Regular';
+}
+.navs .active{
+  border-bottom: 4rpx solid #f25500;
+  font-family: 'Bold';
+}
+.navs .navx{
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  right: 20rpx;
+}
+.navs .navx .img{
+  width: 34rpx;
+  height: 33rpx;
+}
+.content{
+  height: 95%;
+}

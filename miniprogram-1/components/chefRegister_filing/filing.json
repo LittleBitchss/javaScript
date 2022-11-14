@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "basicInfo": "/components/chefRegister_filing/basicInfo/basicInfo",
+    "sousChef":"/components/chefRegister_filing/sousChef/sousChef",
+    "menu":"/components/chefRegister_filing/menu/menu"
+  },
+  "navigationBarTitleText":"我的备案",
+  "navigationBarTextStyle":"black",
+  "navigationBarBackgroundColor":"#fff"
+}

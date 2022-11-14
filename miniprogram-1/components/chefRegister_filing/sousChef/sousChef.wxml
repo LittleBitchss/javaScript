@@ -1,0 +1,65 @@
+<!--components/sousChef/sousChef.wxml-->
+<view class="sousChef" bindtap="close">
+  <scroll-view class="sousChefRoot" scroll-y="true">
+    <view class="sousChefs" wx:for="{{sousChefArr}}" wx:key="index">
+      <view class="remove">
+        <image class="clses" src="{{domain}}clses.png" bindtap="deleteChefs" data-index="{{index}}"></image>
+      </view>
+      <view class="photos">
+        <view class="photos_Left">
+          <view class="photos_Left_title">请上传帮厨照片</view>
+          <view class="photos_Left_text">请上传身穿厨师服头戴厨师帽个人图片</view>
+        </view>
+        <view class="photos_right" bindtap="addImg" data-item="1" data-index="{{index}}">
+          <view class="horn horn_top_left"></view>
+          <view class="horn horn_top_right"></view>
+          <view class="horn horn_bottom_left"></view>
+          <view class="horn horn_bottom_right"></view>
+          <image class="photo" src="{{item.photo}}"></image>
+        </view>
+      </view>
+      <view class="basic">
+        <view class="item">
+          <text class="left">姓名：</text>
+          <input class="basicInfoInput" type="text" placeholder="{{item.name.namePlaceholder}}" bindinput="enter" value="{{item.name.nameValue}}" bindblur="blur" data-item="0" data-index="{{index}}" placeholder-class="{{item.name.namePlaceholderClass}}" />
+        </view>
+        <view class="item">
+          <text class="left">性别：</text>
+          <view class="select {{item.sex.fontColor1}}" catchtap="unfold" data-index="{{index}}">
+            <text class="txt">{{item.sex.sexValue}}</text>
+            <image class="down" src="../../../icon/mine_right_arrow.png"></image>
+            <view class="listss fontColor" wx:if="{{item.sex.sex_show}}">
+              <view class="listsss" wx:for="{{sexs}}" wx:key="idx" wx:for-index="idx" wx:for-item="itemName" catchtap="choose" data-index="{{idx}}" data-item="{{index}}">{{itemName.name}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="item">
+          <text class="left">年龄：</text>
+          <input class="basicInfoInput" data-item="1" data-index="{{index}}" type="number" placeholder="{{item.age.agePlaceholder}}" bindinput="enter" value="{{item.age.ageValue}}" bindblur="blur" placeholder-class="{{item.age.agePlaceholderClass}}" /><text class="right">岁</text>
+        </view>
+        <view class="item Nobd">
+          <text class="left">联系方式：</text>
+          <input class="basicInfoInput" type="number" placeholder="{{item.phone.phonePlaceholder}}" bindinput="enter" value="{{item.phone.phoneValue}}" bindblur="blur" data-item="2" data-index="{{index}}" placeholder-class="{{item.phone.phonePlaceholderClass}}" />
+        </view>
+      </view>
+      <view class="photos photoss">
+        <view class="photos_Left">
+          <view class="photos_Left_title">健康证</view>
+          <view class="photos_Left_text">请上传健康证照片</view>
+        </view>
+        <view class="photos_right"  bindtap="addImg" data-item="2" data-index="{{index}}">
+          <view class="horn horn_top_left"></view>
+          <view class="horn horn_top_right"></view>
+          <view class="horn horn_bottom_left"></view>
+          <view class="horn horn_bottom_right"></view>
+          <image class="photo" src="{{item.photos}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class="bottom"></view>
+  </scroll-view>
+  <view class="submitss">
+    <button class="btn_left btn" bindtap="addChefs" size="mini">添加新的帮厨</button>
+    <button class="btn_right btn" size="mini" bindtap="sousChefSubmit">确认无误提交</button>
+  </view>
+</view>

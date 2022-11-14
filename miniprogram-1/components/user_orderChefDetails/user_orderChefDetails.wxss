@@ -1,0 +1,324 @@
+/* components/user_orderChefDetails/user_orderChefDetails.wxss */
+.user_orderChefDetails{
+  height: 100vh;
+  background-color: #f3f3f3;
+  overflow: auto;
+  font-family: 'Medium';
+  font-size: 25rpx;
+  position: relative;
+}
+.user_orderChefDetails .chefDetails_top{
+  height: 622rpx;
+  background-image: url("https://qunyan.canancn.com/assets/applet/img/mine/mine_bg.png");
+  background-size: 100% 550rpx;
+  background-repeat: no-repeat;
+  background-position: 0 -250rpx;
+  position: relative;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce{
+  width: 740rpx;
+  background-color: #fff;
+  box-shadow: 1rpx 0rpx 8rpx -2rpx #000;
+  border-radius: 10rpx;
+  position: absolute;
+  bottom: 22rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 5rpx 30rpx;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_top{
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_midde{
+  height: 230rpx;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space:nowrap;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_bottom{
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_top .chef_introduce_top_left{
+  width: 260rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_top .chef_introduce_top_left .chef_introduce_top_left_img{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_top .chef_introduce_top_rigth{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_top .chef_introduce_top_rigth .medal{
+  position: absolute;
+  top: 0;
+  right: 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f14c44;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_top .chef_introduce_top_rigth .medal .medal_img{
+  width: 40rpx;
+  height: 44rpx;
+  display: block;
+  margin-right: 10rpx;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_top .chef_introduce_top_rigth .chefs_first{
+  display: flex;
+  font-size: 30rpx;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_top .chef_introduce_top_rigth .chefs_first .chefs_first_score{
+  color: #f14c44;
+  margin-left: 38rpx;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_top .chef_introduce_top_rigth .chefs_first .chefs_first_score .fen{
+  font-size: 22rpx;
+  font-family: 'Light';
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_top .chef_introduce_top_rigth .grade{
+  font-size: 25rpx;
+  margin: 13rpx 0 15rpx;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_top .chef_introduce_top_rigth .goodAt{
+  font-size: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_top .chef_introduce_top_rigth .goodAt .chefAge{
+  font-size: 23rpx;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_top .chef_introduce_top_rigth .goodAt .goodAt_item{
+  width: 66rpx;
+  height: 30rpx;
+  background-color: #d4d4d4;
+  border-radius: 5rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 12rpx;
+  line-height: 26rpx;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_midde .chef_introduce_midde_img{
+  width: 262rpx;
+  height: 100%;
+  border-radius: 10rpx;
+  margin-right: 7rpx;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_midde .chef_introduce_midde_txt{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_bottom .chef_introduce_bottom_text{
+  color: #f14c44;
+}
+.user_orderChefDetails .chefDetails_top .chef_introduce .chef_introduce_bottom .chef_introduce_bottom_btn{
+  color: #fff;
+  background-color: #f14c44;
+  width: 138rpx;
+  height: 48rpx;
+  border-radius: 5rpx;
+  text-align: center;
+  line-height: 48rpx;
+}
+
+.user_orderChefDetails .chefDetails_bottom_top{
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user_orderChefDetails .suckTop{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  background-color: #fff;
+}
+.user_orderChefDetails .chefDetails_bottom_top .chefDetails_bottom_top_item{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+}
+.user_orderChefDetails .chefDetails_bottom_top ._item{
+  margin-right: 216rpx;
+}
+.user_orderChefDetails .chefDetails_bottom_top .active{
+  border-bottom: 4rpx solid #f14c44;
+  color: #f14c44;
+}
+
+.user_orderChefDetails .comboItem{
+  height: 240rpx;
+  width: 740rpx;
+  margin: 0 auto 20rpx;
+}
+.user_orderChefDetails .comboItem .comboItem_title{
+  height: 64rpx;
+  padding-left: 28rpx;
+  display: flex;
+  align-items: center;
+  font-size: 25rpx;
+}
+.user_orderChefDetails .comboItem .comboItem_title .comboItem_title_left{
+  width: 8rpx;
+  height: 36rpx;
+  background-color: #000;
+  margin-right: 10rpx;
+}
+.user_orderChefDetails .comboItem .comboItem_content{
+  display: flex;
+  background-color: #fff;
+  height: 176rpx;
+  border-radius: 10rpx;
+}
+.user_orderChefDetails .comboItem .comboItem_content .comboItem_content_left{
+  width: 216rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user_orderChefDetails .comboItem .comboItem_content .comboItem_content_left .comboItem_content_left_img{
+  width: 158rpx;
+  height: 158rpx;
+  border-radius: 10rpx;
+}
+
+.user_orderChefDetails .comboItem .comboItem_content .comboItem_content_right{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 24rpx;
+}
+.user_orderChefDetails .comboItem .comboItem_content .comboItem_content_right .comboItem_content_right_midde{
+  font-size: 20rpx;
+  font-family: 'Light';
+  color: #979797;
+  text-overflow: -o-ellipsis-lastline;
+	overflow: hidden;		
+	text-overflow: ellipsis;		
+	display: -webkit-box;			
+	-webkit-line-clamp: 2;		
+	line-clamp: 2;					
+	-webkit-box-orient: vertical;
+}
+.user_orderChefDetails .comboItem .comboItem_content .comboItem_content_right .comboItem_content_right_bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 30rpx;
+}
+.user_orderChefDetails .comboItem .comboItem_content .comboItem_content_right .comboItem_content_right_bottom .comboItem_content_right_bottom_block{
+  color: #f14c44;
+}
+.user_orderChefDetails .comboItem .comboItem_content .comboItem_content_right .comboItem_content_right_bottom .comboItem_content_right_bottom_txt{
+  font-size: 30rpx;
+}
+.user_orderChefDetails .comboItem .comboItem_content .comboItem_content_right .comboItem_content_right_bottom .comboItem_content_right_bottom_btn{
+  color: #fff;
+  background-color: #f14c44;
+  width: 110rpx;
+  height: 38rpx;
+  font-size: 18rpx;
+  text-align: center;
+  line-height: 38rpx;
+  border-radius: 5rpx;
+}
+.user_orderChefDetails .certification{
+  width: 740rpx;
+  height: 134rpx;
+  margin: 16rpx auto;
+  box-shadow: 1rpx 0rpx 8rpx -3rpx #000;
+  background-color: #fff;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 32rpx;
+  line-height: 1;
+}
+.user_orderChefDetails .certification .certification_top .title{
+  font-size: 28rpx;
+  margin-right: 26rpx;
+}
+.user_orderChefDetails .certification .certification_top .annotation{
+  font-size: 20rpx;
+  color: #f14c44;
+}
+.user_orderChefDetails .certification .certification_bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.user_orderChefDetails .certification .certification_bottom .item{
+  display: flex;
+  align-items: center;
+  font-size: 25rpx;
+}
+.user_orderChefDetails .certification .certification_bottom .item .item_img{
+  width: 26rpx;
+  height: 33rpx;
+  margin-right: 12rpx;
+}
+.user_orderChefDetails .userComments{
+  width: 740rpx;
+  height: 224rpx;
+  margin: 0 auto;
+  box-shadow: 1rpx 0rpx 8rpx -3rpx #000;
+  background-color: #fff;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 32rpx;
+}
+.user_orderChefDetails .userComments .item{
+  display: flex;
+  align-items: center;
+  margin: 7rpx 0;
+}
+.user_orderChefDetails .userComments .item .item_left{
+  font-family: 'Light';
+  margin-right: 56rpx;
+}
+.user_orderChefDetails .userComments .item .item_right{
+  display: flex;
+}
+.user_orderChefDetails .userComments .item .item_right .item_right_star{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 5rpx;
+}
+.user_orderChefDetails .disclaimer{
+  margin: 26rpx 0 0;
+  padding: 0 34rpx;
+  font-size: 25rpx;
+  font-family: 'Light';
+  line-height: 50rpx;
+  padding-bottom: 42rpx;
+}
+.user_orderChefDetails .disclaimer .title{
+  font-family: 'Medium';
+  font-size: 28rpx;
+}

@@ -1,0 +1,214 @@
+/* fourth/pages/chef_safety/index.wxss */
+.chef_safety{
+  height: 100vh;
+  background-color: #e5e5e5;
+  position: relative;
+}
+.chef_safety .chef_safety_top{
+  height: calc(100% - 74rpx);
+  overflow: auto;
+}
+.chef_safety .bg{
+  height: 476rpx;
+  background-image: url(https://qunyan.canancn.com/assets/applet/img/chefs/insurance_bg.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.chef_safety .benefit{
+  background-color: #fff;
+  border-radius: 10rpx;
+  width: 720rpx;
+  margin: -72rpx auto 0;
+  z-index: 1000;
+  padding: 10rpx 30rpx;
+  font-family: 'Medium';
+  font-size: 30rpx;
+}
+.chef_safety .benefit .benefits{
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+}
+.chef_safety .benefit .benefit1 .benefit1_item{
+  width: 9rpx;
+  height: 9rpx;
+  border-radius: 50%;
+  background-color: #4768f3;
+  margin-right: 9rpx;
+}
+.chef_safety .benefit .benefit1{
+  height: 44rpx;
+  font-family: 'Light';
+  font-size: 25rpx;
+  display: flex;
+  align-items: center;
+}
+
+.chef_safety .scheme{
+  background-color: #fff;
+  border-radius: 10rpx;
+  width: 720rpx;
+  margin: 8rpx auto 0;
+  padding: 10rpx 30rpx;
+  font-family: 'Medium';
+  font-size: 30rpx;
+}
+.chef_safety .scheme .title{
+  height: 108rpx;
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+}
+.chef_safety .scheme .title .title_item{
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #828181;
+}
+.chef_safety .scheme .title .active{
+  color: #4768f3;
+}
+.chef_safety .scheme .title .title_item .title_item_isScheme{
+  font-size: 25rpx;
+  font-family: 'Light';
+}
+.chef_safety .scheme .title .title_item .actives{
+  width: 300rpx;
+  height: 6rpx;
+  border-radius: 100rpx;
+  background-color: #4768f3;
+}
+
+.chef_safety .scheme .content{
+  height: 220rpx;
+  font-family: 'Normal';
+  font-size: 28rpx;
+  color: #828181;
+  display: flex;
+  flex-direction: column;
+}
+.chef_safety .scheme .content .content1{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.chef_safety .scheme .content .content1 .content1_right{
+  text-decoration:line-through;
+}
+.chef_safety .scheme .content .content2{
+  color: #4768f3;
+}
+.chef_safety .scheme .btm{
+  height: 70rpx;
+  font-size: 25rpx;
+  font-family: 'Normal';
+  display: flex;
+  align-items: center;
+}
+.chef_safety .scheme .btm .btms{
+  color: #4768f3;
+}
+
+.chef_safety .insure{
+  height: 74rpx;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Medium';
+}
+.chef_safety .insure .money{
+  flex: 1;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  padding-left: 68rpx;
+  color: #ff2d2d;
+  font-size: 40rpx;
+}
+.chef_safety .insure .money .yuan{
+  font-size: 22rpx;
+  margin-bottom: -10rpx;
+  margin-left: 5rpx;
+}
+.chef_safety .insure .insureBtn{
+  width: 240rpx;
+  height: 100%;
+  line-height: 78rpx;
+  background-color: #4768f3;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 0;
+}
+
+.noticess{
+  position:absolute;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 200;
+}
+.noticess .notices{
+  position:absolute;
+  left: 0;
+  bottom: 0;
+  height: 70%;
+  width: 100%;
+  background-color: #e5e5e5;
+  border-top-left-radius: 50rpx;
+  border-top-right-radius: 50rpx;
+  overflow: auto;
+}
+@keyframes down{
+  0%{
+    bottom:-70%;
+  }
+  100%{
+    bottom:0%;
+  }
+}
+@keyframes up{
+  0%{
+    bottom:0%;
+  }
+  100%{
+    bottom:-70%;
+  }
+}
+.noticess .down{
+  animation:down 600ms;
+}
+.noticess .up{
+  animation:up 600ms;
+}
+.noticess .notices .img{
+  width: 90%;
+  height: 300rpx;
+  background-color: #fff;
+  margin: 5rpx auto;
+  display: block;
+}
+.noticess .notices .bttn{
+  width: 300rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  margin: 20rpx auto;
+  display: block;
+  color: #fff;
+  background-color: #b6b6b6;
+  line-height: 60rpx;
+  
+}
+.noticess .notices .bttns{
+  background-color: #002964 !important;
+}

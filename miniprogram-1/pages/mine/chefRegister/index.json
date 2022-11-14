@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "filing":"/components/chefRegister_filing/filing",
+    "chefOrder":"/components/chefRegister_chefOrder/chefRegister_chefOrder"
+  },
+  "navigationBarTitleText":"我的备案",
+  "navigationBarTextStyle":"black",
+  "navigationBarBackgroundColor":"#fff"
+}

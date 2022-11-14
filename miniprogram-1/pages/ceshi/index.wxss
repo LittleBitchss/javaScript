@@ -1,0 +1,7 @@
+/* pages/ceshi/index.wxss */
+.ceshi{
+  height: 100vh;
+}
+.page-container .page-root{
+  height: 50vh;
+}

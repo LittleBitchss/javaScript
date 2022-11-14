@@ -1,0 +1,241 @@
+/* components/sousChef/sousChef.wxss */
+.sousChef{
+  height: 100%;
+  background-color: #e5e5e5;
+  position: relative;
+  font-family: 'Regular';
+}
+.sousChef .sousChefRoot{
+  height: 100%;
+  width: 708rpx;
+  margin: 0 auto;
+}
+.sousChef .sousChefRoot .sousChefs{
+  background-color: #fff;
+  border-radius: 10rpx;
+  height: 760rpx;
+  margin-top: 18rpx;
+}
+.sousChef .sousChefRoot .sousChefs .remove{
+  display: flex;
+  justify-content: flex-end;
+}
+.sousChef .sousChefRoot .sousChefs .remove .clses{
+  height: 30rpx;
+  width: 30rpx;
+  margin: 20rpx 20rpx 10rpx 0;
+}
+.sousChef .sousChefRoot .sousChefs .photos {
+  height: 180rpx;
+  margin: 16rpx auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 46rpx;
+  background-color: #fff;
+}
+
+.sousChef .sousChefRoot .sousChefs .photos .photos_Left {
+  width: 290rpx;
+  height: 178rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sousChef .sousChefRoot .sousChefs .photos .photos_Left .photos_Left_title {
+  font-size: 30rpx;
+  margin-bottom: 18rpx;
+}
+
+.sousChef .sousChefRoot .sousChefs .photos .photos_Left .photos_Left_text {
+  font-size: 25rpx;
+  color: #b6b6b6;
+}
+
+.sousChef .sousChefRoot .sousChefs .photos .photos_right {
+  width: 238rpx;
+  height: 178rpx;
+  position: relative;
+  background-image: url("https://qunyan.canancn.com/assets/applet/img/chefs/avatar_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.sousChef .sousChefRoot .sousChefs .photos .photos_right .photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sousChef .sousChefRoot .sousChefs .photos .photos_right .horn {
+  width: 23rpx;
+  height: 23rpx;
+}
+
+.sousChef .sousChefRoot .sousChefs .photos .photos_right .horn_top_left {
+  border-top: 4rpx solid #4781d8;
+  border-left: 4rpx solid #4781d8;
+  position: absolute;
+  top: -4rpx;
+  left: -4rpx;
+}
+
+.sousChef .sousChefRoot .sousChefs .photos .photos_right .horn_top_right {
+  border-top: 4rpx solid #4781d8;
+  border-right: 4rpx solid #4781d8;
+  position: absolute;
+  top: -4rpx;
+  right: -4rpx;
+}
+
+.sousChef .sousChefRoot .sousChefs .photos .photos_right .horn_bottom_left {
+  border-bottom: 4rpx solid #4781d8;
+  border-left: 4rpx solid #4781d8;
+  position: absolute;
+  bottom: -4rpx;
+  left: -4rpx;
+}
+
+.sousChef .sousChefRoot .sousChefs .photos .photos_right .horn_bottom_right {
+  border-bottom: 4rpx solid #4781d8;
+  border-right: 4rpx solid #4781d8;
+  position: absolute;
+  bottom: -4rpx;
+  right: -4rpx;
+}
+.sousChefs .basic {
+  background-color: #fff;
+}
+.sousChefs .basic .item {
+  height: 69rpx;
+  border-bottom: 2rpx solid #eaeaea;
+  display: flex;
+  align-items: center;
+  padding: 0 46rpx;
+}
+.sousChefs .basic .Nobd{
+  border-bottom: 0;
+}
+.sousChefs .basic .item .left {
+  width: 160rpx;
+  font-size: 24rpx;
+  color: #b6b6b6;
+}
+.sousChefs .basic .item .region {
+  flex: 1;
+  color: #b6b6b6;
+  font-size: 24rpx;
+}
+.sousChefs .basic .item .region .picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+}
+.sousChefs .basic .item .right {
+  font-size: 24rpx;
+  color: #b6b6b6;
+}
+.sousChefs .basic .item .basicInfoInput {
+  flex: 1;
+  width: 60%;
+  height: 100%;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  color: #000;
+  /* font-weight: bold; */
+}
+.sousChefs .basic .select {
+  flex: 1;
+  height: 100%;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  color: #b6b6b6;
+  font-size: 24rpx;
+  position: relative;
+}
+.sousChefs .basic .select .txt {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.sousChefs .basic .select .txts {
+  color: #000;
+}
+.sousChefs .basic .fontColor {
+  color: #000;
+  font-size: 24rpx;
+}
+.sousChefs .basic .down {
+  width: 13rpx;
+  height: 22rpx;
+  display: block;
+}
+.sousChefs .basic .listss {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  max-height: 300rpx;
+  z-index: 200 !important;
+  background-color: #fff;
+  left: 0;
+  box-shadow: 0rpx 0rpx 5rpx 1rpx #000;
+  box-sizing: border-box;
+}
+.sousChefs .basic .listss .listsss {
+  width: 90%;
+  height: 46rpx;
+  margin: 0 auto;
+  border-bottom: 2rpx solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.placeholderClass {
+  color: #b5b5b5;
+  font-size: 24rpx
+}
+.placeholderClassErr {
+  color: red;
+}
+.sousChef .sousChefRoot .sousChefs .photoss .photos_right {
+  background-image: url("https://qunyan.canancn.com/assets/applet/img/chefs/healthCertificate_bg.png");
+  height: 176rpx;
+  width: 283rpx;
+}
+
+
+
+.sousChef .sousChefRoot .bottom{
+  height: 118rpx;
+}
+.sousChef .submitss{
+  width: 100%;
+  height: 118rpx;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+.sousChef .submitss .btn{
+  width: 220rpx;
+  height: 54rpx;
+  line-height: 54rpx;
+  color: #fff;
+  font-family: 'Regular';
+  font-size: 24rpx;
+  margin: 0;
+}
+.sousChef .submitss .btn_left{
+  background: linear-gradient(to right,#ff6d66,#fe5a72);
+}
+.sousChef .submitss .btn_right{
+  background-color: #4768f3;
+  margin-left: 25rpx;
+}

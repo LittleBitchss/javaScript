@@ -1,0 +1,79 @@
+<!--pages/register/register.wxml-->
+<view class="pag" bindtap="hideIcon">
+  <image src="{{domain}}bg.png"></image>
+  <view class="noticess" wx:if="{{isShow}}">
+    <view class="notices {{anima}}">
+      <image class="img" wx:for="{{imgArr}}" wx:key="index" src="{{}}"></image>
+      <button class="bttn {{btnColor}}" size="mini" bindtap="closeNotice" disabled="{{disabled1}}">我已知晓{{countdown}}</button>
+    </view>
+  </view>
+  <form class="registerSubmit" bindsubmit="registerSubmit">
+    <view class="title"><text>注册</text></view>
+    <view class="content">
+      <view class="item content-phone {{phoneBorderColor}}">
+        <image class="img" src="{{phoneImg}}"></image>
+        <view style="width: 50rpx; margin: 0 10rpx; font-size: 24rpx; color: #b6b6b6; display: flex; justify-content: center;">
+          +86
+        </view>
+        <input name="phone" class="phoneInput" type="number" placeholder="请输入您的电话号码" placeholder-style="color: #b6b6b6;" bindfocus="phoneEntry" bindinput="phoneEnter" value="{{phoneInputValue}}" bindblur="phoneFinishExit" />
+      </view>
+      <view class="hint {{phoneIsShow}}">
+        <icon class="ic" type="warn" size="14"></icon>
+        <text class="txt">请输入正确的手机号码</text>
+      </view>
+      <view class="item content-verify" style="margin-bottom:6%;">
+        <move-verify bind:result="verificationResult"></move-verify>
+      </view>
+      <view class="hint"></view>
+      <view class="item content-code {{codeBorderColor}}">
+        <image class="img" src="{{codeImg}}"></image>
+        <input name="code" class="codeInput" type="number" placeholder="短信验证码" placeholder-style="color: #b6b6b6;" bindfocus="codeEntry" bindinput="codeEnter" value="{{codeInputValue}}" bindblur="codeFinishExit" maxlength="6" />
+        <button type="default" class="sendBtn" plain="true" bindtap="requestCode">{{codeText}}</button>
+      </view>
+      <view class="hint {{codeIsShow}}">
+        <icon class="ic" type="warn" size="14"></icon>
+        <text class="txt">请输入合法验证码</text>
+      </view>
+      <view class="item pas {{passBorderColor}}">
+        <input name="pass" class="pass" type="password" placeholder="请输入您的密码" placeholder-style="color: #b6b6b6;" bindfocus="passEntry" bindinput="passEnter" value="{{passInputValue}}" bindblur="passFinishExit" />
+      </view>
+      <view class="hint {{passIsShow}}">
+        <icon class="ic" type="warn" size="14"></icon>
+        <text class="txt">必须包含一个大写，小写字母，长度8到16位</text>
+      </view>
+      <view class="item content-btn">
+        <button class="but" form-type="submit">注<text class="nb"></text>册</button>
+      </view>
+      <view class="item goLogin">
+        <checkbox-group bindchange="checkboxChange">
+          <label class="radio">
+            <radio value="r1" checked="{{checked}}" />同意食安寻宴
+            <text class="protocol" catchtap="openNotice" data-index="0">《用户协议》</text>
+            <text class="protocol" catchtap="openNotice" data-index="1">《隐私政策》</text>
+          </label>
+        </checkbox-group>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="contnets">
+        <view>
+          <image src="{{domain}}precise.png"></image>
+          <text space="ensp">精 准</text>
+        </view>
+        <view>
+          <image class="distortion" src="{{domain}}convenient.png"></image>
+          <text space="ensp">便 捷</text>
+        </view>
+        <view>
+          <image class="distortion" src="{{domain}}assure.png"></image>
+          <text space="ensp">保 障</text>
+        </view>
+        <view>
+          <image src="{{domain}}match.png"></image>
+          <text space="ensp">高匹配</text>
+        </view>
+      </view>
+    </view>
+  </form>
+
+</view>

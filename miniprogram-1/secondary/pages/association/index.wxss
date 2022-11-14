@@ -1,0 +1,170 @@
+/* secondary/pages/association/index.wxss */
+.association{
+  height: 100vh;
+  background-color: #e5e5e5;
+}
+.association .filter {
+  width: 100%;
+  height: 88rpx;
+  background-color: #f1efef;
+  border-bottom: 4rpx solid #d3d3d3;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 5rpx;
+}
+.association .filter .area-item{
+  flex: 1;
+  min-width: 140rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 5rpx;
+}
+.association .filter .area-item .select{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-size: 25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 6rpx;
+}
+
+.association .filter .area-item .down{
+  width: 18rpx;
+  height: 12rpx;
+  display: block;
+  position:absolute;
+  top: 50%;
+  right: 10rpx;
+  transform: translateY(-50%);
+}
+.association .filter .area-item .txt{
+  width: 100%;
+  height: 100%;
+  line-height: 33rpx;
+  text-align: center;
+  overflow: auto;
+  white-space:nowrap;
+  margin-right: 36rpx;
+}
+.association .filter .area-item .listss{
+  position:absolute;
+  top: 100%;
+  width: 100%;
+  max-height: 300rpx;
+  background-color: #fff;
+  left: 0;
+  box-shadow: 0rpx 0rpx 5rpx 1rpx #000;
+  box-sizing: border-box;
+  z-index: 1000;
+  overflow-y:scroll;
+}
+.association .filter .area-item .listss .listsss{
+  display: block;
+  width: 90%;
+  height: 46rpx;
+  margin: 0 auto;
+  line-height: 46rpx;
+  border-bottom: 2rpx solid #eee;
+  text-align: center;
+  overflow: auto;
+  white-space:nowrap;
+}
+
+.association .pie-charts {
+  width: 100%;
+  height: 452rpx;
+}
+.association .pie-charts ec-canvas {
+  width: 100%;
+  height: 100%;
+  
+}
+
+.association .chefs{
+  height: calc(100% - 452rpx - 88rpx);
+}
+.association .chefs .chef{
+  width: 718rpx;
+  height: 224rpx;
+  margin: 0 auto 10rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  display: flex;
+}
+.association .chefs .chef .chef_avatar{
+  width: 228rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.association .chefs .chef .chef_avatar .chef_avatar_img{
+  width: 204rpx;
+  height: 204rpx;
+  border-radius: 50%;
+  display: block;
+  background-color: #000;
+}
+
+.association .chefs .chef .chef_info{
+  position: relative;
+  flex: 1;
+  padding: 14rpx 26rpx 14rpx 36rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.association .chefs .chef .chef_info .medal{
+  position: absolute;
+  top: 0;
+  right: 28rpx;
+  font-size: 22rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f14c44;
+}
+.association .chefs .chef .chef_info .medal .medal_img{
+  width: 40rpx;
+  height: 44rpx;
+  display: block;
+  margin-right: 10rpx;
+}
+
+.association .chefs .chef .chef_info .chef_first{
+  display: flex;
+  font-size: 30rpx;
+  font-family: 'Medium';
+  height: 42rpx;
+}
+.association .chefs .chef .chef_info .item{
+  font-size: 22rpx;
+  line-height: 1.2;
+  font-family: 'Medium';
+  display: flex;
+}
+.association .chefs .chef .chef_info .item .left{
+  color: #696969;
+}
+.association .chefs .chef .chef_info .item .right{
+  margin-left: 20rpx;
+  flex: 1;
+}
+.association .chefs .chef .chef_info .chefDetails{
+  width: 142rpx;
+  height: 46rpx;
+  border-radius: 10rpx;
+  background-color: #4768f3;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22rpx;
+  font-family: 'Medium';
+  position: absolute;
+  right: 18rpx;
+  bottom: 14rpx;
+}

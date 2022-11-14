@@ -1,0 +1,527 @@
+/* pages/findChef/index.wxss */
+.findChef{
+  height: 100vh;
+  background-color: #e5e5e5;
+  position: relative;
+  font-family: 'Medium';
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+}
+.findChef .custom-bar__wrapper {
+  width: 100%;
+  left: 24rpx;
+  padding: 0 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.findChef .search-group {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.findChef .search-group .select{
+  height: 100%;
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+  color: #e70013;
+  font-size: 25rpx;
+}
+.findChef .search-group .select .down{
+  width: 16rpx;
+  height: 10rpx;
+  margin-left: 20rpx;
+  display: block;
+}
+.findChef .selects{
+  z-index: 200;
+  width: 718rpx;
+  border-radius:30rpx;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  font-family: 'Regular';
+  box-shadow: 2rpx 2rpx 6rpx -2rpx #579cff;
+}
+.findChef .selects .select{
+  min-height: 100rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.findChef .selects .select .childs{
+  display: flex; 
+  width: 200rpx;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 22rpx;
+  position: relative;
+}
+.findChef .selects .select .childs .txt{
+  max-width: 150rpx;
+  min-width: 100rpx;
+  text-align: center;
+  overflow: hidden; 
+  white-space: nowrap; 
+  text-overflow: ellipsis; 
+}
+.findChef .selects .select .childs .fontColor{
+  color: #4768f3;
+}
+.findChef .selects .select .childs .down{
+  width: 16rpx;
+  height: 10rpx;
+  margin-left: 10rpx;
+  display: block;
+}
+@keyframes up{
+  0%{
+    transform: rotate(180deg);
+  }
+  100%{
+    transform: rotate(0);
+  }
+}
+@keyframes downs{
+  0%{
+    transform: rotate(-180deg);
+  }
+  100%{
+    transform: rotate(0);
+  }
+}
+.findChef .selects .select .childs .up{
+  transform: rotate(0);
+  animation:up 300ms;
+}
+.findChef .selects .select .childs .downs{
+  transform: rotate(0);
+  animation:downs 300ms;
+}
+.findChef .selects .distance{
+  background-color: #fff;
+  border-top: 2rpx solid #aaa;
+  border-bottom-left-radius: 30rpx;
+  border-bottom-right-radius: 30rpx;
+}
+@keyframes stretch{
+  0%{
+    max-height: 0;
+  }
+  100%{
+    max-height: 360rpx;
+  }
+}
+@keyframes shrink{
+  0%{
+    max-height: 360rpx;
+  }
+  100%{
+    max-height: 0;
+  }
+}
+.findChef .selects .distance .stretch{
+  max-height: 360rpx;
+  animation:stretch 500ms;
+}
+.findChef .selects .distance .shrink{
+  max-height: 0;
+  animation:shrink 500ms;
+}
+.findChef .selects .distance .options{
+  width: 84%;
+  height: 60rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.findChef .selects .distance .options .distance_txt{
+  font-size: 22rpx;
+}
+.findChef .selects .distance .options .fontColor{
+  color: #4768f3;
+}
+.findChef .selects .distance .options .distance_img{
+  width: 32rpx;
+  height: 22rpx;
+}
+.findChef .selects .goodAt{
+  background-color: #fff;
+  border-top: 2rpx solid #aaa;
+  border-bottom-left-radius: 30rpx;
+  border-bottom-right-radius: 30rpx;
+  padding: 32rpx 0 24rpx 50rpx;
+}
+.findChef .selects .goodAt .option{
+  display: flex;
+  flex-wrap: wrap;
+}
+.findChef .selects .goodAt .option .options{
+  width: 100rpx;
+  height: 34rpx;
+  border: 2rpx solid #f2f2f2;
+  background-color: #f2f2f2;
+  border-radius: 5rpx;
+  font-size: 22rpx;
+  margin: 0 30rpx 20rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.findChef .selects .goodAt .option .active{
+  color: #4768f3;
+  border-color: #4768f3;
+}
+.findChef .selects .goodAt .btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.findChef .selects .goodAt .btn .btns{
+  width: 110rpx;
+  height: 38rpx;
+  background-color: #4768f3;
+  color: #fff;
+  border-radius: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25rpx;
+  padding: 0;
+  margin-top: 10rpx;
+}
+.findChef .selects .grade{
+  background-color: #fff;
+  border-top: 2rpx solid #aaa;
+  border-bottom-left-radius: 30rpx;
+  border-bottom-right-radius: 30rpx;
+}
+.findChef .selects .grade .stretch{
+  max-height: 360rpx;
+  animation:stretch 500ms;
+}
+.findChef .selects .grade .shrink{
+  max-height: 0;
+  animation:shrink 500ms;
+}
+.findChef .selects .grade .options{
+  width: 84%;
+  height: 60rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.findChef .selects .grade .options .distance_txt{
+  font-size: 22rpx;
+}
+.findChef .selects .grade .options .fontColor{
+  color: #4768f3;
+}
+.findChef .selects .grade .options .distance_img{
+  width: 32rpx;
+  height: 22rpx;
+}
+/*
+
+
+.findChef .search-group .select .fontColor{
+  
+}
+
+
+ */
+.findChef .map{
+  width: 100%;
+  overflow: hidden;
+  flex: 1;
+}
+.findChef .map .maps{
+  width: 100%;
+  height: 150%;
+  margin-top: -60%;
+}
+.findChef .cover-image {
+  height: 50rpx;
+  width: 36rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50rpx;
+  margin-left: -18rpx;
+}
+.findChef .mapList{
+  background-color: #eee;
+}
+.findChef .notices{
+  position:absolute;
+  box-sizing: border-box;
+  left: 0;
+  bottom:-90%;
+  width: 100%;
+  height: 100%;
+  background:linear-gradient(to bottom,rgb(255,255,255,0) 0%,#f0f0f0 12%);
+}
+::-webkit-scrollbar {
+  display:none;
+  width:0;
+  height:0;
+  color:transparent;
+}
+@keyframes upToDown{
+  0%{
+    bottom:-90%;
+  }
+  100%{
+    bottom:0;
+  }
+}
+@keyframes middleToDown{
+  0%{
+    bottom:-40%;
+  }
+  100%{
+    bottom:0;
+  }
+}
+@keyframes middleToUp{
+  0%{
+    bottom:-40%;
+  }
+  100%{
+    bottom:-90%;
+  }
+}
+@keyframes downToMiddle{
+  0%{
+    bottom:0;
+  }
+  100%{
+    bottom:-40%;
+  }
+}
+.findChef .upToDown{
+  bottom:0;
+  animation:upToDown 300ms;
+}
+.findChef .middleToDown{
+  bottom:0;
+  animation:middleToDown 300ms;
+}
+.findChef .middleToUp{
+  bottom:-90%;
+  animation:middleToUp 300ms;
+}
+.findChef .downToMiddle{
+  bottom:-40%;
+  animation:downToMiddle 300ms;
+}
+/* 需添加 */
+.findChef .notices .bulletin{
+  width: 718rpx;
+  height: 44rpx;
+  background-color: #b1c5f3;
+  color: #4768f3;
+  font-size: 20rpx;
+  margin: 70rpx auto 12rpx;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16rpx;
+}
+.findChef .notices .bulletin .bulletin_left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.findChef .notices .bulletin .bulletin_left .bulletin_left_img{
+  width: 27rpx;
+  height: 24rpx;
+  display: block;
+  margin-right: 8rpx;
+}
+.findChef .notices .bulletin .bulletin_right{
+  display: flex;
+  align-items: center;
+  font-size: 18rpx;
+  font-family: 'Light';
+  color: #5c5c5c;
+}
+
+.findChef .chefs{
+  width: 718rpx;
+  height: 224rpx;
+  margin: 0 auto 10rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  display: flex;
+}
+.findChef .chefs .chefs_avatar{
+  width: 228rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.findChef .chefs .chefs_avatar .chefs_avatar_img{
+  width: 204rpx;
+  height: 204rpx;
+  border-radius: 50%;
+  display: block;
+}
+
+.findChef .chefs .chefs_info{
+  position: relative;
+  flex: 1;
+  padding: 14rpx 26rpx 14rpx 36rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.findChef .chefs .chefs_info .medal{
+  position: absolute;
+  top: 0;
+  right: 28rpx;
+  font-size: 22rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f14c44;
+}
+.findChef .chefs .chefs_info .medal .medal_img{
+  width: 40rpx;
+  height: 44rpx;
+  display: block;
+  margin-right: 10rpx;
+}
+
+.findChef .chefs .chefs_info .chefs_first{
+  display: flex;
+  font-size: 30rpx;
+}
+.findChef .chefs .chefs_info .chefs_first .chefs_first_name{
+  min-width: 90rpx;
+}
+.findChef .chefs .chefs_info .chefs_first .chefs_first_score{
+  color: #f14c44;
+  margin-left: 38rpx;
+}
+.findChef .chefs .chefs_info .chefs_first .chefs_first_score .fen{
+  font-size: 22rpx;
+  font-family: 'Light';
+}
+.findChef .chefs .chefs_info .grade{
+  font-size: 22rpx;
+}
+.findChef .chefs .chefs_info .goodAt{
+  font-size: 18rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.findChef .chefs .chefs_info .goodAt .goodAt_item{
+  width: 66rpx;
+  height: 26rpx;
+  background-color: #f14c44;
+  border-radius: 5rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12rpx;
+  line-height: 26rpx;
+}
+
+.findChef .chefs .chefs_info .comment{
+  font-size: 20rpx;
+  color: #b1b1b1;
+  display: flex;
+  align-items: center;
+}
+.findChef .chefs .chefs_info .comment .comment_left{
+  width: 120rpx;
+}
+.findChef .chefs .chefs_info .comment .comment_right{
+  width: 300rpx;
+  color: #4768f3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.findChef .chefs .chefs_info .comment .comment_rights{
+  width: 270rpx;
+}
+.findChef .chefs .chefs_info .last{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20rpx;
+  color: #b1b1b1;
+}
+.findChef .chefs .chefs_info .last .last_left{
+  display: flex;
+}
+.findChef .chefs .chefs_info .last .last_left .list{
+  margin-right: 38rpx;
+}
+.findChef .chefs .chefs_info .last .last_right{
+  display: flex;
+  width: 142rpx;
+  height: 46rpx;
+  background-color: #4768f3;
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 22rpx;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.findChef .viewList{
+  position: absolute;
+  right: 35rpx;
+  bottom: 292rpx;
+  width: 140rpx;
+  height: 42rpx;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18rpx;
+  font-family: 'Normal';
+  color: #333;
+  background-color: #fff;
+}
+.findChef .viewList .viewList_img{
+  width: 37rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+.findChef .chefSwiper{
+  box-sizing: border-box;
+  height: 292rpx;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  white-space: nowrap;
+}
+.findChef .chefSwiper .swiper-item{
+  display: inline-block;
+  width: 680rpx;
+  height: 224rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin-top: 34rpx;
+  box-shadow: 2rpx 2rpx 2rpx 8prx #000;
+}
+.findChef .chefSwiper .swiper-item .chefs{
+  width: 100%;
+  margin: 0;
+}

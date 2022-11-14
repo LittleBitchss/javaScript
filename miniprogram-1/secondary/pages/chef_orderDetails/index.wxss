@@ -1,0 +1,73 @@
+/* secondary/pages/orderDetails/index.wxss */
+.orderDetails{
+  height: 100vh !important;
+  position: relative;
+}
+.orderDetails .map{
+  height: 100%;
+  overflow: hidden;
+}
+.orderDetails .maps{
+  width: 100%;
+  height: 150%;
+  margin-top: -65%;
+}
+.orderDetails .maps .cover-image {
+  height: 50rpx;
+  width: 36rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50rpx;
+  margin-left: -18rpx;
+}
+.orderDetails .cover-view{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.orderDetails .info{
+  width: 706rpx;
+  border-radius: 10rpx;
+  position: absolute;
+  background-color: #fff;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Regular';
+  color: #b6b6b6;
+}
+.orderDetails .info .info_item{
+  padding: 10rpx 35rpx;
+  min-height: 70rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #eee;
+}
+.orderDetails .info .info_item .info_item_left{
+  font-size: 25rpx;
+  width: 160rpx;
+}
+.orderDetails .info .info_item .info_item_right{
+  flex: 1;
+  font-size: 25rpx;
+  color: #000;
+  word-break: break-all;
+  white-space: pre-wrap; 
+}
+
+.orderDetails .info .btn{
+  display: block;
+  width: 100%;
+  height: 60rpx;
+  background-color: #4768f3;
+  margin-top: 30rpx;
+  margin-bottom: 0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+}

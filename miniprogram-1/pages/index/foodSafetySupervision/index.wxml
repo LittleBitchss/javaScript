@@ -1,0 +1,31 @@
+<!--pages/chefAssociationLogin/index.wxml-->
+<view class="chefAssociationLogin">
+  <view class="login">
+    <view class="item item1">
+      <image class="item1_img" src="../../../icon/association_logo.png"></image>
+      <text class="item1_bom" space="nbsp">厨 师 后 台 管 理 系 统</text>
+    </view>
+    <view class="item item2 {{bdColor1}}">
+      <image class="imgs" src="{{users}}"></image>
+      <input type="text" class="inps" placeholder="请输入手机号" placeholder-style="font-size:28rpx;" bindfocus="focus" bindinput="inputs" bindblur="blur" data-index="0" value="{{user}}" />
+    </view>
+    <view class="hint {{opacity1}}">
+      <icon class="icon-small" type="warn" size="16"></icon>
+      <text class="txt">请输入正确格式的用户名</text>
+    </view>
+    <view class="item item3 {{bdColor2}}">
+      <image class="imgs" src="{{lock}}"></image>
+      <input type="password" class="inps" placeholder="请输入密码" placeholder-style="font-size:28rpx;" bindfocus="focus" bindinput="inputs" bindblur="blur" data-index="1" value="{{password}}" />
+    </view>
+    <view class="hint {{opacity2}}">
+      <icon class="icon-small" type="warn" size="16"></icon>
+      <text class="txt">请输入正确格式的密码</text>
+    </view>
+    <view class="taggle" bindtap="taggle" wx:if="{{id==1}}">{{type?'切换网格员登录':'切换监管端登录'}}</view>
+    <view class="item item4">
+      <button class="btns" style="margin-top: {{id==1?10:58}}rpx;" size="mini" bindtap="submitInfo">
+        <text space="emsp">登 录</text>
+      </button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+/* pkgA/pages/familyDinnerApplication/index.wxss */
+.familyDinnerApplication{
+  height: 100vh;
+}

@@ -1,0 +1,162 @@
+/* components/admin_chef/index.wxss */
+.admin_chef{
+  height: 100%;
+  font-family: 'Regular';
+}
+.admin_chef .filter {
+  width: 100%;
+  width: 100%;
+  height: 8%;
+  background-color: #f1efef;
+  border-bottom: 4rpx solid #d3d3d3;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.admin_chef .filter .filter_bottom{
+  height: 69rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 6rpx;
+}
+.admin_chef .filter .filter_bottom .area-item{
+  width: 140rpx;
+  flex: 1;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 2rpx solid #000;
+  border-radius: 10rpx;
+  margin: 0 5rpx;
+}
+.admin_chef .filter .filter_bottom .area-item .select{
+  width: 100%;
+  height: 100%;
+  border-radius: 6rpx;
+  margin: 0 !important;
+  position: relative;
+  font-size: 25rpx;
+  display: flex;
+}
+
+.admin_chef .filter .filter_bottom .area-item .down{
+  width: 18rpx;
+  height: 12rpx;
+  display: block;
+  position:absolute;
+  top: 50%;
+  right: 10rpx;
+  transform: translateY(-50%);
+}
+.admin_chef .filter .filter_bottom .area-item .txt{
+  width: 100%;
+  height: 100%;
+  line-height: 36rpx;
+  overflow: auto;
+  white-space:nowrap;
+  text-align: center;
+  position: relative;
+  overflow: auto;
+  left: 5rpx;
+  margin-right: 36rpx;
+}
+.admin_chef .filter .filter_bottom .area-item .txts{
+  margin-right: 0;
+}
+.admin_chef .filter .filter_bottom .area-item .listss{
+  position:absolute;
+  top: 100%;
+  width: 100%;
+  max-height: 300rpx;
+  background-color: #fff;
+  left: 0;
+  box-shadow: 0rpx 0rpx 5rpx 1rpx #000;
+  box-sizing: border-box;
+  z-index: 1000;
+  overflow-y:scroll;
+}
+.admin_chef .filter .filter_bottom .area-item .listss .listsss{
+  display: block;
+  width: 90%;
+  height: 46rpx;
+  margin: 0 auto;
+  border-bottom: 2rpx solid #eee;
+  text-align: center;
+  overflow: auto;
+  white-space:nowrap;
+}
+
+.admin_chef .search{
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin_chef .search .searchInput{
+  width: 568rpx;
+  height: 60rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  box-shadow: 0rpx 2rpx 7rpx 1rpx #88a0c2;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 26rpx;
+}
+.admin_chef .search .searchInput .img{
+  width: 39rpx;
+  height: 40rpx;
+}
+.admin_chef .search .searchInput .text{
+  flex: 1;
+  margin-left: 14rpx;
+  font-size: 22rpx;
+  font-family: 'Light';
+  color: #333;
+}
+
+.admin_chef .title{
+  box-sizing: border-box;
+  width: 99%;
+  margin: 0 auto;
+  height: 5%;
+  display: flex;
+  font-size: 25rpx;
+  font-family: 'Medium';
+  border-top: 1rpx solid #000;
+  border-bottom: 1rpx solid #000;
+}
+.admin_chef  .row{
+  width: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1rpx solid #000;
+}
+.admin_chef  .rows{
+  width: 150rpx;
+}
+.admin_chef  .rowss{
+ flex: 1;
+}
+.admin_chef  .rowsss{
+  border-right: 1rpx solid #000;
+ }
+ .admin_chef  .rowssss{
+  color: #5a77f4;
+ }
+ .admin_chef .list{
+   height: 77%;
+   overflow: auto;
+ }
+.admin_chef .list .lists{
+  width: 99%;
+  margin: 0 auto;
+  height: 60rpx;
+  display: flex;
+  font-size: 25rpx;
+  font-family: 'Light';
+  border-bottom: 1rpx solid #000;
+}

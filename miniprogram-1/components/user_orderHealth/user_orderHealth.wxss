@@ -1,0 +1,42 @@
+/* components/user_orderHealth/user_orderHealth.wxss */
+.user_orderHealth{
+  height: 100%;
+  background-color: #e5e5e5;
+  padding: 20rpx 0;
+  position: relative;
+  box-sizing: border-box;
+}
+.user_orderHealth .item{
+  width: 670rpx;
+  margin: 0 auto;
+}
+.user_orderHealth .item .project{
+  font-size: 28rpx;
+  font-family: 'Medium';
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+}
+.user_orderHealth .item .group{
+  display: flex;
+  justify-content: space-between;
+  height: 90rpx;
+}
+.user_orderHealth .item .groups{
+  flex-wrap: wrap;
+}
+.user_orderHealth .item .groups .labels{
+  width: 150rpx;
+  height: 90rpx;
+}
+.user_orderHealth .item .groups .labelss{
+  width: 260rpx;
+}
+.user_orderHealth .item .group .lab{
+  display: flex;
+  font-size: 25rpx;
+  align-items: center;
+  font-family: 'Light';
+  justify-content: start;
+}
+

@@ -1,0 +1,209 @@
+/* pages/admin/admin.wxss */
+.admin{
+  height: 100vh;
+}
+.admin .content{
+  height: 92%;
+  background-color: #e5e5e5;
+  position: relative;
+}
+.admin .content .summary{
+  height: 100%;
+}
+.admin .content .summary .pie-charts {
+  width: 100%;
+  height: 40%;
+}
+.admin .content .summary .pie-charts ec-canvas {
+  width: 100%;
+  height: 100%;
+  
+}
+.admin .content .summary .filter {
+  width: 100%;
+  height: 12%;
+  background-color: #f1efef;
+  border-bottom: 4rpx solid #d3d3d3;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.admin .content .summary .filter .filter_top{
+  height: 69rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 25rpx;
+  font-family: 'Regular';
+  padding: 0 10rpx;
+}
+.admin .content .summary .filter .filter_top .time{
+  width: 100%;
+  display: flex;
+  height: 60%;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border: 2rpx solid #000;
+  border-radius: 10rpx;
+  padding: 0 10rpx;
+}
+.admin .content .summary .filter .filter_top .time .txt{
+  width: 284rpx;
+  text-align: center;
+}
+.admin .content .summary .filter .filter_top .time .img{
+  width: 18rpx;
+  height: 12rpx;
+  display: block;
+  position:absolute;
+  top: 50%;
+  right: 10rpx;
+  transform: translateY(-50%);
+}
+.admin .content .summary .filter .filter_bottom{
+  height: 70rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6rpx;
+}
+.admin .content .summary .filter .filter_bottom .area-item{
+  flex: 1;
+  height: 40rpx;
+  min-width: 140rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 2rpx solid #000;
+  border-radius: 10rpx;
+  margin: 0 5rpx;
+}
+.admin .content .summary .filter .filter_bottom .area-item .select{
+  width: 100%;
+  height: 100%;
+  border-radius: 6rpx;
+  margin: 0 !important;
+  position: relative;
+  font-size: 25rpx;
+  display: flex;
+}
+
+.admin .content .summary .filter .filter_bottom .area-item .down{
+  width: 18rpx;
+  height: 12rpx;
+  display: block;
+  position:absolute;
+  top: 50%;
+  right: 10rpx;
+  transform: translateY(-50%);
+}
+.admin .content .summary .filter .filter_bottom .area-item .txt{
+  width: 100%;
+  height: 100%;
+  line-height: 36rpx;
+  overflow: auto;
+  white-space:nowrap;
+  text-align: center;
+  position: relative;
+  overflow: auto;
+  left: 5rpx;
+  margin-right: 36rpx;
+}
+.admin .content .summary .filter .filter_bottom .area-item .txts{
+  margin-right: 0;
+}
+.admin .content .summary .filter .filter_bottom .area-item .listss{
+  position:absolute;
+  top: 100%;
+  width: 100%;
+  max-height: 300rpx;
+  background-color: #fff;
+  left: 0;
+  box-shadow: 0rpx 0rpx 5rpx 1rpx #000;
+  box-sizing: border-box;
+  z-index: 1000;
+  overflow-y:scroll;
+}
+.admin .content .summary .filter .filter_bottom .area-item .listss .listsss{
+  display: block;
+  width: 90%;
+  height: 46rpx;
+  margin: 0 auto;
+  line-height: 46rpx;
+  border-bottom: 2rpx solid #eee;
+  text-align: center;
+  overflow: auto;
+  white-space:nowrap;
+}
+.admin .content .title{
+  height: 4%;
+  border-top: 2rpx solid #000;
+  border-bottom: 2rpx solid #000;
+  display: flex;
+  font-size: 25rpx;
+  font-family: 'Medium';
+}
+.admin .content .rew{
+  border-right: 2rpx solid #000;
+  width: 130rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin .content .rews{
+  flex: 1;
+  border-right: 0;
+}
+.admin .content .list .im{
+  display: block;
+  margin: 10rpx auto;
+  width: 160rpx;
+  height: 60rpx;
+}
+.admin .content .list{
+  height: 43.5%;
+  overflow: auto;
+}
+.admin .content .lists{
+  height: 60rpx;
+  border-bottom: 2rpx solid #000;
+  display: flex;
+  font-size: 25rpx;
+  font-family: 'Light';
+}
+.admin .content .pager{
+  width: rpx;
+  height: 30rpx;
+}
+
+
+.admin .tab{
+  height: 8%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+   border-top: 2rpx solid #000;
+   background-color: #fff;
+   box-sizing: border-box;
+}
+.admin .tab .item{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.admin .tab .item .img{
+  width: 54rpx;
+  height: 50rpx;
+}
+.admin .tab .item .text{
+  font-family: 'Medium';
+  font-size: 24rpx;
+  color: #b6b6b6;
+}
+.admin .tab .item .fontColor{
+  color: #4768f3;
+}

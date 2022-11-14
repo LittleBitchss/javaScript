@@ -1,0 +1,40 @@
+<!--secondary/pages/orderDetails/index.wxml-->
+<view class="orderDetails">
+  <view class="map">
+    <map id="maps" bindtap="clickMap" class="maps" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" >
+      <image class="cover-image" src="{{domain}}mark.png"></image>
+    </map>
+  </view>
+  <cover-view class="cover-view"></cover-view>
+  <view class="info">
+    <view class="info_item">
+      <view class="info_item_left">地点</view>
+      <view class="info_item_right">{{m_address}}</view>
+    </view>
+    <view class="info_item">
+      <view class="info_item_left">宴会类型</view>
+      <view class="info_item_right">{{m_matsuri_type==1?mt_name:"厨师到家"}}</view>
+    </view>
+    <view class="info_item">
+      <view class="info_item_left">{{m_matsuri_type==1?"开宴日期":"用餐日期"}}</view>
+      <view class="info_item_right">{{m_start_date}}</view>
+    </view>
+    <view class="info_item">
+      <view class="info_item_left">{{m_matsuri_type==1?"举办天数":"用餐时间"}}</view>
+      <view class="info_item_right">{{m_matsuri_type==1?m_holding_days:m_meal_time}}</view>天
+    </view>
+    <view class="info_item">
+      <view class="info_item_left">{{m_matsuri_type==1?"宴会人数":"用餐人数"}}</view>
+      <view class="info_item_right">{{m_banquet_number}}</view>人
+    </view>
+    <view class="info_item">
+      <view class="info_item_left">联系方式</view>
+      <view class="info_item_right">{{m_phone}}</view>
+    </view>
+    <view class="info_item" wx:if="{{m_matsuri_type==2}}">
+      <view class="info_item_left">备注</view>
+      <view class="info_item_right">{{m_remark}}</view>
+    </view>
+    <navigator wx:if="{{mi_accept_invitation==0}}" class="btn" url="/tertiary/pages/chef_commit/index?m_id={{m_id}}&mi_id={{mi_id}}&m_matsuri_type={{m_matsuri_type}}&m_phone={{m_phones}}">下一步</navigator>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+<!--pages/banquetWedding/index.wxml-->
+<view class="banquetWedding">
+  <view class="navs">
+    <view class="nav {{navBg1}}" bindtap="taggle" data-item="1">精选</view>
+    <view class="nav {{navBg2}}" bindtap="taggle" data-item="2">宴会酒店</view>
+    <view class="nav {{navBg3}}" bindtap="taggle" data-item="3">婚礼堂</view>
+    <view class="nav {{navBg4}}" bindtap="taggle" data-item="4">大礼堂</view>
+    <view class="nav {{navBg5}}" bindtap="taggle" data-item="5">场地搭建</view>
+    <view class="nav {{navBg6}}" bindtap="taggle" data-item="6">婚庆演出</view>
+  </view>
+  <view class="conts">
+    <banquetWedd_featured wx:if="{{isShow}}"></banquetWedd_featured>
+  </view>
+</view>

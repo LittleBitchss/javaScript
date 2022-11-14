@@ -1,0 +1,138 @@
+/* pages/mine/index.wxss */
+.mine{
+  height: 100vh;
+  position: relative;
+  overflow: auto;
+}
+.mine .top{
+  height: 466rpx;
+  background-image: url("https://qunyan.canancn.com/assets/applet/img/mine/mine_bg.png");
+  background-size: 100% 100%;
+  overflow: hidden;
+  top: 0;
+}
+.mine .top .userInfo{
+  z-index: 10;
+  height: 27%;
+  margin-top: 150rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+}
+.mine .top .userInfo .userInfo_avatar{
+  height: 130rpx;
+  width: 130rpx;
+  border-radius: 50%;
+  border: 4rpx solid #ffa175;
+  margin-right: 16rpx;
+}
+
+.mine .top .userInfo .nickName{
+  font-family: 'Regular';
+  font-size: 34rpx;
+  color: #fff;
+}
+
+.mine .functionBar{
+  width: 710rpx;
+  height: 200rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  box-shadow: 0rpx 1rpx 10rpx 1rpx #aebcf7;
+  position: absolute;
+  left: 50%;
+  top: 300rpx;
+  transform: translateX(-50%);
+  
+}
+.mine .functionBar .myOrder{
+  height: 70rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+}
+
+.mine .functionBar .myOrder .myOrder_title{
+  font-size: 26rpx;
+  font-family: 'Medium';
+}
+.mine .functionBar .myOrder .myOrder_all{
+  font-size: 22rpx;
+  font-family: 'Normal';
+  display: flex;
+  align-items:  center;
+  justify-content: space-between;
+  width: 70rpx;
+  color: #b6b6b6;
+}
+.mine .functionBar .myOrder .myOrder_all .myOrder_all_img{
+  width: 12rpx;
+  height: 20rpx;
+}
+.mine .functionBar .tabBar{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.mine .functionBar .functionBar_item{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Regular';
+  font-size: 26rpx;
+  position: relative;
+}
+.mine .functionBar .functionBar_item .point{
+  width: 24rpx;
+  height: 24rpx;
+  position: absolute;
+  right: 20rpx;
+  top: -12rpx;
+  border-radius: 50%;
+  background-color: red;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16rpx;
+  font-family: 'Medium';
+}
+.mine .functionBar .functionBar_item .functionBar_item_img{
+  width: 62rpx;
+  height: 54rpx;
+  display: block;
+  margin-bottom: 14rpx;
+}
+.mine .bottom{
+  height: 62%;
+  padding: 50rpx 0;
+}
+.mine .bottom .bottom_item{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48rpx;
+}
+.mine .bottom .bottom_item .bottom_item_left{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Regular';
+  font-size: 28rpx;
+  color: #666666;
+}
+.mine .bottom .bottom_item .bottom_item_left .bottom_item_icon{
+  height: 45rpx;
+  width: 40rpx;
+  display: block;
+  margin-right: 24rpx;
+}
+.mine .bottom .bottom_item .bottom_item_img{
+  width: 13rpx;
+  height: 23rpx;
+  display: block;
+}

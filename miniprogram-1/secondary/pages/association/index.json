@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  },
+  "navigationBarTitleText":"厨师协会",
+  "navigationBarTextStyle":"black",
+  "navigationBarBackgroundColor":"#fff"
+}

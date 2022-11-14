@@ -1,0 +1,220 @@
+<!--components/basicInfo/basicInfo.wxml-->
+<view class="basicInfo" bindtap="close">
+  <view class="photos">
+    <view class="photos_Left">
+      <view class="photos_Left_title">请上传厨师照片</view>
+      <view class="photos_Left_text">请上传身穿厨师服头戴厨师帽个人图片</view>
+    </view>
+    <view class="photos_right" bindtap="upload" data-item="1">
+      <view class="horn horn_top_left"></view>
+      <view class="horn horn_top_right"></view>
+      <view class="horn horn_bottom_left"></view>
+      <view class="horn horn_bottom_right"></view>
+      <image class="photo" src="{{photo1}}"></image>
+    </view>
+  </view>
+  <view class="basic">
+    <view class="item">
+      <text class="left">姓名：</text>
+      <input class="basicInfoInput" type="text" placeholder="{{namePlaceholder}}" bindinput="enter" value="{{nameValue}}" bindblur="blur" data-item="0" placeholder-class="{{namePlaceholderClass}}" />
+    </view>
+    <view class="item">
+      <text class="left">性别：</text>
+      <view class="select {{fontColor1}}" catchtap="unfold" data-item="0">
+        <text class="txt">{{sexValue}}</text>
+        <image class="down" src="../../../icon/mine_right_arrow.png"></image>
+        <view class="listss fontColor" wx:if="{{sex_show}}" wx:key="index">
+          <view class="listsss" wx:for="{{sex}}" catchtap="choose" data-index="{{index}}" data-item="0" wx:key="index">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="item">
+      <text class="left">年龄：</text>
+      <input class="basicInfoInput" data-item="1" type="number" placeholder="{{agePlaceholder}}" bindinput="enter" value="{{ageValue}}" bindblur="blur" placeholder-class="{{agePlaceholderClass}}" /><text class="right">岁</text>
+    </view>
+    <view class="item">
+      <text class="left">厨龄：</text>
+      <input class="basicInfoInput" data-item="2" type="number" placeholder="{{cookAgePlaceholder}}" bindinput="enter" value="{{cookAgeValue}}" bindblur="blur" placeholder-class="{{cookAgePlaceholderClass}}" /><text class="right">岁</text>
+    </view>
+    <view class="item">
+      <text class="left">联系方式：</text>
+      <input class="basicInfoInput" type="number" placeholder="{{phonePlaceholder}}" bindinput="enter" value="{{phoneValue}}" bindblur="blur" data-item="3" placeholder-class="{{phonePlaceholderClass}}" />
+    </view>
+    <view class="item">
+      <text class="left">擅长菜系：</text>
+      <view class="select {{fontColor2}}" catchtap="unfold" data-item="1">
+        <text class="txt">{{cuisineValue}}</text>
+        <image class="down" src="../../../icon/mine_right_arrow.png"></image>
+        <view class="listss fontColor" wx:if="{{cuisine_show}}" wx:key="index" catchtap="block">
+          <view class="option">
+            <view class="optionx" wx:for="{{cuisine}}" wx:key="index">
+              <view class="options {{item.active}}" catchtap="choose" data-item="1" data-index="{{index}}">
+                {{item.cont}}
+              </view>
+            </view>
+          </view>
+          <view class="btn">
+            <button class="btns" size="mini" catchtap="finish">完成</button>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="item">
+      <text class="left">工作地址：</text>
+      <view class="region {{fontColor3}}" bindtap="siteTesting">
+        <text class="txt txts">{{region[0]}}</text>
+        <text class="txt txts">{{region[1]}}</text>
+        <text class="txt txts">{{region[2]}}</text>
+        <text class="txt txts">{{region[3]}}</text>
+        <text class="txt txts">{{region[4]}}</text>
+      </view>
+      <image class="down" src="../../../icon/mine_right_arrow.png" bindtap="siteTesting"></image>
+    </view>
+    <view class="item Nobd">
+      <view class="left"></view>
+      <input class="basicInfoInput" type="text" placeholder="{{addressPlaceholder}}" bindinput="enter" value="{{addressValue}}" bindblur="blur" data-item="4" placeholder-class="{{addressPlaceholderClass}}" />
+    </view>
+  </view>
+  <view class="runScope">
+    <view class="runScope_top">请选择您的经营范围</view>
+    <view class="runScope_midde">
+      <radio-group class="group" bindchange="radioChange">
+        <label class="lab">
+          <view class="rad">
+            <radio value="全部接受" checked="{{checked1}}" />
+          </view>
+          <view class="txt">{{runScopeValus[0]}}</view>
+        </label>
+        <label class="lab">
+          <view class="rad">
+            <radio value="家宴到家" checked="{{checked2}}" />
+          </view>
+          <view class="txt">{{runScopeValus[1]}}</view>
+        </label>
+        <label class="lab">
+          <view class="rad">
+            <radio value="酒席" checked="{{checked3}}" />
+          </view>
+          <view class="txt">{{runScopeValus[2]}}</view>
+        </label>
+      </radio-group>
+    </view>
+    <view class="runScope_bottom">*选择完毕后只可接收到对应订单，选择全部接受可接受所有订单</view>
+  </view>
+  <view class="grade">
+    <view class="grade_top">
+      <text class="left">厨师等级：</text>
+      <view class="select {{fontColor4}} basicInfoInput" catchtap="unfold" data-item="2">
+        <text class="txt">{{gradeValue}}</text>
+        <image class="down" src="../../../icon/mine_right_arrow.png"></image>
+        <view class="listss fontColor" wx:if="{{grade_show}}" wx:key="index">
+          <view class="listsss" wx:for="{{grade}}" catchtap="choose" data-index="{{index}}" data-item="2" wx:key="index">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="grade_bottom">
+      <view class="photos">
+        <view class="photos_Left">
+          <view class="photos_Left_title">职业等级证书</view>
+          <view class="photos_Left_text">请上传您的职业等级证书</view>
+        </view>
+        <view class="photos_right" bindtap="upload" data-item="2">
+          <view class="horn horn_top_left"></view>
+          <view class="horn horn_top_right"></view>
+          <view class="horn horn_bottom_left"></view>
+          <view class="horn horn_bottom_right"></view>
+          <image class="photo" src="{{photo2}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="IDCard">
+    <view class="IDCard_top">
+      <view class="identity_number">
+        <text class="left">身份证号：</text>
+        <input class="basicInfoInput" type="text" placeholder="{{IDPlaceholder}}" bindinput="enter" value="{{IDValue}}" bindblur="blur" data-item="5" placeholder-class="{{IDPlaceholderClass}}" />
+      </view>
+      <view class="IDCard_date">
+        <text class="left">身份证有效期至：</text>
+        <view class="section">
+          <picker mode="date" value="{{IDCardDate}}" start="2022-09-09" end="2030-12-31" bindchange="bindDateChange">
+            <view class="picker {{fontColor5}}">
+              <text class="txt">{{IDCardDate}}</text>
+              <image class="down" src="../../../icon/mine_right_arrow.png"></image>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="IDCard_bottom">
+      <view class="photos">
+        <view class="photos_Left">
+          <view class="photos_Left_title">身份证正面</view>
+          <view class="photos_Left_text">上传您的身份证人像面</view>
+        </view>
+        <view class="photos_right" bindtap="upload" data-item="3">
+          <view class="horn horn_top_left"></view>
+          <view class="horn horn_top_right"></view>
+          <view class="horn horn_bottom_left"></view>
+          <view class="horn horn_bottom_right"></view>
+          <image class="photo" src="{{photo3}}"></image>
+        </view>
+      </view>
+      <view class="photos photoss">
+        <view class="photos_Left">
+          <view class="photos_Left_title">身份证反面</view>
+          <view class="photos_Left_text">上传您的身份证国徽面</view>
+        </view>
+        <view class="photos_right" bindtap="upload" data-item="4">
+          <view class="horn horn_top_left"></view>
+          <view class="horn horn_top_right"></view>
+          <view class="horn horn_bottom_left"></view>
+          <view class="horn horn_bottom_right"></view>
+          <image class="photo" src="{{photo4}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="license">
+    <view class="license_number">
+      <text class="left">营业执照编号：</text>
+      <input class="basicInfoInput" type="text" placeholder="{{licensePlaceholder}}" bindinput="enter" value="{{licenseValue}}" bindblur="blur" data-item="6" placeholder-class="{{licensePlaceholderClass}}" />
+    </view>
+    <view class="license_bottom">
+      <view class="photos">
+        <view class="photos_Left">
+          <view class="photos_Left_title">营业执照</view>
+          <view class="photos_Left_text">请上传营业执照照片</view>
+        </view>
+        <view class="photos_right" bindtap="upload" data-item="5">
+          <view class="horn horn_top_left"></view>
+          <view class="horn horn_top_right"></view>
+          <view class="horn horn_bottom_left"></view>
+          <view class="horn horn_bottom_right"></view>
+          <image class="photo" src="{{photo5}}"></image>
+        </view>
+      </view>
+      <view class="photos photoss">
+        <view class="photos_Left">
+          <view class="photos_Left_title">健康证</view>
+          <view class="photos_Left_text">请上传健康证照片</view>
+        </view>
+        <view class="photos_right" bindtap="upload" data-item="6">
+          <view class="horn horn_top_left"></view>
+          <view class="horn horn_top_right"></view>
+          <view class="horn horn_bottom_left"></view>
+          <view class="horn horn_bottom_right"></view>
+          <image class="photo" src="{{photo6}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="basicInfo-bottom">
+    <button class="{{submit}} btn" size="mini" bindtap="basicInfosubmit" disabled="{{disabled1}}">确认无误提交</button>
+  </view>
+</view>
+<page-container class="page-container" show="{{show}}" position="bottom" overlay="true" bind:clickoverlay="eventhandle">
+  <view class="page-root">
+    <area-select id="areaSelect" bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"></area-select>
+  </view>
+</page-container>

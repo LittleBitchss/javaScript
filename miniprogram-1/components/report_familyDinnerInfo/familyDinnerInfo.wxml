@@ -1,0 +1,80 @@
+<!--components/familyDinnerInfo/familyDinnerInfo.wxml-->
+<view class="familyDinnerInfo" bindtap="closes">
+  <view class="process">
+    <view class="processLine"></view>
+    <view class="proces">
+      <view class="procesPoints">
+        <view class="procesPoint_i"></view>
+      </view>
+      <view class="procesTexts">基本信息</view>
+    </view>
+    <view class="proces">
+      <view class="procesPoint"></view>
+      <view class="procesText">家宴选址</view>
+    </view>
+    <view class="proces">
+      <view class="procesPoint"></view>
+      <view class="procesText">食材来源</view>
+    </view>
+    <view class="proces">
+      <view class="procesPoint"></view>
+      <view class="procesText">卫生条件</view>
+    </view>
+    <view class="proces">
+      <view class="procesPoint"></view>
+      <view class="procesText">支付定金</view>
+    </view>
+  </view>
+  <view class="items">
+    <view class="hint">基本信息填写</view>
+    <view class="item">
+      <text space="emsp" class="title">联系人</text>
+      <input class="inp" type="text" maxlength="10" placeholder="请输入联系人" placeholder-style="font-size:22rpx; color:#b6b6b6;" bindinput="inputs" bindblur="blur" data-index="1" value="{{value1}}" />
+    </view>
+    <view class="item">
+      <text space="emsp" class="title">联系电话</text>
+      <input class="inp" type="number" maxlength="11" placeholder="请输入联系电话" placeholder-style="font-size:22rpx; color:#b6b6b6;" bindinput="inputs" bindblur="blur" data-index="2" value="{{value2}}" />
+    </view>
+    <view class="item">
+      <text space="emsp" class="title">家宴类型</text>
+      <view class="inp typ {{fontColor1}}" catchtap="open">
+        <text class="txt">{{val1}}</text>
+        <image class="img" src="../../icon/mine_right_arrow.png"></image>
+        <view class="option" wx:if="{{show1}}">
+          <text class="txts" wx:for="{{list1}}" wx:key="index" catchtap="close" data-index="{{index}}">{{item}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="item">
+      <text space="emsp" class="title">举办日期</text>
+      <view class="section">
+        <picker mode="date" value="{{date}}" start="2022-07-04" end="2030-12-31" bindchange="bindDateChange">
+          <view class="picker">
+            <view class="inp typ {{fontColor2}}">
+              <text class="txt">{{data}}</text>
+              <image class="img" src="../../icon/mine_right_arrow.png"></image>
+            </view>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="item">
+      <text space="emsp" class="title">就餐人数</text>
+      <input class="inp " type="number" maxlength="10" placeholder="请输入就餐人数" placeholder-style="font-size:22rpx; color:#b6b6b6;" bindinput="inputs" bindblur="blur" data-index="3" value="{{value3}}" />
+      人
+    </view>
+    <view class="item">
+      <text space="emsp" class="title">拟办桌数</text>
+      <input class="inp" type="number" maxlength="10" placeholder="请输入拟办桌数" placeholder-style="font-size:22rpx; color:#b6b6b6;" bindinput="inputs" bindblur="blur" data-index="4" value="{{value4}}" />
+      桌
+    </view>
+    <view class="item">
+      <text space="emsp" class="title">拟办天数</text>
+      <input class="inp" type="number" maxlength="2" placeholder="请输入拟办天数" placeholder-style="font-size:22rpx; color:#b6b6b6;" bindinput="inputs" bindblur="blur" data-index="5" value="{{value5}}" />
+      天
+    </view>
+  </view>
+  <view class="bottom">
+    <button class="btn" size="mini" bindtap="nextStep1">下一步</button>
+  </view>
+</view>

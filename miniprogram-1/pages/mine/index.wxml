@@ -1,0 +1,34 @@
+<!--pages/mine/index.wxml-->
+<view class="mine">
+  <view class="top">
+    <view class="userInfo">
+      <image class="userInfo_avatar" src="{{avatar}}"></image>
+      <text class="nickName">{{nickName}}</text>
+    </view>
+  </view>
+  <view class="functionBar">
+    <view class="myOrder">
+      <view class="myOrder_title">我的订单</view>
+      <navigator class="myOrder_all" open-type="navigate" url="/pages/mine/userOrder/index?index=0">
+        <text>全部</text>
+        <image class="myOrder_all_img" src="../../icon/mine_right_arrow.png"></image>
+      </navigator>
+    </view>
+    <view class="tabBar">
+      <navigator class="functionBar_item" wx:for="{{functionBars}}" wx:key="index" open-type="navigate" url="/pages/mine/userOrder/index?index={{index+1}}">
+        <view class="point" wx:if="{{item.point}}">{{item.point}}</view>
+        <image class="functionBar_item_img" src="{{item.src}}"></image>
+        <text class="functionBar_item_txt">{{item.text}}</text>
+      </navigator>
+    </view>
+  </view>
+  <view class="bottom">
+    <navigator class="bottom_item" wx:for="{{functionLists}}" wx:key="index" open-type="navigate" url="{{item.url}}">
+      <view class="bottom_item_left">
+        <image class="bottom_item_icon" src="{{item.src}}"></image>
+        <text class="bottom_item_txt">{{item.text}}</text>
+      </view>
+      <image class="bottom_item_img" src="../../icon/mine_right_arrow.png"></image>
+    </navigator>
+  </view>
+</view>

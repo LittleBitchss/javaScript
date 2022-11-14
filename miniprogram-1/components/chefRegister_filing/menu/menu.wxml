@@ -1,0 +1,93 @@
+<!--components/chefRegister_filing/menu/menu.wxml-->
+<view class="menu">
+  <swiper class="swiper" indicator-dots="true" indicator-color="#e5e5e5" indicator-active-color="#4768f3" bindchange="eventhandle" current="{{current}}">
+    <block wx:for="{{menus}}" wx:key="index">
+      <swiper-item>
+        <view style="overflow: auto;height: 100%;">
+          <view class="menuInfo">
+            <view class="menuInfo_item">
+              <view class="menuInfo_item_left">套餐{{current+1}}名称</view>
+              <view class="menuInfo_item_right">
+                <input class="menuInfo_inp" type="text" placeholder="请输入套餐名称" placeholder-class="placeholder" bindinput="inputs" data-item="1" value="{{item.name}}" />
+              </view>
+              <image class="removeMenu" wx:if="{{item.id!=0}}" bindtap="removeMenu" src="../../../icon/chef_menu_remove.png"></image>
+            </view>
+            <view class="menuInfo_item">
+              <view class="menuInfo_item_left">供餐人数</view>
+              <view class="menuInfo_item_right">
+                <input class="menuInfo_inp _inp" type="number" placeholder="请输入人数" placeholder-class="placeholder" bindfocus="focus" bindinput="inputs" data-item="2" value="{{item.startPeople}}" />人至
+                <input class="menuInfo_inp _inp" type="text" placeholder="请输入人数" placeholder-class="placeholder" bindinput="inputs" data-item="3" value="{{item.endPeople}}" />人
+              </view>
+            </view>
+            <view class="menuInfo_item">
+              <view class="menuInfo_item_left">套餐价格</view>
+              <view class="menuInfo_item_right">
+                <input class="menuInfo_inp" type="number" placeholder="请输入一桌菜品价格" placeholder-class="placeholder" bindinput="inputs" data-item="4" value="{{item.price}}" />
+              </view>元起
+            </view>
+            <view class="menuInfo_item _item">
+              <view class="menuInfo_item_left">菜品数量</view>
+              <view class="menuInfo_item_right">
+                <input class="menuInfo_inp" type="number" placeholder="请输入一桌菜品数量" placeholder-class="placeholder" bindinput="inputs" data-item="5" value="{{item.disheNum}}" />
+              </view>
+            </view>
+          </view>
+          <view class="dishes">
+            <view class="dishes_item">
+              <view class="dishes_item_lefts">菜品类别</view>
+              <view class="dishes_item_right {{item.fontColor}}">
+                {{item.disheCategory}}
+              </view>
+              <view class="add" bindtap="openFilter">
+                <view class="add_x add_"></view>
+                <view class="add_y add_"></view>
+              </view>
+            </view>
+            <view class="dishes_item _item" wx:for="{{item.disheCategorys}}" wx:for-index="idx" wx:for-item="itemName" wx:key="idx" wx:if="{{itemName.active}}">
+              <view class="dishes_item_left">{{itemName.name}}</view>
+              <view class="dishes_item_right">
+                <text class="dishes_txt">{{itemName.cont}}</text>
+                <textarea class="dishes_inp {{itemName.fontColor}}" value="{{itemName.cont}}" bindfocus="focus" bindinput="inputs" bindblur="blur" data-index="{{idx}}" data-item="{{6+idx}}" />
+              </view>
+              <view class="add" bindtap="remove" data-index="{{idx}}" data-item="{{6+idx}}">
+                <view class="add_x add_"></view>
+              </view>
+            </view>
+            <view class="dishes_img">
+              <view class="clickPhoto" bindtap="addImg">
+                <image class="imgs" src="../../../icon/chef_camera.png"></image>
+                <view class="txt">点击上传</view>
+              </view>
+              <view class="clickPhoto" wx:for="{{item.dishesImg}}" wx:for-index="idx" wx:for-item="itemName" wx:key="idx">
+                <image class="img" src="{{itemName}}"></image>
+                <view class="remove" bindtap="removeImg" data-index="{{idx}}">
+                  <image class="remove_img" src="../../../icon/chef_remove.png"></image>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="audient">
+            <view class="audient_item">注意事项</view>
+            <view class="audient_item">1.可自选是否设置菜单，不影响厨师单量。</view>
+            <view class="audient_item">2.填写菜单需真实有效，价格不可虚高。</view>
+            <view class="audient_item">3.菜单审核通过后会出现在厨师详情页。</view>
+          </view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="btns">
+    <button class="btn btn_left" size="mini" bindtap="addMenu">添加新的菜单</button>
+    <button class="btn btn_right" size="mini" bindtap="submit">确认无误提交</button>
+  </view>
+</view>
+<!-- <page-container class="page-container" show="{{show}}" position="center" overlay="true" custom-style="width: 350px;height: 112px;top:50%;left:50%;transform: translate(-50%,-50%);border-radius: 10px;">
+  <view class="option {{telescopic2}}">
+    <view class="options {{item.bgColor}}" wx:for="{{menus[current].disheCategorys}}" catchtap="choose" wx:key="index" data-index="{{index}}">
+      {{item.name}}
+    </view>
+  </view>
+  <view class="btns">
+    <button class="btnss" size="mini" catchtap="finish">完成</button>
+  </view>
+</page-container> -->

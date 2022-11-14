@@ -1,0 +1,45 @@
+<!--secondary/pages/user_orderPay/index.wxml-->
+<view class="user_orderPay">
+  <view class="user_orderPay_top">
+    <image class="payExplain" src="{{domain}}payExplain.png"></image>
+    <view class="unsubscribe">
+      <view class="unsubscribe_title">退订说明</view>
+      <view class="unsubscribe_cont">
+        <text class="unsubscribe_cont_left">严格</text>
+        <text class="unsubscribe_cont_right">厨师接受邀请后取消订单将不退还预约费，请注意预约细节</text>
+      </view>
+      <view class="unsubscribe_graph_top">
+        <view class="unsubscribe_graph_top_left">现在预订</view>
+        <view class="unsubscribe_graph_top_midden">厨师接受邀请</view>
+        <view class="unsubscribe_graph_top_right">结束用餐</view>
+      </view>
+      <view class="unsubscribe_graph_midden">
+        <view class="unsubscribe_graph_midden_left"></view>
+        <view class="unsubscribe_graph_midden_midden"></view>
+        <view class="unsubscribe_graph_midden_right"></view>
+      </view>
+      <view class="unsubscribe_graph_bottom">
+        <view class="unsubscribe_graph_bottom_left">
+          <view class="unsubscribe_graph_bottom_left_top">取消全额退</view>
+          <view class="unsubscribe_graph_bottom_left_bottom">取消订单全额退款</view>
+        </view>
+        <view class="unsubscribe_graph_bottom_right">
+          <view class="unsubscribe_graph_bottom_right_top">取消不可退</view>
+          <view class="unsubscribe_graph_bottom_right_bottom">取消订单预约费全额扣除</view>
+        </view>
+      </view>
+    </view>
+    <checkbox-group class="user_orderPay_bottom_group" bindchange="checkboxChange">
+      <label class="label">
+        <view class="check">
+          <checkbox value="1" />
+        </view>
+        <view class="txts">同意<text class="label_txt">《食安寻宴定金须知》</text>、<text class="label_txt">《用户退订协议》</text></view>
+      </label>
+    </checkbox-group>
+  </view>
+  <view class="user_orderPay_bottom">
+    <view class="user_orderPay_bottom_price">{{insurance?'定金'+'+保险':"定金"}}<text class="user_orderPay_bottom_price_num">{{insurance?theDeposit+insurance:theDeposit}}</text><text class="user_orderPay_bottom_price_txt">元</text></view>
+    <button size="mini" class="user_orderPay_bottom_btn {{active}}" disabled="{{!active}}" bindtap="pay">支付</button>
+  </view>
+</view>

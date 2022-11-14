@@ -1,0 +1,79 @@
+<!--components/admin_chef/index.wxml-->
+<view class="admin_chef" bindtap="close">
+  <view class="filter">
+    <view class="filter_bottom">
+      <view class="area-item" wx:if="{{location}}">
+            <view class="select">
+              <text class="txt txts">{{location}}</text>
+            </view>
+          </view>
+      <view class="area-item" wx:if="{{locationArr[0]==0}}">
+        <view class="select" catchtap="unfold" data-index="1">
+          <text class="txt">{{provinceValue}}</text>
+          <image class="down" src="{{domain}}ups.png"></image>
+          <view class="listss fontColor" wx:if="{{province_show}}" wx:key="index">
+            <text class="listsss" wx:for="{{province}}" catchtap="choose" data-index="{{index}}" data-item="1" wx:key="index">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="area-item" wx:if="{{locationArr[1]==0}}">
+        <view class="select {{fontColor2}}" catchtap="unfold" data-index="2">
+          <text class="txt">{{cityValue}}</text>
+          <image class="down" src="{{domain}}ups.png"></image>
+          <view class="listss" wx:if="{{city_show}}" wx:key="index">
+            <view class="listsss fontColor" wx:for="{{city}}" catchtap="choose" data-index="{{index}}" data-item="2" wx:key="index">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="area-item" wx:if="{{locationArr[2]==0}}">
+        <view class="select {{fontColor3}}" catchtap="unfold" data-index="3">
+          <text class="txt">{{areaValue}}</text>
+          <image class="down" src="{{domain}}ups.png"></image>
+          <view class="listss" wx:if="{{area_show}}" wx:key="index">
+            <view class="listsss fontColor" wx:for="{{area}}" catchtap="choose" data-index="{{index}}" data-item="3" wx:key="index">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="area-item" wx:if="{{locationArr[3]!=0}}">
+        <view class="select  {{fontColor4}}" catchtap="unfold" data-index="4">
+          <text class="txt">{{streetValue}}</text>
+          <image class="down" src="{{domain}}ups.png"></image>
+          <view class="listss" wx:if="{{street_show}}" wx:key="index">
+            <view class="listsss fontColor" wx:for="{{street}}" catchtap="choose" data-index="{{index}}" data-item="4" wx:key="index">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="area-item" wx:if="{{locationArr[4]==0}}">
+        <view class="select  {{fontColor5}}" catchtap="unfold" data-index="5">
+          <text class="txt">{{villageValue}}</text>
+          <image class="down" src="{{domain}}ups.png"></image>
+          <view class="listss" wx:if="{{village_show}}" wx:key="index">
+            <view class="listsss fontColor" wx:for="{{village}}" catchtap="choose" data-index="{{index}}" data-item="5" wx:key="index">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="search">
+    <view class="searchInput">
+      <image class="img" src="{{domain}}search.png"></image>
+      <input class="text" type="text" placeholder="请输入查询姓名或电话" placeholder-style="font-size:22rpx;" bindinput="getsuggest" value="{{value}}" />
+    </view>
+  </view>
+  <view class="title">
+    <view class="row rows">姓名</view>
+    <view class="row">性别</view>
+    <view class="row">年龄</view>
+    <view class="row rowss">电话</view>
+    <view class="row rows rowsss">操作</view>
+  </view>
+  <scroll-view class="list" bindscrolltolower="lower" scroll-y='true'>
+    <view class="lists" wx:for="{{chefArr}}" wx:key="index">
+      <view class="row rows">{{item.chef_name}}</view>
+      <view class="row">{{item.chef_sex}}</view>
+      <view class="row">{{item.chef_age}}</view>
+      <view class="row rowss">{{item.chef_phone}}</view>
+      <navigator class="row rows rowsss rowssss" url="/tertiary/pages/admin_chefInfo/index?chef_id={{item.chef_id}}">查看信息</navigator>
+    </view>
+  </scroll-view>
+</view>

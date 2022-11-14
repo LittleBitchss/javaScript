@@ -1,0 +1,95 @@
+/* components/user_orderFood/user_orderFood.wxss */
+.user_orderFood{
+  height: 100%;
+  background-color: #e5e5e5;
+  position: relative;
+  box-sizing: border-box;
+  overflow: auto;
+}
+.user_orderFood .item{
+  height: 90rpx;
+  display: flex;
+  width: 670rpx;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.user_orderFood .item .project{
+  font-size: 28rpx;
+  font-family: 'Medium';
+}
+.user_orderFood .item .group{
+  display: flex;
+  justify-content: space-between;
+}
+.user_orderFood .item .group .lab{
+  width: 160rpx;
+  display: flex;
+  font-size: 25rpx;
+  font-family: 'Light';
+  align-items: center;
+  justify-content: start;
+}
+.user_orderFood .liquor{
+  height: 90rpx;
+  display: flex;
+  width: 670rpx;
+  margin: 0 auto;
+}
+.user_orderFood .liquor .item{
+  width: 380rpx;
+  height: 100%;
+}
+.user_orderFood .liquor .item .group .lab{
+  width: 86rpx;
+  display: flex;
+  align-items: center;
+}
+.user_orderFood .liquor .item .group .wlab{
+width: 70rpx;
+}
+.user_orderFood .liquor .items1{
+  width: 290rpx;
+  padding-right: 10rpx; 
+  box-sizing: border-box;
+}
+.user_orderFood .remark{
+  height: 30%;
+  width: 670rpx;
+  margin: 0 auto;
+}
+.user_orderFood .remark .title{
+  height: 20%;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  font-family: 'Medium';
+}
+.user_orderFood .remark .area{
+  width: 100%;
+  height: 80%;
+  padding: 10rpx;
+  box-sizing: border-box;
+  border: 2rpx solid #000;
+  font-size: 24rpx;
+  font-family: 'Light';
+}
+.user_orderFood .bottoms{
+  height: 138rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position:absolute;
+  bottom: 0;
+}
+.user_orderFood .bottoms .btn{
+  width: 180rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #fff;
+  font-size: 28rpx;
+  font-family: 'Medium';
+  background-color: #4768f3;
+}
+

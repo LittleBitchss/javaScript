@@ -1,0 +1,14 @@
+<!--components/filing/filing.wxml-->
+<view class="navs">
+  <view class="nav {{bottomBorder[0]}}" bindtap="click" data-index="0">基本信息</view>
+  <view class="nav {{bottomBorder[1]}}" bindtap="click" data-index="1">副厨信息</view>
+  <view class="nav {{bottomBorder[2]}}" bindtap="click" data-index="2">我的菜单</view>
+  <view class="navx" bindtap="clicks">
+    <image class="img" src="{{domain}}quit.png"></image>  
+  </view>
+</view>
+<view class="content">
+  <basicInfo wx:if="{{hide == 0}}"></basicInfo>
+  <sousChef wx:elif="{{hide == 1}}"></sousChef>
+  <menu wx:elif="{{hide == 2}}"></menu>
+</view>

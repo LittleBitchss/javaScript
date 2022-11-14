@@ -1,0 +1,405 @@
+/* tertiary/pages/gridman_orderDetails/index.wxss */
+.gridman_orderDetails{
+  height: 100vh;
+}
+.gridman_orderDetails .top{
+  height: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+}
+.gridman_orderDetails .top .nav{
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #579cff;
+  font-size: 25rpx;
+  font-family: 'Regular';
+}
+.gridman_orderDetails .top .active{
+  font-family: 'Bold';
+  border-bottom: 4rpx solid #f25500;
+}
+.gridman_orderDetails .bottom{
+  height: 95%;
+}
+.gridman_orderDetails .bottom .opi{
+  position: relative;
+  height: 100%;
+  background-color: #e5e5e5;
+}
+.gridman_orderDetails .bottom .opi .map{
+  height: 100%;
+  overflow: hidden;
+}
+.gridman_orderDetails .bottom .opi .maps{
+  width: 100%;
+  height: 160%;
+  margin-top: -65%;
+}
+.gridman_orderDetails .bottom .opi .maps .cover-image {
+  height: 50rpx;
+  width: 36rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50rpx;
+  margin-left: -18rpx;
+}
+.gridman_orderDetails .bottom .opi .cover-view{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.gridman_orderDetails .bottom .opi .info{
+  width: 706rpx;
+  border-radius: 10rpx;
+  position: absolute;
+  background-color: #fff;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Regular';
+  color: #b6b6b6;
+}
+.gridman_orderDetails .bottom .opi .info .info_item{
+  padding: 0 35rpx;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #eee;
+}
+.gridman_orderDetails .bottom .opi .info .info_item .info_item_left{
+  font-size: 20rpx;
+  width: 160rpx;
+}
+.gridman_orderDetails .bottom .opi .info .info_item .info_item_right{
+  flex: 1;
+  font-size: 22rpx;
+  color: #000;
+}
+
+.gridman_orderDetails .bottom .opi .info .btn{
+  display: block;
+  width: 100%;
+  height: 60rpx;
+  background-color: #4768f3;
+  margin-top: 30rpx;
+  margin-bottom: 0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+}
+
+.gridman_orderDetails .opis{
+  height: 100%;
+  background-color: #e5e5e5;
+}
+.gridman_orderDetails .opis .opis_top{
+  height: calc(100% - 88rpx);
+}
+
+.gridman_orderDetails .opis .opis_top  .title{
+  display: flex;
+  font-size: 30rpx;
+  font-family: "Bold";
+  height: 10%;
+  border-top: 2rpx solid #666;
+  border-bottom: 2rpx solid #666;
+}
+.gridman_orderDetails .opis .opis_top  .title .row{
+  border-right: 2rpx solid #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gridman_orderDetails .opis .opis_top  .title .row1{
+  width: 20%;
+  box-sizing: border-box;
+}
+.gridman_orderDetails .opis .opis_top  .title .row2{
+  flex: 1;
+}
+.gridman_orderDetails .opis .opis_top  .title .row3{
+  width: 25%;
+  border-right: 0;
+}
+.gridman_orderDetails .opis .opis_top .lists{
+  height: 90%;
+  overflow: auto;
+  font-size: 25rpx;
+  font-family: "Regular";
+}
+
+.gridman_orderDetails .opis .opis_top  .table1{
+  height: 270rpx;
+  display: flex;
+}
+.gridman_orderDetails .opis .opis_top  .table_{
+  border-right: 2rpx solid #666;
+}
+.gridman_orderDetails .opis .opis_top  .table1 .table1_left{
+  width: 20%;
+  border-bottom: 2rpx solid #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.gridman_orderDetails .opis .opis_top  .table1 .table1_center{
+  flex: 1;
+}
+.gridman_orderDetails .opis .opis_top  .table1_center1{
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: 2rpx solid #666;
+  box-sizing: border-box;
+  padding: 10rpx;
+}
+.gridman_orderDetails .opis .opis_top  .table1 .table1_right{
+  width: 25%; 
+}
+
+
+.gridman_orderDetails .opis .opis_top  .table2{
+  height: 180rpx;
+  display: flex;
+}
+.gridman_orderDetails .opis .opis_top .table2 .table2_left{
+  width: 20%;
+  border-bottom: 2rpx solid #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.gridman_orderDetails .opis .opis_top .table2 .table2_center{
+  flex: 1;
+}
+
+.gridman_orderDetails .opis .opis_top  .table2_center2{
+  height: 180rpx; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: 2rpx solid #666;
+  box-sizing: border-box;
+  padding: 10rpx;
+  flex-direction: column;
+}
+.gridman_orderDetails .opis .opis_top  .table2_center2 .table2_center2_{
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gridman_orderDetails .opis .opis_top  .table2_center2 .table2_center2_ .inp{
+  flex: 1 !important;
+  border-bottom: 2rpx dashed #000;
+  color: #579cff !important;
+}
+.gridman_orderDetails .opis .opis_top  .table2_center2 .table2_center2_item {
+  width: 92%;
+  flex-direction: column;
+}
+.gridman_orderDetails .opis .opis_top .table2 .table2_right{
+  width: 25%;
+}
+
+
+.gridman_orderDetails .opis .opis_top  .table3{
+  height: 360rpx;
+  display: flex;
+}
+.gridman_orderDetails .opis .opis_top .table3 .table3_left{
+  width: 20%;
+  border-bottom: 2rpx solid #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  height: 100%;
+}
+.gridman_orderDetails .opis .opis_top .table3 .table3_center{
+  flex: 1;
+  height: 100%;
+}
+
+.gridman_orderDetails .opis .opis_top  .table3_center3{
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: 2rpx solid #666;
+  box-sizing: border-box;
+  padding: 10rpx;
+}
+.gridman_orderDetails .opis .opis_top  .table3_center3 .table3_center3_i{
+  width: 100%;
+  height: 50%;
+  padding: 5rpx 0;
+  box-sizing: border-box;
+}
+.gridman_orderDetails .opis .opis_top  .table3_center3 .table3_center3_i .inp{
+  color: #579cff;
+}
+.gridman_orderDetails .opis .opis_top  .table3_center3 .i{
+  border-bottom: 2rpx solid #666;
+}
+.gridman_orderDetails .opis .opis_top .table3 .table3_right{
+  width: 25%;
+  border-bottom: 0 !important;
+  height: 100%;
+}
+
+.gridman_orderDetails .opis .opis_top  .table4{
+  height: 500rpx;
+  display: flex;
+}
+.gridman_orderDetails .opis .opis_top .table4 .table4_left{
+  width: 20%;
+  border-bottom: 2rpx solid #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10rpx;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.gridman_orderDetails .opis .opis_top .table4 .table4_center{
+  flex: 1;
+  height: 100%;
+}
+
+.gridman_orderDetails .opis .opis_top  .table4_center4{
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: 2rpx solid #666;
+  box-sizing: border-box;
+  padding: 10rpx;
+  height: 20%;
+}
+
+.gridman_orderDetails .opis .opis_top .table4 .table4_right{
+  width: 25%;
+  height: 100%;
+}
+
+
+
+.gridman_orderDetails .opis .opis_top  .table5{
+  height: 600rpx;
+  display: flex;
+}
+.gridman_orderDetails .opis .opis_top .table5 .table5_left{
+  width: 20%;
+  border-bottom: 2rpx solid #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10rpx;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.gridman_orderDetails .opis .opis_top .table5 .table5_center{
+  flex: 1;
+  height: 100%;
+}
+
+.gridman_orderDetails .opis .opis_top  .table5_center5{
+  height: 120rpx;
+  display: flex;
+  height: 20%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: 2rpx solid #666;
+  box-sizing: border-box;
+  padding: 10rpx;
+}
+
+.gridman_orderDetails .opis .opis_top .table5 .table5_right{
+  width: 25%;
+  height: 100%;
+}
+
+.gridman_orderDetails .opis .opis_top  .table6{
+  height: 120rpx;
+  display: flex;
+}
+
+.gridman_orderDetails .opis .opis_top .table6 .table6_left{
+  width: 20%;
+  height: 100%;
+  border-bottom: 2rpx solid #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10rpx;
+  box-sizing: border-box;
+}
+.gridman_orderDetails .opis .opis_top .lists .group{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.gridman_orderDetails .opis .opis_top .table6 .table6_center{
+  flex: 1;
+  border-bottom: 2rpx solid #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10rpx;
+  box-sizing: border-box;
+  height: 100%;
+}
+.gridman_orderDetails .opis .opis_top .table6 .table6_right{
+  width: 25%;
+  border-bottom: 2rpx solid #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10rpx;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.gridman_orderDetails .opis .opis_bottom{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 88rpx;
+  background-color: #579cff;
+  color: #fff;
+  font-size: 30rpx;
+  font-family: 'Medium';
+}

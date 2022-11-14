@@ -1,0 +1,31 @@
+<!--fourth/pages/admin_chefOperation/index.wxml-->
+<view class="admin_chefOperation">
+  <view class="tab">
+    <view class="tabs {{bg1}}" bindtap="toggle" data-index="0">
+      厨房用具
+    </view>
+    <view class="tabs {{bg2}}" bindtap="toggle" data-index="1">
+      消毒工具
+    </view>
+    <view class="tabs noBorder {{bg3}}" bindtap="toggle" data-index="2">
+      菜品图片
+    </view>
+  </view>
+  <view class="content">
+    <view class="kitchen" wx:if="{{show == 0}}">
+      <view class="frame">
+        <image class="img" wx:for="{{arr1}}" wx:key="index" src="{{item}}"></image>
+      </view>
+    </view>
+    <view class="disinfect" wx:if="{{show == 1}}">
+      <view class="frame">
+        <image class="img" wx:for="{{arr2}}" wx:key="index" src="{{item}}"></image>
+      </view>
+    </view>
+    <view class="dishes" wx:if="{{show == 2}}">
+      <view class="frame">
+        <image class="img" wx:for="{{arr3}}" wx:key="index" src="{{item}}"></image>
+      </view>
+    </view>
+  </view>
+</view>

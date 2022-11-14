@@ -1,0 +1,107 @@
+<!--index.wxml-->
+<view class="index">
+  <view style="height:{{navHeight}}px;background:#ffffff;position: sticky;top: 0px;z-index:99999; ">
+    <view class="custom-bar__wrapper" style="margin-top:{{searchMarginTop}}px; height: {{searchHeight}}px;width: {{searchWidth}}px;position:absolute;">
+      <view class="search-group" style="position:absolute;">
+        <view class="select">
+          <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+            <view class="picker txt">
+              {{region[1]}}{{region[2]}}
+            </view>
+          </picker>
+          <image class="down" src="../../icon/index-down.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="map">
+    <map id="maps" class="maps" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location bindregionchange="regionchange">
+    </map>
+  </view>
+  <view class="notices {{anima}}" style="height:{{searchHeights}}px;" bindtouchstart="touchStart"  catchtouchmove="touchMove" catchtouchend="touchEnd" data-item="1">
+    <view class="tops">
+      <view class="module">
+        <view class="swiper" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" data-item="2">
+          <view class="slider {{animas}}">
+            <view class="item">
+              <navigator class="components" wx:for="{{components}}" wx:key="index" open-type="{{item.type}}" url="{{item.url}}" bindtap="aaa" data-appid="{{item.appid}}">
+                <image class="img" src="{{item.img}}"></image>
+                <text class="text">{{item.text}}</text>
+              </navigator>
+            </view>
+            <view class="item">
+              <navigator class="components" wx:for="{{components2}}" wx:key="index" open-type="{{item.type}}" url="{{item.url}}">
+                <image class="img" src="{{item.img}}"></image>
+                <text class="text">{{item.text}}</text>
+              </navigator>
+            </view>
+          </view>
+        </view>
+        <view class="indicatorBar">
+          <view class="item {{active1}}"></view>
+          <view class="item {{active2}}"></view>
+        </view>
+      </view>
+      <navigator url="/pages/index/advertisePage/index" class="advertise1" link-type="navigateTo">
+        <image class="imgs" src="{{domain}}advertise1.png"></image>
+      </navigator>
+    </view>
+    <view class="bottoms">
+      <view class="recommend">
+        <view class="recommend_title">
+          <view class="wire"></view>
+          精选推荐
+          <view class="wire"></view>
+        </view>
+        <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+          <navigator url="/pages/index/recommendPage/index" class="scroll-view-item_H demo-text-1" link-type="navigateTo">
+            <image class="item_img" src="{{domain}}sift1.png"></image>
+            <text class="item_name">{{}}杭州铜鉴湖</text>
+            <view class="item_bottom">
+              <view class="item_bottom_left">免费<text class="oldPrice">￥999</text></view>
+              <view class="item_bottom_right">山清水秀 风景秀丽</view>
+            </view>
+          </navigator>
+          <view id="demo2" class="scroll-view-item_H demo-text-2">
+            <image class="item_img" src="{{domain}}sift2.png"></image>
+            <text class="item_name">{{}}青禾民宿(西湖青芝坞店)</text>
+            <view class="item_bottom">
+              <view class="item_bottom_left">￥599<text class="oldPrice">￥999</text></view>
+              <view class="item_bottom_right">地理优势 闹中有静</view>
+            </view>
+          </view>
+          <view id="demo3" class="scroll-view-item_H demo-text-3">
+            <image class="item_img" src="{{domain}}sift3.png"></image>
+            <text class="item_name">{{}}希尔顿酒店(婚庆酒店)</text>
+            <view class="item_bottom">
+              <view class="item_bottom_left">￥899<text class="oldPrice">￥999</text></view>
+              <view class="item_bottom_right">布置精美 氛围高档</view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="news">
+        <view class="news_title">最新资讯</view>
+        <view class="news_cont">
+          <view class="news_conts">
+            <navigator url="/pages/index/newsPage/index" class="news_conts_news" link-type="navigateTo">
+              <view class="news_left">
+                <view class="news_left_txts">
+                  <text space="emsp" class="news_left_txt">核发营业执照 助力家宴市场规范监督</text>
+                  <!-- <text class="news_left_txt">核发核发营业执照助力家宴市场规范监督核发营业执照助力家宴市场规范监督</text> -->
+                </view>
+                <view class="releaseInfo">
+                  <text class="releaseInfo_name">食安寻宴微信公众号</text>
+                  <text class="releaseInfo_time">2022/08/30</text>
+                </view>
+              </view>
+              <view class="news_right">
+                <image class="news_right_img" src="{{domain}}news1.png"></image>
+              </view>
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
