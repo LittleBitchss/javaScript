@@ -82,7 +82,7 @@ Page({
       },
       {
         img: "../../icon/index-components8.png",
-        url: "",
+        url: "/pages/index/jobRecruitment/index",
         type: "navigate",
         text: "求职招聘"
       }

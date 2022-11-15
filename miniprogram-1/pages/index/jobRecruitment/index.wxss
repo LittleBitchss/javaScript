@@ -1,0 +1,77 @@
+/* pages/index/jobRecruitment/index.wxss */
+.jobRecruitment{
+  height: 100vh;
+  background-color: #f3f3f3;
+}
+.jobRecruitment .jobSearch{
+  height: 100%;
+}
+.jobRecruitment .jobSearch .jobSearch_top{
+  height: 92%;
+}
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare{
+  height: 100%;
+}
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_top{
+  height: 70rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 25rpx;
+  font-family: 'Light';
+  color: #a6a6a6;
+}
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_top .active{
+  font-size: 35rpx;
+  font-family: 'Medium';
+  color: #4768f3;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_filter{
+  width: calc(100% - 36rpx);
+  margin: 0 auto;
+  height: 56rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.jobRecruitment .jobSearch .jobSearch_bottom{
+  height: 8%;
+  background-color: #fff;
+  border-top: 2rpx solid;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 10rpx;
+}
+.jobRecruitment .jobSearch .jobSearch_bottom .item {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.jobRecruitment .jobSearch .jobSearch_bottom .item .img {
+  width: 48rpx;
+  height: 48rpx;
+}
+.jobRecruitment .jobSearch .jobSearch_bottom .item .text {
+  font-family: 'Medium';
+  font-size: 24rpx;
+  color: #b6b6b6;
+}
+.jobRecruitment .jobSearch .jobSearch_bottom .item .fontColor {
+  color: #4768f3;
+}

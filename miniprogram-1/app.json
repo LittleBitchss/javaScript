@@ -18,7 +18,8 @@
     "pages/QRcode/QRcode",
     "pages/userType/index",
     "pages/error/error",
-    "pages/ceshi/index"
+    "pages/ceshi/index",
+    "pages/index/jobRecruitment/index"
   ],
   "subpackages": [
     {

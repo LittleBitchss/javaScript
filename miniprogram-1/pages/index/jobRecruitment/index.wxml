@@ -1,0 +1,40 @@
+<!--pages/index/jobRecruitment/index.wxml-->
+<view class="jobRecruitment">
+  <view class="jobSearch">
+    <view class="jobSearch_top">
+      <view class="jobSearchSquare">
+        <view class="jobSearchSquare_top">
+          <view class="{{active1}} active">推荐职位</view>
+          <view class="{{active2}}">行政总厨</view>
+          <view class="{{active3}}">厨师长</view>
+          <view class="{{active4}}">炒锅师傅</view>
+        </view>
+        <view class="jobSearchSquare_filter">
+          <view class="jobSearchSquare_filter_left">
+            <view class="jobSearchSquare_filter_left_item">综合</view>
+            <view class="jobSearchSquare_filter_left_item">附近</view>
+            <view class="jobSearchSquare_filter_left_item">最新</view>
+          </view>
+          <view class="jobSearchSquare_filter_right">
+            <view class="jobSearchSquare_filter_right_item">杭州</view>
+            <view class="jobSearchSquare_filter_right_item">筛选</view>
+          </view>
+        </view>
+      </view>
+      <view class="mine">
+      
+      </view>
+    </view>
+    <view class="jobSearch_bottom">
+      <view class="item" bindtap="toggle" data-index="1">
+        <image class="img" src="{{jobSearchSquare.img}}"></image>
+        <text class="text {{jobSearchSquare.fontColor}}">求职广场</text>
+      </view>
+      <view class="item" bindtap="toggle" data-index="2">
+        <image class="img" src="{{mine.img}}"></image>
+        <text class="text {{mine.fontColor}}">我 的</text>
+      </view>
+    </view>
+  </view>
+  <view class="recruitment" wx:if=""></view>
+</view>
