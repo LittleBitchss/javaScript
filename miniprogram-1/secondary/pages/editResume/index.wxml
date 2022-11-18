@@ -1,0 +1,148 @@
+<!--secondary/pages/editResume/index.wxml-->
+<view class="editResume">
+  <view class="info">
+    <view class="infos">
+      <view class="name">编辑个人信息
+        <image class="name_right" src="../../icon/edit.png" bindtap="openMask" data-item="1"></image>
+      </view>
+      <view class="describe" wx:if="1">2年经验·22岁·大专</view>
+    </view>
+    <view class="photo">
+      <image class="photos"></image>
+    </view>
+  </view>
+  <view class="item info2">
+    <view class="title">
+      <text>个人优势</text>
+      <image class="img" src="../../icon/edit.png" bindtap="openMask" data-item="2"></image>
+    </view>
+    <view class="content">
+      <view class="content_left" wx:if="">
+        我有三年餐饮行业经验，曾做过传菜员、前台、领班等工作，适应能力强。
+      </view>
+      <view class="content_left" wx:if="1">编辑个人优势</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="title">求职期望</view>
+    <view class="content">
+      <view class="content_left" wx:if="1">
+        <text class="content_left_top" space="emsp">厨师长 <text class="content_left_tops">8000-10000元</text></text>
+        <text>杭州</text>
+      </view>
+      <view class="content_left" wx:if="">编辑求职期望</view>
+      <image class="arrows" src="../../../icon/mine_right_arrow.png"></image>
+    </view>
+    <view class="content">
+      <view class="content_left" wx:if="1">
+        <text class="content_left_top" space="emsp">厨师长 <text class="content_left_tops">8000-10000元</text></text>
+        <text>杭州</text>
+      </view>
+      <view class="content_left" wx:if="">编辑求职期望</view>
+      <image class="arrows" src="../../../icon/mine_right_arrow.png"></image>
+    </view>
+    <view class="content">
+      <view class="content_left" wx:if="1">
+        <text class="content_left_top" space="emsp">厨师长 <text class="content_left_tops">8000-10000元</text></text>
+        <text>杭州</text>
+      </view>
+      <view class="content_left" wx:if="">编辑求职期望</view>
+      <image class="arrows" src="../../../icon/mine_right_arrow.png"></image>
+    </view>
+  </view>
+  <view class="item">
+    <view class="title">求职状态</view>
+    <view class="content">
+      <view class="content_left" wx:if="">在职-考虑机会
+      </view>
+      <view class="content_left" wx:if="1">编辑求职状态</view>
+      <image class="arrows" src="../../../icon/mine_right_arrow.png"></image>
+    </view>
+  </view>
+  <view class="item">
+    <view class="title">教育经历</view>
+    <view class="content">
+      <view class="content_left" wx:if="">
+        <text class="content_left_top">杭州厨师学校</text>
+        <text>大专-中餐专业</text>
+      </view>
+      <view class="content_left" wx:if="1">编辑教育经历</view>
+      <view class="content_right">
+        <text>2016-2018</text>
+        <image class="arrows" src="../../../icon/mine_right_arrow.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="title">工作经历</view>
+    <view class="content">
+      <view class="content_left" wx:if="1">
+        <text class="content_left_top">新逸酒店</text>
+        <text>厨师长</text>
+        <text>工作内容：制定菜谱、掌勺</text>
+      </view>
+      <view class="content_left" wx:if="">编辑工作经历</view>
+      <view class="content_right">
+        <text>2018-2020</text>
+        <image class="arrows" src="../../../icon/mine_right_arrow.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<page-container class="page-container" show="{{show}}" position="right" bind:leave="eventhandle">
+  <view class="z_info" wx:if="{{maskType==1}}">
+    <view class="z_item">
+      <view class="z_item_left">
+        <view class="z_item_left_txt">头像</view>
+        <view class="">推荐使用真实头像</view>
+      </view>
+      <view class="photo">
+        <image class="photos"></image>
+      </view>
+    </view>
+    <view class="z_item">
+      <view class="z_title">
+        姓名
+        <input type="text" class="z_input" placeholder="编辑姓名" placeholder-class="placeholder" />
+      </view>
+    </view>
+    <view class="z_item">
+      <view class="z_items">
+        <view class="z_title">性别</view>
+        <view class="choose">
+          <text class="choose_txt">编辑性别</text>
+          <image class="choose_arrows" src="../../../icon/mine_right_arrow.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="z_item">
+      <view class="z_items">
+        <view class="z_title">参加工作时间</view>
+        <view class="choose">
+          <text class="choose_txt">编辑参加工作时间</text>
+          <image class="choose_arrows" src="../../../icon/mine_right_arrow.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="z_item">
+      <view class="z_title">
+        手机号
+        <input type="text" class="z_input" placeholder="编辑手机号" placeholder-class="placeholder" />
+      </view>
+    </view>
+    <view class="z_info_bottom">
+      <view class="btn">保存</view>
+    </view>
+  </view>
+  <view class="z_advantage" wx:if="{{maskType==2}}">
+    <view class="z_a_title">
+      <text>我的优势</text>
+      <text class="words"><text class="{{areaWords?'wordss':''}}">{{areaWords}}</text>/200</text>
+    </view>
+    <view class="z_a_describe">丰富的个人优势介绍，更能赢得老板的青睐</view>
+    <textarea class="z_a_area" placeholder="等待输入内容" placeholder-class="z_a_placeholder" maxlength="200" focus="{{areaf}}" bindinput="areaI"></textarea>
+    <view class="z_info_bottom">
+      <view class="btn">保存</view>
+    </view>
+  </view>
+</page-container>

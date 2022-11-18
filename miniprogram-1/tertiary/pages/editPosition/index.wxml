@@ -1,0 +1,38 @@
+<!--tertiary/pages/editPosition/index.wxml-->
+<view class="editPosition">
+  <view class="title">编辑求职期望</view>
+  <view class="item">
+    <view class="items">
+      <view class="item_titel">求职类型</view>
+      <view class="items_right">
+        <view class="full active">全职</view>
+        <view class="part">兼职</view>
+      </view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_titel">工作地址</view>
+    <view class="items">
+      <view class="item_left">选择地址</view>
+      <image class="items_img" src="../../../icon/mine_right_arrow.png"></image>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_titel">期望职位</view>
+    <view class="items">
+      <view class="item_left">选择职位</view>
+      <image class="items_img" src="../../../icon/mine_right_arrow.png"></image>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_titel">薪资要求</view>
+    <view class="items">
+      <view class="item_left">选择薪资范围</view>
+      <image class="items_img" src="../../../icon/mine_right_arrow.png"></image>
+    </view>
+  </view>
+  <view class="editPosition_bottom">
+    <view class="cancel">删除</view>
+    <view class="save">保存</view>
+  </view>
+</view>

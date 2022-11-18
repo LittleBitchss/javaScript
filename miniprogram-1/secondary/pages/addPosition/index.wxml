@@ -1,0 +1,26 @@
+<!--secondary/pages/addPosition/index.wxml-->
+<view class="addPosition">
+  <view class="tops">
+    <view class="title">
+    <text>设定想找的工作</text>
+    <text class="title_right"><text class="{{desiredPosition?'title_right_color':''}}">{{desiredPosition.length}}</text>/3</text>
+    </view>
+    <view class="explain">添加期望职位，方便更精准寻找心仪岗位</view>
+  </view>
+  <view class="list">
+    <navigator class="item" url="/tertiary/pages/editPosition/index">
+      <view class="cont">
+        <view class="top">[杭州]行政总厨</view>
+        <view class="bottom">1万-1.2万</view>
+      </view>
+        <image class="arrow" src="../../../icon/mine_right_arrow.png"></image>
+    </navigator>
+    <navigator class="adds" url="/tertiary/pages/editPosition/index">
+      <view class="add">
+        <view class="cross"></view>
+        <view class="vertical"></view>
+      </view>
+      <view class="txt">继续添加期望职位</view>
+    </navigator>
+  </view>
+</view>

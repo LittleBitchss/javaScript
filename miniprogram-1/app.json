@@ -35,7 +35,9 @@
         "pages/user_orderPay/index",
         "pages/findChef_chefDetails/index",
         "pages/user_review/index",
-        "pages/association/index"
+        "pages/association/index",
+        "pages/addPosition/index",
+        "pages/editResume/index"
       ]
     },
     {
@@ -50,7 +52,8 @@
         "pages/admin_chefInfo/index",
         "pages/admin_orderDetails/index",
         "pages/gridman_orderDetails/index",
-        "pages/association_archives/index"
+        "pages/association_archives/index",
+        "pages/editPosition/index"
       ]
     },
     {

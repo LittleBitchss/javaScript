@@ -1,53 +1,322 @@
 /* pages/index/jobRecruitment/index.wxss */
-.jobRecruitment{
+.jobRecruitment {
   height: 100vh;
   background-color: #f3f3f3;
 }
-.jobRecruitment .jobSearch{
+
+.jobRecruitment .jobSearch {
   height: 100%;
 }
-.jobRecruitment .jobSearch .jobSearch_top{
+
+.jobRecruitment .jobSearch .jobSearch_top {
   height: 92%;
 }
-.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare{
+
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare {
   height: 100%;
 }
-.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_top{
+
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_top {
   height: 70rpx;
-  background-color: #fff;
   display: flex;
-  justify-content: space-around;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_top .scroll {
+  width: calc(100% - 96rpx);
+  margin-left: 18rpx;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_top .jobSearchSquare_top_left {
+  height: 100%;
+  display: flex;
   align-items: center;
   font-size: 25rpx;
   font-family: 'Light';
   color: #a6a6a6;
-}
-.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_top .active{
-  font-size: 35rpx;
-  font-family: 'Medium';
-  color: #4768f3;
+
 }
 
-.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_filter{
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_top .jobSearchSquare_top_left .item {
+  min-width: 130rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes zoom {
+  0% {
+    font-size: 25rpx;
+  }
+
+  100% {
+    font-size: 34rpx;
+  }
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_top .jobSearchSquare_top_left .item {
+  min-width: 130rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_top .jobSearchSquare_top_left .active {
+  font-size: 34rpx;
+  font-family: 'Medium';
+  color: #4768f3;
+  min-width: 174rpx;
+  animation: zoom 0.3s;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_top .jobSearchSquare_top_right {
+  width: 96rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_top .jobSearchSquare_top_right .cross {
+  width: 20rpx;
+  height: 4rpx;
+  background-color: #4768f3;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_top .jobSearchSquare_top_right .vertical {
+  width: 4rpx;
+  height: 20rpx;
+  background-color: #4768f3;
+  position: absolute;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_filter {
   width: calc(100% - 36rpx);
   margin: 0 auto;
   height: 56rpx;
   display: flex;
   justify-content: space-between;
+  font-size: 24rpx;
+  font-family: 'Normal';
 }
 
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_filter_left {
+  display: flex;
+  align-items: center;
+}
 
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_filter_left .jobSearchSquare_filter_left_item {
+  width: 86rpx;
+  display: flex;
+  justify-content: center;
+}
 
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_filter_left .active {
+  color: #4768f3;
+}
 
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_filter_right {
+  display: flex;
+  align-items: center;
+}
 
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_filter_right .jobSearchSquare_filter_right_item {
+  width: 78rpx;
+  height: 34rpx;
+  background-color: #e0e5f9;
+  border-radius: 5rpx;
+  margin-left: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .list {
+  height: calc(100% - 70rpx - 56rpx);
+}
 
+.list .list_item {
+  width: 722rpx;
+  height: 186rpx;
+  margin: 0 auto 15rpx;
+  background-color: #fff;
+  border-radius: 15rpx;
+  padding: 16rpx 20rpx 8rpx;
+}
 
+.list_item .list_item1 {
+  font-size: 28rpx;
+  font-family: 'Medium';
+  color: #4768f3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 42rpx;
+}
 
+.list_item .list_item2 {
+  line-height: 1;
+  color: #f47c77;
+  font-size: 24rpx;
+  font-family: 'Regular';
+}
 
+.list_item .list_item3 {
+  height: 52rpx;
+  display: flex;
+  align-items: center;
+}
 
+.list_item .list_item3 .list_item3_item {
+  padding: 6rpx 12rpx;
+  background-color: #eee;
+  border-radius: 8rpx;
+  line-height: 1;
+  font-size: 18rpx;
+  margin-right: 18rpx;
+  font-family: 'Medium';
+}
 
-.jobRecruitment .jobSearch .jobSearch_bottom{
+.list_item .list_item4 {
+  height: 42rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Medium';
+}
+
+.list_item .list_item4 .list_item4_left {
+  display: flex;
+  align-items: center;
+  font-size: 18rpx;
+}
+
+.list_item .list_item4 .list_item4_left .photo {
+  height: 42rpx;
+  width: 42rpx;
+  background-color: #4768f3;
+  border-radius: 50%;
+  display: block;
+  margin-right: 14rpx;
+}
+
+.list_item .list_item4 .list_item4_right {
+  font-size: 22rpx;
+  color: #b6b6b6;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .mine {
+  height: 100%;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .mine .mine_top {
+  height: 326rpx;
+  position: relative;
+  background: linear-gradient(to bottom, #fea955, #f3667f);
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .mine .mine_top .cutUser {
+  width: 46rpx;
+  height: 50rpx;
+  display: block;
+  position: absolute;
+  top: 100rpx;
+  right: 74rpx;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .mine .mine_top .userCard {
+  width: 710rpx;
+  height: 234rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 162rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: #0186fe 0rpx 0rpx 20rpx -8rpx;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .mine .mine_top .userCard .userCard_photos {
+  width: 114rpx;
+  height: 114rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  display: block;
+  box-shadow: #0186fe 0rpx 0rpx 20rpx -8rpx;
+  margin: 0 0 14rpx;
+  overflow: hidden;
+  background-image: url(https://qunyan.canancn.com/assets/applet/img/jobRecruitment/photo.png);
+  background-size: 100% 100%;
+}
+.jobRecruitment .jobSearch .jobSearch_top .mine .mine_top .userCard .userCard_photo {
+  width: 100%;
+  height: 100%;
+}
+.jobRecruitment .jobSearch .jobSearch_top .mine .mine_top .userCard .userCard_name {
+  font-family: 'Regular';
+  font-size: 34rpx;
+  line-height: 1;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .mine .mine_top .userCard .userCard_editResume {
+  font-family: 'Regular';
+  font-size: 22rpx;
+  line-height: 1;
+  color: #5f5f5f;
+  margin-top: 12rpx;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .mine .mine_state {
+  width: calc(100% - 36rpx);
+  height: 34rpx;
+  margin: 122rpx auto 18rpx;
+  display: flex;
+  align-items: center;
+
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .mine .mine_state .mine_state_item {
+  height: 100%;
+  display: flex;
+  line-height: 1;
+  justify-content: center;
+  font-family: 'Light';
+  font-size: 25rpx;
+  margin: 0 28rpx;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .mine .mine_state .active {
+  font-family: 'Medium';
+  border-bottom: 4rpx solid #f14c44;
+  color: #f14c44;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .mine .list {
+  height: calc(100% - 326rpx - 34rpx - 140rpx);
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .mine .list .list_item4 .list_item4_right {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  font-family: 'Medium';
+  font-size: 25rpx;
+  color: #000;
+}
+
+.jobRecruitment .jobSearch .jobSearch_top .mine .list .list_item4 .list_item4_right .state {
+  width: 14rpx;
+  height: 14rpx;
+  background-color: #00c709;
+  border-radius: 50%;
+  margin-right: 8rpx;
+  margin-top: 5rpx;
+}
+
+.jobRecruitment .jobSearch .jobSearch_bottom {
   height: 8%;
   background-color: #fff;
   border-top: 2rpx solid;
@@ -56,6 +325,7 @@
   align-items: center;
   padding-top: 10rpx;
 }
+
 .jobRecruitment .jobSearch .jobSearch_bottom .item {
   height: 100%;
   display: flex;
@@ -63,15 +333,112 @@
   align-items: center;
   flex-direction: column;
 }
+
 .jobRecruitment .jobSearch .jobSearch_bottom .item .img {
   width: 48rpx;
   height: 48rpx;
 }
+
 .jobRecruitment .jobSearch .jobSearch_bottom .item .text {
   font-family: 'Medium';
   font-size: 24rpx;
   color: #b6b6b6;
 }
+
 .jobRecruitment .jobSearch .jobSearch_bottom .item .fontColor {
   color: #4768f3;
+}
+
+.page-container .region {
+  height: 100%;
+}
+
+
+
+
+.page-container .filter {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-container .filter .titles {
+  font-size: 30rpx;
+  font-family: 'Medium';
+  margin-top: 50rpx;
+  padding: 0 40rpx;
+}
+
+.page-container .filter .titles .titles_txt {
+  font-size: 22rpx;
+  font-family: 'Normal';
+}
+
+.page-container .filter .content {
+  width: 672rpx;
+  font-size: 25rpx;
+  font-family: 'Normal';
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.page-container .filter .content .item {
+  width: 200rpx;
+  height: 48rpx;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 36rpx;
+  margin-top: 35rpx;
+}
+
+.page-container .filter .content .item:nth-child(3n) {
+  margin-right: 0;
+}
+
+.page-container .filter .content .active {
+  border: #4768f3 2rpx solid;
+  background-color: #fff;
+  color: #4768f3;
+}
+
+.page-container .filter .content .actives {
+  border: #4768f3 2rpx solid;
+  background-color: #e6ebff;
+  color: #4768f3;
+}
+
+.page-container .filter .bottom {
+  height: 140rpx;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35rpx;
+  font-family: 'Regular';
+}
+.page-container .filter .bottom .empty{
+  height: 70rpx;
+  width: 204rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 5rpx;
+  margin-right: 22rpx;
+}
+.page-container .filter .bottom .confirm{
+  height: 70rpx;
+  width: 478rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4768f3;
+  border-radius: 5rpx;
+  color: #fff;
 }
