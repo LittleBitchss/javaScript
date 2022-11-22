@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show:false,
+    type:0,
     desiredPosition:[
       {
         position:'行政主厨',
@@ -12,7 +14,13 @@ Page({
       }
     ]
   },
-
+  openMask(e) {
+    var item = e.currentTarget.dataset.item
+    this.setData({
+      show:true,
+      type:item
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

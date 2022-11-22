@@ -7,7 +7,7 @@
           <scroll-view scroll-x="true" class="scroll" scroll-left="{{scroll}}">
             <view class="jobSearchSquare_top_left">
               <view class="item active" wx:if="{{desiredPosition.length==0}}">推荐职位</view>
-              <view wx:for="{{desiredPosition}}" wx:key="index" class="{{item.active}} item" bindtap="topTilter" data-index="{{index}}">行政总厨</view>
+              <view wx:for="{{desiredPosition}}" wx:key="index" class="{{item.active}} item" bindtap="topTilter" data-index="{{index}}">{{item.p_name}}</view>
             </view>
           </scroll-view>
           <navigator class="jobSearchSquare_top_right" url="/secondary/pages/addPosition/index">
@@ -160,7 +160,7 @@
       </view>
     </view>
     <view class="experienceRequirement">
-      <view class="titles">学历要求</view>
+      <view class="titles">经验要求</view>
       <view class="content">
         <view class="item {{active3}}">不限</view>
         <view wx:for="{{experienceRequirement}}" wx:key="index" class="item {{item.active}}">{{item.cont}}</view>

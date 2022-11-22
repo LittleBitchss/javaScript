@@ -53,7 +53,7 @@
         "pages/admin_orderDetails/index",
         "pages/gridman_orderDetails/index",
         "pages/association_archives/index",
-        "pages/editPosition/index"
+        "pages/citySelection/index"
       ]
     },
     {

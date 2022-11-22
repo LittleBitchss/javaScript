@@ -2,13 +2,16 @@
 <view class="editResume">
   <view class="info">
     <view class="infos">
-      <view class="name">编辑个人信息
+      <view class="name" wx:if="{{!basic.r_name}}">编辑个人信息
         <image class="name_right" src="../../icon/edit.png" bindtap="openMask" data-item="1"></image>
       </view>
-      <view class="describe" wx:if="1">2年经验·22岁·大专</view>
+      <view class="name" wx:if="{{basic.r_name}}">{{basic.r_name}}
+        <image class="name_right" src="../../icon/edit.png" bindtap="openMask" data-item="1"></image>
+      </view>
+      <view class="describe" wx:if="{{basic.worktime||basic.age||basic.education}}">{{basic.worktime?basic.worktime+'年经验':''}}{{basic.age?'·'+basic.age+'岁':''}}{{basic.education?'·'+basic.education:''}}</view>
     </view>
     <view class="photo">
-      <image class="photos"></image>
+      <image class="photos" src="{{basic.r_head_portrait}}"></image>
     </view>
   </view>
   <view class="item info2">
@@ -17,50 +20,51 @@
       <image class="img" src="../../icon/edit.png" bindtap="openMask" data-item="2"></image>
     </view>
     <view class="content">
-      <view class="content_left" wx:if="">
-        我有三年餐饮行业经验，曾做过传菜员、前台、领班等工作，适应能力强。
+      <view class="content_left" wx:if="{{basic.r_advantage}}">
+        {{basic.r_advantage}}
       </view>
-      <view class="content_left" wx:if="1">编辑个人优势</view>
+      <view class="content_left" wx:if="{{!basic.r_advantage}}">编辑个人优势</view>
     </view>
   </view>
   <view class="item">
-    <view class="title">求职期望</view>
-    <view class="content">
-      <view class="content_left" wx:if="1">
-        <text class="content_left_top" space="emsp">厨师长 <text class="content_left_tops">8000-10000元</text></text>
-        <text>杭州</text>
+    <view class="title">
+      <text>求职期望</text>
+      <view class="add" bindtap="openMask" data-item="3" data-addOrEdit="1">
+        <view class="cross"></view>
+        <view class="vertical"></view>
       </view>
-      <view class="content_left" wx:if="">编辑求职期望</view>
+    </view>
+    <view class="content" wx:if="{{job_expectation.length==0}}" bindtap="openMask" data-item="3" data-addOrEdit="1">
+      <view class="content_left">编辑求职期望</view>
       <image class="arrows" src="../../../icon/mine_right_arrow.png"></image>
     </view>
-    <view class="content">
-      <view class="content_left" wx:if="1">
-        <text class="content_left_top" space="emsp">厨师长 <text class="content_left_tops">8000-10000元</text></text>
-        <text>杭州</text>
+    <view class="content" wx:if="{{job_expectation.length!=0}}" bindtap="openMask" data-item="3" data-addOrEdit="2" data-index="{{index}}" wx:for="{{job_expectation}}" wx:key="index">
+      <view class="content_left">
+        <text class="content_left_top" space="emsp">{{item.p_name}} <text class="content_left_tops">{{item.je_job_salary_min}}-{{item.je_job_salary_max}}{{item.je_job_salary_max=='面议'?'':'元'}}</text></text>
+        <text>{{item.city}}</text>
       </view>
-      <view class="content_left" wx:if="">编辑求职期望</view>
-      <image class="arrows" src="../../../icon/mine_right_arrow.png"></image>
-    </view>
-    <view class="content">
-      <view class="content_left" wx:if="1">
-        <text class="content_left_top" space="emsp">厨师长 <text class="content_left_tops">8000-10000元</text></text>
-        <text>杭州</text>
-      </view>
-      <view class="content_left" wx:if="">编辑求职期望</view>
       <image class="arrows" src="../../../icon/mine_right_arrow.png"></image>
     </view>
   </view>
   <view class="item">
     <view class="title">求职状态</view>
-    <view class="content">
-      <view class="content_left" wx:if="">在职-考虑机会
+    <picker bindchange="bindChange" data-item="6" value="{{stateJobIndex}}" range="{{stateJobArray}}">
+      <view class="picker">
+        <view class="content">
+          <view class="content_left {{jobState=='编辑求职状态'?'':'content_lefts'}}">{{jobState}}</view>
+          <image class="arrows" src="../../../icon/mine_right_arrow.png"></image>
+        </view>
       </view>
-      <view class="content_left" wx:if="1">编辑求职状态</view>
-      <image class="arrows" src="../../../icon/mine_right_arrow.png"></image>
-    </view>
+    </picker>
   </view>
   <view class="item">
-    <view class="title">教育经历</view>
+    <view class="title">
+      <text>教育经历</text>
+      <view class="add" bindtap="openMask" data-item="4">
+        <view class="cross"></view>
+        <view class="vertical"></view>
+      </view>
+    </view>
     <view class="content">
       <view class="content_left" wx:if="">
         <text class="content_left_top">杭州厨师学校</text>
@@ -74,7 +78,13 @@
     </view>
   </view>
   <view class="item">
-    <view class="title">工作经历</view>
+    <view class="title">
+      <text>工作经历</text>
+      <view class="add" bindtap="openMask" data-item="5">
+        <view class="cross"></view>
+        <view class="vertical"></view>
+      </view>
+    </view>
     <view class="content">
       <view class="content_left" wx:if="1">
         <text class="content_left_top">新逸酒店</text>
@@ -89,49 +99,70 @@
     </view>
   </view>
 </view>
-<page-container class="page-container" show="{{show}}" position="right" bind:leave="eventhandle">
+<page-container class="page-container" show="{{show}}" position="right">
   <view class="z_info" wx:if="{{maskType==1}}">
     <view class="z_item">
       <view class="z_item_left">
         <view class="z_item_left_txt">头像</view>
-        <view class="">推荐使用真实头像</view>
+        <view>推荐使用真实头像</view>
       </view>
-      <view class="photo">
-        <image class="photos"></image>
+      <view class="photo" bindtap="avatar">
+        <image class="photos" src="{{avatar}}"></image>
       </view>
     </view>
     <view class="z_item">
       <view class="z_title">
         姓名
-        <input type="text" class="z_input" placeholder="编辑姓名" placeholder-class="placeholder" />
+        <input type="text" class="z_input" placeholder="编辑姓名" placeholder-class="placeholder" value="{{name}}" bindinput="z_input" data-item="1" maxlength="20" />
       </view>
     </view>
     <view class="z_item">
       <view class="z_items">
         <view class="z_title">性别</view>
-        <view class="choose">
-          <text class="choose_txt">编辑性别</text>
-          <image class="choose_arrows" src="../../../icon/mine_right_arrow.png"></image>
-        </view>
+        <picker bindchange="bindChange" data-item="1" value="{{sexIndex}}" range="{{sexArray}}">
+          <view class="picker">
+            <view class="choose">
+              <text class="choose_txt {{sex!='编辑性别'?'fontColor':''}}">{{sex}}</text>
+              <image class="choose_arrows" src="../../../icon/mine_right_arrow.png"></image>
+            </view>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="z_item">
+      <view class="z_items">
+        <view class="z_title">出生年月</view>
+        <picker mode="date" value="{{date}}" start="1900-09-01" end="2030-12-31" bindchange="bindChange" data-item="2" fields="month">
+          <view class="picker">
+            <view class="choose">
+              <text class="choose_txt {{born!='编辑出生年月'?'fontColor':''}}">{{born}}</text>
+              <image class="choose_arrows" src="../../../icon/mine_right_arrow.png"></image>
+            </view>
+          </view>
+        </picker>
       </view>
     </view>
     <view class="z_item">
       <view class="z_items">
         <view class="z_title">参加工作时间</view>
-        <view class="choose">
-          <text class="choose_txt">编辑参加工作时间</text>
-          <image class="choose_arrows" src="../../../icon/mine_right_arrow.png"></image>
-        </view>
+        <picker mode="date" value="{{date}}" start="1980-01-01" end="2030-12-31" bindchange="bindChange" data-item="3" fields="month">
+          <view class="picker">
+            <view class="choose">
+              <text class="choose_txt {{workTime!='编辑参加工作时间'?'fontColor':''}}">{{workTime}}</text>
+              <image class="choose_arrows" src="../../../icon/mine_right_arrow.png"></image>
+            </view>
+          </view>
+        </picker>
       </view>
     </view>
     <view class="z_item">
       <view class="z_title">
         手机号
-        <input type="text" class="z_input" placeholder="编辑手机号" placeholder-class="placeholder" />
+        <input type="number" class="z_input" placeholder="{{phonePlaceholder}}" placeholder-class="{{phonePlaceholderClass}}" value="{{phone}}" bindinput="z_input" bindblur="z_blur" data-item="2" maxlength="11" />
       </view>
     </view>
     <view class="z_info_bottom">
-      <view class="btn">保存</view>
+      <view class="btn" bindtap="save" data-item="1">保存</view>
     </view>
   </view>
   <view class="z_advantage" wx:if="{{maskType==2}}">
@@ -140,9 +171,55 @@
       <text class="words"><text class="{{areaWords?'wordss':''}}">{{areaWords}}</text>/200</text>
     </view>
     <view class="z_a_describe">丰富的个人优势介绍，更能赢得老板的青睐</view>
-    <textarea class="z_a_area" placeholder="等待输入内容" placeholder-class="z_a_placeholder" maxlength="200" focus="{{areaf}}" bindinput="areaI"></textarea>
+    <textarea class="z_a_area" placeholder="等待输入内容" placeholder-class="z_a_placeholder" maxlength="200" focus="{{areaf}}" bindinput="z_input" data-item="3" value="{{areaVal}}"></textarea>
     <view class="z_info_bottom">
-      <view class="btn">保存</view>
+      <view class="btn" bindtap="save" data-item="2">保存</view>
+    </view>
+  </view>
+  <view class="z_expect" wx:if="{{maskType==3}}">
+    <view class="title">编辑求职期望</view>
+    <view class="item">
+      <view class="items">
+        <view class="item_titel">求职类型</view>
+        <view class="items_right">
+          <view class="full {{fullOrPart==1?'active':''}}" bindtap="fullOrPart" data-item="1">全职</view>
+          <view class="part {{fullOrPart==1?'':'active'}}" bindtap="fullOrPart" data-item="2">兼职</view>
+        </view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="item_titel">工作地址</view>
+      <navigator class="items" url="../../../tertiary/pages/citySelection/index?city={{city}}&citycode={{citycode}}">
+        <view class="item_left {{city=='选择地址'?'':'fontColor'}}">{{city}}</view>
+        <image class="items_img" src="../../../icon/mine_right_arrow.png"></image>
+      </navigator>
+    </view>
+    <view class="item">
+      <view class="item_titel">期望职位</view>
+      <picker bindchange="bindChange" data-item="4" value="{{expectJobIndex}}" range="{{expectJobArray}}">
+        <view class="picker">
+          <view class="items">
+            <view class="item_left {{expectJob=='选择职位'?'':'fontColor'}}">{{expectJob}}</view>
+            <image class="items_img" src="../../../icon/mine_right_arrow.png"></image>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="item">
+      <view class="item_titel">薪资要求</view>
+      <picker mode="multiSelector" bindchange="bindChange" bindcolumnchange="bindColumnChange" data-item="5" value="{{salaryIndex}}" range="{{salaryArray}}">
+        <view class="picker">
+          <view class="items">
+            <view class="item_left" wx:if="{{!salaryMax}}">选择薪资范围</view>
+            <view class="item_left fontColor" wx:if="{{salaryMax}}">{{salaryMin+'-'+salaryMax}}</view>
+            <image class="items_img" src="../../../icon/mine_right_arrow.png"></image>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="z_expect_bottom">
+      <view class="cancel" wx:if="{{addOrEdit!=1&&job_expectation.length!=0}}">删除</view>
+      <view class="save" bindtap="save" data-item="3">保存</view>
     </view>
   </view>
 </page-container>

@@ -8,19 +8,58 @@
     <view class="explain">添加期望职位，方便更精准寻找心仪岗位</view>
   </view>
   <view class="list">
-    <navigator class="item" url="/tertiary/pages/editPosition/index">
+    <view class="item" bindtap="openMask" data-item="1">
       <view class="cont">
         <view class="top">[杭州]行政总厨</view>
         <view class="bottom">1万-1.2万</view>
       </view>
         <image class="arrow" src="../../../icon/mine_right_arrow.png"></image>
-    </navigator>
-    <navigator class="adds" url="/tertiary/pages/editPosition/index">
+    </view>
+    <view class="adds" bindtap="openMask" data-item="1">
       <view class="add">
         <view class="cross"></view>
         <view class="vertical"></view>
       </view>
       <view class="txt">继续添加期望职位</view>
-    </navigator>
+    </view>
   </view>
 </view>
+<page-container class="page-container" show="{{show}}" position="right" bind:leave="eventhandle">
+  <view class="editPosition">
+    <view class="title">编辑求职期望</view>
+    <view class="item">
+      <view class="items">
+        <view class="item_titel">求职类型</view>
+        <view class="items_right">
+          <view class="full active">全职</view>
+          <view class="part">兼职</view>
+        </view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="item_titel">工作地址</view>
+      <view class="items">
+        <view class="item_left">选择地址</view>
+        <image class="items_img" src="../../../icon/mine_right_arrow.png"></image>
+      </view>
+    </view>
+    <view class="item">
+      <view class="item_titel">期望职位</view>
+      <view class="items">
+        <view class="item_left">选择职位</view>
+        <image class="items_img" src="../../../icon/mine_right_arrow.png"></image>
+      </view>
+    </view>
+    <view class="item">
+      <view class="item_titel">薪资要求</view>
+      <view class="items">
+        <view class="item_left">选择薪资范围</view>
+        <image class="items_img" src="../../../icon/mine_right_arrow.png"></image>
+      </view>
+    </view>
+    <view class="editPosition_bottom">
+      <view class="cancel">删除</view>
+      <view class="save">保存</view>
+    </view>
+  </view>
+</page-container>

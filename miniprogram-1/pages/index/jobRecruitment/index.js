@@ -15,28 +15,7 @@ Page({
       fontColor: ""
     },
     index: 1,
-    desiredPosition: [
-      {
-        position:'行政主厨',
-        active:'active'
-      },
-      {
-        position:'行政主厨',
-        active:''
-      },
-      {
-        position:'行政主厨',
-        active:''
-      },
-      {
-        position:'行政主厨',
-        active:''
-      },
-      {
-        position:'行政主厨',
-        active:''
-      }
-    ],
+    desiredPosition: [],
     scroll:0,
     leftTilterActive1: 'active',
     leftTilterActive2: '',
@@ -251,6 +230,23 @@ Page({
   onLoad(options) {
     wx.setNavigationBarTitle({
       title: '求职-求职广场',
+    })
+    app.post('/comm/getPosition').then((res)=>{
+      if(res.data.status==1){
+        res.data.data.forEach(i=>{
+          i.active=''
+        })
+        res.data.data[0].active='active'
+        this.setData({
+          desiredPosition:res.data.data
+        })
+      }else{
+        wx.showToast({
+          title: '网络出错~',
+          icon: 'error',
+          duration: 2000
+        })
+      }
     })
   },
 
