@@ -60,17 +60,20 @@
   <view class="item">
     <view class="title">
       <text>教育经历</text>
-      <view class="add" bindtap="openMask" data-item="4">
+      <view class="add" bindtap="openMask" data-item="4" data-addOrEdit="1">
         <view class="cross"></view>
         <view class="vertical"></view>
       </view>
     </view>
-    <view class="content">
-      <view class="content_left" wx:if="">
-        <text class="content_left_top">杭州厨师学校</text>
-        <text>大专-中餐专业</text>
+    <view class="content" wx:if="{{educational.length==0}}" bindtap="openMask" data-item="4" data-addOrEdit="1">
+      <view class="content_left">编辑教育经历</view>
+      <image class="arrows" src="../../../icon/mine_right_arrow.png"></image>
+    </view>
+    <view class="content" wx:if="{{educational.length!=0}}" bindtap="openMask" data-item="4" data-addOrEdit="2" data-index="{{index}}" wx:for="{{educational}}" wx:key="index">
+      <view class="content_left">
+        <text class="content_left_top" space="emsp">{{item.p_name}} <text class="content_left_tops">{{item.je_job_salary_min}}-{{item.je_job_salary_max}}{{item.je_job_salary_max=='面议'?'':'元'}}</text></text>
+        <text>{{item.city}}</text>
       </view>
-      <view class="content_left" wx:if="1">编辑教育经历</view>
       <view class="content_right">
         <text>2016-2018</text>
         <image class="arrows" src="../../../icon/mine_right_arrow.png"></image>
@@ -220,6 +223,57 @@
     <view class="z_expect_bottom">
       <view class="cancel" wx:if="{{addOrEdit!=1&&job_expectation.length!=0}}">删除</view>
       <view class="save" bindtap="save" data-item="3">保存</view>
+    </view>
+  </view>
+  <view class="z_educational" wx:if="{{maskType==4}}">
+    <view class="title">编辑教育经历</view>
+    <view class="item">
+      <view class="item_titel">学校</view>
+      <view class="items">
+        <input type="text" class="item_left fontColor" placeholder="请输入" placeholder-class="item_left" value="{{school}}" bindinput="z_input" data-item="4" />
+      </view>
+    </view>
+    <view class="item">
+      <view class="item_titel">学历</view>
+      <picker mode="multiSelector" bindchange="bindChange" bindcolumnchange="bindColumnChange" data-item="7" value="{{educationalIndex}}" range="{{educationalArray}}">
+        <view class="picker">
+          <view class="items">
+            <view class="item_left" wx:if="{{!education}}">请选择</view>
+            <view class="item_left fontColor" wx:if="{{education}}">{{education}}{{fullPart?'-'+fullPart:''}}</view>
+            <image class="items_img" src="../../../icon/mine_right_arrow.png"></image>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="item">
+      <view class="item_titel">专业</view>
+      <view class="items">
+        <input type="text" class="item_left fontColor" placeholder="请输入" placeholder-class="item_left" value="{{major}}" bindinput="z_input" data-item="5" />
+      </view>
+    </view>
+    <view class="item">
+      <view class="item_titel">上学时间段</view>
+      <picker mode="multiSelector" bindchange="bindChange" bindcolumnchange="bindColumnChange" data-item="8" value="{{timeRangeIndex}}" range="{{timeRangeArray}}">
+        <view class="picker">
+          <view class="items">
+            <view class="item_left" wx:if="{{!timeRangeL}}">选择薪资范围</view>
+            <view class="item_left fontColor" wx:if="{{timeRangeL}}">{{timeRangeL+'-'+timeRangeR}}</view>
+            <image class="items_img" src="../../../icon/mine_right_arrow.png"></image>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="hint">以下为选填内容</view>
+    <view class="item">
+      <view class="item_titel">在校经历</view>
+      <view class="itemsss">
+        <text class="schoolET">{{schoolExperience}}</text>
+        <textarea class="schoolE" placeholder="请输入" placeholder-class="placeholder" bindinput="z_input" data-item="6" value="{{schoolExperience}}"></textarea>
+      </view>
+    </view>
+    <view class="z_educational_bottom">
+      <view class="cancel" wx:if="{{addOrEdit2!=1&&educational.length!=0}}">删除</view>
+      <view class="save" bindtap="save" data-item="4">保存</view>
     </view>
   </view>
 </page-container>

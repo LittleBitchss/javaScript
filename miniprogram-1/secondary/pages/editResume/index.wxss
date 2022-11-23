@@ -1,9 +1,10 @@
 /* secondary/pages/editResume/index.wxss */
-.editResume{
+.editResume {
   height: 100vh;
   overflow: auto;
 }
-.editResume .item{
+
+.editResume .item {
   min-height: 190rpx;
   width: 696rpx;
   margin: 0 auto;
@@ -13,7 +14,8 @@
   flex-direction: column;
   justify-content: center;
 }
-.editResume .info{
+
+.editResume .info {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,22 +25,26 @@
   border-bottom: 2rpx solid #cfcfcf;
   padding: 0 36rpx;
 }
-.editResume .info .infos .name{
+
+.editResume .info .infos .name {
   font-size: 45rpx;
   font-family: 'Bold';
   display: flex;
   align-items: center;
 }
-.editResume .info .infos .name .name_right{
+
+.editResume .info .infos .name .name_right {
   width: 29rpx;
   height: 31rpx;
   margin-left: 16rpx;
 }
-.editResume .info .infos .describe{
+
+.editResume .info .infos .describe {
   font-family: 'Regular';
   font-size: 25rpx;
 }
-.editResume .info .photo{
+
+.editResume .info .photo {
   width: 114rpx;
   height: 114rpx;
   border-radius: 50%;
@@ -47,12 +53,13 @@
   background-size: 100% 100%;
   box-shadow: #0186fe 0rpx 0rpx 20rpx -8rpx;
 }
-.editResume .info .photo .photos{
+
+.editResume .info .photo .photos {
   width: 100%;
   height: 100%;
 }
 
-.editResume .item .title{
+.editResume .item .title {
   font-family: 'Medium';
   font-size: 30rpx;
   display: flex;
@@ -60,11 +67,13 @@
   align-items: center;
   line-height: 1;
 }
-.editResume .item .title .img{
+
+.editResume .item .title .img {
   width: 29rpx;
   height: 31rpx;
 }
-.editResume .item .title .add{
+
+.editResume .item .title .add {
   width: 28rpx;
   height: 28rpx;
   border: 2rpx solid;
@@ -74,18 +83,21 @@
   align-items: center;
   position: relative;
 }
-.editResume .item .title .add .cross{
+
+.editResume .item .title .add .cross {
   width: 4rpx;
   height: 16rpx;
   background-color: #000;
 }
-.editResume .item .title .add .vertical{
+
+.editResume .item .title .add .vertical {
   width: 16rpx;
   height: 4rpx;
   background-color: #000;
   position: absolute;
 }
-.editResume .item .content{
+
+.editResume .item .content {
   font-family: 'Regular';
   font-size: 22rpx;
   color: #5f5f5f;
@@ -94,40 +106,47 @@
   align-items: center;
   margin: 20rpx 0;
 }
-.editResume .item .content .content_left{
+
+.editResume .item .content .content_left {
   display: flex;
   flex-direction: column;
 }
-.editResume .item .content .content_lefts{
+
+.editResume .item .content .content_lefts {
   color: #000;
   font-family: 'Medium';
   font-size: 25rpx;
 }
-.editResume .item .content .content_right{
+
+.editResume .item .content .content_right {
   display: flex;
   align-items: center;
 }
-.editResume .item .content .content_left .content_left_top{
+
+.editResume .item .content .content_left .content_left_top {
   color: #000;
   font-family: 'Medium';
   font-size: 25rpx;
 }
-.editResume .item .content .content_left .content_left_tops{
+
+.editResume .item .content .content_left .content_left_tops {
   font-family: 'Regular';
 }
-.editResume .item .content .arrows{
+
+.editResume .item .content .arrows {
   width: 16rpx;
   height: 28rpx;
   margin-left: 15rpx;
 }
 
-
-.page-container .z_info{
+.page-container .z_info {
   height: 100%;
   padding-top: 80rpx;
-  position: relative;
+  overflow: auto;
+  padding-bottom: 140rpx;
 }
-.page-container .z_info .z_item{
+
+.page-container .z_info .z_item {
   height: 160rpx;
   display: flex;
   align-items: center;
@@ -136,20 +155,24 @@
   justify-content: space-between;
   padding: 0 35rpx;
 }
-.page-container .z_info .z_item .z_items{
+
+.page-container .z_info .z_item .z_items {
   width: 100%;
 }
-.page-container .z_info .z_item .z_item_left{
+
+.page-container .z_info .z_item .z_item_left {
   font-family: 'Regular';
   font-size: 20rpx;
   color: #5f5f5f;
 }
-.page-container .z_info .z_item .z_item_left .z_item_left_txt{
+
+.page-container .z_info .z_item .z_item_left .z_item_left_txt {
   font-family: 'Medium';
   font-size: 30rpx;
   color: #000;
 }
-.page-container .z_info .z_item .photo{
+
+.page-container .z_info .z_item .photo {
   width: 114rpx;
   height: 114rpx;
   border-radius: 50%;
@@ -158,56 +181,66 @@
   background-size: 100% 100%;
   box-shadow: #0186fe 0rpx 0rpx 20rpx -8rpx;
 }
-.page-container .z_info .z_item .photo .photos{
+
+.page-container .z_info .z_item .photo .photos {
   width: 100%;
   height: 100%;
 }
-.page-container .z_info .z_item .z_title{
+
+.page-container .z_info .z_item .z_title {
   width: 100%;
   font-family: 'Regular';
   font-size: 25rpx;
   color: #5f5f5f;
 }
-.page-container .z_info .z_item .z_title .placeholder{
+
+.page-container .z_info .z_item .z_title .placeholder {
   width: 100%;
   font-family: 'Regular';
   font-size: 25rpx;
   color: #cfcfcf;
 }
-.page-container .z_info .z_item .z_title .placeholderErr{
+
+.page-container .z_info .z_item .z_title .placeholderErr {
   width: 100%;
   font-family: 'Regular';
   font-size: 25rpx;
   color: red;
 }
-.page-container .z_info .z_item .z_title .z_input{
+
+.page-container .z_info .z_item .z_title .z_input {
   width: 100%;
   font-size: 30rpx;
   color: #000;
   margin: 20rpx 0 0;
 }
-.page-container .z_info .z_item .choose{
+
+.page-container .z_info .z_item .choose {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 20rpx;
 }
-.page-container .z_info .z_item .choose .choose_txt{
+
+.page-container .z_info .z_item .choose .choose_txt {
   width: 100%;
   font-family: 'Regular';
   font-size: 25rpx;
   color: #cfcfcf;
 }
-.page-container .z_info .z_item .choose .fontColor{
+
+.page-container .z_info .z_item .choose .fontColor {
   font-size: 30rpx;
   font-family: '';
   color: #000;
 }
-.page-container .z_info .z_item .choose .choose_arrows{
+
+.page-container .z_info .z_item .choose .choose_arrows {
   width: 16rpx;
   height: 26rpx;
 }
-.page-container .z_info .z_info_bottom{
+
+.page-container .z_info .z_info_bottom {
   width: 100%;
   height: 140rpx;
   display: flex;
@@ -217,7 +250,8 @@
   bottom: 0;
   left: 0;
 }
-.page-container .z_info .z_info_bottom .btn{
+
+.page-container .z_info .z_info_bottom .btn {
   margin: 0 30rpx;
   width: 100%;
   height: 70rpx;
@@ -230,12 +264,14 @@
   font-family: 'Medium';
   border-radius: 5rpx;
 }
-.page-container .z_advantage{
+
+.page-container .z_advantage {
   height: 100%;
-  position: relative;
-  overflow: hidden;
+  overflow: auto;
+  padding-bottom: 140rpx;
 }
-.page-container .z_advantage .z_a_title{
+
+.page-container .z_advantage .z_a_title {
   font-size: 45rpx;
   font-family: 'Medium';
   margin-top: 50rpx;
@@ -244,32 +280,38 @@
   justify-content: space-between;
   align-items: center;
 }
-.page-container .z_advantage .z_a_title .words{
+
+.page-container .z_advantage .z_a_title .words {
   font-size: 30rpx;
 }
-.page-container .z_advantage .z_a_title .wordss{
+
+.page-container .z_advantage .z_a_title .wordss {
   color: #4768f3;
 }
-.page-container .z_advantage .z_a_describe{
+
+.page-container .z_advantage .z_a_describe {
   font-size: 25rpx;
   font-family: 'Regular';
   margin-top: 20rpx;
   padding: 0 60rpx;
 }
-.page-container .z_advantage .z_a_area{
+
+.page-container .z_advantage .z_a_area {
   font-size: 28rpx;
   margin-top: 20rpx;
   padding: 0 60rpx;
   height: 400rpx;
   line-height: 45rpx;
 }
-.page-container .z_advantage .z_a_placeholder{
+
+.page-container .z_advantage .z_a_placeholder {
   font-size: 30rpx;
   margin-top: 20rpx;
   padding: 0 60rpx;
   color: #cfcfcf;
 }
-.page-container .z_advantage .z_info_bottom{
+
+.page-container .z_advantage .z_info_bottom {
   width: 100%;
   height: 140rpx;
   display: flex;
@@ -279,7 +321,8 @@
   bottom: 0;
   left: 0;
 }
-.page-container .z_advantage .z_info_bottom .btn{
+
+.page-container .z_advantage .z_info_bottom .btn {
   margin: 0 30rpx;
   width: 100%;
   height: 70rpx;
@@ -293,39 +336,44 @@
   border-radius: 5rpx;
 }
 
-.page-container .z_expect{
+.page-container .z_expect {
   height: 100%;
-  position: relative;
-  overflow: hidden;
+  overflow: auto;
+  padding-bottom: 140rpx;
 }
-.page-container .z_expect .title{
+
+.page-container .z_expect .title {
   margin-top: 68rpx;
   padding: 0 50rpx;
   font-size: 45rpx;
   font-family: 'Bold';
 }
-.page-container .z_expect .item{
+
+.page-container .z_expect .item {
   height: 160rpx;
   margin: 0 20rpx;
-  border-bottom: 2rpx solid #cfcfcf; 
+  border-bottom: 2rpx solid #cfcfcf;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0 30rpx;
 }
 
-.page-container .z_expect .item .item_titel{
+.page-container .z_expect .item .item_titel {
   font-family: 'Medium';
   font-size: 30rpx;
 }
-.page-container .z_expect .item .items{
+
+.page-container .z_expect .item .items {
   font-family: 'Regular';
   font-size: 30rpx;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 5rpx;
 }
-.page-container .z_expect .item .items .items_right{
+
+.page-container .z_expect .item .items .items_right {
   display: flex;
   align-items: center;
   border-top-left-radius: 5rpx;
@@ -333,7 +381,8 @@
   font-size: 30rpx;
   color: #4768f3;
 }
-.page-container .z_expect .item .items .items_right .full{
+
+.page-container .z_expect .item .items .items_right .full {
   width: 150rpx;
   height: 42rpx;
   border: 2rpx solid #4768f3;
@@ -343,7 +392,8 @@
   justify-content: center;
   align-items: center;
 }
-.page-container .z_expect .item .items .items_right .part{
+
+.page-container .z_expect .item .items .items_right .part {
   width: 150rpx;
   height: 42rpx;
   border: 2rpx solid #4768f3;
@@ -353,25 +403,30 @@
   justify-content: center;
   align-items: center;
 }
-.page-container .z_expect .item .items .items_right .active{
+
+.page-container .z_expect .item .items .items_right .active {
   color: #fff;
-  background-color:  #4768f3;
+  background-color: #4768f3;
 }
-.page-container .z_expect .item .items .item_left{
+
+.page-container .z_expect .item .items .item_left {
   width: 100%;
   font-family: 'Regular';
   font-size: 25rpx;
   color: #cfcfcf;
 }
-.page-container .z_expect .item .items .fontColor{
+
+.page-container .z_expect .item .items .fontColor {
   font-size: 30rpx;
   color: #000;
 }
-.page-container .z_expect .item .items .items_img{
+
+.page-container .z_expect .item .items .items_img {
   width: 14rpx;
   height: 22rpx;
 }
-.page-container .z_expect .z_expect_bottom{
+
+.page-container .z_expect .z_expect_bottom {
   width: 100%;
   height: 140rpx;
   padding: 22rpx;
@@ -383,7 +438,8 @@
   font-size: 35rpx;
   font-family: 'Regular';
 }
-.page-container .z_expect .z_expect_bottom .cancel{
+
+.page-container .z_expect .z_expect_bottom .cancel {
   height: 70rpx;
   width: 202rpx;
   display: flex;
@@ -393,9 +449,180 @@
   background-color: #f0f0f0;
   border-radius: 5rpx;
 }
-.page-container .z_expect .z_expect_bottom .save{
+
+.page-container .z_expect .z_expect_bottom .save {
   flex: 1;
-  height:70rpx;
+  height: 70rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4768f3;
+  border-radius: 5rpx;
+  color: #fff;
+}
+
+.page-container .z_educational {
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 140rpx;
+}
+
+.page-container .z_educational .title {
+  margin-top: 68rpx;
+  padding: 0 50rpx;
+  font-size: 45rpx;
+  font-family: 'Bold';
+}
+
+.page-container .z_educational .item {
+  min-height: 160rpx;
+  margin: 0 20rpx;
+  border-bottom: 2rpx solid #cfcfcf;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 30rpx;
+}
+
+.page-container .z_educational .hint {
+  margin: 30rpx 20rpx 0;
+  padding: 0 30rpx;
+  font-size: 25rpx;
+  font-family: 'Medium';
+  color: #9a9999;
+}
+
+.page-container .z_educational .item .item_titel {
+  font-family: 'Medium';
+  font-size: 25rpx;
+  color: #5f5f5f;
+  margin-bottom: 10rpx;
+  margin-top: 10rpx;
+}
+
+.page-container .z_educational .item .items {
+  font-family: 'Regular';
+  font-size: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5rpx;
+  position: relative;
+}
+.page-container .z_educational .item .itemsss{
+  min-height: 46rpx;
+  position: relative;
+  font-family: 'Regular';
+} 
+.page-container .z_educational .item .itemsss .placeholder{
+  color: #cfcfcf;
+  font-size: 30rpx;
+} 
+.page-container .z_educational .item .itemsss .schoolET {
+  visibility: hidden;
+  display: block;
+  word-break: break-all;
+  word-wrap: break-word;
+  width: 100%;
+  height: 100%;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  word-break: break-all;
+}
+
+.page-container .z_educational .item .itemsss .schoolE {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 25rpx;
+  color: #000;
+  word-break: break-all;
+  overflow: hidden;
+  line-height: 40rpx;
+}
+
+.page-container .z_educational .item .items .items_right {
+  display: flex;
+  align-items: center;
+  border-top-left-radius: 5rpx;
+  font-family: 'Medium';
+  font-size: 30rpx;
+  color: #4768f3;
+}
+
+.page-container .z_educational .item .items .items_right .full {
+  width: 150rpx;
+  height: 42rpx;
+  border: 2rpx solid #4768f3;
+  border-top-left-radius: 5rpx;
+  border-bottom-left-radius: 5rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-container .z_educational .item .items .items_right .part {
+  width: 150rpx;
+  height: 42rpx;
+  border: 2rpx solid #4768f3;
+  border-top-right-radius: 5rpx;
+  border-bottom-right-radius: 5rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-container .z_educational .item .items .items_right .active {
+  color: #fff;
+  background-color: #4768f3;
+}
+
+.page-container .z_educational .item .items .item_left {
+  width: 100%;
+  font-family: 'Regular';
+  font-size: 30rpx;
+  color: #cfcfcf;
+}
+
+.page-container .z_educational .item .items .fontColor {
+  color: #000;
+  font-family: '';
+}
+
+.page-container .z_educational .item .items .items_img {
+  width: 14rpx;
+  height: 22rpx;
+}
+
+.page-container .z_educational .z_educational_bottom {
+  width: 100%;
+  height: 140rpx;
+  padding: 22rpx;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  font-size: 35rpx;
+  font-family: 'Regular';
+}
+
+.page-container .z_educational .z_educational_bottom .cancel {
+  height: 70rpx;
+  width: 202rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 22rpx;
+  background-color: #f0f0f0;
+  border-radius: 5rpx;
+}
+
+.page-container .z_educational .z_educational_bottom .save {
+  flex: 1;
+  height: 70rpx;
   display: flex;
   justify-content: center;
   align-items: center;

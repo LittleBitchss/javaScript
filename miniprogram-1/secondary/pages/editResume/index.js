@@ -61,6 +61,27 @@ Page({
     stateJob: [],
     jobState: '编辑求职状态',
     jobStateId: '',
+    // 教育经历
+    ee_id:0,
+    addOrEdit2: 0,
+    school: '',
+    educationalIndex: [0, 0],
+    educationalArray: [],
+    educationals: [],
+    education: '',
+    educationId: 0,
+    fullPart: '',
+    fullPartId: 0,
+    major: '',
+    timeRangeIndex: [0, 2],
+    timeRangeArray: [[],[]],
+    timeRanges: [],
+    timeRangeL: '',
+    timeRangeLId: 0,
+    timeRangeR: '',
+    timeRangeRId: 0,
+    schoolEPlaceholder:'1.hfsafasf',
+    schoolExperience: ''
   },
   openMask(e) {
     var item = e.currentTarget.dataset.item
@@ -126,6 +147,11 @@ Page({
           salaryMax: job.je_job_salary_max,
         })
       }
+    } else if (this.data.maskType == 4) {
+      var addOrEdit = e.currentTarget.dataset.addoredit
+      this.setData({
+        addOrEdit2: addOrEdit
+      })
     }
   },
   z_input(e) {
@@ -144,6 +170,19 @@ Page({
       this.setData({
         areaVal: val,
         areaWords: cur
+      })
+    } else if (item == 4) {
+      console.log(val);
+      this.setData({
+        school: val
+      })
+    } else if (item == 5) {
+      this.setData({
+        major: val
+      })
+    } else if (item == 6) {
+      this.setData({
+        schoolExperience: val
       })
     }
   },
@@ -258,6 +297,41 @@ Page({
           duration: 1000
         })
       }
+    } else if (item == 4) {
+      var obj = {
+        token: wx.getStorageSync('userInfo').token,
+        ee_id: this.data.ee_id,
+        ee_school: this.data.school,
+        ee_education: this.data.educationId,
+        ee_education_type: this.data.fullPartId,
+        ee_major: this.data.major,
+        ee_start_year: this.data.timeRangeL,
+        ee_end_year: this.data.timeRangeR,
+        // ee_association_activity: this.data.salaryMax
+      }
+      console.log(obj);
+      // if (obj.je_job_location != '' && obj.expectJobId != 0 && obj.je_job_salary_min != '' && obj.je_job_salary_max != '') {
+      //   app.post('/Job/setJobExpectation', obj).then((res) => {
+      //     if (res.data.status == 1) {
+      //       this.setData({
+      //         show: false
+      //       })
+      //       this.getData()
+      //     } else {
+      //       wx.showToast({
+      //         title: '保存失败',
+      //         icon: 'error',
+      //         duration: 1000
+      //       })
+      //     }
+      //   })
+      // } else {
+      //   wx.showToast({
+      //     title: '请完善信息',
+      //     icon: 'error',
+      //     duration: 1000
+      //   })
+      // }
     }
   },
   bindChange(e) {
@@ -295,27 +369,81 @@ Page({
       }).then((res) => {
 
       })
+    } else if (item == 7) {
+      if (e.detail.value[0] > 2) {
+        this.setData({
+          education: this.data.educationals[e.detail.value[0]].e_name,
+          educationId: this.data.educationals[e.detail.value[0]].e_id,
+          fullPart: this.data.educationalArray[1][e.detail.value[1]],
+          fullPartId: e.detail.value[1] == 0 ? 1 : 2,
+        })
+      } else {
+        this.setData({
+          education: this.data.educationals[e.detail.value[0]].e_name,
+          educationId: this.data.educationals[e.detail.value[0]].e_id,
+          fullPart: '',
+          fullPartId: 0,
+        })
+      }
+    } else if (item == 8) {
+      this.setData({
+        timeRangeL: this.data.timeRangeArray[0][e.detail.value[0]],
+        timeRangeR: this.data.timeRangeArray[1][e.detail.value[1]],
+      })
     }
   },
   bindColumnChange(e) {
+    var item = e.currentTarget.dataset.item
     var salaryIndex = JSON.parse(JSON.stringify(this.data.salaryIndex))
     var salaryArrays = JSON.parse(JSON.stringify(this.data.salaryArrays))
-    if (e.detail.column == 0) {
-      if (e.detail.value == 0) {
-        salaryArrays[1].splice(1, salaryArrays[1].length)
+    var educationalIndex = JSON.parse(JSON.stringify(this.data.educationalIndex))
+    var educationalArray = JSON.parse(JSON.stringify(this.data.educationalArray))
+    var timeRangeIndex = JSON.parse(JSON.stringify(this.data.timeRangeIndex))
+    var timeRangeArray = JSON.parse(JSON.stringify(this.data.timeRangeArray))
+    if (item == 5) {
+      if (e.detail.column == 0) {
+        if (e.detail.value == 0) {
+          salaryArrays[1].splice(1, salaryArrays[1].length)
+          this.setData({
+            salaryArray: salaryArrays
+          })
+        } else {
+          salaryIndex[0] = e.detail.value
+          salaryIndex[1] = 0
+          salaryArrays[1].splice(0, e.detail.value)
+          this.setData({
+            salaryArray: salaryArrays,
+            salaryIndex: salaryIndex
+          })
+        }
+      }
+    } else if (item == 7) {
+      if (e.detail.column == 0) {
+        if (e.detail.value > 2) {
+          educationalArray[1] = ['全日制', '非全日制']
+        } else {
+          educationalArray[1] = []
+        }
+        educationalIndex[0] = e.detail.value
+        educationalIndex[1] = 0
         this.setData({
-          salaryArray: salaryArrays
+          educationalArray: educationalArray,
+          educationalIndex:educationalIndex
         })
-      } else {
-        salaryIndex[0] = e.detail.value
-        salaryIndex[1] = 0
-        salaryArrays[1].splice(0, e.detail.value)
+      }
+    } else if (item == 8) {
+      if (e.detail.column == 0) {
+        var arr = this.getYear(timeRangeArray[0][e.detail.value])
+        timeRangeArray[1]=arr
+        timeRangeIndex[0] = e.detail.value
+        timeRangeIndex[1] = 2
         this.setData({
-          salaryArray: salaryArrays,
-          salaryIndex: salaryIndex
+          timeRangeArray:timeRangeArray,
+          timeRangeIndex: timeRangeIndex
         })
       }
     }
+
   },
   // 个人信息
   avatar() {
@@ -394,30 +522,41 @@ Page({
     }).then((res) => {
       if (res.data.status == 1) {
         console.log(res.data.data);
-        if (res.data.data.job_expectation.length != 0) {
-          res.data.data.job_expectation.forEach(i => {
-            i.p_name = this.data.position.find(j => i.je_job_expectation == j.p_id).p_name
-            cityList.forEach(j => {
-              j.cityInfo.find(k => {
-                if (i.je_job_location == k.code) {
-                  i.city = k.city
-                }
+        try {
+          if (res.data.data.job_expectation.length != 0) {
+            res.data.data.job_expectation.forEach(i => {
+              i.p_name = this.data.position.find(j => i.je_job_expectation == j.p_id).p_name
+              cityList.forEach(j => {
+                j.cityInfo.find(k => {
+                  if (i.je_job_location == k.code) {
+                    i.city = k.city
+                  }
+                })
               })
             })
+          }
+          var stateJobs = this.data.stateJob.find(i => i.js_id == res.data.data.basic.r_job_status)
+          this.setData({
+            basic: res.data.data.basic,
+            job_expectation: res.data.data.job_expectation,
+            jobState: stateJobs.js_name,
+            jobStateId: stateJobs.js_id,
+            stateJobIndex: stateJobs.js_id - 1,
+            educational: res.data.data.educational,
+            work_experience: res.data.data.work_experience
           })
+        } catch (res) {
+          this.getData()
         }
-        var stateJobs = this.data.stateJob.find(i=>i.js_id==res.data.data.basic.r_job_status)
-        this.setData({
-          basic: res.data.data.basic,
-          job_expectation: res.data.data.job_expectation,
-          jobState: stateJobs.js_name,
-          jobStateId: stateJobs.js_id,
-          stateJobIndex: stateJobs.js_id-1,
-          educational: res.data.data.educational,
-          work_experience: res.data.data.work_experience
-        })
       }
     })
+  },
+  getYear(year){
+    var arrs = []
+    for (var i = year+1; i <= year+5; i++) {
+      arrs.unshift(i)
+    }
+    return arrs
   },
   /**
    * 生命周期函数--监听页面加载
@@ -437,7 +576,6 @@ Page({
       })
     })
     app.post('/comm/getJobStatus').then((res) => {
-      console.log(res);
       var arr = []
       res.data.data.forEach(i => {
         arr.push(i.js_name)
@@ -446,6 +584,26 @@ Page({
         stateJobArray: arr,
         stateJob: res.data.data
       })
+    })
+    app.post('/comm/getEducation').then((res) => {
+      var arr = []
+      res.data.data.forEach(i => {
+        arr.push(i.e_name)
+      })
+      this.setData({
+        educationalArray: [arr, []],
+        educationals: res.data.data
+      })
+    })
+    var date = new Date()
+    var year = date.getFullYear()
+    var arr = []
+    for (var i = year; i >= 1990; i--) {
+      arr.push(i)
+    }
+    var arrs = this.getYear(year)
+    this.setData({
+      timeRangeArray:[arr,arrs]
     })
     this.getData()
   },
