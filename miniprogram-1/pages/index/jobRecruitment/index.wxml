@@ -140,7 +140,7 @@
   </view>
   <view class="recruitment" wx:if=""></view>
 </view>
-<page-container class="page-container" show="{{show}}" position="right" bind:leave="eventhandle">
+<page-container class="page-container" show="{{show}}" position="right">
   <view class="region" wx:if="{{maskType==1}}">
     是是是
   </view>
@@ -148,22 +148,22 @@
     <view class="educationBackground">
       <view class="titles">学历要求</view>
       <view class="content">
-        <view class="item {{active1}}">不限</view>
-        <view wx:for="{{educationBackground}}" wx:key="index" class="item {{item.active}}">{{item.cont}}</view>
+        <view class="item {{active1}}" bindtap="tilters" data-item="1" data-type="1">不限</view>
+        <view wx:for="{{educationBackground}}" wx:key="index" class="item {{item.active}}" bindtap="tilters" data-item="1" data-type="2" data-index="{{index}}">{{item.e_name}}</view>
       </view>
     </view>
     <view class="salaryPackage">
       <view class="titles">薪资待遇<text class="titles_txt">（单选）</text></view>
       <view class="content">
         <view class="item {{active2}}">不限</view>
-        <view wx:for="{{salaryPackage}}" wx:key="index" class="item {{item.active}}">{{item.cont}}</view>
+        <view wx:for="{{salaryPackage}}" wx:key="index" class="item {{item.active}}">{{item.s_name}}</view>
       </view>
     </view>
     <view class="experienceRequirement">
       <view class="titles">经验要求</view>
       <view class="content">
         <view class="item {{active3}}">不限</view>
-        <view wx:for="{{experienceRequirement}}" wx:key="index" class="item {{item.active}}">{{item.cont}}</view>
+        <view wx:for="{{experienceRequirement}}" wx:key="index" class="item {{item.active}}">{{item.e_name}}</view>
       </view>
     </view>
     <view class="bottom">

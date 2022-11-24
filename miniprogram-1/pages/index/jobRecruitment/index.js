@@ -1,7 +1,7 @@
 // pages/index/jobRecruitment/index.js
+var city = require('../../../utils/city');
 const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -16,100 +16,21 @@ Page({
     },
     index: 1,
     desiredPosition: [],
-    scroll:0,
+    scroll: 0,
     leftTilterActive1: 'active',
     leftTilterActive2: '',
     leftTilterActive3: '',
-    show:false,
+    show: false,
     maskType: 0,
-    active1:'active',
-    active2:'active',
-    active3:'active',
-    actives1:'active',
-    actives2:'',
-    actives3:'',
-    educationBackground:[
-      {
-        cont:'初中及以下',
-        active:''
-      },
-      {
-        cont:'中专/中技',
-        active:''
-      },
-      {
-        cont:'高中',
-        active:''
-      },
-      {
-        cont:'大专',
-        active:''
-      },
-      {
-        cont:'本科',
-        active:''
-      },
-      {
-        cont:'硕士',
-        active:''
-      },
-      {
-        cont:'博士',
-        active:''
-      }
-    ],
-    salaryPackage:[
-      {
-        cont:'5000元以下',
-        active:''
-      },
-      {
-        cont:'5000-10000元',
-        active:''
-      },
-      {
-        cont:'1000-15000元',
-        active:''
-      },
-      {
-        cont:'15000-20000元',
-        active:''
-      },
-      {
-        cont:'20000以上',
-        active:''
-      }
-    ],
-    experienceRequirement:[
-      {
-        cont:'在校生',
-        active:''
-      },
-      {
-        cont:'应届生',
-        active:''
-      },
-      {
-        cont:'一年以内',
-        active:''
-      },
-      {
-        cont:'1-3年',
-        active:''
-      },
-      {
-        cont:'3-5年',
-        active:''
-      },
-      {
-        cont:'5-10年',
-        active:''
-      },
-      {
-        cont:'10年以上',
-        active:''
-      }
-    ]
+    active1: 'active',
+    active2: 'active',
+    active3: 'active',
+    actives1: 'active',
+    actives2: '',
+    actives3: '',
+    educationBackground: [],
+    salaryPackage: [],
+    experienceRequirement: []
   },
   tabToggle(e) {
     var index = e.currentTarget.dataset.index
@@ -148,13 +69,13 @@ Page({
   topTilter(e) {
     var index = e.currentTarget.dataset.index
     var desiredPosition = JSON.parse(JSON.stringify(this.data.desiredPosition))
-    desiredPosition.forEach(i=>{
-      i.active=''
+    desiredPosition.forEach(i => {
+      i.active = ''
     })
     desiredPosition[index].active = 'active'
     this.setData({
-      desiredPosition:desiredPosition,
-      scroll:index*65>120?index*65-120:0
+      desiredPosition: desiredPosition,
+      scroll: index * 65 > 120 ? index * 65 - 120 : 0
     })
   },
   leftTilter(e) {
@@ -182,45 +103,85 @@ Page({
   openMask(e) {
     var item = e.currentTarget.dataset.item
     this.setData({
-      show:true,
-      maskType:item
+      show: true,
+      maskType: item
     })
-    if(item==1){
+    if (item == 1) {
       wx.setNavigationBarTitle({
         title: '杭州',
       })
-    }else if(item==2){
+    } else if (item == 2) {
       wx.setNavigationBarTitle({
         title: '筛选',
       })
     }
   },
-  eventhandle(){
+  eventhandle() {
     wx.setNavigationBarTitle({
       title: '求职-求职广场',
     })
   },
-
-  // 我的
-  mineToggle(e){
+  tilters(e){
     var item = e.currentTarget.dataset.item
+    var type = e.currentTarget.dataset.type
+    var index = e.currentTarget.dataset.index
+    var educationBackground = JSON.parse(JSON.stringify(this.data.educationBackground))
+    var salaryPackage = JSON.parse(JSON.stringify(this.data.salaryPackage))
+    var experienceRequirement = JSON.parse(JSON.stringify(this.data.experienceRequirement))
     if(item==1){
+      if(type==1){
+        educationBackground.forEach(i=>{
+          i.active=''
+        })
+        this.setData({
+          active1:'active'
+        })
+      }else{
+        this.setData({
+          active1:''
+        })
+        if(educationBackground[index].active==''){
+          educationBackground[index].active='active'
+        }else{
+          educationBackground[index].active=''
+        }
+        var a = 0
+        educationBackground.forEach(i=>{
+          if(i.active){
+            a++
+          }
+        })
+        if(!a){
+          this.setData({
+            active1:'active'
+          })
+        }
+      }
       this.setData({
-        actives1:'active',
-        actives2:'',
-        actives3:''
+        educationBackground:educationBackground
       })
-    }else if(item==2){
+    }
+  },
+  // 我的
+  mineToggle(e) {
+    var item = e.currentTarget.dataset.item
+    if (item == 1) {
       this.setData({
-        actives1:'',
-        actives2:'active',
-        actives3:''
+        actives1: 'active',
+        actives2: '',
+        actives3: ''
       })
-    }else if(item==3){
+    } else if (item == 2) {
       this.setData({
-        actives1:'',
-        actives2:'',
-        actives3:'active'
+        actives1: '',
+        actives2: 'active',
+        actives3: ''
+      })
+    } else if (item == 3) {
+      this.setData({
+        actives1: '',
+        actives2: '',
+        actives3: 'active'
       })
     }
   },
@@ -231,20 +192,62 @@ Page({
     wx.setNavigationBarTitle({
       title: '求职-求职广场',
     })
-    app.post('/comm/getPosition').then((res)=>{
-      if(res.data.status==1){
-        res.data.data.forEach(i=>{
-          i.active=''
+    app.post('/comm/getPosition').then((res) => {
+      if (res.data.status == 1) {
+        res.data.data.forEach(i => {
+          i.active = ''
         })
-        res.data.data[0].active='active'
-        this.setData({
-          desiredPosition:res.data.data
+        var desiredPosition = res.data.data
+        app.post('/Job/getExpectationsList', {
+          token: wx.getStorageSync('userInfo').token
+        }).then((res) => {
+          if (res.data.status == 1) {
+            var arr = []
+            res.data.data.forEach(i => {
+              var a = desiredPosition.find(j => j.p_id == i.je_job_expectation)
+              arr.push(a)
+            })
+            arr[0].active = 'active'
+            this.setData({
+              desiredPosition: arr
+            })
+          }
         })
-      }else{
+      } else {
         wx.showToast({
           title: '网络出错~',
           icon: 'error',
           duration: 2000
+        })
+      }
+    })
+    app.post('/comm/getEducation').then((res)=>{
+      if(res.data.status==1){
+        res.data.data.forEach(i=>{
+          i.active = ''
+        })
+        this.setData({
+          educationBackground:res.data.data
+        })
+      }
+    })
+    app.post('/comm/getSalary').then((res)=>{
+      if(res.data.status==1){
+        res.data.data.forEach(i=>{
+          i.active = ''
+        })
+        this.setData({
+          salaryPackage:res.data.data
+        })
+      }
+    })
+    app.post('/comm/getExperience').then((res)=>{
+      if(res.data.status==1){
+        res.data.data.forEach(i=>{
+          i.active = ''
+        })
+        this.setData({
+          experienceRequirement:res.data.data
         })
       }
     })

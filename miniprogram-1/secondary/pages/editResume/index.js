@@ -62,7 +62,7 @@ Page({
     jobState: '编辑求职状态',
     jobStateId: '',
     // 教育经历
-    ee_id:0,
+    ee_id: 0,
     addOrEdit2: 0,
     school: '',
     educationalIndex: [0, 0],
@@ -74,14 +74,25 @@ Page({
     fullPartId: 0,
     major: '',
     timeRangeIndex: [0, 2],
-    timeRangeArray: [[],[]],
+    timeRangeArray: [
+      [],
+      []
+    ],
     timeRanges: [],
     timeRangeL: '',
-    timeRangeLId: 0,
     timeRangeR: '',
-    timeRangeRId: 0,
-    schoolEPlaceholder:'1.hfsafasf',
-    schoolExperience: ''
+    schoolExperience: '',
+    // 工作经历
+    we_id: 0,
+    addOrEdit3: 0,
+    company: '',
+    entryTime: '入职时间',
+    departureTime: '至今',
+    jobTitle: '请选择',
+    jobTitleId: 0,
+    jobTitleIndex: 0,
+    jobTitleArray: [],
+    jobDuties: ''
   },
   openMask(e) {
     var item = e.currentTarget.dataset.item
@@ -152,6 +163,81 @@ Page({
       this.setData({
         addOrEdit2: addOrEdit
       })
+      if (addOrEdit == 1) {
+        var educationalArray = JSON.parse(JSON.stringify(this.data.educationalArray))
+        educationalArray[1] = []
+        this.setData({
+          educationalArray: educationalArray,
+          ee_id: 0,
+          school: '',
+          educationalIndex: [0, 0],
+          education: '',
+          educationId: 0,
+          fullPart: '',
+          fullPartId: 0,
+          major: '',
+          timeRangeIndex: [0, 2],
+          timeRangeL: '',
+          timeRangeR: '',
+          schoolExperience: ''
+        })
+      } else {
+        var educational = this.data.educational[e.currentTarget.dataset.index]
+        var educationalArray = JSON.parse(JSON.stringify(this.data.educationalArray))
+        if (educational.ee_education > 3) {
+          educationalArray[1] = ['全日制', '非全日制']
+        }
+        var timeRangeArray = JSON.parse(JSON.stringify(this.data.timeRangeArray))
+        var timeRangeIndexL = timeRangeArray[0].indexOf(Number(educational.ee_start_year))
+        var arr = this.getYear(Number(educational.ee_start_year))
+        var timeRangeIndexR = arr.indexOf(Number(educational.ee_end_year))
+        timeRangeArray[1] = arr
+        this.setData({
+          timeRangeArray: timeRangeArray,
+          educationalArray: educationalArray,
+          ee_id: educational.ee_id,
+          school: educational.ee_school,
+          educationalIndex: [educational.ee_education - 1, educational.ee_education_type - 1],
+          education: educational.education,
+          educationId: educational.ee_education,
+          fullPart: educationalArray[1][educational.ee_education_type - 1],
+          fullPartId: educational.ee_education_type,
+          major: educational.ee_major,
+          timeRangeIndex: [timeRangeIndexL, timeRangeIndexR],
+          timeRangeL: educational.ee_start_year,
+          timeRangeR: educational.ee_end_year,
+          schoolExperience: educational.ee_association_activity
+        })
+      }
+    } else if (this.data.maskType == 5) {
+      var addOrEdit = e.currentTarget.dataset.addoredit
+      this.setData({
+        addOrEdit3: addOrEdit
+      })
+      if (addOrEdit == 1) {
+        this.setData({
+          we_id: 0,
+          company: '',
+          entryTime: '入职时间',
+          departureTime: '至今',
+          jobTitle: '请选择',
+          jobTitleId: 0,
+          jobTitleIndex: 0,
+          jobDuties: ''
+        })
+      } else {
+        var work_experience = this.data.work_experience[e.currentTarget.dataset.index]
+        this.setData({
+          we_id: work_experience.we_id,
+          company: work_experience.we_corporate_name,
+          entryTime: work_experience.we_start_date,
+          departureTime: work_experience.we_end_date,
+          jobTitle: work_experience.work,
+          jobTitleId: work_experience.we_position_id,
+          jobTitleIndex: work_experience.we_position_id - 1,
+          jobDuties: work_experience.we_job_content
+        })
+      }
     }
   },
   z_input(e) {
@@ -172,7 +258,6 @@ Page({
         areaWords: cur
       })
     } else if (item == 4) {
-      console.log(val);
       this.setData({
         school: val
       })
@@ -183,6 +268,14 @@ Page({
     } else if (item == 6) {
       this.setData({
         schoolExperience: val
+      })
+    } else if (item == 7) {
+      this.setData({
+        company: val
+      })
+    } else if (item == 8) {
+      this.setData({
+        jobDuties: val
       })
     }
   },
@@ -307,31 +400,120 @@ Page({
         ee_major: this.data.major,
         ee_start_year: this.data.timeRangeL,
         ee_end_year: this.data.timeRangeR,
-        // ee_association_activity: this.data.salaryMax
+        ee_association_activity: this.data.schoolExperience
       }
-      console.log(obj);
-      // if (obj.je_job_location != '' && obj.expectJobId != 0 && obj.je_job_salary_min != '' && obj.je_job_salary_max != '') {
-      //   app.post('/Job/setJobExpectation', obj).then((res) => {
-      //     if (res.data.status == 1) {
-      //       this.setData({
-      //         show: false
-      //       })
-      //       this.getData()
-      //     } else {
-      //       wx.showToast({
-      //         title: '保存失败',
-      //         icon: 'error',
-      //         duration: 1000
-      //       })
-      //     }
-      //   })
-      // } else {
-      //   wx.showToast({
-      //     title: '请完善信息',
-      //     icon: 'error',
-      //     duration: 1000
-      //   })
-      // }
+      if (obj.ee_school != '' && obj.ee_education != '' && obj.ee_major != '' && obj.ee_start_year != '' && obj.ee_association_activity != '') {
+        app.post('/Job/setEducationalExperience', obj).then((res) => {
+          if (res.data.status == 1) {
+            this.setData({
+              show: false
+            })
+            this.getData()
+          } else {
+            wx.showToast({
+              title: '保存失败',
+              icon: 'error',
+              duration: 1000
+            })
+          }
+        })
+      } else {
+        wx.showToast({
+          title: '请完善信息',
+          icon: 'error',
+          duration: 1000
+        })
+      }
+    } else if (item == 5) {
+      var obj = {
+        token: wx.getStorageSync('userInfo').token,
+        we_id: this.data.we_id,
+        we_corporate_name: this.data.company,
+        we_start_date: this.data.entryTime,
+        we_end_date: this.data.departureTime,
+        we_position_id: this.data.jobTitleId,
+        we_job_content: this.data.jobDuties
+      }
+      if (obj.we_corporate_name != '' && obj.we_start_date != '入职时间' && obj.we_position_id != 0 && obj.we_job_content != '') {
+        app.post('/Job/setWorkExperience', obj).then((res) => {
+          if (res.data.status == 1) {
+            this.setData({
+              show: false
+            })
+            this.getData()
+          } else {
+            wx.showToast({
+              title: '保存失败',
+              icon: 'error',
+              duration: 1000
+            })
+          }
+        })
+      } else {
+        wx.showToast({
+          title: '请完善信息',
+          icon: 'error',
+          duration: 1000
+        })
+      }
+    }
+  },
+  cancel(e) {
+    var item = e.currentTarget.dataset.item
+    if (item == 1) {
+      app.post('/Job/delJobExpectation', {
+        token: wx.getStorageSync('userInfo').token,
+        je_id: this.data.je_id
+      }).then((res) => {
+        if (res.data.status == 1) {
+          this.setData({
+            show: false
+          })
+          this.getData()
+        } else {
+          wx.showToast({
+            title: '删除失败',
+            icon: 'error',
+            duration: 1000
+          })
+        }
+      })
+    } else if (item == 2) {
+      app.post('/Job/delEducationalExperience', {
+        token: wx.getStorageSync('userInfo').token,
+        ee_id: this.data.ee_id
+      }).then((res) => {
+        if (res.data.status == 1) {
+          this.setData({
+            show: false
+          })
+          this.getData()
+        } else {
+          wx.showToast({
+            title: '删除失败',
+            icon: 'error',
+            duration: 1000
+          })
+        }
+      })
+    } else if (item == 3) {
+      app.post('/Job/delWorkExperience', {
+        token: wx.getStorageSync('userInfo').token,
+        we_id: this.data.we_id
+      }).then((res) => {
+        if (res.data.status == 1) {
+          this.setData({
+            show: false
+          })
+          this.getData()
+        } else {
+          wx.showToast({
+            title: '删除失败',
+            icon: 'error',
+            duration: 1000
+          })
+        }
+      })
     }
   },
   bindChange(e) {
@@ -390,6 +572,19 @@ Page({
         timeRangeL: this.data.timeRangeArray[0][e.detail.value[0]],
         timeRangeR: this.data.timeRangeArray[1][e.detail.value[1]],
       })
+    } else if (item == 9) {
+      this.setData({
+        entryTime: e.detail.value
+      })
+    } else if (item == 10) {
+      this.setData({
+        departureTime: e.detail.value
+      })
+    } else if (item == 11) {
+      this.setData({
+        jobTitle: this.data.position[e.detail.value].p_name,
+        jobTitleId: this.data.position[e.detail.value].p_id
+      })
     }
   },
   bindColumnChange(e) {
@@ -428,22 +623,21 @@ Page({
         educationalIndex[1] = 0
         this.setData({
           educationalArray: educationalArray,
-          educationalIndex:educationalIndex
+          educationalIndex: educationalIndex
         })
       }
     } else if (item == 8) {
       if (e.detail.column == 0) {
         var arr = this.getYear(timeRangeArray[0][e.detail.value])
-        timeRangeArray[1]=arr
+        timeRangeArray[1] = arr
         timeRangeIndex[0] = e.detail.value
         timeRangeIndex[1] = 2
         this.setData({
-          timeRangeArray:timeRangeArray,
+          timeRangeArray: timeRangeArray,
           timeRangeIndex: timeRangeIndex
         })
       }
     }
-
   },
   // 个人信息
   avatar() {
@@ -461,7 +655,6 @@ Page({
         fullOrPart: 2
       })
     }
-
   },
   // 上传图片
   upload(item) {
@@ -521,7 +714,6 @@ Page({
       token: wx.getStorageSync('userInfo').token
     }).then((res) => {
       if (res.data.status == 1) {
-        console.log(res.data.data);
         try {
           if (res.data.data.job_expectation.length != 0) {
             res.data.data.job_expectation.forEach(i => {
@@ -533,6 +725,16 @@ Page({
                   }
                 })
               })
+            })
+          }
+          if (res.data.data.educational.length != 0) {
+            res.data.data.educational.forEach(i => {
+              i.education = this.data.educationals.find(j => i.ee_education == j.e_id).e_name
+            })
+          }
+          if (res.data.data.work_experience.length != 0) {
+            res.data.data.work_experience.forEach(i => {
+              i.work = this.data.position.find(j => i.we_position_id == j.p_id).p_name
             })
           }
           var stateJobs = this.data.stateJob.find(i => i.js_id == res.data.data.basic.r_job_status)
@@ -551,9 +753,9 @@ Page({
       }
     })
   },
-  getYear(year){
+  getYear(year) {
     var arrs = []
-    for (var i = year+1; i <= year+5; i++) {
+    for (var i = year + 1; i <= year + 5; i++) {
       arrs.unshift(i)
     }
     return arrs
@@ -572,6 +774,7 @@ Page({
       })
       this.setData({
         expectJobArray: arr,
+        jobTitleArray: arr,
         position: res.data.data
       })
     })
@@ -603,7 +806,7 @@ Page({
     }
     var arrs = this.getYear(year)
     this.setData({
-      timeRangeArray:[arr,arrs]
+      timeRangeArray: [arr, arrs]
     })
     this.getData()
   },

@@ -2,64 +2,73 @@
 <view class="addPosition">
   <view class="tops">
     <view class="title">
-    <text>设定想找的工作</text>
-    <text class="title_right"><text class="{{desiredPosition?'title_right_color':''}}">{{desiredPosition.length}}</text>/3</text>
+      <text>设定想找的工作</text>
+      <text class="title_right"><text class="{{job_expectation?'title_right_color':''}}">{{job_expectation.length}}</text>/5</text>
     </view>
     <view class="explain">添加期望职位，方便更精准寻找心仪岗位</view>
   </view>
   <view class="list">
-    <view class="item" bindtap="openMask" data-item="1">
+    <view class="item" bindtap="openMask" data-index="{{index}}" data-addorEdit="2" wx:for="{{job_expectation}}" wx:key="index">
       <view class="cont">
-        <view class="top">[杭州]行政总厨</view>
-        <view class="bottom">1万-1.2万</view>
+        <view class="top">[{{item.city}}]{{item.work}}</view>
+        <view class="bottom">{{item.je_job_salary_min}}-{{item.je_job_salary_max}}</view>
       </view>
-        <image class="arrow" src="../../../icon/mine_right_arrow.png"></image>
+      <image class="arrow" src="../../../icon/mine_right_arrow.png"></image>
     </view>
-    <view class="adds" bindtap="openMask" data-item="1">
+    <view class="adds" bindtap="openMask" data-addorEdit="1" wx:if="{{job_expectation.length<5}}">
       <view class="add">
         <view class="cross"></view>
         <view class="vertical"></view>
       </view>
-      <view class="txt">继续添加期望职位</view>
+      <view class="txt">添加期望职位</view>
     </view>
   </view>
 </view>
-<page-container class="page-container" show="{{show}}" position="right" bind:leave="eventhandle">
+<page-container class="page-container" show="{{show}}" position="right">
   <view class="editPosition">
     <view class="title">编辑求职期望</view>
     <view class="item">
       <view class="items">
         <view class="item_titel">求职类型</view>
         <view class="items_right">
-          <view class="full active">全职</view>
-          <view class="part">兼职</view>
+          <view class="full {{fullOrPart==1?'active':''}}" bindtap="fullOrPart" data-item="1">全职</view>
+          <view class="part {{fullOrPart==1?'':'active'}}" bindtap="fullOrPart" data-item="2">兼职</view>
         </view>
       </view>
     </view>
     <view class="item">
       <view class="item_titel">工作地址</view>
-      <view class="items">
-        <view class="item_left">选择地址</view>
+      <navigator class="items" url="../../../tertiary/pages/citySelection/index?city={{city}}&citycode={{citycode}}">
+        <view class="item_left {{city=='选择地址'?'':'fontColor'}}">{{city}}</view>
         <image class="items_img" src="../../../icon/mine_right_arrow.png"></image>
-      </view>
+      </navigator>
     </view>
     <view class="item">
       <view class="item_titel">期望职位</view>
-      <view class="items">
-        <view class="item_left">选择职位</view>
-        <image class="items_img" src="../../../icon/mine_right_arrow.png"></image>
-      </view>
+      <picker bindchange="bindChange" data-item="1" value="{{expectJobIndex}}" range="{{expectJobArray}}">
+        <view class="picker">
+          <view class="items">
+            <view class="item_left {{expectJob=='选择职位'?'':'fontColor'}}">{{expectJob}}</view>
+            <image class="items_img" src="../../../icon/mine_right_arrow.png"></image>
+          </view>
+        </view>
+      </picker>
     </view>
     <view class="item">
       <view class="item_titel">薪资要求</view>
-      <view class="items">
-        <view class="item_left">选择薪资范围</view>
-        <image class="items_img" src="../../../icon/mine_right_arrow.png"></image>
-      </view>
+      <picker mode="multiSelector" bindchange="bindChange" bindcolumnchange="bindColumnChange" data-item="2" value="{{salaryIndex}}" range="{{salaryArray}}">
+        <view class="picker">
+          <view class="items">
+            <view class="item_left" wx:if="{{!salaryMax}}">选择薪资范围</view>
+            <view class="item_left fontColor" wx:if="{{salaryMax}}">{{salaryMin+'-'+salaryMax}}</view>
+            <image class="items_img" src="../../../icon/mine_right_arrow.png"></image>
+          </view>
+        </view>
+      </picker>
     </view>
-    <view class="editPosition_bottom">
-      <view class="cancel">删除</view>
-      <view class="save">保存</view>
+    <view class="editPosition_bottom ">
+      <view class="cancel" wx:if="{{addOrEdit!=1&&job_expectation.length!=0}}" bindtap="cancel" data-item="1">删除</view>
+      <view class="save" bindtap="save">保存</view>
     </view>
   </view>
 </page-container>
