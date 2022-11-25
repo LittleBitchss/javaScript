@@ -120,7 +120,6 @@
 }
 
 .jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .jobSearchSquare_filter_right .jobSearchSquare_filter_right_item {
-  width: 78rpx;
   height: 34rpx;
   background-color: #e0e5f9;
   border-radius: 5rpx;
@@ -128,6 +127,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 8rpx 12rpx;
 }
 
 .jobRecruitment .jobSearch .jobSearch_top .jobSearchSquare .list {
@@ -251,10 +251,12 @@
   background-image: url(https://qunyan.canancn.com/assets/applet/img/jobRecruitment/photo.png);
   background-size: 100% 100%;
 }
+
 .jobRecruitment .jobSearch .jobSearch_top .mine .mine_top .userCard .userCard_photo {
   width: 100%;
   height: 100%;
 }
+
 .jobRecruitment .jobSearch .jobSearch_top .mine .mine_top .userCard .userCard_name {
   font-family: 'Regular';
   font-size: 34rpx;
@@ -351,15 +353,135 @@
 
 .page-container .region {
   height: 100%;
+  overflow: auto;
+  padding-bottom: 140rpx;
 }
 
+.page-container .region .midden {
+  height: 100%;
+  display: flex;
+  font-family: 'Medium';
+  color: #333;
+  font-size: 28rpx;
+}
+
+.page-container .region .midden .left {
+  height: 100%;
+  flex: 3;
+  overflow: auto;
+  background-color: #eee;
+}
+
+.page-container .region .midden .left_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25rpx 10rpx;
+  text-align: center;
+}
+
+.page-container .region .midden .left_items {
+  color: #4768f3;
+}
+
+.page-container .region .midden .center {
+  height: 100%;
+  flex: 5;
+  overflow: auto;
+  border-right: 2rpx solid #e5e5e5;
+}
+
+.page-container .region .midden .center .center_item {
+  padding: 25rpx 20rpx 25rpx 50rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-container .region .midden .center .pickOn {
+  background-color: #eee;
+  color: #4768f3;
+}
+.page-container .region .midden .center .center_item .center_item_area {
+  max-width: 150rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.page-container .region .midden .center .center_item .center_item_circle {
+  width: 36rpx;
+  height: 36rpx;
+  color: #fff;
+  background-color: #4768f3;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  font-family: 'Regular';
+}
+
+.page-container .region .midden .right {
+  height: 100%;
+  flex: 5;
+  overflow: auto;
+}
+.page-container .region .midden .right .center_item {
+  padding: 25rpx 25rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-container .region .midden .right .pickOn {
+  color: #4768f3;
+}
+.page-container .region .bottom {
+  height: 140rpx;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35rpx;
+  font-family: 'Regular';
+  border-top: 2rpx solid #e5e5e5;
+}
+
+.page-container .region .bottom .empty {
+  height: 70rpx;
+  width: 204rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 5rpx;
+  margin-right: 22rpx;
+}
+
+.page-container .region .bottom .confirm {
+  height: 70rpx;
+  width: 478rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4768f3;
+  border-radius: 5rpx;
+  color: #fff;
+}
 
 
 
 .page-container .filter {
   height: 100%;
-  position: relative;
-  overflow: hidden;
+  overflow: auto;
+  padding-bottom: 140rpx;
 }
 
 .page-container .filter .titles {
@@ -421,8 +543,11 @@
   align-items: center;
   font-size: 35rpx;
   font-family: 'Regular';
+  border-top: 2rpx solid #e5e5e5;
+  background-color: #fff;
 }
-.page-container .filter .bottom .empty{
+
+.page-container .filter .bottom .empty {
   height: 70rpx;
   width: 204rpx;
   display: flex;
@@ -432,7 +557,8 @@
   border-radius: 5rpx;
   margin-right: 22rpx;
 }
-.page-container .filter .bottom .confirm{
+
+.page-container .filter .bottom .confirm {
   height: 70rpx;
   width: 478rpx;
   display: flex;

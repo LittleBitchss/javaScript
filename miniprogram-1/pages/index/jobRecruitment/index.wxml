@@ -22,8 +22,8 @@
             <view class="jobSearchSquare_filter_left_item {{leftTilterActive3}}" bindtap="leftTilter" data-item="3">最新</view>
           </view>
           <view class="jobSearchSquare_filter_right">
-            <view class="jobSearchSquare_filter_right_item" bindtap="openMask" data-item="1">杭州</view>
-            <view class="jobSearchSquare_filter_right_item" bindtap="openMask" data-item="2">筛选</view>
+            <view class="jobSearchSquare_filter_right_item" bindtap="openMask" data-item="1">{{cityss}}</view>
+            <view class="jobSearchSquare_filter_right_item" bindtap="openMask" data-item="2">筛选{{filtersNum?'·'+filtersNum:''}}</view>
           </view>
         </view>
         <scroll-view scroll-y="true" class="list">
@@ -140,9 +140,30 @@
   </view>
   <view class="recruitment" wx:if=""></view>
 </view>
-<page-container class="page-container" show="{{show}}" position="right">
+<page-container class="page-container" show="{{show}}" position="right" bind:leave="eventhandle">
   <view class="region" wx:if="{{maskType==1}}">
-    是是是
+    <view class="midden">
+      <view class="left">
+        <view class="left_item left_items">{{citys}}</view>
+        <navigator class="left_item" url="../../../tertiary/pages/citySelection/index?city={{citys}}&citycode={{citycode}}&flag=1">切换城市</navigator>
+      </view>
+      <view class="center">
+        <view class="center_item {{item.num?'pickOn':''}}" wx:for="{{area}}" wx:key="index" bindtap="clickAreas" data-index="{{index}}">
+          <view class="center_item_area">{{item.name}}</view>
+          <view class="center_item_circle" wx:if="{{item.flag}}">{{item.street.length==0?'全':item.street.length}}</view>
+        </view>
+      </view>
+      <view class="right">
+        <view class="center_item pickOn" wx:if="{{flag==0}}">{{'全'+cityss}}</view>
+        <block wx:if="{{flag==1}}">
+          <view class="center_item {{item.active?'pickOn':''}}" wx:for="{{street}}" wx:key="index" bindtap="clickStreet"  data-index="{{index}}">{{item.name}}</view>
+        </block>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="empty" bindtap="empty">清空</view>
+      <view class="confirm" bindtap="confirm">确认</view>
+    </view>
   </view>
   <view class="filter" wx:if="{{maskType==2}}">
     <view class="educationBackground">
@@ -155,20 +176,20 @@
     <view class="salaryPackage">
       <view class="titles">薪资待遇<text class="titles_txt">（单选）</text></view>
       <view class="content">
-        <view class="item {{active2}}">不限</view>
-        <view wx:for="{{salaryPackage}}" wx:key="index" class="item {{item.active}}">{{item.s_name}}</view>
+        <view class="item {{active2}}" bindtap="tilters" data-item="2" data-type="1">不限</view>
+        <view wx:for="{{salaryPackage}}" wx:key="index" class="item {{item.active}}" bindtap="tilters" data-item="2" data-index="{{index}}" data-type="2">{{item.s_name}}</view>
       </view>
     </view>
     <view class="experienceRequirement">
       <view class="titles">经验要求</view>
       <view class="content">
-        <view class="item {{active3}}">不限</view>
-        <view wx:for="{{experienceRequirement}}" wx:key="index" class="item {{item.active}}">{{item.e_name}}</view>
+        <view class="item {{active3}}" bindtap="tilters" data-item="3" data-type="1">不限</view>
+        <view wx:for="{{experienceRequirement}}" wx:key="index" class="item {{item.active}}" bindtap="tilters" data-item="3" data-type="2" data-index="{{index}}">{{item.e_name}}</view>
       </view>
     </view>
     <view class="bottom">
-      <view class="empty">清空</view>
-      <view class="confirm">确认</view>
+      <view class="empty" bindtap="empty">清空</view>
+      <view class="confirm" bindtap="confirm">确认</view>
     </view>
   </view>
 </page-container>

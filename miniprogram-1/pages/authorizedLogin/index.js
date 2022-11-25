@@ -46,6 +46,7 @@ Page({
                     if (res.data.status == 1) {
                       userInfo.token = res.data.data.token
                       userInfo.user_id = res.data.data.user_id
+                      console.log(userInfo);
                       wx.setStorageSync('userInfo',userInfo)  //存储用户信息
                       wx.showToast({
                         title: "授权成功",

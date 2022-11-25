@@ -85,7 +85,7 @@ App({
         })
       }
     })
-  }
+  },
 })
 // phoneClick: function (event) {
 //   wx.makePhoneCall({

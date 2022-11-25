@@ -138,6 +138,9 @@ Page({
           this.setData({
             show: false
           })
+          const pages = getCurrentPages()
+          const currentPage = pages[pages.length - 2]
+          currentPage.getPosition()
           this.getData()
         } else {
           wx.showToast({
@@ -154,6 +157,29 @@ Page({
         duration: 1000
       })
     }
+
+  },
+  cancel() {
+    app.post('/Job/delJobExpectation', {
+      token: wx.getStorageSync('userInfo').token,
+      je_id: this.data.je_id
+    }).then((res) => {
+      if (res.data.status == 1) {
+        this.setData({
+          show: false
+        })
+        const pages = getCurrentPages()
+        const currentPage = pages[pages.length - 2]
+        currentPage.getPosition()
+        this.getData()
+      } else {
+        wx.showToast({
+          title: '删除失败',
+          icon: 'error',
+          duration: 1000
+        })
+      }
+    })
 
   },
   getData() {

@@ -67,7 +67,7 @@
       </picker>
     </view>
     <view class="editPosition_bottom ">
-      <view class="cancel" wx:if="{{addOrEdit!=1&&job_expectation.length!=0}}" bindtap="cancel" data-item="1">删除</view>
+      <view class="cancel" wx:if="{{addOrEdit!=1&&job_expectation.length!=0}}" bindtap="cancel">删除</view>
       <view class="save" bindtap="save">保存</view>
     </view>
   </view>

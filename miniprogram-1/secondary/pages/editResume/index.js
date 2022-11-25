@@ -374,6 +374,9 @@ Page({
             this.setData({
               show: false
             })
+            const pages = getCurrentPages()
+            const currentPage = pages[pages.length - 2]
+            currentPage.getPosition()
             this.getData()
           } else {
             wx.showToast({
@@ -469,6 +472,9 @@ Page({
           this.setData({
             show: false
           })
+          const pages = getCurrentPages()
+          const currentPage = pages[pages.length - 2]
+          currentPage.getPosition()
           this.getData()
         } else {
           wx.showToast({

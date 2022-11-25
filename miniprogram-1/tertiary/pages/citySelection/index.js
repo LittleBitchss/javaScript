@@ -48,9 +48,11 @@ Page({
     }, {
       cityCode: 500000,
       city: '重庆市'
-    }]
+    }],
+    flag:0
   },
   onLoad: function (e) {
+    console.log(e);
     // 生命周期函数--监听页面加载
     var searchLetter = city.searchLetter;
     var cityList = city.cityList();
@@ -69,8 +71,10 @@ Page({
       winHeight: winHeight,
       itemH: itemH,
       searchLetter: tempObj,
-      cityList: cityList
+      cityList: cityList,
+      flag:e.flag
     })
+    console.log(cityList);
     cityList.forEach(i=>{
       i.cityInfo.find(j=>{
         if(e.citycode==j.code){
@@ -131,10 +135,21 @@ Page({
     })
     var pages = getCurrentPages(); //  获取页面栈
     var prevPage = pages[pages.length - 2]; // 上一个页面
-    prevPage.setData({
-      city: city,
-      citycode: citycode,
-    })
+    if(this.data.flag){
+      var cityss = city.slice(0,city.length-1)
+      prevPage.setData({
+        citys: city,
+        cityss:cityss,
+        citycode: citycode,
+      })
+      console.log(cityss);
+      prevPage.setTitles(cityss)
+    }else{
+      prevPage.setData({
+        city: city,
+        citycode: citycode,
+      })
+    }
     wx.navigateBack({
       delta: 1
     })
@@ -148,10 +163,21 @@ Page({
     })
     var pages = getCurrentPages(); //  获取页面栈
     var prevPage = pages[pages.length - 2]; // 上一个页面
-    prevPage.setData({
-      city: city,
-      citycode: citycode,
-    })
+    if(this.data.flag){
+      var cityss = city.slice(0,city.length-1)
+      console.log(cityss);
+      prevPage.setData({
+        citys: city,
+        cityss:cityss,
+        citycode: citycode,
+      })
+      prevPage.setTitles(cityss)
+    }else{
+      prevPage.setData({
+        city: city,
+        citycode: citycode,
+      })
+    }
     wx.navigateBack({
       delta: 1
     })

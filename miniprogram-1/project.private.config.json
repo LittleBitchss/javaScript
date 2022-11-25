@@ -9,7 +9,7 @@
       "list": [
         {
           "name": "",
-          "pathName": "pages/index/jobRecruitment/index",
+          "pathName": "pages/authorizedLogin/index",
           "query": "",
           "launchMode": "default",
           "scene": null
