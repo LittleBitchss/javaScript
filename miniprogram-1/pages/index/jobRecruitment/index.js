@@ -6,15 +6,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    flag:0,
+    flag: 0,
     citys: '',
     cityss: '',
     citycode: '',
     area: [],
-    // areas: '',
-    // areass: '',
-    // areacode: '',
+    areas: [],
+    streetCode: [],
+    streetCodes: [],
     street: [],
+    streets: [],
     jobSearchSquare: {
       img: "../../../icon/jobSearchSquare-active.png",
       fontColor: "fontColor"
@@ -53,7 +54,7 @@ Page({
     educationNums: [],
     salaryNums: [],
     experienceNums: [],
-    id:0
+    id: 0
   },
   tabToggle(e) {
     var index = e.currentTarget.dataset.index
@@ -106,11 +107,13 @@ Page({
     var c = this.data.experienceNum
     var d = this.data.p_id
     var e = this.data.leftTilterNum
+    var f = this.data.streetCodes
     console.log(a);
     console.log(b);
     console.log(c);
     console.log(d);
     console.log(e);
+    console.log(f);
   },
   leftTilter(e) {
     var item = e.currentTarget.dataset.item
@@ -126,11 +129,13 @@ Page({
       var c = this.data.experienceNum
       var d = this.data.p_id
       var e = this.data.leftTilterNum
+      var f = this.data.streetCodes
       console.log(a);
       console.log(b);
       console.log(c);
       console.log(d);
       console.log(e);
+      console.log(f);
     } else if (item == 2) {
       this.setData({
         leftTilterActive1: '',
@@ -142,12 +147,14 @@ Page({
       var b = this.data.salaryNum
       var c = this.data.experienceNum
       var d = this.data.p_id
-      var e = this.data.leftTilterNum
+      var e = this.data.streetCodes
+      var f = this.data.streetCodes
       console.log(a);
       console.log(b);
       console.log(c);
       console.log(d);
       console.log(e);
+      console.log(f);
     } else if (item == 3) {
       this.setData({
         leftTilterActive1: '',
@@ -160,11 +167,13 @@ Page({
       var c = this.data.experienceNum
       var d = this.data.p_id
       var e = this.data.leftTilterNum
+      var f = this.data.streetCodes
       console.log(a);
       console.log(b);
       console.log(c);
       console.log(d);
       console.log(e);
+      console.log(f);
     }
   },
   openMask(e) {
@@ -175,8 +184,19 @@ Page({
       confirm: 0
     })
     if (item == 1) {
+      var a = this.data.streetCodes.length ? ' · ' + this.data.streetCodes.length : ''
       wx.setNavigationBarTitle({
-        title: this.data.cityss,
+        title: this.data.cityss + a,
+      })
+      if(this.data.streetCodes.length!=0){
+        this.setData({
+          flag : 1
+        })
+      }
+      this.setData({
+        area: this.data.areas,
+        street: this.data.streets,
+        streetCode: this.data.streetCodes,
       })
     } else if (item == 2) {
       this.setTitle()
@@ -329,7 +349,6 @@ Page({
       this.setTitle()
     } else if (item == 3) {
       if (type == 1) {
-        console.log(salaryPackage);
         experienceRequirement.forEach(i => {
           i.active = ''
         })
@@ -377,11 +396,13 @@ Page({
     var c = this.data.experienceNum
     var d = this.data.p_id
     var e = this.data.leftTilterNum
-    console.log(a);
-    console.log(b);
-    console.log(c);
-    console.log(d);
-    console.log(e);
+    var f = this.data.streetCodes
+      console.log(a);
+      console.log(b);
+      console.log(c);
+      console.log(d);
+      console.log(e);
+      console.log(f);
   },
   empty() {
     var educationBackground = JSON.parse(JSON.stringify(this.data.educationBackground))
@@ -458,11 +479,13 @@ Page({
             var c = this.data.experienceNum
             var d = this.data.p_id
             var e = this.data.leftTilterNum
+            var f = this.data.streetCodes
             console.log(a);
             console.log(b);
             console.log(c);
             console.log(d);
             console.log(e);
+            console.log(f);
           }
         })
       } else {
@@ -480,138 +503,238 @@ Page({
     }).then((res) => {
       if (res.data.status == 1) {
         res.data.data.forEach(i => {
-          i.num = 0,
+          i.num = 0
           i.street = []
           i.streetCode = ''
-          i.flag=false
+          i.flag = false
         })
         res.data.data.unshift({
           code: this.data.citycode,
-          name: '全'+this.data.cityss,
+          name: '全' + this.data.cityss,
           num: 1,
-          flag:false
+          flag: false
         })
         this.setData({
-          area: res.data.data
+          area: res.data.data,
+          areas: res.data.data
         })
       }
     })
   },
-  clickAreas(e){
-    var area = JSON.parse(JSON.stringify(this.data.area))
-    var index = e.currentTarget.dataset.index
-    if(index){
-      area.forEach(i=>{
-        i.num = 0
-      })
-      area[index].num = 1
-      if(index == this.data.id){
-        area[index].flag = !area[index].flag
-        if(area[index].streetCode){
-          area[index].streetCode = ''
-        }else{
-          area[index].streetCode = area[index].code
-          area[index].street = []
-        }
-        this.getStreet(area[index].name,area[index].code,index,2)
-      }else{
-        area[index].streetCode = area[index].code
-        area[index].flag = true
-        this.getStreet(area[index].name,area[index].code,index,1)
-      }
-      this.setData({
-        flag:1,
-        id:index
-      })
-      // this.getStreet(area[index].name,area[index].code,index)
-    }else{
-      area.forEach(i=>{
-        i.num = 0
-        i.flag = false
-      })
-      area[0].num = 1
-      this.setData({
-        flag:0,
-        street:[]
-      })
-    }
-    this.setData({
-      area:area
-    })
-  },
-  getStreet(areaname,areacode,index,type) {
-    app.post('/region/getStreets', {
-      area_code: areacode
-    }).then((res) => {
-      if (res.data.status == 1) {
-        res.data.data.unshift({
-          code: areacode,
-          name: '全'+areaname,
-          active: 1
-        })
-        if(type==1){
-          this.data.area[index].street.forEach(i=>{
-            res.data.data.forEach(j=>{
-              if(j.code == i){
-                j.active = 1
-              }
-            })
-          })
-          if(this.data.area[index].street.length != 0){
-            res.data.data[0].active = 0
-          }else{
-            res.data.data[0].active = 1
-          }
-        }else{
-          if(res.data.data[0].active == 1){
-            res.data.data.forEach(i => {
-              i.active = 0
-            })
-          }else{
-            console.log(1);
-            res.data.data[0].active = 1
-          }
-          // res.data.data.forEach(i => {
-          //   i.active = 0
-          // })
-          // if(area[index].street.length == 0){
-          //   res.data.data[0].active = 1
-          // }else{
-          //   res.data.data[0].active = 0
-          // }
-          // area[index].street = []
-        }
-        this.setData({
-          street: res.data.data,
-          // area:area
-        })
-      }
-    })
-  },
-  clickStreet(e){
+  clickAreas(e) {
     var area = JSON.parse(JSON.stringify(this.data.area))
     var street = JSON.parse(JSON.stringify(this.data.street))
     var index = e.currentTarget.dataset.index
-    if(index){
-      street[0].active = 0
-      area[this.data.id].streetCode = ''
-      var f = area[this.data.id].street.indexOf(street[index].code)
-      if(f == -1){
-        area[this.data.id].street.push(street[index].code)
+    if (index) {
+      area.forEach(i => {
+        i.num = 0
+      })
+      area[index].num = 1
+      if (index == this.data.id) {
+        if (area[index].flag) {
+          area[index].flag = false
+          area[index].streetCode = ''
+          street.forEach(i => {
+            i.active = 0
+          })
+          area[index].street = []
+        } else {
+          area[index].flag = true
+          street[0].active = 1
+          area[index].streetCode = area[index].code
+        }
+      } else {
+        if (area[index].street.length == 0) {
+          area[index].streetCode = area[index].code
+        }
+        area[index].flag = true
+        if (this.data.streetCode.length >= 9 && this.data.streetCode.indexOf(area[index].streetCode) == -1) {
+          wx.showToast({
+            title: '最多选择9个~',
+            icon: 'success',
+            duration: 1000
+          })
+          return
+        }
       }
-      street[index].active = 1
-    }else{
+      this.getStreet(area, area[index].name, area[index].code, index)
+      this.setData({
+        flag: 1,
+        id: index,
+        street: street,
+        area: area
+      })
+      this.getStreetCode()
+    } else {
+      this.remove()
+    }
+  },
+  getStreet(area, areaname, areacode, index) {
+    if (this.data.street.length != 0) {
+      if (this.data.street[0].code == this.data.area[index].code) {
+        var street = JSON.parse(JSON.stringify(this.data.street))
+        if (area[index].street.length != 0) {
+          area[index].street = []
+          street.forEach(i => {
+            i.active = 0
+          })
+          street[0].active = 0
+        } else {
+          if (street[0].active == 1) {
+            street[0].active = 0
+          } else {
+            street[0].active = 1
+          }
+        }
+        this.setData({
+          street: street
+        })
+      } else {
+        app.post('/region/getStreets', {
+          area_code: areacode
+        }).then((res) => {
+          if (res.data.status == 1) {
+            res.data.data.unshift({
+              code: areacode,
+              name: '全' + areaname,
+              active: 1
+            })
+            if (area[index].street.length != 0) {
+              area[index].street.forEach(i => {
+                res.data.data.forEach(j => {
+                  if (j.code == i) {
+                    j.active = 1
+                  }
+                })
+              })
+              res.data.data[0].active = 0
+            }
+            this.setData({
+              street: res.data.data
+            })
+          }
+        })
+      }
+    } else {
+      app.post('/region/getStreets', {
+        area_code: areacode
+      }).then((res) => {
+        if (res.data.status == 1) {
+          res.data.data.unshift({
+            code: areacode,
+            name: '全' + areaname,
+            active: 1
+          })
+          this.setData({
+            street: res.data.data,
+            streets: res.data.data
+          })
+        }
+      })
+    }
+  },
+  clickStreet(e) {
+    var area = JSON.parse(JSON.stringify(this.data.area))
+    var street = JSON.parse(JSON.stringify(this.data.street))
+    var index = e.currentTarget.dataset.index
+    if (index) {
+      street[0].active = 0
+      area[this.data.id].flag = true
+      area[this.data.id].streetCode = ''
+      if (street[index].active == 1) {
+        var f = area[this.data.id].street.indexOf(street[index].code)
+        area[this.data.id].street.splice(f, 1)
+        street[index].active = 0
+        if (area[this.data.id].street.length == 0) {
+          area[this.data.id].flag = false
+        }
+      } else {
+        var f = area[this.data.id].street.indexOf(street[index].code)
+        if (f == -1) {
+          area[this.data.id].street.push(street[index].code)
+        }
+        street[index].active = 1
+      }
+      if (this.data.streetCode.length >= 9 && this.data.streetCode.indexOf(street[index].code) == -1) {
+        wx.showToast({
+          title: '最多选择9个~',
+          icon: 'success',
+          duration: 1000
+        })
+        return
+      }
+    } else {
       area[this.data.id].street = []
       area[this.data.id].streetCode = street[index].code
-      street.forEach(i=>{
+      area[this.data.id].flag = true
+      street.forEach(i => {
         i.active = 0
       })
       street[0].active = 1
     }
     this.setData({
-      area:area,
-      street:street
+      area: area,
+      street: street
     })
+    this.getStreetCode()
+  },
+  getStreetCode() {
+    var arr = []
+    var arrs = []
+    this.data.area.forEach(i => {
+      if (i.streetCode) {
+        arr.push(i.streetCode)
+      }
+      if (i.street && i.street.length != 0) {
+        i.street.forEach(j => {
+          arrs.push(j)
+        })
+      }
+    })
+    this.setData({
+      streetCode: arr.concat(arrs)
+    })
+    var a = this.data.streetCode.length ? ' · ' + this.data.streetCode.length : ''
+    wx.setNavigationBarTitle({
+      title: this.data.cityss + a,
+    })
+  },
+  remove() {
+    var area = JSON.parse(JSON.stringify(this.data.area))
+    area.forEach(i => {
+      i.num = 0
+      i.flag = false
+      i.streetCode = ''
+      i.street = []
+    })
+    area[0].num = 1
+    this.setData({
+      flag: 0,
+      street: [],
+      streetCode: [],
+      area: area
+    })
+    this.getStreetCode(1)
+  },
+  ensure() {
+    this.setData({
+      show: false,
+      areas: this.data.area,
+      streets: this.data.street,
+      streetCodes: this.data.streetCode,
+    })
+    var a = this.data.educationNum
+    var b = this.data.salaryNum
+    var c = this.data.experienceNum
+    var d = this.data.p_id
+    var e = this.data.leftTilterNum
+    var f = this.data.streetCodes
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    console.log(d);
+    console.log(e);
+    console.log(f);
   },
   /**
    * 生命周期函数--监听页面加载

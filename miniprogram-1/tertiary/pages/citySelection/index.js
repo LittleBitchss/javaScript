@@ -142,8 +142,9 @@ Page({
         cityss:cityss,
         citycode: citycode,
       })
-      console.log(cityss);
       prevPage.setTitles(cityss)
+      prevPage.remove()
+      prevPage.ensure()
     }else{
       prevPage.setData({
         city: city,
@@ -172,6 +173,8 @@ Page({
         citycode: citycode,
       })
       prevPage.setTitles(cityss)
+      prevPage.remove()
+      prevPage.ensure()
     }else{
       prevPage.setData({
         city: city,

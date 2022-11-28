@@ -22,7 +22,7 @@
             <view class="jobSearchSquare_filter_left_item {{leftTilterActive3}}" bindtap="leftTilter" data-item="3">最新</view>
           </view>
           <view class="jobSearchSquare_filter_right">
-            <view class="jobSearchSquare_filter_right_item" bindtap="openMask" data-item="1">{{cityss}}</view>
+            <view class="jobSearchSquare_filter_right_item" bindtap="openMask" data-item="1">{{cityss+(streetCodes.length?'·'+streetCodes.length:'')}}</view>
             <view class="jobSearchSquare_filter_right_item" bindtap="openMask" data-item="2">筛选{{filtersNum?'·'+filtersNum:''}}</view>
           </view>
         </view>
@@ -161,8 +161,8 @@
       </view>
     </view>
     <view class="bottom">
-      <view class="empty" bindtap="empty">清空</view>
-      <view class="confirm" bindtap="confirm">确认</view>
+      <view class="empty" bindtap="remove">清空</view>
+      <view class="confirm" bindtap="ensure">确认</view>
     </view>
   </view>
   <view class="filter" wx:if="{{maskType==2}}">
