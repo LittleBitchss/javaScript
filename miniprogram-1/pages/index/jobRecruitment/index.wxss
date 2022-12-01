@@ -222,7 +222,10 @@
   top: 100rpx;
   right: 74rpx;
 }
-
+.jobRecruitment .jobSearch .jobSearch_top .mine .mine_top .cutUser .cutUserImg{
+  width: 100%;
+  height: 100%;
+}
 .jobRecruitment .jobSearch .jobSearch_top .mine .mine_top .userCard {
   width: 710rpx;
   height: 234rpx;

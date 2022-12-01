@@ -81,7 +81,9 @@
       </view>
       <view class="mine" wx:if="{{index == 2}}">
         <view class="mine_top">
-          <image class="cutUser" src="../../../icon/userSwitch.png"></image>
+          <navigator class="cutUser" open-type="redirect" url="/pages/index/recruitment/index">
+            <image class="cutUserImg" src="../../../icon/userSwitch.png"></image>
+          </navigator>
           <view class="userCard">
             <view class="userCard_photos">
               <image class="userCard_photo"></image>
@@ -138,7 +140,6 @@
       </view>
     </view>
   </view>
-  <view class="recruitment" wx:if=""></view>
 </view>
 <page-container class="page-container" show="{{show}}" position="right" bind:leave="eventhandle">
   <view class="region" wx:if="{{maskType==1}}">
@@ -156,7 +157,7 @@
       <view class="right">
         <view class="center_item pickOn" wx:if="{{flag==0}}">{{'全'+cityss}}</view>
         <block wx:if="{{flag==1}}">
-          <view class="center_item {{item.active?'pickOn':''}}" wx:for="{{street}}" wx:key="index" bindtap="clickStreet"  data-index="{{index}}">{{item.name}}</view>
+          <view class="center_item {{item.active?'pickOn':''}}" wx:for="{{street}}" wx:key="index" bindtap="clickStreet" data-index="{{index}}">{{item.name}}</view>
         </block>
       </view>
     </view>

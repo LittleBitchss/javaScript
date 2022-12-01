@@ -19,7 +19,8 @@
     "pages/userType/index",
     "pages/error/error",
     "pages/ceshi/index",
-    "pages/index/jobRecruitment/index"
+    "pages/index/jobRecruitment/index",
+    "pages/index/recruitment/index"
   ],
   "subpackages": [
     {
@@ -37,7 +38,8 @@
         "pages/user_review/index",
         "pages/association/index",
         "pages/addPosition/index",
-        "pages/editResume/index"
+        "pages/editResume/index",
+        "pages/createTraCQ/index"
       ]
     },
     {

@@ -122,7 +122,7 @@ Page({
         longitude: lng
       },
       success: (res) => {
-        console.log(res.result.ad_info);
+        // console.log(res.result.ad_info);
         var userInfo = wx.getStorageSync('userInfo')
         userInfo.citys = res.result.ad_info.city
         userInfo.citycode = res.result.ad_info.city_code.slice(3,9)

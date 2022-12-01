@@ -1,0 +1,49 @@
+<!--secondary/pages/createTraCQ/index.wxml-->
+<view class="createTraCQ">
+  <view class="title">创建名片</view>
+  <view class="photo">
+    <view class="photo_title">头像</view>
+    <view class="photo_img">
+      <image class="photo_img_s"></image>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_title">真实姓名</view>
+    <view class="item_conts">
+      <text class="{{active1}}">请进行身份验证</text>
+      <image class="item_conts_img" src="../../../icon/mine_right_arrow.png"></image>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_title">我的公司</view>
+    <view class="item_conts" bindtap="openpage">
+      <text class="{{active2}}">请填写您当前就职的公司</text>
+      <image class="item_conts_img" src="../../../icon/mine_right_arrow.png"></image>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_title">我的职务</view>
+    <view class="item_conts">
+      <input class="item_conts_inp" type="text" placeholder="请填写您当前的职务"/>
+    </view>
+  </view>
+  <view class="bottom">
+    <button class="bottom_btn" size="mini">完成</button>
+  </view>
+</view>
+<page-container class="page-container" show="{{show}}" position="right">
+  <view class="company">
+    <view class="company_title">公司全称</view>
+    <view class="company_item">
+      <input class="company_item_inp" type="text" name="" id=""/>
+      <text class="company_item_txt">0/30</text>
+    </view>
+    <view class="company_item">
+      <input class="company_item_inp" type="text" name="" id=""/>
+      <text class="company_item_txt">0/30</text>
+    </view>
+    <view class="company_bottom">
+      <button class="bottom_btn" size="mini">完成</button>
+    </view>
+  </view>
+</page-container>
