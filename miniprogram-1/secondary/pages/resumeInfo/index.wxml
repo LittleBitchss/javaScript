@@ -1,0 +1,17 @@
+<!--secondary/pages/resumeInfo/index.wxml-->
+<scroll-view scroll-y="true" class="list">
+  <view class="list_item">
+    <view class="list_item1">
+      <image class="list_item1_img"></image>
+    </view>
+    <view class="list_item2">
+      <view class="list_item2_name">与呼呼</view>
+      <view class="list_item2_suffer">2年经验·22岁·大学</view>
+      <view class="list_item2_jobs">应聘岗位：炒锅师傅</view>
+      <view class="list_item2_state">求职状态：在职考虑</view>
+    </view>
+    <navigator class="list_item3" url="/secondary/pages/talentInfo/index">
+      点击查看
+    </navigator>
+  </view>
+</scroll-view>

@@ -56,16 +56,17 @@
   width: 100%;
   font-size: 30rpx;
   display: flex;
-  color: #5f5f5f;
+  color: #b6b6b6;
   justify-content: space-between;
   align-items: center;
 }
 
 .createTraCQ .item .item_conts .item_conts_inp{
   width: 100%;
+  color: #000;
 }
 .createTraCQ .item .item_conts .placeholder{
-  color: #5f5f5f;
+  color: #b6b6b6;
 }
 .createTraCQ .item .item_conts .item_conts_img{
   width: 14rpx;
@@ -111,4 +112,208 @@
 }
 .page-container .company .company_item .company_item_inp{
   flex: 1;
+}
+.page-container .company .company_item .placeholder{
+  color: #b6b6b6;
+}
+.page-container .company .company_items{
+  height: 176rpx;
+  margin: 82rpx 34rpx 0;
+  display: flex;
+}
+.page-container .company .company_items .company_items_left{
+  height: 176rpx;
+  width: 390rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Regular';
+}
+.page-container .company .company_items .company_items_left .company_items_left_top{
+  font-size: 30rpx;
+}
+.page-container .company .company_items .company_items_left .company_items_left_bottom{
+  font-size: 25rpx;
+  color: #b6b6b6;
+}
+.page-container .company .company_items .company_items_right{
+  flex: 1;
+  position: relative;
+  background-image: url("https://qunyan.canancn.com/assets/applet/img/chefs/license_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.page-container .company .company_items .company_items_right .company_items_right1{
+  width: 24rpx;
+  height: 24rpx;
+  border-top: 4rpx solid #4781d8;
+  border-left: 4rpx solid #4781d8;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.page-container .company .company_items .company_items_right .company_items_right2{
+  width: 24rpx;
+  height: 24rpx;
+  border-top: 4rpx solid #4781d8;
+  border-right: 4rpx solid #4781d8;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.page-container .company .company_items .company_items_right .company_items_right3{
+  width: 24rpx;
+  height: 24rpx;
+  border-bottom: 4rpx solid #4781d8;
+  border-left: 4rpx solid #4781d8;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.page-container .company .company_items .company_items_right .company_items_right4{
+  width: 24rpx;
+  height: 24rpx;
+  border-bottom: 4rpx solid #4781d8;
+  border-right: 4rpx solid #4781d8;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.page-container .company .company_items .company_items_right .company_items_img{
+  width: 100%;
+  height: 100%;
+}
+
+.page-container .company .company_bottom{
+  width: 100%;
+  height: 100rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page-container .company .company_bottom .bottom_btn{
+  height: 60rpx;
+  width: 702rpx;
+  background-color: #a3b3f9;
+  color: #fff;
+  font-family: 'Medium';
+  font-size: 28rpx;
+}
+
+.page-container .verify .verify_title{
+  font-size: 45rpx;
+  font-family: 'Medium';
+  padding: 66rpx 38rpx 40rpx;
+}
+.page-container .verify .verify_item{
+  height: 112rpx;
+  margin: 0 24rpx;
+  padding: 0 24rpx 18rpx;
+  border-bottom: 2rpx solid #cfcfcf;
+  display: flex;
+  align-items: flex-end;
+  font-size: 25rpx;
+  font-family: 'Regular';
+}
+.page-container .verify .verify_item .verify_item_inp{
+  flex: 1;
+}
+.page-container .verify .verify_item .placeholder{
+  color: #b6b6b6;
+}
+.page-container .verify .verify_items{
+  height: 176rpx;
+  margin: 82rpx 34rpx 0;
+  display: flex;
+}
+.page-container .verify .verify_items .verify_items_left{
+  height: 176rpx;
+  width: 390rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Regular';
+}
+.page-container .verify .verify_items .verify_items_left .verify_items_left_top{
+  font-size: 30rpx;
+}
+.page-container .verify .verify_items .verify_items_left .verify_items_left_bottom{
+  font-size: 25rpx;
+  color: #b6b6b6;
+}
+.page-container .verify .verify_items .verify_items_right{
+  flex: 1;
+  position: relative;
+  background-image: url("https://qunyan.canancn.com/assets/applet/img/chefs/IDcardFront_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.page-container .verify .verify_items .i{
+  flex: 1;
+  position: relative;
+  background-image: url("https://qunyan.canancn.com/assets/applet/img/chefs/IDcardBack_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.page-container .verify .verify_items .verify_items_right .verify_items_right1{
+  width: 24rpx;
+  height: 24rpx;
+  border-top: 4rpx solid #4781d8;
+  border-left: 4rpx solid #4781d8;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.page-container .verify .verify_items .verify_items_right .verify_items_right2{
+  width: 24rpx;
+  height: 24rpx;
+  border-top: 4rpx solid #4781d8;
+  border-right: 4rpx solid #4781d8;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.page-container .verify .verify_items .verify_items_right .verify_items_right3{
+  width: 24rpx;
+  height: 24rpx;
+  border-bottom: 4rpx solid #4781d8;
+  border-left: 4rpx solid #4781d8;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.page-container .verify .verify_items .verify_items_right .verify_items_right4{
+  width: 24rpx;
+  height: 24rpx;
+  border-bottom: 4rpx solid #4781d8;
+  border-right: 4rpx solid #4781d8;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.page-container .verify .verify_items .verify_items_right .verify_items_img{
+  width: 100%;
+  height: 100%;
+}
+
+.page-container .verify .verify_bottom{
+  width: 100%;
+  height: 100rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page-container .verify .verify_bottom .bottom_btn{
+  height: 60rpx;
+  width: 702rpx;
+  background-color: #a3b3f9;
+  color: #fff;
+  font-family: 'Medium';
+  font-size: 28rpx;
 }

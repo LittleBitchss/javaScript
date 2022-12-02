@@ -1,0 +1,137 @@
+/* secondary/pages/talentInfo/index.wxss */
+.editResume {
+  height: 100vh;
+  overflow: auto;
+}
+
+.editResume .item {
+  min-height: 190rpx;
+  width: 696rpx;
+  margin: 0 auto;
+  border-bottom: 2rpx solid #cfcfcf;
+  padding: 40rpx 36rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.editResume .item:last-child{
+  margin-bottom: 128rpx;
+}
+.editResume .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 190rpx;
+  width: 696rpx;
+  margin: 0 auto;
+  border-bottom: 2rpx solid #cfcfcf;
+  padding: 0 36rpx;
+}
+
+.editResume .info .infos .name {
+  font-size: 45rpx;
+  font-family: 'Bold';
+  display: flex;
+  align-items: center;
+}
+
+
+
+.editResume .info .infos .describe {
+  font-family: 'Regular';
+  font-size: 25rpx;
+}
+
+.editResume .info .photo {
+  width: 114rpx;
+  height: 114rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  background-image: url(https://qunyan.canancn.com/assets/applet/img/jobRecruitment/photo.png);
+  background-size: 100% 100%;
+  box-shadow: #0186fe 0rpx 0rpx 20rpx -8rpx;
+}
+
+.editResume .info .photo .photos {
+  width: 100%;
+  height: 100%;
+}
+
+.editResume .item .title {
+  font-family: 'Medium';
+  font-size: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1;
+}
+
+.editResume .item .content {
+  font-family: 'Regular';
+  font-size: 22rpx;
+  color: #5f5f5f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20rpx 0;
+}
+
+.editResume .item .content .content_left {
+  display: flex;
+  flex-direction: column;
+}
+
+.editResume .item .content .content_lefts {
+  color: #000;
+  font-family: 'Medium';
+  font-size: 25rpx;
+}
+
+.editResume .item .content .content_right {
+  display: flex;
+  align-items: center;
+}
+
+.editResume .item .content .content_left .content_left_top {
+  color: #000;
+  font-family: 'Medium';
+  font-size: 25rpx;
+}
+
+.editResume .item .content .content_left .content_left_tops {
+  font-family: 'Regular';
+}
+
+.editResume .item .content .arrows {
+  width: 16rpx;
+  height: 28rpx;
+  margin-left: 15rpx;
+}
+.bottom{
+  width: 100%;
+  height: 128rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bottom .btn{
+  width: 220rpx;
+  height: 54rpx;
+  background: linear-gradient(to right,#fe6d65,#fe4f79);
+  background: #fe5376;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: 'Regular';
+  font-size: 22rpx;
+  color: #fff;
+}
+.bottom .btns{
+  margin-left: 30rpx;
+  background-color: #4768f3;
+}

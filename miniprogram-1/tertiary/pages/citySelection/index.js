@@ -49,7 +49,8 @@ Page({
       cityCode: 500000,
       city: '重庆市'
     }],
-    flag:0
+    flag:0,
+    ret:0
   },
   onLoad: function (e) {
     console.log(e);
@@ -72,7 +73,8 @@ Page({
       itemH: itemH,
       searchLetter: tempObj,
       cityList: cityList,
-      flag:e.flag
+      flag:e.flag,
+      ret:e.ret
     })
     console.log(cityList);
     cityList.forEach(i=>{
@@ -135,21 +137,28 @@ Page({
     })
     var pages = getCurrentPages(); //  获取页面栈
     var prevPage = pages[pages.length - 2]; // 上一个页面
-    if(this.data.flag){
-      var cityss = city.slice(0,city.length-1)
+    if(this.data.ret){
+      console.log(this.data.citys);
       prevPage.setData({
-        citys: city,
-        cityss:cityss,
-        citycode: citycode,
+        citys:[this.data.city.slice(0,this.data.city.length-1),this.data.citycode]
       })
-      prevPage.setTitles(cityss)
-      prevPage.remove()
-      prevPage.ensure()
     }else{
-      prevPage.setData({
-        city: city,
-        citycode: citycode,
-      })
+      if(this.data.flag){
+        var cityss = city.slice(0,city.length-1)
+        prevPage.setData({
+          citys: city,
+          cityss:cityss,
+          citycode: citycode,
+        })
+        prevPage.setTitles(cityss)
+        prevPage.remove()
+        prevPage.ensure()
+      }else{
+        prevPage.setData({
+          city: city,
+          citycode: citycode,
+        })
+      }
     }
     wx.navigateBack({
       delta: 1
@@ -164,22 +173,28 @@ Page({
     })
     var pages = getCurrentPages(); //  获取页面栈
     var prevPage = pages[pages.length - 2]; // 上一个页面
-    if(this.data.flag){
-      var cityss = city.slice(0,city.length-1)
-      console.log(cityss);
+    if(this.data.ret){
       prevPage.setData({
-        citys: city,
-        cityss:cityss,
-        citycode: citycode,
+        citys:[this.data.city.slice(0,this.data.city.length-1),this.data.citycode]
       })
-      prevPage.setTitles(cityss)
-      prevPage.remove()
-      prevPage.ensure()
     }else{
-      prevPage.setData({
-        city: city,
-        citycode: citycode,
-      })
+      if(this.data.flag){
+        var cityss = city.slice(0,city.length-1)
+        console.log(cityss);
+        prevPage.setData({
+          citys: city,
+          cityss:cityss,
+          citycode: citycode,
+        })
+        prevPage.setTitles(cityss)
+        prevPage.remove()
+        prevPage.ensure()
+      }else{
+        prevPage.setData({
+          city: city,
+          citycode: citycode,
+        })
+      }
     }
     wx.navigateBack({
       delta: 1

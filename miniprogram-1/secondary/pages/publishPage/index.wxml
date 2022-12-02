@@ -1,0 +1,32 @@
+<!--secondary/pages/publishPage/index.wxml-->
+<view class="publishPage">
+  <view class="title">
+    <view class="title_left">发布社招</view>
+    <view class="titel_right">切换招聘类型</view>
+  </view>
+  <view class="course">
+    <view class="course_item">
+      <view class="outerRace">
+        <view class="insideTrack"></view>
+      </view>
+      <view class="course_left_txt">填写职业信息</view>
+    </view>
+    <view class="course_midden"></view>
+    <view class="course_item">
+      <view class="insideTracks"></view>
+      <view class="course_left_txt">选择职业要求</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_title">职位名称</view>
+    <input class="item_inp" type="text" placeholder="请填写职位名称，如“中餐厨师长”" />
+  </view>
+  <view class="item">
+    <view class="item_title">职位描述</view>
+    <input class="item_inp" type="text" placeholder="介绍工作内容、职位要求、加分项" />
+  </view>
+  <view class="note">注:职位名称和职位描述和工作地址发布后不可修改</view>
+  <view class="bottom">
+    <navigator class="btn" url="/secondary/pages/publishPageTwe/index">下一步</navigator>
+  </view>
+</view>

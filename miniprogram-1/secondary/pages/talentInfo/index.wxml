@@ -1,0 +1,73 @@
+<!--secondary/pages/talentInfo/index.wxml-->
+<view class="editResume">
+  <view class="info">
+    <view class="infos">
+      <view class="name">{{basic.r_name}}徐小平
+      </view>
+      <view class="describe">{{basic.worktime?basic.worktime+'年经验':''}}{{basic.age?'·'+basic.age+'岁':''}}{{basic.education?'·'+basic.education:''}}2年经验·22岁·大学</view>
+    </view>
+    <view class="photo">
+      <image class="photos" src="{{basic.r_head_portrait}}"></image>
+    </view>
+  </view>
+  <view class="item info2">
+    <view class="title">
+      <text>个人优势</text>
+    </view>
+    <view class="content">
+      <view class="content_left">
+        {{basic.r_advantage}}个人优势
+      </view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="title">
+      <text>求职期望</text>
+    </view>
+    <view class="content" wx:for="{{1}}" wx:key="index">
+      <view class="content_left">
+        <text class="content_left_top" space="emsp">{{item.p_name}}绝对是法国恢复到 <text class="content_left_tops">1111{{item.je_job_salary_min}}-4444{{item.je_job_salary_max}}{{item.je_job_salary_max=='面议'?'':'元'}}</text></text>
+        <text>{{item.city}}杭州</text>
+      </view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="title">求职状态</view>
+    <view class="content">
+      <view class="content_left content_lefts">{{jobState}}离职-随时到岗</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="title">
+      <text>教育经历</text>
+    </view>
+    <view class="content" wx:for="{{1}}" wx:key="index">
+      <view class="content_left">
+        <text class="content_left_top" space="emsp">222{{item.ee_school}}</text>
+        <text>{{item.education}}大专·中餐专业{{item.ee_major}}</text>
+      </view>
+      <view class="content_right">
+        <text>{{item.ee_start_year}}1998-2022{{item.ee_end_year}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="title">
+      <text>工作经历</text>
+    </view>
+    <view class="content" wx:for="{{1}}" wx:key="index">
+      <view class="content_left">
+        <text class="content_left_top">{{item.we_corporate_name}}心意酒店</text>
+        <text>{{item.work}}厨师长</text>
+        <text>工作内容：{{item.we_job_content}}掌勺、制定菜谱</text>
+      </view>
+      <view class="content_right">
+        <text>{{item.we_start_date}}1997-2019{{item.we_end_date}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="bottom">
+  <button class="btn">标记简历</button>
+  <button class="btn btns">电话联系</button>
+</view>

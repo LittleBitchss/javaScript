@@ -15,12 +15,10 @@
 .recruitment .recruitment_top .recruitmentSquare .recruitmentSquare_top {
   height: 70rpx;
   display: flex;
+  margin: 0 18rpx;
 }
 
-.recruitment .recruitment_top .recruitmentSquare .recruitmentSquare_top .scroll {
-  width: calc(100% - 96rpx);
-  margin-left: 18rpx;
-}
+
 
 .recruitment .recruitment_top .recruitmentSquare .recruitmentSquare_top .recruitmentSquare_top_left {
   height: 100%;
@@ -62,48 +60,6 @@
   color: #4768f3;
   min-width: 174rpx;
   animation: zoom 0.3s;
-}
-
-.recruitment .recruitment_top .recruitmentSquare .recruitmentSquare_top .recruitmentSquare_top_right {
-  width: 96rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-.recruitment .recruitment_top .recruitmentSquare .recruitmentSquare_top .recruitmentSquare_top_right .addPosition{
-  width: 300rpx;
-  height: 500rpx;
-  top: 70rpx;
-  right: 20rpx;
-  position: absolute;
-  background-color: #fff;
-  z-index: 100;
-  box-shadow: #000 0rpx 0rpx 20rpx -8rpx;
-  font-size: 30rpx;
-  font-family: 'Medium';
-  display: none;
-}
-.recruitment .recruitment_top .recruitmentSquare .recruitmentSquare_top .recruitmentSquare_top_right .addPosition .addPosition_item{
-  height: 70rpx;
-  margin: 0 12rpx;
-  padding: 0 12rpx;
-  border-bottom: 3rpx solid #cfcfcf;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.recruitment .recruitment_top .recruitmentSquare .recruitmentSquare_top .recruitmentSquare_top_right .cross {
-  width: 20rpx;
-  height: 4rpx;
-  background-color: #4768f3;
-}
-
-.recruitment .recruitment_top .recruitmentSquare .recruitmentSquare_top .recruitmentSquare_top_right .vertical {
-  width: 4rpx;
-  height: 20rpx;
-  background-color: #4768f3;
-  position: absolute;
 }
 
 .recruitment .recruitment_top .recruitmentSquare .recruitmentSquare_filter {
@@ -350,42 +306,52 @@
 .recruitment .recruitment_top .mine .list {
   height: calc(100% - 326rpx - 42rpx - 140rpx);
 }
-.recruitment .recruitment_top .mine .list .recruitment_list{
+.recruitment .recruitment_top .mine .list .inRecruitment{
+  height: 100%;
+  position: relative;
+}
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list{
   height: 400rpx;
   width: 724rpx;
   margin: 10rpx auto;
   background-color: #fff;
   border-radius: 15rpx;
-  padding: 0 20rpx;
   font-family: 'Medium';
+  
 }
-.recruitment .recruitment_top .mine .list .recruitment_list .recruitment_list1{
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list:last-of-type{
+  margin-bottom: 80rpx;
+}
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list1{
   display: flex;
   height: 64rpx;
   justify-content: space-between;
   align-items: flex-end;
   font-size: 25rpx;
   color: #4768f3;
+  padding: 0 20rpx;
 }
-.recruitment .recruitment_top .mine .list .recruitment_list .recruitment_list2{
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list2{
   display: flex;
   height: 60rpx;
   align-items: center;
   font-size: 15rpx;
+  padding: 0 20rpx;
 }
-.recruitment .recruitment_top .mine .list .recruitment_list .recruitment_list2 .recruitment_list2_item{
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list2 .recruitment_list2_item{
   padding: 3rpx 12rpx;
   border-radius: 5rpx;
   background-color: #eeeeee;
   margin-right: 20rpx;
 }
-.recruitment .recruitment_top .mine .list .recruitment_list .recruitment_list3{
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list3{
   display: flex;
   height: 148rpx;
   align-items: center;
   justify-content: space-between;
+  padding: 0 20rpx;
 }
-.recruitment .recruitment_top .mine .list .recruitment_list .recruitment_list3 .recruitment_list3_item{
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list3 .recruitment_list3_item{
   font-size: 28rpx;
   width: 160rpx;
   height: 126rpx;
@@ -393,7 +359,7 @@
   display: flex;
   overflow: hidden;
 }
-.recruitment .recruitment_top .mine .list .recruitment_list .recruitment_list3 .recruitment_list3_item{
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list3 .recruitment_list3_item{
   font-size: 28rpx;
   width: 160rpx;
   height: 126rpx;
@@ -401,7 +367,7 @@
   display: flex;
   overflow: hidden;
 }
-.recruitment .recruitment_top .mine .list .recruitment_list .recruitment_list3 .recruitment_list3_item .recruitment_list3_item_left{
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list3 .recruitment_list3_item .recruitment_list3_item_left{
   font-size: 22rpx;
   width: 42rpx;
   display: flex;
@@ -411,7 +377,7 @@
   justify-content: center;
   background-color: #cdd5fc;
 }
-.recruitment .recruitment_top .mine .list .recruitment_list .recruitment_list3 .recruitment_list3_item .recruitment_list3_item_right{
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list3 .recruitment_list3_item .recruitment_list3_item_right{
   flex: 1;
   display: flex;
   justify-content: center;
@@ -419,20 +385,90 @@
   background-color: #e4e8fd;
   color: #4768f3;
 }
-.recruitment .recruitment_top .mine .list .recruitment_list .recruitment_list3 .recruitment_list3_item .red{
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list3 .recruitment_list3_item .red{
   background-color: #fbcdcb;
 }
-.recruitment .recruitment_top .mine .list .recruitment_list .recruitment_list3 .recruitment_list3_item .reds{
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list3 .recruitment_list3_item .reds{
   color: #f14c44;
   background-color: #fde4e3;
 }
-.recruitment .recruitment_top .mine .list .recruitment_list .recruitment_list3 .recruitment_list3_item .recruitment_list3_item_right .x{
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list3 .recruitment_list3_item .recruitment_list3_item_right .x{
   font-size: 18rpx;
+}
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list4{
+  height: 78rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: 'Medium';
+  font-size: 18rpx;
+  padding: 0 20rpx;
+}
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list5{
+  height: 50rpx;
+  border-top: 2rpx solid #d4d4d4;
+  display: flex;
+  font-family: 'Normal';
+  font-size: 20rpx;
+}
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list5 .recruitment_list5_item{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list5 .y{
+  border-right: 2rpx solid #d4d4d4;
+}
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list5 .recruitment_list5_item .recruitment_list5_item_img{
+  width: 24rpx;
+  height: 28rpx;
+  margin-right: 5rpx;
+}
+.recruitment .recruitment_top .mine .list .inRecruitment .recruitment_list .recruitment_list5 .y .recruitment_list5_item_img{
+  width: 28rpx;
+  height: 28rpx;
+}
+.recruitment .recruitment_top .mine .list .inRecruitment .publish{
+  width: 135rpx;
+  height: 135rpx;
+  background-color: #4768f3;
+  border-radius: 50%;
+  position: sticky;
+  left: 578rpx;
+  bottom: 42rpx;  
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Regular';
+  font-size: 22rpx;
+  color: #fff;
+}
+.recruitment .recruitment_top .mine .list .inRecruitment .publish .add{
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.recruitment .recruitment_top .mine .list .inRecruitment .publish .add .add-{
+  width: 50rpx;
+  height: 6rpx;
+  background-color: #fff;
+  position: absolute;
+}
+.recruitment .recruitment_top .mine .list .inRecruitment .publish .add .add_{
+  width: 6rpx;
+  height: 50rpx;
+  background-color: #fff;
 }
 .recruitment .recruitment_bottom {
   height: 8%;
   background-color: #fff;
-  border-top: 2rpx solid;
+  border-top: 2rpx solid #d4d4d4;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -460,4 +496,96 @@
 
 .recruitment .recruitment_bottom .item .fontColor {
   color: #4768f3;
+}
+
+
+.page-container .filter {
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 140rpx;
+}
+
+.page-container .filter .titles {
+  font-size: 30rpx;
+  font-family: 'Medium';
+  margin-top: 50rpx;
+  padding: 0 40rpx;
+}
+
+.page-container .filter .titles .titles_txt {
+  font-size: 22rpx;
+  font-family: 'Normal';
+}
+
+.page-container .filter .content {
+  width: 672rpx;
+  font-size: 25rpx;
+  font-family: 'Normal';
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.page-container .filter .content .item {
+  width: 200rpx;
+  height: 48rpx;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 36rpx;
+  margin-top: 35rpx;
+}
+
+.page-container .filter .content .item:nth-child(3n) {
+  margin-right: 0;
+}
+
+.page-container .filter .content .active {
+  border: #4768f3 2rpx solid;
+  background-color: #fff;
+  color: #4768f3;
+}
+
+.page-container .filter .content .actives {
+  border: #4768f3 2rpx solid;
+  background-color: #e6ebff;
+  color: #4768f3;
+}
+
+.page-container .filter .bottom {
+  height: 140rpx;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35rpx;
+  font-family: 'Regular';
+  border-top: 2rpx solid #e5e5e5;
+  background-color: #fff;
+}
+
+.page-container .filter .bottom .empty {
+  height: 70rpx;
+  width: 204rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 5rpx;
+  margin-right: 22rpx;
+}
+
+.page-container .filter .bottom .confirm {
+  height: 70rpx;
+  width: 478rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4768f3;
+  border-radius: 5rpx;
+  color: #fff;
 }

@@ -1,40 +1,19 @@
-// secondary/pages/createTraCQ/index.js
+// secondary/pages/publishPageTwe/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    show:false,
-    sourceType: [
-      'camera', 'album'
-    ],
-    active1:'',
-    active2:'',
-    photo:'',
-    name:'',
-    IDCard:'',
-    companyName:'',
-    dutuies:'',
-    maskType: 0
-    
-  },
-  openpage(e){
-    var item = e.currentTarget.dataset.item
-    this.setData({
-      show:true,
-      maskType: item
-    })
-    // if(item == 1){
 
-    // }
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
     wx.setNavigationBarTitle({
-      title: '编辑名片',
+      title: '发布社招',
     })
   },
 

@@ -324,7 +324,7 @@
 .jobRecruitment .jobSearch .jobSearch_bottom {
   height: 8%;
   background-color: #fff;
-  border-top: 2rpx solid;
+  border-top: 2rpx solid #d4d4d4;
   display: flex;
   justify-content: space-around;
   align-items: center;

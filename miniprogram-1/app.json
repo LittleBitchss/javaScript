@@ -39,7 +39,11 @@
         "pages/association/index",
         "pages/addPosition/index",
         "pages/editResume/index",
-        "pages/createTraCQ/index"
+        "pages/createTraCQ/index",
+        "pages/talentInfo/index",
+        "pages/resumeInfo/index",
+        "pages/publishPage/index",
+        "pages/publishPageTwe/index"
       ]
     },
     {
