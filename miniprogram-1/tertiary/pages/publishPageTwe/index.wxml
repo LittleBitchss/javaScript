@@ -1,0 +1,114 @@
+<!--secondary/pages/publishPageTwe/index.wxml-->
+<view class="publishPageTwe">
+  <view class="title">
+    <view class="title_left">继续填写</view>
+  </view>
+  <view class="course">
+    <view class="course_item">
+      <view class="insideTracks"></view>
+      <view class="course_left_txt">填写职业信息</view>
+    </view>
+    <view class="course_midden"></view>
+    <view class="course_item">
+      <view class="outerRace">
+        <view class="insideTrack"></view>
+      </view>
+      <view class="course_left_txt">选择职业要求</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_title">经验要求</view>
+    <picker bindchange="bindChange" data-item="1" value="{{sufferIndex}}" range="{{sufferArr}}">
+      <view class="picker">
+        <view class="item_cont">
+          <view class="{{sufferValue.re_id?'active':''}}">{{sufferValue.re_name}}</view>
+          <image class="item_cont_img" src="../../../icon/mine_right_arrow.png"></image>
+        </view>
+      </view>
+    </picker>
+  </view>
+  <view class="item">
+    <view class="item_title">最低学历</view>
+    <picker bindchange="bindChange" data-item="2" value="{{learnIndex}}" range="{{learnArr}}">
+      <view class="picker">
+        <view class="item_cont">
+          <view class="{{learnValue.e_id?'active':''}}">{{learnValue.e_name}}</view>
+          <image class="item_cont_img" src="../../../icon/mine_right_arrow.png"></image>
+        </view>
+      </view>
+    </picker>
+  </view>
+  <view class="item">
+    <view class="item_title">薪资范围</view>
+    <picker mode="multiSelector" bindchange="bindChange" bindcolumnchange="bindColumnChange" data-item="3" value="{{salaryIndex}}" range="{{salaryArray}}">
+      <view class="item_cont">
+        <view wx:if="{{!salaryMax}}">请选择合理的薪资范围</view>
+        <view class="active" wx:if="{{salaryMax}}">{{salaryMin+'-'+salaryMax}}</view>
+        <image class="item_cont_img" src="../../../icon/mine_right_arrow.png"></image>
+      </view>
+    </picker>
+  </view>
+  <view class="item">
+    <view class="item_title">职位关键词</view>
+    <view class="item_cont" bindtap="openMask" data-item="1">
+      <view class="item_cont_txt">选择关键词提供给求职者</view>
+      <image class="item_cont_img" src="../../../icon/mine_right_arrow.png"></image>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_title">工作地址</view>
+    <view class="item_cont" bindtap="openMask" data-item="2">
+      <view class="item_cont_txt">请填写精确的工作地址</view>
+      <image class="item_cont_img" src="../../../icon/mine_right_arrow.png"></image>
+    </view>
+  </view>
+  <view class="bottom">
+    <view class="btn">发布</view>
+  </view>
+</view>
+<page-container class="page-container" show="{{show}}" position="right">
+  <view class="keyWord" wx:if="{{maskType==1}}">
+    <view class="title">岗位招聘偏好</view>
+    <view class="note">你的偏好选择将用于为你推荐更适合的求职者</view>
+    <view class="item">
+      <view class="item_title">此岗位在后厨的职责是？</view>
+      <view class="item_cont">
+        <view class="item_cont_item {{item.active}}" wx:for="{{duty}}" wx:key="index">{{item}}</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="item_title">此岗位的工作经验要求是？</view>
+      <view class="item_cont">
+        <view class="item_cont_item {{item.active}}" wx:for="{{sufferArr}}" wx:key="index">{{item}}</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="item_title">此岗位可以提供哪些福利？</view>
+      <view class="item_cont">
+        <view class="item_cont_item {{item.active}}" wx:for="{{welfare}}" wx:key="index">{{item}}</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="item_title">添加自定义招聘偏好</view>
+      <view class="item_cont">
+        <view class="item_cont_item {{item.active}}" wx:for="{{custom}}" wx:key="index">{{item}}</view>
+        <view class="item_cont_item add">+添加关键词</view>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="empty">清空</view>
+      <view class="confirm">确认</view>
+    </view>
+  </view>
+  <view class="WorkAddress" wx:if="{{maskType==2}}">
+    <view class="z_a_title">
+      <text>我的优势</text>
+      <text class="words"><text class="{{areaWords?'wordss':''}}">{{areaWords}}</text>/200</text>
+    </view>
+    <view class="z_a_describe">丰富的个人优势介绍，更能赢得老板的青睐</view>
+    <textarea class="z_a_area" placeholder="等待输入内容" placeholder-class="z_a_placeholder" maxlength="200" focus="{{areaf}}" bindinput="z_input" data-item="3" value="{{areaVal}}"></textarea>
+    <view class="z_info_bottom">
+      <view class="btn" bindtap="save" data-item="2">保存</view>
+    </view>
+  </view>
+</page-container>

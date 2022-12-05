@@ -3,54 +3,54 @@
   <view class="title">编辑名片</view>
   <view class="photo">
     <view class="photo_title">头像</view>
-    <view class="photo_img">
-      <image class="photo_img_s"></image>
+    <view class="photo_img" bindtap="upload" data-item="1">
+      <image class="photo_img_s" src="{{avatar}}"></image>
     </view>
   </view>
   <view class="item">
     <view class="item_title">真实姓名</view>
     <view class="item_conts" bindtap="openpage" data-item="1">
-      <text class="{{active1}}">请进行身份验证</text>
+      <text class="{{names=='请进行身份验证'?'':'active'}}">{{names}}</text>
       <image class="item_conts_img" src="../../../icon/mine_right_arrow.png"></image>
     </view>
   </view>
   <view class="item">
     <view class="item_title">我的公司</view>
     <view class="item_conts" bindtap="openpage" data-item="2">
-      <text class="{{active2}}">请填写您当前就职的公司</text>
+      <text class="{{companyNames=='请填写您当前就职的公司'?'':'active'}}">{{companyNames}}</text>
       <image class="item_conts_img" src="../../../icon/mine_right_arrow.png"></image>
     </view>
   </view>
   <view class="item">
     <view class="item_title">我的职务</view>
     <view class="item_conts">
-      <input class="item_conts_inp" type="text" placeholder="请填写您当前的职务" placeholder-class="placeholder"/>
+      <input class="item_conts_inp" type="text" placeholder="请填写您当前的职务" placeholder-class="placeholder" value="{{dutuies}}" bindinput="inputs" data-item="5"/>
     </view>
   </view>
   <view class="bottom">
-    <button class="bottom_btn" size="mini">完成</button>
+    <button class="bottom_btn {{actives3}}" size="mini" bindtap="complete" data-item="3">完成</button>
   </view>
 </view>
 <page-container class="page-container" show="{{show}}" position="right">
   <view class="verify" wx:if="{{maskType==1}}">
     <view class="verify_title">身份验证</view>
     <view class="verify_item">
-      <input class="verify_item_inp" placeholder="请填写您的真实姓名" placeholder-class="placeholder"/>
+      <input class="verify_item_inp" placeholder="请填写您的真实姓名" placeholder-class="placeholder" value="{{name}}" bindinput="inputs" data-item="1"/>
     </view>
     <view class="verify_item">
-      <input class="verify_item_inp" type="text" placeholder="请填写您的身份证号码" placeholder-class="placeholder"/>
+      <input class="verify_item_inp" type="text" placeholder="请填写您的身份证号码" placeholder-class="placeholder" value="{{IDCard}}" bindinput="inputs" data-item="2"/>
     </view>
     <view class="verify_items">
       <view class="verify_items_left">
         <view class="verify_items_left_top">身份证正面</view>
         <view class="verify_items_left_bottom">上传您的身份证人像面</view>
       </view>
-      <view class="verify_items_right">
+      <view class="verify_items_right" bindtap="upload" data-item="2">
         <view class="verify_items_right1"></view>
         <view class="verify_items_right2"></view>
         <view class="verify_items_right3"></view>
         <view class="verify_items_right4"></view>
-        <image class="verify_items_img"></image>
+        <image class="verify_items_img" src="{{IDCardIs}}"></image>
       </view>
     </view>
     <view class="verify_items">
@@ -58,43 +58,43 @@
         <view class="verify_items_left_top">身份证反面</view>
         <view class="verify_items_left_bottom">上传您的身份证国徽面</view>
       </view>
-      <view class="verify_items_right i">
+      <view class="verify_items_right i" bindtap="upload" data-item="3">
         <view class="verify_items_right1"></view>
         <view class="verify_items_right2"></view>
         <view class="verify_items_right3"></view>
         <view class="verify_items_right4"></view>
-        <image class="verify_items_img"></image>
+        <image class="verify_items_img" src="{{IDCardThe}}"></image>
       </view>
     </view>
     <view class="verify_bottom">
-      <button class="bottom_btn" size="mini">完成</button>
+      <button class="bottom_btn {{actives1}}" size="mini" bindtap="complete" data-item="1">完成</button>
     </view>
   </view>
   <view class="company" wx:if="{{maskType==2}}">
     <view class="company_title">公司全称</view>
     <view class="company_item">
-      <input class="company_item_inp" type="text" placeholder="请填写您所属公司的营业执照上的公司全称" placeholder-class="placeholder"/>
-      <text class="company_item_txt">0/30</text>
+      <input class="company_item_inp" type="text" placeholder="请填写您所属公司的营业执照上的公司全称" placeholder-class="placeholder" value="{{companyName}}" bindinput="inputs" data-item="3" maxlength="30"/>
+      <text><text class="company_item_txt {{companyNameNum?'NotEmpty':''}}">{{companyNameNum}}</text>/30</text>
     </view>
     <view class="company_item">
-      <input class="company_item_inp" type="text" placeholder="请填写您所属公司的营业执照编号" placeholder-class="placeholder"/>
-      <text class="company_item_txt">0/30</text>
+      <input class="company_item_inp" type="text" placeholder="请填写您所属公司的营业执照编号" placeholder-class="placeholder" value="{{license}}" bindinput="inputs" data-item="4" maxlength="30"/>
+      <text><text class="company_item_txt {{licenseNum?'NotEmpty':''}}">{{licenseNum}}</text>/30</text>
     </view>
     <view class="company_items">
       <view class="company_items_left">
         <view class="company_items_left_top">营业执照</view>
         <view class="company_items_left_bottom">请上传营业执照照片</view>
       </view>
-      <view class="company_items_right">
+      <view class="company_items_right" bindtap="upload" data-item="4">
         <view class="company_items_right1"></view>
         <view class="company_items_right2"></view>
         <view class="company_items_right3"></view>
         <view class="company_items_right4"></view>
-        <image class="company_items_img"></image>
+        <image class="company_items_img" src="{{licensePhoto}}"></image>
       </view>
     </view>
     <view class="company_bottom">
-      <button class="bottom_btn" size="mini">完成</button>
+      <button class="bottom_btn {{actives2}}" size="mini" bindtap="complete" data-item="2">完成</button>
     </view>
   </view>
 </page-container>

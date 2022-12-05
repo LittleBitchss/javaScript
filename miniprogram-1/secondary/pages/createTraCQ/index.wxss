@@ -1,7 +1,7 @@
 /* secondary/pages/createTraCQ/index.wxss */
 .createTraCQ{
   height: 100hv;
-  
+  position: relative;
 }
 .createTraCQ .title{
   font-size: 45rpx;
@@ -79,7 +79,7 @@
 .createTraCQ .bottom{
   width: 100%;
   height: 100rpx;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   display: flex;
@@ -94,7 +94,9 @@
   font-family: 'Medium';
   font-size: 28rpx;
 }
-
+.createTraCQ .bottom .actives{
+  background-color: #4781d8;
+}
 .page-container .company .company_title{
   font-size: 45rpx;
   font-family: 'Medium';
@@ -109,6 +111,12 @@
   align-items: flex-end;
   font-size: 25rpx;
   font-family: 'Regular';
+}
+.page-container .company .company_item .company_item_txt{
+  color: #f14c44;
+}
+.page-container .company .company_item .NotEmpty{
+  color: #4781d8;
 }
 .page-container .company .company_item .company_item_inp{
   flex: 1;
@@ -202,7 +210,9 @@
   font-family: 'Medium';
   font-size: 28rpx;
 }
-
+.page-container .company .company_bottom .actives{
+  background-color: #4781d8;
+}
 .page-container .verify .verify_title{
   font-size: 45rpx;
   font-family: 'Medium';
@@ -316,4 +326,7 @@
   color: #fff;
   font-family: 'Medium';
   font-size: 28rpx;
+}
+.page-container .verify .verify_bottom .actives{
+  background-color: #4781d8;
 }

@@ -27,6 +27,6 @@
   </view>
   <view class="note">注:职位名称和职位描述和工作地址发布后不可修改</view>
   <view class="bottom">
-    <navigator class="btn" url="/secondary/pages/publishPageTwe/index">下一步</navigator>
+    <navigator class="btn" url="/tertiary/pages/publishPageTwe/index">下一步</navigator>
   </view>
 </view>

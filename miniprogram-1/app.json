@@ -42,8 +42,7 @@
         "pages/createTraCQ/index",
         "pages/talentInfo/index",
         "pages/resumeInfo/index",
-        "pages/publishPage/index",
-        "pages/publishPageTwe/index"
+        "pages/publishPage/index"
       ]
     },
     {
@@ -59,7 +58,8 @@
         "pages/admin_orderDetails/index",
         "pages/gridman_orderDetails/index",
         "pages/association_archives/index",
-        "pages/citySelection/index"
+        "pages/citySelection/index",
+        "pages/publishPageTwe/index"
       ]
     },
     {
